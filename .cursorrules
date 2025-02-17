@@ -1,0 +1,7 @@
+- dont make new virtual enviroments i use conda activate tflow 
+- update requirements.txt every time you use a new package
+- make sure each file stays under 800 lines of code, if longer, create a new file and update the README to explain it
+- dont move files without asking, you can create new ones but no movy movy
+- for backtesting, use backtesting.py but dont use their indicators, use pandas_ta or talib instead
+- When back testing make sure to never save the .html file for the plot but do show the plot. Just don't save it. 
+- always print the full stats of the backtest, not just pieces. do this by print(stats) DO NOT JUST PRINT PORTIONS OF THE BACKTESTING STATS, print all

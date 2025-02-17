@@ -2722,3 +2722,6 @@
 2025-02-17 11:02:25,572 ERROR:
 1 Failed download:
 2025-02-17 11:02:25,572 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 11:02:26,789 ERROR:
+1 Failed download:
+2025-02-17 11:02:26,790 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2016-12-03 00:00:00 -> 2016-12-04 00:00:00)')

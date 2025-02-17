@@ -1,0 +1,2724 @@
+2025-02-17 10:00:26,052 INFO:Starting download for AAPL
+2025-02-17 10:00:26,619 ERROR:
+1 Failed download:
+2025-02-17 10:00:26,619 ERROR:['AAPL']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-02-16 00:00:00 -> 2025-02-17 00:00:00)')
+2025-02-17 10:00:35,019 ERROR:
+1 Failed download:
+2025-02-17 10:00:35,019 ERROR:['AAPL']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-02-09 00:00:00 -> 2025-02-10 00:00:00)')
+2025-02-17 10:00:36,254 ERROR:
+1 Failed download:
+2025-02-17 10:00:36,254 ERROR:['AAPL']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-02-08 00:00:00 -> 2025-02-09 00:00:00)')
+2025-02-17 10:00:43,387 ERROR:
+1 Failed download:
+2025-02-17 10:00:43,387 ERROR:['AAPL']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-02-02 00:00:00 -> 2025-02-03 00:00:00)')
+2025-02-17 10:00:44,681 ERROR:
+1 Failed download:
+2025-02-17 10:00:44,681 ERROR:['AAPL']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-02-01 00:00:00 -> 2025-02-02 00:00:00)')
+2025-02-17 10:00:51,887 ERROR:
+1 Failed download:
+2025-02-17 10:00:51,887 ERROR:['AAPL']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-01-26 00:00:00 -> 2025-01-27 00:00:00)')
+2025-02-17 10:00:53,044 ERROR:
+1 Failed download:
+2025-02-17 10:00:53,045 ERROR:['AAPL']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-01-25 00:00:00 -> 2025-01-26 00:00:00)')
+2025-02-17 10:00:58,920 ERROR:
+1 Failed download:
+2025-02-17 10:00:58,921 ERROR:['AAPL']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-01-20 00:00:00 -> 2025-01-21 00:00:00)')
+2025-02-17 10:01:00,172 ERROR:
+1 Failed download:
+2025-02-17 10:01:00,172 ERROR:['AAPL']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-01-19 00:00:00 -> 2025-01-20 00:00:00)')
+2025-02-17 10:01:01,328 ERROR:
+1 Failed download:
+2025-02-17 10:01:01,329 ERROR:['AAPL']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-01-18 00:00:00 -> 2025-01-19 00:00:00)')
+2025-02-17 10:01:32,863 INFO:Total rows for AAPL daily data: 6320
+2025-02-17 10:01:32,863 INFO:Starting download for GOOGL
+2025-02-17 10:01:33,108 ERROR:
+1 Failed download:
+2025-02-17 10:01:33,109 ERROR:['GOOGL']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-02-16 00:00:00 -> 2025-02-17 00:00:00)')
+2025-02-17 10:01:41,122 ERROR:
+1 Failed download:
+2025-02-17 10:01:41,123 ERROR:['GOOGL']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-02-09 00:00:00 -> 2025-02-10 00:00:00)')
+2025-02-17 10:01:42,244 ERROR:
+1 Failed download:
+2025-02-17 10:01:42,244 ERROR:['GOOGL']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-02-08 00:00:00 -> 2025-02-09 00:00:00)')
+2025-02-17 10:01:49,276 ERROR:
+1 Failed download:
+2025-02-17 10:01:49,276 ERROR:['GOOGL']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-02-02 00:00:00 -> 2025-02-03 00:00:00)')
+2025-02-17 10:01:50,418 ERROR:
+1 Failed download:
+2025-02-17 10:01:50,418 ERROR:['GOOGL']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-02-01 00:00:00 -> 2025-02-02 00:00:00)')
+2025-02-17 10:01:57,425 ERROR:
+1 Failed download:
+2025-02-17 10:01:57,425 ERROR:['GOOGL']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-01-26 00:00:00 -> 2025-01-27 00:00:00)')
+2025-02-17 10:01:58,554 ERROR:
+1 Failed download:
+2025-02-17 10:01:58,554 ERROR:['GOOGL']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-01-25 00:00:00 -> 2025-01-26 00:00:00)')
+2025-02-17 10:02:04,407 ERROR:
+1 Failed download:
+2025-02-17 10:02:04,407 ERROR:['GOOGL']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-01-20 00:00:00 -> 2025-01-21 00:00:00)')
+2025-02-17 10:02:05,529 ERROR:
+1 Failed download:
+2025-02-17 10:02:05,529 ERROR:['GOOGL']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-01-19 00:00:00 -> 2025-01-20 00:00:00)')
+2025-02-17 10:02:06,655 ERROR:
+1 Failed download:
+2025-02-17 10:02:06,655 ERROR:['GOOGL']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-01-18 00:00:00 -> 2025-01-19 00:00:00)')
+2025-02-17 10:02:09,700 ERROR:
+1 Failed download:
+2025-02-17 10:02:09,700 ERROR:['GOOGL']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2000-01-01 00:00:00 -> 2001-01-01 00:00:00) (Yahoo error = "Data doesn\'t exist for startDate = 946702800, endDate = 978325200")')
+2025-02-17 10:02:11,842 ERROR:
+1 Failed download:
+2025-02-17 10:02:11,842 ERROR:['GOOGL']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2001-01-01 00:00:00 -> 2002-01-02 00:00:00) (Yahoo error = "Data doesn\'t exist for startDate = 978325200, endDate = 1009947600")')
+2025-02-17 10:02:14,162 ERROR:
+1 Failed download:
+2025-02-17 10:02:14,162 ERROR:['GOOGL']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2002-01-02 00:00:00 -> 2003-01-03 00:00:00) (Yahoo error = "Data doesn\'t exist for startDate = 1009947600, endDate = 1041570000")')
+2025-02-17 10:02:16,282 ERROR:
+1 Failed download:
+2025-02-17 10:02:16,282 ERROR:['GOOGL']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2003-01-03 00:00:00 -> 2004-01-04 00:00:00) (Yahoo error = "Data doesn\'t exist for startDate = 1041570000, endDate = 1073192400")')
+2025-02-17 10:02:41,781 INFO:Total rows for GOOGL daily data: 5158
+2025-02-17 10:02:41,781 INFO:Starting download for MSFT
+2025-02-17 10:02:41,926 ERROR:
+1 Failed download:
+2025-02-17 10:02:41,926 ERROR:['MSFT']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-02-16 00:00:00 -> 2025-02-17 00:00:00)')
+2025-02-17 10:02:50,183 ERROR:
+1 Failed download:
+2025-02-17 10:02:50,183 ERROR:['MSFT']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-02-09 00:00:00 -> 2025-02-10 00:00:00)')
+2025-02-17 10:02:51,331 ERROR:
+1 Failed download:
+2025-02-17 10:02:51,332 ERROR:['MSFT']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-02-08 00:00:00 -> 2025-02-09 00:00:00)')
+2025-02-17 10:02:58,471 ERROR:
+1 Failed download:
+2025-02-17 10:02:58,471 ERROR:['MSFT']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-02-02 00:00:00 -> 2025-02-03 00:00:00)')
+2025-02-17 10:02:59,679 ERROR:
+1 Failed download:
+2025-02-17 10:02:59,679 ERROR:['MSFT']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-02-01 00:00:00 -> 2025-02-02 00:00:00)')
+2025-02-17 10:03:06,742 ERROR:
+1 Failed download:
+2025-02-17 10:03:06,743 ERROR:['MSFT']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-01-26 00:00:00 -> 2025-01-27 00:00:00)')
+2025-02-17 10:03:07,884 ERROR:
+1 Failed download:
+2025-02-17 10:03:07,884 ERROR:['MSFT']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-01-25 00:00:00 -> 2025-01-26 00:00:00)')
+2025-02-17 10:03:13,806 ERROR:
+1 Failed download:
+2025-02-17 10:03:13,806 ERROR:['MSFT']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-01-20 00:00:00 -> 2025-01-21 00:00:00)')
+2025-02-17 10:03:14,962 ERROR:
+1 Failed download:
+2025-02-17 10:03:14,962 ERROR:['MSFT']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-01-19 00:00:00 -> 2025-01-20 00:00:00)')
+2025-02-17 10:03:16,132 ERROR:
+1 Failed download:
+2025-02-17 10:03:16,132 ERROR:['MSFT']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-01-18 00:00:00 -> 2025-01-19 00:00:00)')
+2025-02-17 10:03:46,855 INFO:Total rows for MSFT daily data: 6320
+2025-02-17 10:03:46,856 INFO:Starting download for AMZN
+2025-02-17 10:03:46,978 ERROR:
+1 Failed download:
+2025-02-17 10:03:46,978 ERROR:['AMZN']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-02-16 00:00:00 -> 2025-02-17 00:00:00)')
+2025-02-17 10:03:55,030 ERROR:
+1 Failed download:
+2025-02-17 10:03:55,030 ERROR:['AMZN']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-02-09 00:00:00 -> 2025-02-10 00:00:00)')
+2025-02-17 10:03:56,166 ERROR:
+1 Failed download:
+2025-02-17 10:03:56,166 ERROR:['AMZN']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-02-08 00:00:00 -> 2025-02-09 00:00:00)')
+2025-02-17 10:04:03,159 ERROR:
+1 Failed download:
+2025-02-17 10:04:03,160 ERROR:['AMZN']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-02-02 00:00:00 -> 2025-02-03 00:00:00)')
+2025-02-17 10:04:04,285 ERROR:
+1 Failed download:
+2025-02-17 10:04:04,285 ERROR:['AMZN']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-02-01 00:00:00 -> 2025-02-02 00:00:00)')
+2025-02-17 10:04:11,149 ERROR:
+1 Failed download:
+2025-02-17 10:04:11,149 ERROR:['AMZN']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-01-26 00:00:00 -> 2025-01-27 00:00:00)')
+2025-02-17 10:04:12,271 ERROR:
+1 Failed download:
+2025-02-17 10:04:12,272 ERROR:['AMZN']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-01-25 00:00:00 -> 2025-01-26 00:00:00)')
+2025-02-17 10:04:18,045 ERROR:
+1 Failed download:
+2025-02-17 10:04:18,045 ERROR:['AMZN']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-01-20 00:00:00 -> 2025-01-21 00:00:00)')
+2025-02-17 10:04:19,181 ERROR:
+1 Failed download:
+2025-02-17 10:04:19,181 ERROR:['AMZN']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-01-19 00:00:00 -> 2025-01-20 00:00:00)')
+2025-02-17 10:04:20,340 ERROR:
+1 Failed download:
+2025-02-17 10:04:20,343 ERROR:['AMZN']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-01-18 00:00:00 -> 2025-01-19 00:00:00)')
+2025-02-17 10:04:50,196 INFO:Total rows for AMZN daily data: 6320
+2025-02-17 10:04:50,196 INFO:Starting download for EURUSD=X
+2025-02-17 10:04:50,328 ERROR:
+1 Failed download:
+2025-02-17 10:04:50,328 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:04:51,453 ERROR:
+1 Failed download:
+2025-02-17 10:04:51,453 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-02-15 00:00:00 -> 2025-02-16 00:00:00)')
+2025-02-17 10:04:58,326 ERROR:
+1 Failed download:
+2025-02-17 10:04:58,326 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:04:59,456 ERROR:
+1 Failed download:
+2025-02-17 10:04:59,456 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-02-08 00:00:00 -> 2025-02-09 00:00:00)')
+2025-02-17 10:05:06,334 ERROR:
+1 Failed download:
+2025-02-17 10:05:06,334 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:05:07,464 ERROR:
+1 Failed download:
+2025-02-17 10:05:07,464 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-02-01 00:00:00 -> 2025-02-02 00:00:00)')
+2025-02-17 10:05:14,366 ERROR:
+1 Failed download:
+2025-02-17 10:05:14,366 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:05:15,490 ERROR:
+1 Failed download:
+2025-02-17 10:05:15,490 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-01-25 00:00:00 -> 2025-01-26 00:00:00)')
+2025-02-17 10:05:22,549 ERROR:
+1 Failed download:
+2025-02-17 10:05:22,549 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:05:23,685 ERROR:
+1 Failed download:
+2025-02-17 10:05:23,686 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-01-18 00:00:00 -> 2025-01-19 00:00:00)')
+2025-02-17 10:05:30,520 ERROR:
+1 Failed download:
+2025-02-17 10:05:30,520 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:05:31,655 ERROR:
+1 Failed download:
+2025-02-17 10:05:31,655 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-01-11 00:00:00 -> 2025-01-12 00:00:00)')
+2025-02-17 10:05:38,487 ERROR:
+1 Failed download:
+2025-02-17 10:05:38,487 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:05:39,704 ERROR:
+1 Failed download:
+2025-02-17 10:05:39,705 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2025-01-04 00:00:00 -> 2025-01-05 00:00:00)')
+2025-02-17 10:05:43,097 ERROR:
+1 Failed download:
+2025-02-17 10:05:43,097 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:05:46,610 ERROR:
+1 Failed download:
+2025-02-17 10:05:46,610 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:05:47,737 ERROR:
+1 Failed download:
+2025-02-17 10:05:47,737 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-12-28 00:00:00 -> 2024-12-29 00:00:00)')
+2025-02-17 10:05:54,703 ERROR:
+1 Failed download:
+2025-02-17 10:05:54,703 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:05:55,841 ERROR:
+1 Failed download:
+2025-02-17 10:05:55,842 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-12-21 00:00:00 -> 2024-12-22 00:00:00)')
+2025-02-17 10:06:02,739 ERROR:
+1 Failed download:
+2025-02-17 10:06:02,740 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:06:03,860 ERROR:
+1 Failed download:
+2025-02-17 10:06:03,862 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-12-14 00:00:00 -> 2024-12-15 00:00:00)')
+2025-02-17 10:06:10,670 ERROR:
+1 Failed download:
+2025-02-17 10:06:10,670 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:06:11,795 ERROR:
+1 Failed download:
+2025-02-17 10:06:11,795 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-12-07 00:00:00 -> 2024-12-08 00:00:00)')
+2025-02-17 10:06:18,774 ERROR:
+1 Failed download:
+2025-02-17 10:06:18,775 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:06:19,924 ERROR:
+1 Failed download:
+2025-02-17 10:06:19,925 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-11-30 00:00:00 -> 2024-12-01 00:00:00)')
+2025-02-17 10:06:26,843 ERROR:
+1 Failed download:
+2025-02-17 10:06:26,843 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:06:28,046 ERROR:
+1 Failed download:
+2025-02-17 10:06:28,046 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-11-23 00:00:00 -> 2024-11-24 00:00:00)')
+2025-02-17 10:06:35,121 ERROR:
+1 Failed download:
+2025-02-17 10:06:35,121 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:06:36,316 ERROR:
+1 Failed download:
+2025-02-17 10:06:36,316 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-11-16 00:00:00 -> 2024-11-17 00:00:00)')
+2025-02-17 10:06:43,142 ERROR:
+1 Failed download:
+2025-02-17 10:06:43,143 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:06:44,431 ERROR:
+1 Failed download:
+2025-02-17 10:06:44,432 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-11-09 00:00:00 -> 2024-11-10 00:00:00)')
+2025-02-17 10:06:51,476 ERROR:
+1 Failed download:
+2025-02-17 10:06:51,476 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:06:52,676 ERROR:
+1 Failed download:
+2025-02-17 10:06:52,677 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-11-02 00:00:00 -> 2024-11-03 00:00:00)')
+2025-02-17 10:06:59,617 ERROR:
+1 Failed download:
+2025-02-17 10:06:59,618 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:07:00,748 ERROR:
+1 Failed download:
+2025-02-17 10:07:00,748 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-10-26 00:00:00 -> 2024-10-27 00:00:00)')
+2025-02-17 10:07:07,856 ERROR:
+1 Failed download:
+2025-02-17 10:07:07,856 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:07:08,997 ERROR:
+1 Failed download:
+2025-02-17 10:07:08,998 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-10-19 00:00:00 -> 2024-10-20 00:00:00)')
+2025-02-17 10:07:15,997 ERROR:
+1 Failed download:
+2025-02-17 10:07:15,998 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:07:17,222 ERROR:
+1 Failed download:
+2025-02-17 10:07:17,223 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-10-12 00:00:00 -> 2024-10-13 00:00:00)')
+2025-02-17 10:07:24,190 ERROR:
+1 Failed download:
+2025-02-17 10:07:24,191 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:07:25,415 ERROR:
+1 Failed download:
+2025-02-17 10:07:25,415 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-10-05 00:00:00 -> 2024-10-06 00:00:00)')
+2025-02-17 10:07:32,423 ERROR:
+1 Failed download:
+2025-02-17 10:07:32,424 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:07:33,559 ERROR:
+1 Failed download:
+2025-02-17 10:07:33,559 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-09-28 00:00:00 -> 2024-09-29 00:00:00)')
+2025-02-17 10:07:40,516 ERROR:
+1 Failed download:
+2025-02-17 10:07:40,517 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:07:41,675 ERROR:
+1 Failed download:
+2025-02-17 10:07:41,676 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-09-21 00:00:00 -> 2024-09-22 00:00:00)')
+2025-02-17 10:07:48,598 ERROR:
+1 Failed download:
+2025-02-17 10:07:48,599 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:07:49,751 ERROR:
+1 Failed download:
+2025-02-17 10:07:49,751 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-09-14 00:00:00 -> 2024-09-15 00:00:00)')
+2025-02-17 10:07:56,643 ERROR:
+1 Failed download:
+2025-02-17 10:07:56,644 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:07:57,783 ERROR:
+1 Failed download:
+2025-02-17 10:07:57,784 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-09-07 00:00:00 -> 2024-09-08 00:00:00)')
+2025-02-17 10:08:04,621 ERROR:
+1 Failed download:
+2025-02-17 10:08:04,621 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:08:05,838 ERROR:
+1 Failed download:
+2025-02-17 10:08:05,838 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-08-31 00:00:00 -> 2024-09-01 00:00:00)')
+2025-02-17 10:08:12,717 ERROR:
+1 Failed download:
+2025-02-17 10:08:12,717 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:08:13,934 ERROR:
+1 Failed download:
+2025-02-17 10:08:13,934 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-08-24 00:00:00 -> 2024-08-25 00:00:00)')
+2025-02-17 10:08:20,855 ERROR:
+1 Failed download:
+2025-02-17 10:08:20,855 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:08:21,976 ERROR:
+1 Failed download:
+2025-02-17 10:08:21,977 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-08-17 00:00:00 -> 2024-08-18 00:00:00)')
+2025-02-17 10:08:28,918 ERROR:
+1 Failed download:
+2025-02-17 10:08:28,918 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:08:30,047 ERROR:
+1 Failed download:
+2025-02-17 10:08:30,047 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-08-10 00:00:00 -> 2024-08-11 00:00:00)')
+2025-02-17 10:08:37,316 ERROR:
+1 Failed download:
+2025-02-17 10:08:37,317 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:08:38,559 ERROR:
+1 Failed download:
+2025-02-17 10:08:38,560 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-08-03 00:00:00 -> 2024-08-04 00:00:00)')
+2025-02-17 10:08:45,496 ERROR:
+1 Failed download:
+2025-02-17 10:08:45,497 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:08:46,641 ERROR:
+1 Failed download:
+2025-02-17 10:08:46,641 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-07-27 00:00:00 -> 2024-07-28 00:00:00)')
+2025-02-17 10:08:53,587 ERROR:
+1 Failed download:
+2025-02-17 10:08:53,588 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:08:54,711 ERROR:
+1 Failed download:
+2025-02-17 10:08:54,712 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-07-20 00:00:00 -> 2024-07-21 00:00:00)')
+2025-02-17 10:09:01,734 ERROR:
+1 Failed download:
+2025-02-17 10:09:01,734 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:09:02,873 ERROR:
+1 Failed download:
+2025-02-17 10:09:02,873 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-07-13 00:00:00 -> 2024-07-14 00:00:00)')
+2025-02-17 10:09:09,972 ERROR:
+1 Failed download:
+2025-02-17 10:09:09,973 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:09:11,106 ERROR:
+1 Failed download:
+2025-02-17 10:09:11,107 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-07-06 00:00:00 -> 2024-07-07 00:00:00)')
+2025-02-17 10:09:18,054 ERROR:
+1 Failed download:
+2025-02-17 10:09:18,054 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:09:19,225 ERROR:
+1 Failed download:
+2025-02-17 10:09:19,225 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-06-29 00:00:00 -> 2024-06-30 00:00:00)')
+2025-02-17 10:09:26,221 ERROR:
+1 Failed download:
+2025-02-17 10:09:26,221 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:09:27,358 ERROR:
+1 Failed download:
+2025-02-17 10:09:27,359 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-06-22 00:00:00 -> 2024-06-23 00:00:00)')
+2025-02-17 10:09:34,347 ERROR:
+1 Failed download:
+2025-02-17 10:09:34,348 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:09:35,476 ERROR:
+1 Failed download:
+2025-02-17 10:09:35,476 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-06-15 00:00:00 -> 2024-06-16 00:00:00)')
+2025-02-17 10:09:42,641 ERROR:
+1 Failed download:
+2025-02-17 10:09:42,642 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:09:43,777 ERROR:
+1 Failed download:
+2025-02-17 10:09:43,778 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-06-08 00:00:00 -> 2024-06-09 00:00:00)')
+2025-02-17 10:09:50,801 ERROR:
+1 Failed download:
+2025-02-17 10:09:50,801 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:09:51,927 ERROR:
+1 Failed download:
+2025-02-17 10:09:51,927 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-06-01 00:00:00 -> 2024-06-02 00:00:00)')
+2025-02-17 10:09:58,778 ERROR:
+1 Failed download:
+2025-02-17 10:09:58,779 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:09:59,907 ERROR:
+1 Failed download:
+2025-02-17 10:09:59,907 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-05-25 00:00:00 -> 2024-05-26 00:00:00)')
+2025-02-17 10:10:06,991 ERROR:
+1 Failed download:
+2025-02-17 10:10:06,991 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:10:08,131 ERROR:
+1 Failed download:
+2025-02-17 10:10:08,131 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-05-18 00:00:00 -> 2024-05-19 00:00:00)')
+2025-02-17 10:10:15,128 ERROR:
+1 Failed download:
+2025-02-17 10:10:15,130 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:10:16,341 ERROR:
+1 Failed download:
+2025-02-17 10:10:16,341 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-05-11 00:00:00 -> 2024-05-12 00:00:00)')
+2025-02-17 10:10:23,211 ERROR:
+1 Failed download:
+2025-02-17 10:10:23,212 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:10:24,354 ERROR:
+1 Failed download:
+2025-02-17 10:10:24,354 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-05-04 00:00:00 -> 2024-05-05 00:00:00)')
+2025-02-17 10:10:31,183 ERROR:
+1 Failed download:
+2025-02-17 10:10:31,183 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:10:32,317 ERROR:
+1 Failed download:
+2025-02-17 10:10:32,317 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-04-27 00:00:00 -> 2024-04-28 00:00:00)')
+2025-02-17 10:10:39,217 ERROR:
+1 Failed download:
+2025-02-17 10:10:39,218 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:10:40,508 ERROR:
+1 Failed download:
+2025-02-17 10:10:40,509 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-04-20 00:00:00 -> 2024-04-21 00:00:00)')
+2025-02-17 10:10:47,398 ERROR:
+1 Failed download:
+2025-02-17 10:10:47,398 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:10:48,525 ERROR:
+1 Failed download:
+2025-02-17 10:10:48,526 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-04-13 00:00:00 -> 2024-04-14 00:00:00)')
+2025-02-17 10:10:55,431 ERROR:
+1 Failed download:
+2025-02-17 10:10:55,433 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:10:56,566 ERROR:
+1 Failed download:
+2025-02-17 10:10:56,566 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-04-06 00:00:00 -> 2024-04-07 00:00:00)')
+2025-02-17 10:11:03,427 ERROR:
+1 Failed download:
+2025-02-17 10:11:03,427 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:11:04,565 ERROR:
+1 Failed download:
+2025-02-17 10:11:04,565 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-03-30 00:00:00 -> 2024-03-31 00:00:00)')
+2025-02-17 10:11:11,565 ERROR:
+1 Failed download:
+2025-02-17 10:11:11,566 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:11:12,769 ERROR:
+1 Failed download:
+2025-02-17 10:11:12,769 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-03-23 00:00:00 -> 2024-03-24 00:00:00)')
+2025-02-17 10:11:19,718 ERROR:
+1 Failed download:
+2025-02-17 10:11:19,719 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:11:20,841 ERROR:
+1 Failed download:
+2025-02-17 10:11:20,841 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-03-16 00:00:00 -> 2024-03-17 00:00:00)')
+2025-02-17 10:11:27,840 ERROR:
+1 Failed download:
+2025-02-17 10:11:27,841 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:11:28,992 ERROR:
+1 Failed download:
+2025-02-17 10:11:28,992 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-03-09 00:00:00 -> 2024-03-10 00:00:00)')
+2025-02-17 10:11:35,948 ERROR:
+1 Failed download:
+2025-02-17 10:11:35,948 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:11:37,090 ERROR:
+1 Failed download:
+2025-02-17 10:11:37,090 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-03-02 00:00:00 -> 2024-03-03 00:00:00)')
+2025-02-17 10:11:43,887 ERROR:
+1 Failed download:
+2025-02-17 10:11:43,887 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:11:45,047 ERROR:
+1 Failed download:
+2025-02-17 10:11:45,047 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-02-24 00:00:00 -> 2024-02-25 00:00:00)')
+2025-02-17 10:11:51,906 ERROR:
+1 Failed download:
+2025-02-17 10:11:51,906 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:11:53,031 ERROR:
+1 Failed download:
+2025-02-17 10:11:53,031 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-02-17 00:00:00 -> 2024-02-18 00:00:00)')
+2025-02-17 10:11:59,954 ERROR:
+1 Failed download:
+2025-02-17 10:11:59,955 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:12:01,092 ERROR:
+1 Failed download:
+2025-02-17 10:12:01,092 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-02-10 00:00:00 -> 2024-02-11 00:00:00)')
+2025-02-17 10:12:08,034 ERROR:
+1 Failed download:
+2025-02-17 10:12:08,034 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:12:09,212 ERROR:
+1 Failed download:
+2025-02-17 10:12:09,212 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-02-03 00:00:00 -> 2024-02-04 00:00:00)')
+2025-02-17 10:12:16,180 ERROR:
+1 Failed download:
+2025-02-17 10:12:16,181 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:12:17,386 ERROR:
+1 Failed download:
+2025-02-17 10:12:17,386 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-01-27 00:00:00 -> 2024-01-28 00:00:00)')
+2025-02-17 10:12:24,654 ERROR:
+1 Failed download:
+2025-02-17 10:12:24,655 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:12:25,791 ERROR:
+1 Failed download:
+2025-02-17 10:12:25,791 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-01-20 00:00:00 -> 2024-01-21 00:00:00)')
+2025-02-17 10:12:32,819 ERROR:
+1 Failed download:
+2025-02-17 10:12:32,819 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:12:33,949 ERROR:
+1 Failed download:
+2025-02-17 10:12:33,950 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-01-13 00:00:00 -> 2024-01-14 00:00:00)')
+2025-02-17 10:12:40,801 ERROR:
+1 Failed download:
+2025-02-17 10:12:40,801 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:12:41,930 ERROR:
+1 Failed download:
+2025-02-17 10:12:41,930 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2024-01-06 00:00:00 -> 2024-01-07 00:00:00)')
+2025-02-17 10:12:48,921 ERROR:
+1 Failed download:
+2025-02-17 10:12:48,921 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:12:50,048 ERROR:
+1 Failed download:
+2025-02-17 10:12:50,049 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-12-30 00:00:00 -> 2023-12-31 00:00:00)')
+2025-02-17 10:12:57,121 ERROR:
+1 Failed download:
+2025-02-17 10:12:57,121 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:12:58,262 ERROR:
+1 Failed download:
+2025-02-17 10:12:58,262 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-12-23 00:00:00 -> 2023-12-24 00:00:00)')
+2025-02-17 10:13:05,357 ERROR:
+1 Failed download:
+2025-02-17 10:13:05,357 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:13:06,519 ERROR:
+1 Failed download:
+2025-02-17 10:13:06,519 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-12-16 00:00:00 -> 2023-12-17 00:00:00)')
+2025-02-17 10:13:13,417 ERROR:
+1 Failed download:
+2025-02-17 10:13:13,418 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:13:14,563 ERROR:
+1 Failed download:
+2025-02-17 10:13:14,564 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-12-09 00:00:00 -> 2023-12-10 00:00:00)')
+2025-02-17 10:13:21,470 ERROR:
+1 Failed download:
+2025-02-17 10:13:21,470 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:13:22,599 ERROR:
+1 Failed download:
+2025-02-17 10:13:22,599 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-12-02 00:00:00 -> 2023-12-03 00:00:00)')
+2025-02-17 10:13:29,717 ERROR:
+1 Failed download:
+2025-02-17 10:13:29,717 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:13:30,863 ERROR:
+1 Failed download:
+2025-02-17 10:13:30,863 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-11-25 00:00:00 -> 2023-11-26 00:00:00)')
+2025-02-17 10:13:37,853 ERROR:
+1 Failed download:
+2025-02-17 10:13:37,854 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:13:38,980 ERROR:
+1 Failed download:
+2025-02-17 10:13:38,981 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-11-18 00:00:00 -> 2023-11-19 00:00:00)')
+2025-02-17 10:13:45,894 ERROR:
+1 Failed download:
+2025-02-17 10:13:45,894 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:13:47,029 ERROR:
+1 Failed download:
+2025-02-17 10:13:47,029 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-11-11 00:00:00 -> 2023-11-12 00:00:00)')
+2025-02-17 10:13:53,884 ERROR:
+1 Failed download:
+2025-02-17 10:13:53,885 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:13:55,033 ERROR:
+1 Failed download:
+2025-02-17 10:13:55,033 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-11-04 00:00:00 -> 2023-11-05 00:00:00)')
+2025-02-17 10:14:01,850 ERROR:
+1 Failed download:
+2025-02-17 10:14:01,850 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:14:03,021 ERROR:
+1 Failed download:
+2025-02-17 10:14:03,021 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-10-28 00:00:00 -> 2023-10-29 00:00:00)')
+2025-02-17 10:14:09,981 ERROR:
+1 Failed download:
+2025-02-17 10:14:09,981 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:14:11,117 ERROR:
+1 Failed download:
+2025-02-17 10:14:11,118 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-10-21 00:00:00 -> 2023-10-22 00:00:00)')
+2025-02-17 10:14:17,913 ERROR:
+1 Failed download:
+2025-02-17 10:14:17,913 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:14:19,075 ERROR:
+1 Failed download:
+2025-02-17 10:14:19,075 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-10-14 00:00:00 -> 2023-10-15 00:00:00)')
+2025-02-17 10:14:25,968 ERROR:
+1 Failed download:
+2025-02-17 10:14:25,968 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:14:27,183 ERROR:
+1 Failed download:
+2025-02-17 10:14:27,183 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-10-07 00:00:00 -> 2023-10-08 00:00:00)')
+2025-02-17 10:14:34,104 ERROR:
+1 Failed download:
+2025-02-17 10:14:34,104 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:14:35,238 ERROR:
+1 Failed download:
+2025-02-17 10:14:35,238 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-09-30 00:00:00 -> 2023-10-01 00:00:00)')
+2025-02-17 10:14:42,192 ERROR:
+1 Failed download:
+2025-02-17 10:14:42,193 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:14:43,314 ERROR:
+1 Failed download:
+2025-02-17 10:14:43,315 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-09-23 00:00:00 -> 2023-09-24 00:00:00)')
+2025-02-17 10:14:50,197 ERROR:
+1 Failed download:
+2025-02-17 10:14:50,198 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:14:51,467 ERROR:
+1 Failed download:
+2025-02-17 10:14:51,467 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-09-16 00:00:00 -> 2023-09-17 00:00:00)')
+2025-02-17 10:14:58,409 ERROR:
+1 Failed download:
+2025-02-17 10:14:58,409 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:14:59,534 ERROR:
+1 Failed download:
+2025-02-17 10:14:59,534 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-09-09 00:00:00 -> 2023-09-10 00:00:00)')
+2025-02-17 10:15:06,460 ERROR:
+1 Failed download:
+2025-02-17 10:15:06,460 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:15:07,679 ERROR:
+1 Failed download:
+2025-02-17 10:15:07,679 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-09-02 00:00:00 -> 2023-09-03 00:00:00)')
+2025-02-17 10:15:14,584 ERROR:
+1 Failed download:
+2025-02-17 10:15:14,585 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:15:15,723 ERROR:
+1 Failed download:
+2025-02-17 10:15:15,723 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-08-26 00:00:00 -> 2023-08-27 00:00:00)')
+2025-02-17 10:15:22,807 ERROR:
+1 Failed download:
+2025-02-17 10:15:22,807 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:15:24,027 ERROR:
+1 Failed download:
+2025-02-17 10:15:24,028 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-08-19 00:00:00 -> 2023-08-20 00:00:00)')
+2025-02-17 10:15:30,857 ERROR:
+1 Failed download:
+2025-02-17 10:15:30,857 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:15:32,008 ERROR:
+1 Failed download:
+2025-02-17 10:15:32,009 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-08-12 00:00:00 -> 2023-08-13 00:00:00)')
+2025-02-17 10:15:38,886 ERROR:
+1 Failed download:
+2025-02-17 10:15:38,887 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:15:40,055 ERROR:
+1 Failed download:
+2025-02-17 10:15:40,056 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-08-05 00:00:00 -> 2023-08-06 00:00:00)')
+2025-02-17 10:15:46,851 ERROR:
+1 Failed download:
+2025-02-17 10:15:46,851 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:15:47,985 ERROR:
+1 Failed download:
+2025-02-17 10:15:47,986 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-07-29 00:00:00 -> 2023-07-30 00:00:00)')
+2025-02-17 10:15:54,939 ERROR:
+1 Failed download:
+2025-02-17 10:15:54,940 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:15:56,102 ERROR:
+1 Failed download:
+2025-02-17 10:15:56,102 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-07-22 00:00:00 -> 2023-07-23 00:00:00)')
+2025-02-17 10:16:03,041 ERROR:
+1 Failed download:
+2025-02-17 10:16:03,041 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:16:04,315 ERROR:
+1 Failed download:
+2025-02-17 10:16:04,316 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-07-15 00:00:00 -> 2023-07-16 00:00:00)')
+2025-02-17 10:16:11,214 ERROR:
+1 Failed download:
+2025-02-17 10:16:11,214 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:16:12,341 ERROR:
+1 Failed download:
+2025-02-17 10:16:12,342 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-07-08 00:00:00 -> 2023-07-09 00:00:00)')
+2025-02-17 10:16:19,256 ERROR:
+1 Failed download:
+2025-02-17 10:16:19,256 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:16:20,380 ERROR:
+1 Failed download:
+2025-02-17 10:16:20,380 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-07-01 00:00:00 -> 2023-07-02 00:00:00)')
+2025-02-17 10:16:27,186 ERROR:
+1 Failed download:
+2025-02-17 10:16:27,187 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:16:28,325 ERROR:
+1 Failed download:
+2025-02-17 10:16:28,325 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-06-24 00:00:00 -> 2023-06-25 00:00:00)')
+2025-02-17 10:16:35,147 ERROR:
+1 Failed download:
+2025-02-17 10:16:35,148 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:16:36,278 ERROR:
+1 Failed download:
+2025-02-17 10:16:36,278 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-06-17 00:00:00 -> 2023-06-18 00:00:00)')
+2025-02-17 10:16:43,163 ERROR:
+1 Failed download:
+2025-02-17 10:16:43,164 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:16:44,285 ERROR:
+1 Failed download:
+2025-02-17 10:16:44,285 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-06-10 00:00:00 -> 2023-06-11 00:00:00)')
+2025-02-17 10:16:51,079 ERROR:
+1 Failed download:
+2025-02-17 10:16:51,079 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:16:52,207 ERROR:
+1 Failed download:
+2025-02-17 10:16:52,207 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-06-03 00:00:00 -> 2023-06-04 00:00:00)')
+2025-02-17 10:16:59,050 ERROR:
+1 Failed download:
+2025-02-17 10:16:59,050 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:17:00,270 ERROR:
+1 Failed download:
+2025-02-17 10:17:00,270 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-05-27 00:00:00 -> 2023-05-28 00:00:00)')
+2025-02-17 10:17:07,074 ERROR:
+1 Failed download:
+2025-02-17 10:17:07,075 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:17:08,203 ERROR:
+1 Failed download:
+2025-02-17 10:17:08,203 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-05-20 00:00:00 -> 2023-05-21 00:00:00)')
+2025-02-17 10:17:15,181 ERROR:
+1 Failed download:
+2025-02-17 10:17:15,184 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:17:16,308 ERROR:
+1 Failed download:
+2025-02-17 10:17:16,308 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-05-13 00:00:00 -> 2023-05-14 00:00:00)')
+2025-02-17 10:17:23,381 ERROR:
+1 Failed download:
+2025-02-17 10:17:23,381 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:17:24,536 ERROR:
+1 Failed download:
+2025-02-17 10:17:24,536 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-05-06 00:00:00 -> 2023-05-07 00:00:00)')
+2025-02-17 10:17:31,341 ERROR:
+1 Failed download:
+2025-02-17 10:17:31,341 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:17:32,480 ERROR:
+1 Failed download:
+2025-02-17 10:17:32,480 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-04-29 00:00:00 -> 2023-04-30 00:00:00)')
+2025-02-17 10:17:39,274 ERROR:
+1 Failed download:
+2025-02-17 10:17:39,275 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:17:40,403 ERROR:
+1 Failed download:
+2025-02-17 10:17:40,403 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-04-22 00:00:00 -> 2023-04-23 00:00:00)')
+2025-02-17 10:17:47,240 ERROR:
+1 Failed download:
+2025-02-17 10:17:47,240 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:17:48,368 ERROR:
+1 Failed download:
+2025-02-17 10:17:48,368 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-04-15 00:00:00 -> 2023-04-16 00:00:00)')
+2025-02-17 10:17:55,152 ERROR:
+1 Failed download:
+2025-02-17 10:17:55,152 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:17:56,281 ERROR:
+1 Failed download:
+2025-02-17 10:17:56,281 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-04-08 00:00:00 -> 2023-04-09 00:00:00)')
+2025-02-17 10:18:03,100 ERROR:
+1 Failed download:
+2025-02-17 10:18:03,101 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:18:04,239 ERROR:
+1 Failed download:
+2025-02-17 10:18:04,239 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-04-01 00:00:00 -> 2023-04-02 00:00:00)')
+2025-02-17 10:18:11,005 ERROR:
+1 Failed download:
+2025-02-17 10:18:11,005 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:18:12,131 ERROR:
+1 Failed download:
+2025-02-17 10:18:12,132 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-03-25 00:00:00 -> 2023-03-26 00:00:00)')
+2025-02-17 10:18:19,101 ERROR:
+1 Failed download:
+2025-02-17 10:18:19,101 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:18:20,222 ERROR:
+1 Failed download:
+2025-02-17 10:18:20,222 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-03-18 00:00:00 -> 2023-03-19 00:00:00)')
+2025-02-17 10:18:27,454 ERROR:
+1 Failed download:
+2025-02-17 10:18:27,454 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:18:28,567 ERROR:
+1 Failed download:
+2025-02-17 10:18:28,567 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-03-11 00:00:00 -> 2023-03-12 00:00:00)')
+2025-02-17 10:18:35,362 ERROR:
+1 Failed download:
+2025-02-17 10:18:35,362 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:18:36,486 ERROR:
+1 Failed download:
+2025-02-17 10:18:36,487 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-03-04 00:00:00 -> 2023-03-05 00:00:00)')
+2025-02-17 10:18:43,303 ERROR:
+1 Failed download:
+2025-02-17 10:18:43,304 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:18:44,459 ERROR:
+1 Failed download:
+2025-02-17 10:18:44,459 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-02-25 00:00:00 -> 2023-02-26 00:00:00)')
+2025-02-17 10:18:51,318 ERROR:
+1 Failed download:
+2025-02-17 10:18:51,318 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:18:52,452 ERROR:
+1 Failed download:
+2025-02-17 10:18:52,452 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-02-18 00:00:00 -> 2023-02-19 00:00:00)')
+2025-02-17 10:18:59,518 ERROR:
+1 Failed download:
+2025-02-17 10:18:59,518 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:19:00,648 ERROR:
+1 Failed download:
+2025-02-17 10:19:00,648 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-02-11 00:00:00 -> 2023-02-12 00:00:00)')
+2025-02-17 10:19:07,584 ERROR:
+1 Failed download:
+2025-02-17 10:19:07,584 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:19:08,781 ERROR:
+1 Failed download:
+2025-02-17 10:19:08,782 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-02-04 00:00:00 -> 2023-02-05 00:00:00)')
+2025-02-17 10:19:15,555 ERROR:
+1 Failed download:
+2025-02-17 10:19:15,555 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:19:16,677 ERROR:
+1 Failed download:
+2025-02-17 10:19:16,677 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-01-28 00:00:00 -> 2023-01-29 00:00:00)')
+2025-02-17 10:19:23,573 ERROR:
+1 Failed download:
+2025-02-17 10:19:23,573 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:19:24,702 ERROR:
+1 Failed download:
+2025-02-17 10:19:24,702 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-01-21 00:00:00 -> 2023-01-22 00:00:00)')
+2025-02-17 10:19:31,558 ERROR:
+1 Failed download:
+2025-02-17 10:19:31,559 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:19:32,689 ERROR:
+1 Failed download:
+2025-02-17 10:19:32,689 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-01-14 00:00:00 -> 2023-01-15 00:00:00)')
+2025-02-17 10:19:39,492 ERROR:
+1 Failed download:
+2025-02-17 10:19:39,493 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:19:40,641 ERROR:
+1 Failed download:
+2025-02-17 10:19:40,641 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-01-07 00:00:00 -> 2023-01-08 00:00:00)')
+2025-02-17 10:19:47,461 ERROR:
+1 Failed download:
+2025-02-17 10:19:47,461 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:19:48,576 ERROR:
+1 Failed download:
+2025-02-17 10:19:48,577 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-12-31 00:00:00 -> 2023-01-01 00:00:00)')
+2025-02-17 10:19:55,392 ERROR:
+1 Failed download:
+2025-02-17 10:19:55,392 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:19:56,521 ERROR:
+1 Failed download:
+2025-02-17 10:19:56,522 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-12-24 00:00:00 -> 2022-12-25 00:00:00)')
+2025-02-17 10:20:03,347 ERROR:
+1 Failed download:
+2025-02-17 10:20:03,349 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:20:04,497 ERROR:
+1 Failed download:
+2025-02-17 10:20:04,497 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-12-17 00:00:00 -> 2022-12-18 00:00:00)')
+2025-02-17 10:20:11,297 ERROR:
+1 Failed download:
+2025-02-17 10:20:11,298 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:20:12,508 ERROR:
+1 Failed download:
+2025-02-17 10:20:12,508 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-12-10 00:00:00 -> 2022-12-11 00:00:00)')
+2025-02-17 10:20:19,411 ERROR:
+1 Failed download:
+2025-02-17 10:20:19,411 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:20:20,533 ERROR:
+1 Failed download:
+2025-02-17 10:20:20,533 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-12-03 00:00:00 -> 2022-12-04 00:00:00)')
+2025-02-17 10:20:27,343 ERROR:
+1 Failed download:
+2025-02-17 10:20:27,343 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:20:28,468 ERROR:
+1 Failed download:
+2025-02-17 10:20:28,468 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-11-26 00:00:00 -> 2022-11-27 00:00:00)')
+2025-02-17 10:20:35,398 ERROR:
+1 Failed download:
+2025-02-17 10:20:35,398 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:20:36,532 ERROR:
+1 Failed download:
+2025-02-17 10:20:36,532 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-11-19 00:00:00 -> 2022-11-20 00:00:00)')
+2025-02-17 10:20:43,393 ERROR:
+1 Failed download:
+2025-02-17 10:20:43,393 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:20:44,518 ERROR:
+1 Failed download:
+2025-02-17 10:20:44,519 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-11-12 00:00:00 -> 2022-11-13 00:00:00)')
+2025-02-17 10:20:51,485 ERROR:
+1 Failed download:
+2025-02-17 10:20:51,485 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:20:52,617 ERROR:
+1 Failed download:
+2025-02-17 10:20:52,617 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-11-05 00:00:00 -> 2022-11-06 00:00:00)')
+2025-02-17 10:20:59,463 ERROR:
+1 Failed download:
+2025-02-17 10:20:59,463 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:21:00,677 ERROR:
+1 Failed download:
+2025-02-17 10:21:00,677 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-10-29 00:00:00 -> 2022-10-30 00:00:00)')
+2025-02-17 10:21:07,533 ERROR:
+1 Failed download:
+2025-02-17 10:21:07,533 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:21:08,669 ERROR:
+1 Failed download:
+2025-02-17 10:21:08,669 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-10-22 00:00:00 -> 2022-10-23 00:00:00)')
+2025-02-17 10:21:15,520 ERROR:
+1 Failed download:
+2025-02-17 10:21:15,521 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:21:16,727 ERROR:
+1 Failed download:
+2025-02-17 10:21:16,727 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-10-15 00:00:00 -> 2022-10-16 00:00:00)')
+2025-02-17 10:21:23,773 ERROR:
+1 Failed download:
+2025-02-17 10:21:23,774 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:21:25,000 ERROR:
+1 Failed download:
+2025-02-17 10:21:25,000 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-10-08 00:00:00 -> 2022-10-09 00:00:00)')
+2025-02-17 10:21:31,782 ERROR:
+1 Failed download:
+2025-02-17 10:21:31,782 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:21:32,927 ERROR:
+1 Failed download:
+2025-02-17 10:21:32,927 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-10-01 00:00:00 -> 2022-10-02 00:00:00)')
+2025-02-17 10:21:39,800 ERROR:
+1 Failed download:
+2025-02-17 10:21:39,800 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:21:40,952 ERROR:
+1 Failed download:
+2025-02-17 10:21:40,952 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-09-24 00:00:00 -> 2022-09-25 00:00:00)')
+2025-02-17 10:21:47,939 ERROR:
+1 Failed download:
+2025-02-17 10:21:47,939 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:21:49,060 ERROR:
+1 Failed download:
+2025-02-17 10:21:49,060 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-09-17 00:00:00 -> 2022-09-18 00:00:00)')
+2025-02-17 10:21:55,959 ERROR:
+1 Failed download:
+2025-02-17 10:21:55,960 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:21:57,106 ERROR:
+1 Failed download:
+2025-02-17 10:21:57,107 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-09-10 00:00:00 -> 2022-09-11 00:00:00)')
+2025-02-17 10:22:04,160 ERROR:
+1 Failed download:
+2025-02-17 10:22:04,160 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:22:05,872 ERROR:
+1 Failed download:
+2025-02-17 10:22:05,872 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-09-03 00:00:00 -> 2022-09-04 00:00:00)')
+2025-02-17 10:22:12,765 ERROR:
+1 Failed download:
+2025-02-17 10:22:12,765 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:22:13,888 ERROR:
+1 Failed download:
+2025-02-17 10:22:13,888 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-08-27 00:00:00 -> 2022-08-28 00:00:00)')
+2025-02-17 10:22:20,804 ERROR:
+1 Failed download:
+2025-02-17 10:22:20,804 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:22:21,975 ERROR:
+1 Failed download:
+2025-02-17 10:22:21,975 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-08-20 00:00:00 -> 2022-08-21 00:00:00)')
+2025-02-17 10:22:28,878 ERROR:
+1 Failed download:
+2025-02-17 10:22:28,879 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:22:29,999 ERROR:
+1 Failed download:
+2025-02-17 10:22:29,999 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-08-13 00:00:00 -> 2022-08-14 00:00:00)')
+2025-02-17 10:22:36,824 ERROR:
+1 Failed download:
+2025-02-17 10:22:36,824 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:22:37,994 ERROR:
+1 Failed download:
+2025-02-17 10:22:37,994 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-08-06 00:00:00 -> 2022-08-07 00:00:00)')
+2025-02-17 10:22:44,904 ERROR:
+1 Failed download:
+2025-02-17 10:22:44,904 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:22:46,041 ERROR:
+1 Failed download:
+2025-02-17 10:22:46,041 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-07-30 00:00:00 -> 2022-07-31 00:00:00)')
+2025-02-17 10:22:52,926 ERROR:
+1 Failed download:
+2025-02-17 10:22:52,926 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:22:54,133 ERROR:
+1 Failed download:
+2025-02-17 10:22:54,133 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-07-23 00:00:00 -> 2022-07-24 00:00:00)')
+2025-02-17 10:23:01,145 ERROR:
+1 Failed download:
+2025-02-17 10:23:01,145 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:23:02,286 ERROR:
+1 Failed download:
+2025-02-17 10:23:02,286 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-07-16 00:00:00 -> 2022-07-17 00:00:00)')
+2025-02-17 10:23:09,288 ERROR:
+1 Failed download:
+2025-02-17 10:23:09,288 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:23:10,416 ERROR:
+1 Failed download:
+2025-02-17 10:23:10,418 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-07-09 00:00:00 -> 2022-07-10 00:00:00)')
+2025-02-17 10:23:17,516 ERROR:
+1 Failed download:
+2025-02-17 10:23:17,516 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:23:18,648 ERROR:
+1 Failed download:
+2025-02-17 10:23:18,649 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-07-02 00:00:00 -> 2022-07-03 00:00:00)')
+2025-02-17 10:23:25,418 ERROR:
+1 Failed download:
+2025-02-17 10:23:25,419 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:23:26,563 ERROR:
+1 Failed download:
+2025-02-17 10:23:26,564 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-06-25 00:00:00 -> 2022-06-26 00:00:00)')
+2025-02-17 10:23:33,431 ERROR:
+1 Failed download:
+2025-02-17 10:23:33,431 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:23:34,555 ERROR:
+1 Failed download:
+2025-02-17 10:23:34,555 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-06-18 00:00:00 -> 2022-06-19 00:00:00)')
+2025-02-17 10:23:41,539 ERROR:
+1 Failed download:
+2025-02-17 10:23:41,539 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:23:42,698 ERROR:
+1 Failed download:
+2025-02-17 10:23:42,698 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-06-11 00:00:00 -> 2022-06-12 00:00:00)')
+2025-02-17 10:23:49,629 ERROR:
+1 Failed download:
+2025-02-17 10:23:49,630 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:23:50,759 ERROR:
+1 Failed download:
+2025-02-17 10:23:50,759 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-06-04 00:00:00 -> 2022-06-05 00:00:00)')
+2025-02-17 10:23:57,655 ERROR:
+1 Failed download:
+2025-02-17 10:23:57,656 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:23:58,806 ERROR:
+1 Failed download:
+2025-02-17 10:23:58,806 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-05-28 00:00:00 -> 2022-05-29 00:00:00)')
+2025-02-17 10:24:05,716 ERROR:
+1 Failed download:
+2025-02-17 10:24:05,716 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:24:06,842 ERROR:
+1 Failed download:
+2025-02-17 10:24:06,842 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-05-21 00:00:00 -> 2022-05-22 00:00:00)')
+2025-02-17 10:24:13,737 ERROR:
+1 Failed download:
+2025-02-17 10:24:13,737 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:24:14,874 ERROR:
+1 Failed download:
+2025-02-17 10:24:14,874 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-05-14 00:00:00 -> 2022-05-15 00:00:00)')
+2025-02-17 10:24:21,678 ERROR:
+1 Failed download:
+2025-02-17 10:24:21,678 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:24:22,808 ERROR:
+1 Failed download:
+2025-02-17 10:24:22,809 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-05-07 00:00:00 -> 2022-05-08 00:00:00)')
+2025-02-17 10:24:29,672 ERROR:
+1 Failed download:
+2025-02-17 10:24:29,672 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:24:30,788 ERROR:
+1 Failed download:
+2025-02-17 10:24:30,788 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-04-30 00:00:00 -> 2022-05-01 00:00:00)')
+2025-02-17 10:24:37,731 ERROR:
+1 Failed download:
+2025-02-17 10:24:37,731 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:24:38,859 ERROR:
+1 Failed download:
+2025-02-17 10:24:38,859 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-04-23 00:00:00 -> 2022-04-24 00:00:00)')
+2025-02-17 10:24:45,704 ERROR:
+1 Failed download:
+2025-02-17 10:24:45,705 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:24:46,831 ERROR:
+1 Failed download:
+2025-02-17 10:24:46,831 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-04-16 00:00:00 -> 2022-04-17 00:00:00)')
+2025-02-17 10:24:53,752 ERROR:
+1 Failed download:
+2025-02-17 10:24:53,752 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:24:54,941 ERROR:
+1 Failed download:
+2025-02-17 10:24:54,941 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-04-09 00:00:00 -> 2022-04-10 00:00:00)')
+2025-02-17 10:25:01,886 ERROR:
+1 Failed download:
+2025-02-17 10:25:01,886 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:25:03,014 ERROR:
+1 Failed download:
+2025-02-17 10:25:03,014 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-04-02 00:00:00 -> 2022-04-03 00:00:00)')
+2025-02-17 10:25:09,947 ERROR:
+1 Failed download:
+2025-02-17 10:25:09,947 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:25:11,084 ERROR:
+1 Failed download:
+2025-02-17 10:25:11,084 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-03-26 00:00:00 -> 2022-03-27 00:00:00)')
+2025-02-17 10:25:18,018 ERROR:
+1 Failed download:
+2025-02-17 10:25:18,018 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:25:19,188 ERROR:
+1 Failed download:
+2025-02-17 10:25:19,188 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-03-19 00:00:00 -> 2022-03-20 00:00:00)')
+2025-02-17 10:25:26,040 ERROR:
+1 Failed download:
+2025-02-17 10:25:26,040 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:25:27,184 ERROR:
+1 Failed download:
+2025-02-17 10:25:27,184 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-03-12 00:00:00 -> 2022-03-13 00:00:00)')
+2025-02-17 10:25:34,121 ERROR:
+1 Failed download:
+2025-02-17 10:25:34,121 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:25:35,248 ERROR:
+1 Failed download:
+2025-02-17 10:25:35,248 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-03-05 00:00:00 -> 2022-03-06 00:00:00)')
+2025-02-17 10:25:42,352 ERROR:
+1 Failed download:
+2025-02-17 10:25:42,354 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:25:43,481 ERROR:
+1 Failed download:
+2025-02-17 10:25:43,481 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-02-26 00:00:00 -> 2022-02-27 00:00:00)')
+2025-02-17 10:25:50,535 ERROR:
+1 Failed download:
+2025-02-17 10:25:50,535 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:25:51,674 ERROR:
+1 Failed download:
+2025-02-17 10:25:51,675 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-02-19 00:00:00 -> 2022-02-20 00:00:00)')
+2025-02-17 10:25:58,591 ERROR:
+1 Failed download:
+2025-02-17 10:25:58,592 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:25:59,724 ERROR:
+1 Failed download:
+2025-02-17 10:25:59,724 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-02-12 00:00:00 -> 2022-02-13 00:00:00)')
+2025-02-17 10:26:06,835 ERROR:
+1 Failed download:
+2025-02-17 10:26:06,835 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:26:07,963 ERROR:
+1 Failed download:
+2025-02-17 10:26:07,963 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-02-05 00:00:00 -> 2022-02-06 00:00:00)')
+2025-02-17 10:26:14,838 ERROR:
+1 Failed download:
+2025-02-17 10:26:14,838 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:26:15,963 ERROR:
+1 Failed download:
+2025-02-17 10:26:15,963 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-01-29 00:00:00 -> 2022-01-30 00:00:00)')
+2025-02-17 10:26:22,788 ERROR:
+1 Failed download:
+2025-02-17 10:26:22,788 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:26:23,918 ERROR:
+1 Failed download:
+2025-02-17 10:26:23,919 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-01-22 00:00:00 -> 2022-01-23 00:00:00)')
+2025-02-17 10:26:30,715 ERROR:
+1 Failed download:
+2025-02-17 10:26:30,715 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:26:31,842 ERROR:
+1 Failed download:
+2025-02-17 10:26:31,842 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-01-15 00:00:00 -> 2022-01-16 00:00:00)')
+2025-02-17 10:26:38,684 ERROR:
+1 Failed download:
+2025-02-17 10:26:38,685 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:26:39,814 ERROR:
+1 Failed download:
+2025-02-17 10:26:39,814 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-01-08 00:00:00 -> 2022-01-09 00:00:00)')
+2025-02-17 10:26:46,675 ERROR:
+1 Failed download:
+2025-02-17 10:26:46,676 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:26:47,909 ERROR:
+1 Failed download:
+2025-02-17 10:26:47,910 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2022-01-01 00:00:00 -> 2022-01-02 00:00:00)')
+2025-02-17 10:26:54,836 ERROR:
+1 Failed download:
+2025-02-17 10:26:54,836 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:26:55,972 ERROR:
+1 Failed download:
+2025-02-17 10:26:55,972 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-12-25 00:00:00 -> 2021-12-26 00:00:00)')
+2025-02-17 10:27:02,860 ERROR:
+1 Failed download:
+2025-02-17 10:27:02,860 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:27:03,988 ERROR:
+1 Failed download:
+2025-02-17 10:27:03,988 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-12-18 00:00:00 -> 2021-12-19 00:00:00)')
+2025-02-17 10:27:10,844 ERROR:
+1 Failed download:
+2025-02-17 10:27:10,845 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:27:11,966 ERROR:
+1 Failed download:
+2025-02-17 10:27:11,966 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-12-11 00:00:00 -> 2021-12-12 00:00:00)')
+2025-02-17 10:27:18,823 ERROR:
+1 Failed download:
+2025-02-17 10:27:18,823 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:27:20,042 ERROR:
+1 Failed download:
+2025-02-17 10:27:20,042 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-12-04 00:00:00 -> 2021-12-05 00:00:00)')
+2025-02-17 10:27:26,843 ERROR:
+1 Failed download:
+2025-02-17 10:27:26,843 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:27:27,969 ERROR:
+1 Failed download:
+2025-02-17 10:27:27,970 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-11-27 00:00:00 -> 2021-11-28 00:00:00)')
+2025-02-17 10:27:34,883 ERROR:
+1 Failed download:
+2025-02-17 10:27:34,883 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:27:36,042 ERROR:
+1 Failed download:
+2025-02-17 10:27:36,043 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-11-20 00:00:00 -> 2021-11-21 00:00:00)')
+2025-02-17 10:27:42,965 ERROR:
+1 Failed download:
+2025-02-17 10:27:42,966 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:27:44,104 ERROR:
+1 Failed download:
+2025-02-17 10:27:44,105 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-11-13 00:00:00 -> 2021-11-14 00:00:00)')
+2025-02-17 10:27:51,076 ERROR:
+1 Failed download:
+2025-02-17 10:27:51,076 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:27:52,198 ERROR:
+1 Failed download:
+2025-02-17 10:27:52,199 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-11-06 00:00:00 -> 2021-11-07 00:00:00)')
+2025-02-17 10:27:59,116 ERROR:
+1 Failed download:
+2025-02-17 10:27:59,116 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:28:00,346 ERROR:
+1 Failed download:
+2025-02-17 10:28:00,346 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-10-30 00:00:00 -> 2021-10-31 00:00:00)')
+2025-02-17 10:28:07,423 ERROR:
+1 Failed download:
+2025-02-17 10:28:07,424 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:28:08,550 ERROR:
+1 Failed download:
+2025-02-17 10:28:08,550 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-10-23 00:00:00 -> 2021-10-24 00:00:00)')
+2025-02-17 10:28:15,672 ERROR:
+1 Failed download:
+2025-02-17 10:28:15,672 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:28:16,811 ERROR:
+1 Failed download:
+2025-02-17 10:28:16,812 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-10-16 00:00:00 -> 2021-10-17 00:00:00)')
+2025-02-17 10:28:23,659 ERROR:
+1 Failed download:
+2025-02-17 10:28:23,659 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:28:24,799 ERROR:
+1 Failed download:
+2025-02-17 10:28:24,799 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-10-09 00:00:00 -> 2021-10-10 00:00:00)')
+2025-02-17 10:28:32,028 ERROR:
+1 Failed download:
+2025-02-17 10:28:32,028 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:28:33,255 ERROR:
+1 Failed download:
+2025-02-17 10:28:33,256 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-10-02 00:00:00 -> 2021-10-03 00:00:00)')
+2025-02-17 10:28:40,212 ERROR:
+1 Failed download:
+2025-02-17 10:28:40,214 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:28:41,341 ERROR:
+1 Failed download:
+2025-02-17 10:28:41,341 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-09-25 00:00:00 -> 2021-09-26 00:00:00)')
+2025-02-17 10:28:48,193 ERROR:
+1 Failed download:
+2025-02-17 10:28:48,194 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:28:49,414 ERROR:
+1 Failed download:
+2025-02-17 10:28:49,414 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-09-18 00:00:00 -> 2021-09-19 00:00:00)')
+2025-02-17 10:28:56,407 ERROR:
+1 Failed download:
+2025-02-17 10:28:56,407 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:28:57,531 ERROR:
+1 Failed download:
+2025-02-17 10:28:57,531 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-09-11 00:00:00 -> 2021-09-12 00:00:00)')
+2025-02-17 10:29:04,322 ERROR:
+1 Failed download:
+2025-02-17 10:29:04,323 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:29:05,446 ERROR:
+1 Failed download:
+2025-02-17 10:29:05,446 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-09-04 00:00:00 -> 2021-09-05 00:00:00)')
+2025-02-17 10:29:12,429 ERROR:
+1 Failed download:
+2025-02-17 10:29:12,429 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:29:13,592 ERROR:
+1 Failed download:
+2025-02-17 10:29:13,592 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-08-28 00:00:00 -> 2021-08-29 00:00:00)')
+2025-02-17 10:29:20,500 ERROR:
+1 Failed download:
+2025-02-17 10:29:20,500 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:29:21,628 ERROR:
+1 Failed download:
+2025-02-17 10:29:21,629 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-08-21 00:00:00 -> 2021-08-22 00:00:00)')
+2025-02-17 10:29:28,443 ERROR:
+1 Failed download:
+2025-02-17 10:29:28,443 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:29:29,679 ERROR:
+1 Failed download:
+2025-02-17 10:29:29,679 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-08-14 00:00:00 -> 2021-08-15 00:00:00)')
+2025-02-17 10:29:36,854 ERROR:
+1 Failed download:
+2025-02-17 10:29:36,854 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:29:37,972 ERROR:
+1 Failed download:
+2025-02-17 10:29:37,972 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-08-07 00:00:00 -> 2021-08-08 00:00:00)')
+2025-02-17 10:29:44,831 ERROR:
+1 Failed download:
+2025-02-17 10:29:44,831 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:29:45,989 ERROR:
+1 Failed download:
+2025-02-17 10:29:45,990 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-07-31 00:00:00 -> 2021-08-01 00:00:00)')
+2025-02-17 10:29:52,823 ERROR:
+1 Failed download:
+2025-02-17 10:29:52,823 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:29:53,963 ERROR:
+1 Failed download:
+2025-02-17 10:29:53,963 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-07-24 00:00:00 -> 2021-07-25 00:00:00)')
+2025-02-17 10:30:00,830 ERROR:
+1 Failed download:
+2025-02-17 10:30:00,830 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:30:01,963 ERROR:
+1 Failed download:
+2025-02-17 10:30:01,963 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-07-17 00:00:00 -> 2021-07-18 00:00:00)')
+2025-02-17 10:30:08,815 ERROR:
+1 Failed download:
+2025-02-17 10:30:08,815 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:30:09,937 ERROR:
+1 Failed download:
+2025-02-17 10:30:09,937 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-07-10 00:00:00 -> 2021-07-11 00:00:00)')
+2025-02-17 10:30:16,735 ERROR:
+1 Failed download:
+2025-02-17 10:30:16,736 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:30:17,915 ERROR:
+1 Failed download:
+2025-02-17 10:30:17,915 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-07-03 00:00:00 -> 2021-07-04 00:00:00)')
+2025-02-17 10:30:24,770 ERROR:
+1 Failed download:
+2025-02-17 10:30:24,771 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:30:25,899 ERROR:
+1 Failed download:
+2025-02-17 10:30:25,899 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-06-26 00:00:00 -> 2021-06-27 00:00:00)')
+2025-02-17 10:30:32,802 ERROR:
+1 Failed download:
+2025-02-17 10:30:32,802 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:30:33,917 ERROR:
+1 Failed download:
+2025-02-17 10:30:33,917 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-06-19 00:00:00 -> 2021-06-20 00:00:00)')
+2025-02-17 10:30:40,888 ERROR:
+1 Failed download:
+2025-02-17 10:30:40,889 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:30:42,057 ERROR:
+1 Failed download:
+2025-02-17 10:30:42,057 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-06-12 00:00:00 -> 2021-06-13 00:00:00)')
+2025-02-17 10:30:48,898 ERROR:
+1 Failed download:
+2025-02-17 10:30:48,898 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:30:50,101 ERROR:
+1 Failed download:
+2025-02-17 10:30:50,101 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-06-05 00:00:00 -> 2021-06-06 00:00:00)')
+2025-02-17 10:30:56,998 ERROR:
+1 Failed download:
+2025-02-17 10:30:56,998 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:30:58,127 ERROR:
+1 Failed download:
+2025-02-17 10:30:58,127 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-05-29 00:00:00 -> 2021-05-30 00:00:00)')
+2025-02-17 10:31:05,117 ERROR:
+1 Failed download:
+2025-02-17 10:31:05,118 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:31:06,264 ERROR:
+1 Failed download:
+2025-02-17 10:31:06,264 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-05-22 00:00:00 -> 2021-05-23 00:00:00)')
+2025-02-17 10:31:13,104 ERROR:
+1 Failed download:
+2025-02-17 10:31:13,104 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:31:14,317 ERROR:
+1 Failed download:
+2025-02-17 10:31:14,318 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-05-15 00:00:00 -> 2021-05-16 00:00:00)')
+2025-02-17 10:31:21,345 ERROR:
+1 Failed download:
+2025-02-17 10:31:21,345 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:31:22,476 ERROR:
+1 Failed download:
+2025-02-17 10:31:22,476 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-05-08 00:00:00 -> 2021-05-09 00:00:00)')
+2025-02-17 10:31:29,293 ERROR:
+1 Failed download:
+2025-02-17 10:31:29,293 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:31:30,502 ERROR:
+1 Failed download:
+2025-02-17 10:31:30,502 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-05-01 00:00:00 -> 2021-05-02 00:00:00)')
+2025-02-17 10:31:37,447 ERROR:
+1 Failed download:
+2025-02-17 10:31:37,447 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:31:38,576 ERROR:
+1 Failed download:
+2025-02-17 10:31:38,577 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-04-24 00:00:00 -> 2021-04-25 00:00:00)')
+2025-02-17 10:31:45,470 ERROR:
+1 Failed download:
+2025-02-17 10:31:45,470 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:31:46,596 ERROR:
+1 Failed download:
+2025-02-17 10:31:46,596 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-04-17 00:00:00 -> 2021-04-18 00:00:00)')
+2025-02-17 10:31:53,476 ERROR:
+1 Failed download:
+2025-02-17 10:31:53,476 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:31:54,622 ERROR:
+1 Failed download:
+2025-02-17 10:31:54,622 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-04-10 00:00:00 -> 2021-04-11 00:00:00)')
+2025-02-17 10:32:01,671 ERROR:
+1 Failed download:
+2025-02-17 10:32:01,672 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:32:02,804 ERROR:
+1 Failed download:
+2025-02-17 10:32:02,804 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-04-03 00:00:00 -> 2021-04-04 00:00:00)')
+2025-02-17 10:32:10,054 ERROR:
+1 Failed download:
+2025-02-17 10:32:10,054 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:32:11,186 ERROR:
+1 Failed download:
+2025-02-17 10:32:11,187 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-03-27 00:00:00 -> 2021-03-28 00:00:00)')
+2025-02-17 10:32:18,160 ERROR:
+1 Failed download:
+2025-02-17 10:32:18,161 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:32:19,332 ERROR:
+1 Failed download:
+2025-02-17 10:32:19,332 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-03-20 00:00:00 -> 2021-03-21 00:00:00)')
+2025-02-17 10:32:26,207 ERROR:
+1 Failed download:
+2025-02-17 10:32:26,208 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:32:27,374 ERROR:
+1 Failed download:
+2025-02-17 10:32:27,374 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-03-13 00:00:00 -> 2021-03-14 00:00:00)')
+2025-02-17 10:32:34,297 ERROR:
+1 Failed download:
+2025-02-17 10:32:34,299 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:32:35,509 ERROR:
+1 Failed download:
+2025-02-17 10:32:35,509 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-03-06 00:00:00 -> 2021-03-07 00:00:00)')
+2025-02-17 10:32:42,531 ERROR:
+1 Failed download:
+2025-02-17 10:32:42,531 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:32:43,692 ERROR:
+1 Failed download:
+2025-02-17 10:32:43,692 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-02-27 00:00:00 -> 2021-02-28 00:00:00)')
+2025-02-17 10:32:50,552 ERROR:
+1 Failed download:
+2025-02-17 10:32:50,553 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:32:51,689 ERROR:
+1 Failed download:
+2025-02-17 10:32:51,689 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-02-20 00:00:00 -> 2021-02-21 00:00:00)')
+2025-02-17 10:32:58,625 ERROR:
+1 Failed download:
+2025-02-17 10:32:58,626 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:32:59,761 ERROR:
+1 Failed download:
+2025-02-17 10:32:59,762 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-02-13 00:00:00 -> 2021-02-14 00:00:00)')
+2025-02-17 10:33:06,720 ERROR:
+1 Failed download:
+2025-02-17 10:33:06,721 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:33:07,889 ERROR:
+1 Failed download:
+2025-02-17 10:33:07,889 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-02-06 00:00:00 -> 2021-02-07 00:00:00)')
+2025-02-17 10:33:14,831 ERROR:
+1 Failed download:
+2025-02-17 10:33:14,831 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:33:15,985 ERROR:
+1 Failed download:
+2025-02-17 10:33:15,985 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-01-30 00:00:00 -> 2021-01-31 00:00:00)')
+2025-02-17 10:33:22,969 ERROR:
+1 Failed download:
+2025-02-17 10:33:22,970 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:33:24,144 ERROR:
+1 Failed download:
+2025-02-17 10:33:24,144 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-01-23 00:00:00 -> 2021-01-24 00:00:00)')
+2025-02-17 10:33:31,106 ERROR:
+1 Failed download:
+2025-02-17 10:33:31,107 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:33:32,322 ERROR:
+1 Failed download:
+2025-02-17 10:33:32,323 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-01-16 00:00:00 -> 2021-01-17 00:00:00)')
+2025-02-17 10:33:39,191 ERROR:
+1 Failed download:
+2025-02-17 10:33:39,192 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:33:40,317 ERROR:
+1 Failed download:
+2025-02-17 10:33:40,317 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-01-09 00:00:00 -> 2021-01-10 00:00:00)')
+2025-02-17 10:33:47,201 ERROR:
+1 Failed download:
+2025-02-17 10:33:47,201 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:33:48,414 ERROR:
+1 Failed download:
+2025-02-17 10:33:48,414 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2021-01-02 00:00:00 -> 2021-01-03 00:00:00)')
+2025-02-17 10:33:55,308 ERROR:
+1 Failed download:
+2025-02-17 10:33:55,308 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:33:56,457 ERROR:
+1 Failed download:
+2025-02-17 10:33:56,459 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-12-26 00:00:00 -> 2020-12-27 00:00:00)')
+2025-02-17 10:34:03,440 ERROR:
+1 Failed download:
+2025-02-17 10:34:03,440 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:34:04,576 ERROR:
+1 Failed download:
+2025-02-17 10:34:04,576 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-12-19 00:00:00 -> 2020-12-20 00:00:00)')
+2025-02-17 10:34:11,417 ERROR:
+1 Failed download:
+2025-02-17 10:34:11,417 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:34:12,550 ERROR:
+1 Failed download:
+2025-02-17 10:34:12,551 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-12-12 00:00:00 -> 2020-12-13 00:00:00)')
+2025-02-17 10:34:19,360 ERROR:
+1 Failed download:
+2025-02-17 10:34:19,360 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:34:20,491 ERROR:
+1 Failed download:
+2025-02-17 10:34:20,491 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-12-05 00:00:00 -> 2020-12-06 00:00:00)')
+2025-02-17 10:34:27,383 ERROR:
+1 Failed download:
+2025-02-17 10:34:27,383 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:34:28,547 ERROR:
+1 Failed download:
+2025-02-17 10:34:28,547 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-11-28 00:00:00 -> 2020-11-29 00:00:00)')
+2025-02-17 10:34:35,403 ERROR:
+1 Failed download:
+2025-02-17 10:34:35,404 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:34:36,529 ERROR:
+1 Failed download:
+2025-02-17 10:34:36,532 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-11-21 00:00:00 -> 2020-11-22 00:00:00)')
+2025-02-17 10:34:43,465 ERROR:
+1 Failed download:
+2025-02-17 10:34:43,465 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:34:44,593 ERROR:
+1 Failed download:
+2025-02-17 10:34:44,593 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-11-14 00:00:00 -> 2020-11-15 00:00:00)')
+2025-02-17 10:34:51,676 ERROR:
+1 Failed download:
+2025-02-17 10:34:51,676 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:34:52,815 ERROR:
+1 Failed download:
+2025-02-17 10:34:52,815 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-11-07 00:00:00 -> 2020-11-08 00:00:00)')
+2025-02-17 10:34:59,726 ERROR:
+1 Failed download:
+2025-02-17 10:34:59,726 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:35:00,865 ERROR:
+1 Failed download:
+2025-02-17 10:35:00,866 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-10-31 00:00:00 -> 2020-11-01 00:00:00)')
+2025-02-17 10:35:07,784 ERROR:
+1 Failed download:
+2025-02-17 10:35:07,785 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:35:09,043 ERROR:
+1 Failed download:
+2025-02-17 10:35:09,043 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-10-24 00:00:00 -> 2020-10-25 00:00:00)')
+2025-02-17 10:35:15,929 ERROR:
+1 Failed download:
+2025-02-17 10:35:15,929 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:35:17,054 ERROR:
+1 Failed download:
+2025-02-17 10:35:17,054 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-10-17 00:00:00 -> 2020-10-18 00:00:00)')
+2025-02-17 10:35:24,008 ERROR:
+1 Failed download:
+2025-02-17 10:35:24,008 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:35:25,125 ERROR:
+1 Failed download:
+2025-02-17 10:35:25,125 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-10-10 00:00:00 -> 2020-10-11 00:00:00)')
+2025-02-17 10:35:31,992 ERROR:
+1 Failed download:
+2025-02-17 10:35:31,993 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:35:33,133 ERROR:
+1 Failed download:
+2025-02-17 10:35:33,134 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-10-03 00:00:00 -> 2020-10-04 00:00:00)')
+2025-02-17 10:35:40,104 ERROR:
+1 Failed download:
+2025-02-17 10:35:40,104 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:35:41,310 ERROR:
+1 Failed download:
+2025-02-17 10:35:41,310 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-09-26 00:00:00 -> 2020-09-27 00:00:00)')
+2025-02-17 10:35:48,541 ERROR:
+1 Failed download:
+2025-02-17 10:35:48,541 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:35:49,689 ERROR:
+1 Failed download:
+2025-02-17 10:35:49,690 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-09-19 00:00:00 -> 2020-09-20 00:00:00)')
+2025-02-17 10:35:56,843 ERROR:
+1 Failed download:
+2025-02-17 10:35:56,843 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:35:57,971 ERROR:
+1 Failed download:
+2025-02-17 10:35:57,971 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-09-12 00:00:00 -> 2020-09-13 00:00:00)')
+2025-02-17 10:36:04,884 ERROR:
+1 Failed download:
+2025-02-17 10:36:04,884 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:36:06,007 ERROR:
+1 Failed download:
+2025-02-17 10:36:06,007 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-09-05 00:00:00 -> 2020-09-06 00:00:00)')
+2025-02-17 10:36:12,878 ERROR:
+1 Failed download:
+2025-02-17 10:36:12,878 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:36:14,007 ERROR:
+1 Failed download:
+2025-02-17 10:36:14,009 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-08-29 00:00:00 -> 2020-08-30 00:00:00)')
+2025-02-17 10:36:20,903 ERROR:
+1 Failed download:
+2025-02-17 10:36:20,904 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:36:22,046 ERROR:
+1 Failed download:
+2025-02-17 10:36:22,047 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-08-22 00:00:00 -> 2020-08-23 00:00:00)')
+2025-02-17 10:36:28,985 ERROR:
+1 Failed download:
+2025-02-17 10:36:28,986 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:36:30,137 ERROR:
+1 Failed download:
+2025-02-17 10:36:30,138 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-08-15 00:00:00 -> 2020-08-16 00:00:00)')
+2025-02-17 10:36:37,187 ERROR:
+1 Failed download:
+2025-02-17 10:36:37,187 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:36:38,319 ERROR:
+1 Failed download:
+2025-02-17 10:36:38,320 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-08-08 00:00:00 -> 2020-08-09 00:00:00)')
+2025-02-17 10:36:45,332 ERROR:
+1 Failed download:
+2025-02-17 10:36:45,333 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:36:46,473 ERROR:
+1 Failed download:
+2025-02-17 10:36:46,474 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-08-01 00:00:00 -> 2020-08-02 00:00:00)')
+2025-02-17 10:36:53,391 ERROR:
+1 Failed download:
+2025-02-17 10:36:53,391 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:36:54,551 ERROR:
+1 Failed download:
+2025-02-17 10:36:54,551 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-07-25 00:00:00 -> 2020-07-26 00:00:00)')
+2025-02-17 10:37:01,358 ERROR:
+1 Failed download:
+2025-02-17 10:37:01,358 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:37:02,760 ERROR:
+1 Failed download:
+2025-02-17 10:37:02,760 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-07-18 00:00:00 -> 2020-07-19 00:00:00)')
+2025-02-17 10:37:09,613 ERROR:
+1 Failed download:
+2025-02-17 10:37:09,614 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:37:10,736 ERROR:
+1 Failed download:
+2025-02-17 10:37:10,736 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-07-11 00:00:00 -> 2020-07-12 00:00:00)')
+2025-02-17 10:37:17,621 ERROR:
+1 Failed download:
+2025-02-17 10:37:17,621 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:37:18,840 ERROR:
+1 Failed download:
+2025-02-17 10:37:18,842 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-07-04 00:00:00 -> 2020-07-05 00:00:00)')
+2025-02-17 10:37:25,684 ERROR:
+1 Failed download:
+2025-02-17 10:37:25,684 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:37:26,832 ERROR:
+1 Failed download:
+2025-02-17 10:37:26,833 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-06-27 00:00:00 -> 2020-06-28 00:00:00)')
+2025-02-17 10:37:34,078 ERROR:
+1 Failed download:
+2025-02-17 10:37:34,078 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:37:35,211 ERROR:
+1 Failed download:
+2025-02-17 10:37:35,212 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-06-20 00:00:00 -> 2020-06-21 00:00:00)')
+2025-02-17 10:37:42,148 ERROR:
+1 Failed download:
+2025-02-17 10:37:42,149 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:37:43,285 ERROR:
+1 Failed download:
+2025-02-17 10:37:43,286 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-06-13 00:00:00 -> 2020-06-14 00:00:00)')
+2025-02-17 10:37:50,378 ERROR:
+1 Failed download:
+2025-02-17 10:37:50,379 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:37:51,510 ERROR:
+1 Failed download:
+2025-02-17 10:37:51,510 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-06-06 00:00:00 -> 2020-06-07 00:00:00)')
+2025-02-17 10:37:58,509 ERROR:
+1 Failed download:
+2025-02-17 10:37:58,509 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:37:59,662 ERROR:
+1 Failed download:
+2025-02-17 10:37:59,663 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-05-30 00:00:00 -> 2020-05-31 00:00:00)')
+2025-02-17 10:38:06,533 ERROR:
+1 Failed download:
+2025-02-17 10:38:06,533 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:38:07,650 ERROR:
+1 Failed download:
+2025-02-17 10:38:07,650 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-05-23 00:00:00 -> 2020-05-24 00:00:00)')
+2025-02-17 10:38:14,775 ERROR:
+1 Failed download:
+2025-02-17 10:38:14,775 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:38:15,908 ERROR:
+1 Failed download:
+2025-02-17 10:38:15,908 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-05-16 00:00:00 -> 2020-05-17 00:00:00)')
+2025-02-17 10:38:23,325 ERROR:
+1 Failed download:
+2025-02-17 10:38:23,325 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:38:24,468 ERROR:
+1 Failed download:
+2025-02-17 10:38:24,469 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-05-09 00:00:00 -> 2020-05-10 00:00:00)')
+2025-02-17 10:38:31,423 ERROR:
+1 Failed download:
+2025-02-17 10:38:31,423 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:38:32,579 ERROR:
+1 Failed download:
+2025-02-17 10:38:32,579 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-05-02 00:00:00 -> 2020-05-03 00:00:00)')
+2025-02-17 10:38:40,080 ERROR:
+1 Failed download:
+2025-02-17 10:38:40,081 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:38:41,205 ERROR:
+1 Failed download:
+2025-02-17 10:38:41,206 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-04-25 00:00:00 -> 2020-04-26 00:00:00)')
+2025-02-17 10:38:48,240 ERROR:
+1 Failed download:
+2025-02-17 10:38:48,240 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:38:49,387 ERROR:
+1 Failed download:
+2025-02-17 10:38:49,387 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-04-18 00:00:00 -> 2020-04-19 00:00:00)')
+2025-02-17 10:38:56,316 ERROR:
+1 Failed download:
+2025-02-17 10:38:56,316 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:38:57,463 ERROR:
+1 Failed download:
+2025-02-17 10:38:57,463 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-04-11 00:00:00 -> 2020-04-12 00:00:00)')
+2025-02-17 10:39:04,324 ERROR:
+1 Failed download:
+2025-02-17 10:39:04,325 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:39:05,448 ERROR:
+1 Failed download:
+2025-02-17 10:39:05,448 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-04-04 00:00:00 -> 2020-04-05 00:00:00)')
+2025-02-17 10:39:12,335 ERROR:
+1 Failed download:
+2025-02-17 10:39:12,335 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:39:13,489 ERROR:
+1 Failed download:
+2025-02-17 10:39:13,489 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-03-28 00:00:00 -> 2020-03-29 00:00:00)')
+2025-02-17 10:39:20,437 ERROR:
+1 Failed download:
+2025-02-17 10:39:20,437 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:39:21,568 ERROR:
+1 Failed download:
+2025-02-17 10:39:21,568 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-03-21 00:00:00 -> 2020-03-22 00:00:00)')
+2025-02-17 10:39:28,443 ERROR:
+1 Failed download:
+2025-02-17 10:39:28,443 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:39:29,572 ERROR:
+1 Failed download:
+2025-02-17 10:39:29,572 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-03-14 00:00:00 -> 2020-03-15 00:00:00)')
+2025-02-17 10:39:36,585 ERROR:
+1 Failed download:
+2025-02-17 10:39:36,585 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:39:37,711 ERROR:
+1 Failed download:
+2025-02-17 10:39:37,711 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-03-07 00:00:00 -> 2020-03-08 00:00:00)')
+2025-02-17 10:39:44,494 ERROR:
+1 Failed download:
+2025-02-17 10:39:44,494 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:39:45,630 ERROR:
+1 Failed download:
+2025-02-17 10:39:45,631 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-02-29 00:00:00 -> 2020-03-01 00:00:00)')
+2025-02-17 10:39:52,432 ERROR:
+1 Failed download:
+2025-02-17 10:39:52,432 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:39:53,550 ERROR:
+1 Failed download:
+2025-02-17 10:39:53,551 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-02-22 00:00:00 -> 2020-02-23 00:00:00)')
+2025-02-17 10:40:00,466 ERROR:
+1 Failed download:
+2025-02-17 10:40:00,466 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:40:01,593 ERROR:
+1 Failed download:
+2025-02-17 10:40:01,594 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-02-15 00:00:00 -> 2020-02-16 00:00:00)')
+2025-02-17 10:40:08,705 ERROR:
+1 Failed download:
+2025-02-17 10:40:08,705 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:40:09,839 ERROR:
+1 Failed download:
+2025-02-17 10:40:09,839 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-02-08 00:00:00 -> 2020-02-09 00:00:00)')
+2025-02-17 10:40:16,727 ERROR:
+1 Failed download:
+2025-02-17 10:40:16,727 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:40:17,861 ERROR:
+1 Failed download:
+2025-02-17 10:40:17,861 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-02-01 00:00:00 -> 2020-02-02 00:00:00)')
+2025-02-17 10:40:24,728 ERROR:
+1 Failed download:
+2025-02-17 10:40:24,729 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:40:25,853 ERROR:
+1 Failed download:
+2025-02-17 10:40:25,853 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-01-25 00:00:00 -> 2020-01-26 00:00:00)')
+2025-02-17 10:40:32,693 ERROR:
+1 Failed download:
+2025-02-17 10:40:32,693 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:40:33,862 ERROR:
+1 Failed download:
+2025-02-17 10:40:33,862 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-01-18 00:00:00 -> 2020-01-19 00:00:00)')
+2025-02-17 10:40:40,693 ERROR:
+1 Failed download:
+2025-02-17 10:40:40,693 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:40:41,817 ERROR:
+1 Failed download:
+2025-02-17 10:40:41,817 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-01-11 00:00:00 -> 2020-01-12 00:00:00)')
+2025-02-17 10:40:48,778 ERROR:
+1 Failed download:
+2025-02-17 10:40:48,778 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:40:49,901 ERROR:
+1 Failed download:
+2025-02-17 10:40:49,901 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2020-01-04 00:00:00 -> 2020-01-05 00:00:00)')
+2025-02-17 10:40:56,802 ERROR:
+1 Failed download:
+2025-02-17 10:40:56,802 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:40:57,939 ERROR:
+1 Failed download:
+2025-02-17 10:40:57,939 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-12-28 00:00:00 -> 2019-12-29 00:00:00)')
+2025-02-17 10:41:04,874 ERROR:
+1 Failed download:
+2025-02-17 10:41:04,874 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:41:06,026 ERROR:
+1 Failed download:
+2025-02-17 10:41:06,026 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-12-21 00:00:00 -> 2019-12-22 00:00:00)')
+2025-02-17 10:41:12,956 ERROR:
+1 Failed download:
+2025-02-17 10:41:12,956 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:41:14,092 ERROR:
+1 Failed download:
+2025-02-17 10:41:14,093 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-12-14 00:00:00 -> 2019-12-15 00:00:00)')
+2025-02-17 10:41:20,998 ERROR:
+1 Failed download:
+2025-02-17 10:41:20,999 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:41:22,126 ERROR:
+1 Failed download:
+2025-02-17 10:41:22,126 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-12-07 00:00:00 -> 2019-12-08 00:00:00)')
+2025-02-17 10:41:29,162 ERROR:
+1 Failed download:
+2025-02-17 10:41:29,162 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:41:30,284 ERROR:
+1 Failed download:
+2025-02-17 10:41:30,285 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-11-30 00:00:00 -> 2019-12-01 00:00:00)')
+2025-02-17 10:41:37,099 ERROR:
+1 Failed download:
+2025-02-17 10:41:37,100 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:41:38,260 ERROR:
+1 Failed download:
+2025-02-17 10:41:38,261 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-11-23 00:00:00 -> 2019-11-24 00:00:00)')
+2025-02-17 10:41:45,227 ERROR:
+1 Failed download:
+2025-02-17 10:41:45,227 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:41:46,359 ERROR:
+1 Failed download:
+2025-02-17 10:41:46,360 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-11-16 00:00:00 -> 2019-11-17 00:00:00)')
+2025-02-17 10:41:53,398 ERROR:
+1 Failed download:
+2025-02-17 10:41:53,398 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:41:54,538 ERROR:
+1 Failed download:
+2025-02-17 10:41:54,538 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-11-09 00:00:00 -> 2019-11-10 00:00:00)')
+2025-02-17 10:42:01,404 ERROR:
+1 Failed download:
+2025-02-17 10:42:01,404 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:42:02,538 ERROR:
+1 Failed download:
+2025-02-17 10:42:02,538 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-11-02 00:00:00 -> 2019-11-03 00:00:00)')
+2025-02-17 10:42:09,651 ERROR:
+1 Failed download:
+2025-02-17 10:42:09,652 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:42:10,815 ERROR:
+1 Failed download:
+2025-02-17 10:42:10,815 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-10-26 00:00:00 -> 2019-10-27 00:00:00)')
+2025-02-17 10:42:17,976 ERROR:
+1 Failed download:
+2025-02-17 10:42:17,980 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:42:19,106 ERROR:
+1 Failed download:
+2025-02-17 10:42:19,106 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-10-19 00:00:00 -> 2019-10-20 00:00:00)')
+2025-02-17 10:42:26,089 ERROR:
+1 Failed download:
+2025-02-17 10:42:26,089 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:42:27,211 ERROR:
+1 Failed download:
+2025-02-17 10:42:27,211 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-10-12 00:00:00 -> 2019-10-13 00:00:00)')
+2025-02-17 10:42:34,069 ERROR:
+1 Failed download:
+2025-02-17 10:42:34,069 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:42:35,199 ERROR:
+1 Failed download:
+2025-02-17 10:42:35,200 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-10-05 00:00:00 -> 2019-10-06 00:00:00)')
+2025-02-17 10:42:42,122 ERROR:
+1 Failed download:
+2025-02-17 10:42:42,122 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:42:43,250 ERROR:
+1 Failed download:
+2025-02-17 10:42:43,250 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-09-28 00:00:00 -> 2019-09-29 00:00:00)')
+2025-02-17 10:42:50,155 ERROR:
+1 Failed download:
+2025-02-17 10:42:50,155 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:42:51,372 ERROR:
+1 Failed download:
+2025-02-17 10:42:51,372 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-09-21 00:00:00 -> 2019-09-22 00:00:00)')
+2025-02-17 10:42:58,343 ERROR:
+1 Failed download:
+2025-02-17 10:42:58,343 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:42:59,459 ERROR:
+1 Failed download:
+2025-02-17 10:42:59,459 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-09-14 00:00:00 -> 2019-09-15 00:00:00)')
+2025-02-17 10:43:06,427 ERROR:
+1 Failed download:
+2025-02-17 10:43:06,427 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:43:07,559 ERROR:
+1 Failed download:
+2025-02-17 10:43:07,559 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-09-07 00:00:00 -> 2019-09-08 00:00:00)')
+2025-02-17 10:43:14,458 ERROR:
+1 Failed download:
+2025-02-17 10:43:14,459 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:43:15,588 ERROR:
+1 Failed download:
+2025-02-17 10:43:15,588 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-08-31 00:00:00 -> 2019-09-01 00:00:00)')
+2025-02-17 10:43:22,566 ERROR:
+1 Failed download:
+2025-02-17 10:43:22,566 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:43:23,701 ERROR:
+1 Failed download:
+2025-02-17 10:43:23,701 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-08-24 00:00:00 -> 2019-08-25 00:00:00)')
+2025-02-17 10:43:30,501 ERROR:
+1 Failed download:
+2025-02-17 10:43:30,501 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:43:31,626 ERROR:
+1 Failed download:
+2025-02-17 10:43:31,627 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-08-17 00:00:00 -> 2019-08-18 00:00:00)')
+2025-02-17 10:43:38,392 ERROR:
+1 Failed download:
+2025-02-17 10:43:38,392 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:43:39,701 ERROR:
+1 Failed download:
+2025-02-17 10:43:39,702 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-08-10 00:00:00 -> 2019-08-11 00:00:00)')
+2025-02-17 10:43:46,579 ERROR:
+1 Failed download:
+2025-02-17 10:43:46,579 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:43:47,704 ERROR:
+1 Failed download:
+2025-02-17 10:43:47,704 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-08-03 00:00:00 -> 2019-08-04 00:00:00)')
+2025-02-17 10:43:54,527 ERROR:
+1 Failed download:
+2025-02-17 10:43:54,528 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:43:55,655 ERROR:
+1 Failed download:
+2025-02-17 10:43:55,656 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-07-27 00:00:00 -> 2019-07-28 00:00:00)')
+2025-02-17 10:44:02,630 ERROR:
+1 Failed download:
+2025-02-17 10:44:02,630 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:44:03,751 ERROR:
+1 Failed download:
+2025-02-17 10:44:03,751 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-07-20 00:00:00 -> 2019-07-21 00:00:00)')
+2025-02-17 10:44:10,779 ERROR:
+1 Failed download:
+2025-02-17 10:44:10,780 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:44:11,909 ERROR:
+1 Failed download:
+2025-02-17 10:44:11,910 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-07-13 00:00:00 -> 2019-07-14 00:00:00)')
+2025-02-17 10:44:18,748 ERROR:
+1 Failed download:
+2025-02-17 10:44:18,750 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:44:19,880 ERROR:
+1 Failed download:
+2025-02-17 10:44:19,880 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-07-06 00:00:00 -> 2019-07-07 00:00:00)')
+2025-02-17 10:44:26,739 ERROR:
+1 Failed download:
+2025-02-17 10:44:26,740 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:44:27,875 ERROR:
+1 Failed download:
+2025-02-17 10:44:27,875 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-06-29 00:00:00 -> 2019-06-30 00:00:00)')
+2025-02-17 10:44:34,775 ERROR:
+1 Failed download:
+2025-02-17 10:44:34,775 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:44:35,900 ERROR:
+1 Failed download:
+2025-02-17 10:44:35,900 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-06-22 00:00:00 -> 2019-06-23 00:00:00)')
+2025-02-17 10:44:42,782 ERROR:
+1 Failed download:
+2025-02-17 10:44:42,782 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:44:43,905 ERROR:
+1 Failed download:
+2025-02-17 10:44:43,905 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-06-15 00:00:00 -> 2019-06-16 00:00:00)')
+2025-02-17 10:44:50,738 ERROR:
+1 Failed download:
+2025-02-17 10:44:50,739 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:44:51,887 ERROR:
+1 Failed download:
+2025-02-17 10:44:51,887 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-06-08 00:00:00 -> 2019-06-09 00:00:00)')
+2025-02-17 10:44:58,916 ERROR:
+1 Failed download:
+2025-02-17 10:44:58,916 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:45:00,181 ERROR:
+1 Failed download:
+2025-02-17 10:45:00,182 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-06-01 00:00:00 -> 2019-06-02 00:00:00)')
+2025-02-17 10:45:07,188 ERROR:
+1 Failed download:
+2025-02-17 10:45:07,188 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:45:08,323 ERROR:
+1 Failed download:
+2025-02-17 10:45:08,323 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-05-25 00:00:00 -> 2019-05-26 00:00:00)')
+2025-02-17 10:45:11,917 ERROR:
+1 Failed download:
+2025-02-17 10:45:11,918 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:45:15,586 ERROR:
+1 Failed download:
+2025-02-17 10:45:15,586 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:45:16,760 ERROR:
+1 Failed download:
+2025-02-17 10:45:16,761 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-05-18 00:00:00 -> 2019-05-19 00:00:00)')
+2025-02-17 10:45:23,702 ERROR:
+1 Failed download:
+2025-02-17 10:45:23,702 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:45:24,850 ERROR:
+1 Failed download:
+2025-02-17 10:45:24,850 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-05-11 00:00:00 -> 2019-05-12 00:00:00)')
+2025-02-17 10:45:31,842 ERROR:
+1 Failed download:
+2025-02-17 10:45:31,842 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:45:32,985 ERROR:
+1 Failed download:
+2025-02-17 10:45:32,985 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-05-04 00:00:00 -> 2019-05-05 00:00:00)')
+2025-02-17 10:45:39,992 ERROR:
+1 Failed download:
+2025-02-17 10:45:39,992 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:45:41,131 ERROR:
+1 Failed download:
+2025-02-17 10:45:41,131 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-04-27 00:00:00 -> 2019-04-28 00:00:00)')
+2025-02-17 10:45:47,963 ERROR:
+1 Failed download:
+2025-02-17 10:45:47,963 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:45:49,096 ERROR:
+1 Failed download:
+2025-02-17 10:45:49,097 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-04-20 00:00:00 -> 2019-04-21 00:00:00)')
+2025-02-17 10:45:56,091 ERROR:
+1 Failed download:
+2025-02-17 10:45:56,091 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:45:57,219 ERROR:
+1 Failed download:
+2025-02-17 10:45:57,219 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-04-13 00:00:00 -> 2019-04-14 00:00:00)')
+2025-02-17 10:46:04,063 ERROR:
+1 Failed download:
+2025-02-17 10:46:04,063 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:46:05,198 ERROR:
+1 Failed download:
+2025-02-17 10:46:05,198 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-04-06 00:00:00 -> 2019-04-07 00:00:00)')
+2025-02-17 10:46:12,003 ERROR:
+1 Failed download:
+2025-02-17 10:46:12,003 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:46:13,150 ERROR:
+1 Failed download:
+2025-02-17 10:46:13,151 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-03-30 00:00:00 -> 2019-03-31 00:00:00)')
+2025-02-17 10:46:20,067 ERROR:
+1 Failed download:
+2025-02-17 10:46:20,068 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:46:21,271 ERROR:
+1 Failed download:
+2025-02-17 10:46:21,271 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-03-23 00:00:00 -> 2019-03-24 00:00:00)')
+2025-02-17 10:46:28,065 ERROR:
+1 Failed download:
+2025-02-17 10:46:28,065 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:46:29,314 ERROR:
+1 Failed download:
+2025-02-17 10:46:29,314 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-03-16 00:00:00 -> 2019-03-17 00:00:00)')
+2025-02-17 10:46:36,353 ERROR:
+1 Failed download:
+2025-02-17 10:46:36,354 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:46:37,482 ERROR:
+1 Failed download:
+2025-02-17 10:46:37,483 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-03-09 00:00:00 -> 2019-03-10 00:00:00)')
+2025-02-17 10:46:44,275 ERROR:
+1 Failed download:
+2025-02-17 10:46:44,275 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:46:45,400 ERROR:
+1 Failed download:
+2025-02-17 10:46:45,401 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-03-02 00:00:00 -> 2019-03-03 00:00:00)')
+2025-02-17 10:46:52,289 ERROR:
+1 Failed download:
+2025-02-17 10:46:52,289 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:46:53,431 ERROR:
+1 Failed download:
+2025-02-17 10:46:53,431 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-02-23 00:00:00 -> 2019-02-24 00:00:00)')
+2025-02-17 10:47:00,360 ERROR:
+1 Failed download:
+2025-02-17 10:47:00,360 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:47:01,493 ERROR:
+1 Failed download:
+2025-02-17 10:47:01,493 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-02-16 00:00:00 -> 2019-02-17 00:00:00)')
+2025-02-17 10:47:08,458 ERROR:
+1 Failed download:
+2025-02-17 10:47:08,458 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:47:09,670 ERROR:
+1 Failed download:
+2025-02-17 10:47:09,671 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-02-09 00:00:00 -> 2019-02-10 00:00:00)')
+2025-02-17 10:47:16,590 ERROR:
+1 Failed download:
+2025-02-17 10:47:16,590 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:47:17,744 ERROR:
+1 Failed download:
+2025-02-17 10:47:17,744 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-02-02 00:00:00 -> 2019-02-03 00:00:00)')
+2025-02-17 10:47:24,556 ERROR:
+1 Failed download:
+2025-02-17 10:47:24,556 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:47:25,684 ERROR:
+1 Failed download:
+2025-02-17 10:47:25,684 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-01-26 00:00:00 -> 2019-01-27 00:00:00)')
+2025-02-17 10:47:32,499 ERROR:
+1 Failed download:
+2025-02-17 10:47:32,501 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:47:33,637 ERROR:
+1 Failed download:
+2025-02-17 10:47:33,637 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-01-19 00:00:00 -> 2019-01-20 00:00:00)')
+2025-02-17 10:47:40,421 ERROR:
+1 Failed download:
+2025-02-17 10:47:40,422 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:47:41,547 ERROR:
+1 Failed download:
+2025-02-17 10:47:41,547 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-01-12 00:00:00 -> 2019-01-13 00:00:00)')
+2025-02-17 10:47:48,561 ERROR:
+1 Failed download:
+2025-02-17 10:47:48,561 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:47:49,699 ERROR:
+1 Failed download:
+2025-02-17 10:47:49,700 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2019-01-05 00:00:00 -> 2019-01-06 00:00:00)')
+2025-02-17 10:47:56,531 ERROR:
+1 Failed download:
+2025-02-17 10:47:56,532 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:47:57,661 ERROR:
+1 Failed download:
+2025-02-17 10:47:57,661 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-12-29 00:00:00 -> 2018-12-30 00:00:00)')
+2025-02-17 10:48:04,568 ERROR:
+1 Failed download:
+2025-02-17 10:48:04,568 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:48:05,737 ERROR:
+1 Failed download:
+2025-02-17 10:48:05,737 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-12-22 00:00:00 -> 2018-12-23 00:00:00)')
+2025-02-17 10:48:12,527 ERROR:
+1 Failed download:
+2025-02-17 10:48:12,528 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:48:13,654 ERROR:
+1 Failed download:
+2025-02-17 10:48:13,654 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-12-15 00:00:00 -> 2018-12-16 00:00:00)')
+2025-02-17 10:48:20,534 ERROR:
+1 Failed download:
+2025-02-17 10:48:20,534 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:48:21,696 ERROR:
+1 Failed download:
+2025-02-17 10:48:21,696 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-12-08 00:00:00 -> 2018-12-09 00:00:00)')
+2025-02-17 10:48:28,655 ERROR:
+1 Failed download:
+2025-02-17 10:48:28,656 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:48:29,868 ERROR:
+1 Failed download:
+2025-02-17 10:48:29,869 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-12-01 00:00:00 -> 2018-12-02 00:00:00)')
+2025-02-17 10:48:36,875 ERROR:
+1 Failed download:
+2025-02-17 10:48:36,875 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:48:38,000 ERROR:
+1 Failed download:
+2025-02-17 10:48:38,000 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-11-24 00:00:00 -> 2018-11-25 00:00:00)')
+2025-02-17 10:48:44,840 ERROR:
+1 Failed download:
+2025-02-17 10:48:44,840 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:48:45,968 ERROR:
+1 Failed download:
+2025-02-17 10:48:45,968 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-11-17 00:00:00 -> 2018-11-18 00:00:00)')
+2025-02-17 10:48:52,969 ERROR:
+1 Failed download:
+2025-02-17 10:48:52,970 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:48:54,106 ERROR:
+1 Failed download:
+2025-02-17 10:48:54,106 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-11-10 00:00:00 -> 2018-11-11 00:00:00)')
+2025-02-17 10:49:00,938 ERROR:
+1 Failed download:
+2025-02-17 10:49:00,938 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:49:02,078 ERROR:
+1 Failed download:
+2025-02-17 10:49:02,082 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-11-03 00:00:00 -> 2018-11-04 00:00:00)')
+2025-02-17 10:49:08,874 ERROR:
+1 Failed download:
+2025-02-17 10:49:08,875 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:49:10,102 ERROR:
+1 Failed download:
+2025-02-17 10:49:10,103 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-10-27 00:00:00 -> 2018-10-28 00:00:00)')
+2025-02-17 10:49:17,022 ERROR:
+1 Failed download:
+2025-02-17 10:49:17,022 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:49:18,157 ERROR:
+1 Failed download:
+2025-02-17 10:49:18,157 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-10-20 00:00:00 -> 2018-10-21 00:00:00)')
+2025-02-17 10:49:25,047 ERROR:
+1 Failed download:
+2025-02-17 10:49:25,047 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:49:26,174 ERROR:
+1 Failed download:
+2025-02-17 10:49:26,175 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-10-13 00:00:00 -> 2018-10-14 00:00:00)')
+2025-02-17 10:49:33,001 ERROR:
+1 Failed download:
+2025-02-17 10:49:33,001 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:49:34,211 ERROR:
+1 Failed download:
+2025-02-17 10:49:34,211 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-10-06 00:00:00 -> 2018-10-07 00:00:00)')
+2025-02-17 10:49:41,123 ERROR:
+1 Failed download:
+2025-02-17 10:49:41,124 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:49:42,250 ERROR:
+1 Failed download:
+2025-02-17 10:49:42,250 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-09-29 00:00:00 -> 2018-09-30 00:00:00)')
+2025-02-17 10:49:49,051 ERROR:
+1 Failed download:
+2025-02-17 10:49:49,052 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:49:50,221 ERROR:
+1 Failed download:
+2025-02-17 10:49:50,221 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-09-22 00:00:00 -> 2018-09-23 00:00:00)')
+2025-02-17 10:49:57,022 ERROR:
+1 Failed download:
+2025-02-17 10:49:57,022 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:49:58,144 ERROR:
+1 Failed download:
+2025-02-17 10:49:58,144 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-09-15 00:00:00 -> 2018-09-16 00:00:00)')
+2025-02-17 10:50:04,945 ERROR:
+1 Failed download:
+2025-02-17 10:50:04,946 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:50:06,074 ERROR:
+1 Failed download:
+2025-02-17 10:50:06,074 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-09-08 00:00:00 -> 2018-09-09 00:00:00)')
+2025-02-17 10:50:13,152 ERROR:
+1 Failed download:
+2025-02-17 10:50:13,153 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:50:14,278 ERROR:
+1 Failed download:
+2025-02-17 10:50:14,279 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-09-01 00:00:00 -> 2018-09-02 00:00:00)')
+2025-02-17 10:50:21,197 ERROR:
+1 Failed download:
+2025-02-17 10:50:21,198 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:50:22,326 ERROR:
+1 Failed download:
+2025-02-17 10:50:22,326 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-08-25 00:00:00 -> 2018-08-26 00:00:00)')
+2025-02-17 10:50:29,186 ERROR:
+1 Failed download:
+2025-02-17 10:50:29,187 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:50:30,323 ERROR:
+1 Failed download:
+2025-02-17 10:50:30,323 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-08-18 00:00:00 -> 2018-08-19 00:00:00)')
+2025-02-17 10:50:37,132 ERROR:
+1 Failed download:
+2025-02-17 10:50:37,132 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:50:38,270 ERROR:
+1 Failed download:
+2025-02-17 10:50:38,270 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-08-11 00:00:00 -> 2018-08-12 00:00:00)')
+2025-02-17 10:50:45,152 ERROR:
+1 Failed download:
+2025-02-17 10:50:45,152 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:50:46,278 ERROR:
+1 Failed download:
+2025-02-17 10:50:46,278 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-08-04 00:00:00 -> 2018-08-05 00:00:00)')
+2025-02-17 10:50:53,054 ERROR:
+1 Failed download:
+2025-02-17 10:50:53,054 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:50:54,228 ERROR:
+1 Failed download:
+2025-02-17 10:50:54,229 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-07-28 00:00:00 -> 2018-07-29 00:00:00)')
+2025-02-17 10:51:01,216 ERROR:
+1 Failed download:
+2025-02-17 10:51:01,219 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:51:02,345 ERROR:
+1 Failed download:
+2025-02-17 10:51:02,345 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-07-21 00:00:00 -> 2018-07-22 00:00:00)')
+2025-02-17 10:51:09,138 ERROR:
+1 Failed download:
+2025-02-17 10:51:09,139 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:51:10,357 ERROR:
+1 Failed download:
+2025-02-17 10:51:10,357 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-07-14 00:00:00 -> 2018-07-15 00:00:00)')
+2025-02-17 10:51:17,324 ERROR:
+1 Failed download:
+2025-02-17 10:51:17,324 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:51:18,456 ERROR:
+1 Failed download:
+2025-02-17 10:51:18,456 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-07-07 00:00:00 -> 2018-07-08 00:00:00)')
+2025-02-17 10:51:25,401 ERROR:
+1 Failed download:
+2025-02-17 10:51:25,402 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:51:26,518 ERROR:
+1 Failed download:
+2025-02-17 10:51:26,518 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-06-30 00:00:00 -> 2018-07-01 00:00:00)')
+2025-02-17 10:51:33,404 ERROR:
+1 Failed download:
+2025-02-17 10:51:33,405 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:51:34,534 ERROR:
+1 Failed download:
+2025-02-17 10:51:34,534 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-06-23 00:00:00 -> 2018-06-24 00:00:00)')
+2025-02-17 10:51:41,460 ERROR:
+1 Failed download:
+2025-02-17 10:51:41,461 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:51:42,587 ERROR:
+1 Failed download:
+2025-02-17 10:51:42,587 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-06-16 00:00:00 -> 2018-06-17 00:00:00)')
+2025-02-17 10:51:49,467 ERROR:
+1 Failed download:
+2025-02-17 10:51:49,471 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:51:50,596 ERROR:
+1 Failed download:
+2025-02-17 10:51:50,596 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-06-09 00:00:00 -> 2018-06-10 00:00:00)')
+2025-02-17 10:51:57,396 ERROR:
+1 Failed download:
+2025-02-17 10:51:57,397 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:51:58,520 ERROR:
+1 Failed download:
+2025-02-17 10:51:58,521 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-06-02 00:00:00 -> 2018-06-03 00:00:00)')
+2025-02-17 10:52:05,272 ERROR:
+1 Failed download:
+2025-02-17 10:52:05,273 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:52:06,477 ERROR:
+1 Failed download:
+2025-02-17 10:52:06,477 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-05-26 00:00:00 -> 2018-05-27 00:00:00)')
+2025-02-17 10:52:13,360 ERROR:
+1 Failed download:
+2025-02-17 10:52:13,360 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:52:14,510 ERROR:
+1 Failed download:
+2025-02-17 10:52:14,511 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-05-19 00:00:00 -> 2018-05-20 00:00:00)')
+2025-02-17 10:52:21,518 ERROR:
+1 Failed download:
+2025-02-17 10:52:21,518 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:52:22,658 ERROR:
+1 Failed download:
+2025-02-17 10:52:22,658 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-05-12 00:00:00 -> 2018-05-13 00:00:00)')
+2025-02-17 10:52:29,529 ERROR:
+1 Failed download:
+2025-02-17 10:52:29,529 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:52:30,658 ERROR:
+1 Failed download:
+2025-02-17 10:52:30,658 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-05-05 00:00:00 -> 2018-05-06 00:00:00)')
+2025-02-17 10:52:37,544 ERROR:
+1 Failed download:
+2025-02-17 10:52:37,545 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:52:38,672 ERROR:
+1 Failed download:
+2025-02-17 10:52:38,673 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-04-28 00:00:00 -> 2018-04-29 00:00:00)')
+2025-02-17 10:52:45,471 ERROR:
+1 Failed download:
+2025-02-17 10:52:45,472 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:52:46,596 ERROR:
+1 Failed download:
+2025-02-17 10:52:46,597 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-04-21 00:00:00 -> 2018-04-22 00:00:00)')
+2025-02-17 10:52:53,733 ERROR:
+1 Failed download:
+2025-02-17 10:52:53,733 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:52:54,851 ERROR:
+1 Failed download:
+2025-02-17 10:52:54,851 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-04-14 00:00:00 -> 2018-04-15 00:00:00)')
+2025-02-17 10:53:01,690 ERROR:
+1 Failed download:
+2025-02-17 10:53:01,690 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:53:02,910 ERROR:
+1 Failed download:
+2025-02-17 10:53:02,910 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-04-07 00:00:00 -> 2018-04-08 00:00:00)')
+2025-02-17 10:53:09,731 ERROR:
+1 Failed download:
+2025-02-17 10:53:09,732 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:53:10,866 ERROR:
+1 Failed download:
+2025-02-17 10:53:10,866 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-03-31 00:00:00 -> 2018-04-01 00:00:00)')
+2025-02-17 10:53:17,681 ERROR:
+1 Failed download:
+2025-02-17 10:53:17,681 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:53:18,900 ERROR:
+1 Failed download:
+2025-02-17 10:53:18,901 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-03-24 00:00:00 -> 2018-03-25 00:00:00)')
+2025-02-17 10:53:25,903 ERROR:
+1 Failed download:
+2025-02-17 10:53:25,903 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:53:27,112 ERROR:
+1 Failed download:
+2025-02-17 10:53:27,112 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-03-17 00:00:00 -> 2018-03-18 00:00:00)')
+2025-02-17 10:53:33,937 ERROR:
+1 Failed download:
+2025-02-17 10:53:33,938 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:53:35,067 ERROR:
+1 Failed download:
+2025-02-17 10:53:35,067 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-03-10 00:00:00 -> 2018-03-11 00:00:00)')
+2025-02-17 10:53:41,875 ERROR:
+1 Failed download:
+2025-02-17 10:53:41,875 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:53:43,013 ERROR:
+1 Failed download:
+2025-02-17 10:53:43,013 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-03-03 00:00:00 -> 2018-03-04 00:00:00)')
+2025-02-17 10:53:49,915 ERROR:
+1 Failed download:
+2025-02-17 10:53:49,915 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:53:51,043 ERROR:
+1 Failed download:
+2025-02-17 10:53:51,044 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-02-24 00:00:00 -> 2018-02-25 00:00:00)')
+2025-02-17 10:53:57,972 ERROR:
+1 Failed download:
+2025-02-17 10:53:57,972 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:53:59,095 ERROR:
+1 Failed download:
+2025-02-17 10:53:59,095 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-02-17 00:00:00 -> 2018-02-18 00:00:00)')
+2025-02-17 10:54:06,089 ERROR:
+1 Failed download:
+2025-02-17 10:54:06,090 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:54:07,266 ERROR:
+1 Failed download:
+2025-02-17 10:54:07,266 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-02-10 00:00:00 -> 2018-02-11 00:00:00)')
+2025-02-17 10:54:14,264 ERROR:
+1 Failed download:
+2025-02-17 10:54:14,264 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:54:15,390 ERROR:
+1 Failed download:
+2025-02-17 10:54:15,390 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-02-03 00:00:00 -> 2018-02-04 00:00:00)')
+2025-02-17 10:54:22,270 ERROR:
+1 Failed download:
+2025-02-17 10:54:22,270 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:54:23,402 ERROR:
+1 Failed download:
+2025-02-17 10:54:23,403 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-01-27 00:00:00 -> 2018-01-28 00:00:00)')
+2025-02-17 10:54:30,323 ERROR:
+1 Failed download:
+2025-02-17 10:54:30,323 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:54:31,455 ERROR:
+1 Failed download:
+2025-02-17 10:54:31,455 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-01-20 00:00:00 -> 2018-01-21 00:00:00)')
+2025-02-17 10:54:38,298 ERROR:
+1 Failed download:
+2025-02-17 10:54:38,299 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:54:39,433 ERROR:
+1 Failed download:
+2025-02-17 10:54:39,433 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-01-13 00:00:00 -> 2018-01-14 00:00:00)')
+2025-02-17 10:54:46,354 ERROR:
+1 Failed download:
+2025-02-17 10:54:46,354 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:54:47,527 ERROR:
+1 Failed download:
+2025-02-17 10:54:47,527 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2018-01-06 00:00:00 -> 2018-01-07 00:00:00)')
+2025-02-17 10:54:54,323 ERROR:
+1 Failed download:
+2025-02-17 10:54:54,323 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:54:55,450 ERROR:
+1 Failed download:
+2025-02-17 10:54:55,450 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-12-30 00:00:00 -> 2017-12-31 00:00:00)')
+2025-02-17 10:55:02,372 ERROR:
+1 Failed download:
+2025-02-17 10:55:02,372 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:55:03,505 ERROR:
+1 Failed download:
+2025-02-17 10:55:03,505 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-12-23 00:00:00 -> 2017-12-24 00:00:00)')
+2025-02-17 10:55:10,317 ERROR:
+1 Failed download:
+2025-02-17 10:55:10,317 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:55:11,447 ERROR:
+1 Failed download:
+2025-02-17 10:55:11,447 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-12-16 00:00:00 -> 2017-12-17 00:00:00)')
+2025-02-17 10:55:18,409 ERROR:
+1 Failed download:
+2025-02-17 10:55:18,409 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:55:19,543 ERROR:
+1 Failed download:
+2025-02-17 10:55:19,544 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-12-09 00:00:00 -> 2017-12-10 00:00:00)')
+2025-02-17 10:55:26,487 ERROR:
+1 Failed download:
+2025-02-17 10:55:26,488 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:55:27,723 ERROR:
+1 Failed download:
+2025-02-17 10:55:27,723 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-12-02 00:00:00 -> 2017-12-03 00:00:00)')
+2025-02-17 10:55:34,630 ERROR:
+1 Failed download:
+2025-02-17 10:55:34,631 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:55:35,765 ERROR:
+1 Failed download:
+2025-02-17 10:55:35,765 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-11-25 00:00:00 -> 2017-11-26 00:00:00)')
+2025-02-17 10:55:42,654 ERROR:
+1 Failed download:
+2025-02-17 10:55:42,654 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:55:43,815 ERROR:
+1 Failed download:
+2025-02-17 10:55:43,815 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-11-18 00:00:00 -> 2017-11-19 00:00:00)')
+2025-02-17 10:55:46,128 ERROR:
+1 Failed download:
+2025-02-17 10:55:46,128 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:55:50,891 ERROR:
+1 Failed download:
+2025-02-17 10:55:50,893 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:55:52,048 ERROR:
+1 Failed download:
+2025-02-17 10:55:52,049 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-11-11 00:00:00 -> 2017-11-12 00:00:00)')
+2025-02-17 10:55:59,138 ERROR:
+1 Failed download:
+2025-02-17 10:55:59,139 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:56:00,272 ERROR:
+1 Failed download:
+2025-02-17 10:56:00,272 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-11-04 00:00:00 -> 2017-11-05 00:00:00)')
+2025-02-17 10:56:07,125 ERROR:
+1 Failed download:
+2025-02-17 10:56:07,125 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:56:08,241 ERROR:
+1 Failed download:
+2025-02-17 10:56:08,242 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-10-28 00:00:00 -> 2017-10-29 00:00:00)')
+2025-02-17 10:56:15,117 ERROR:
+1 Failed download:
+2025-02-17 10:56:15,117 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:56:16,323 ERROR:
+1 Failed download:
+2025-02-17 10:56:16,323 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-10-21 00:00:00 -> 2017-10-22 00:00:00)')
+2025-02-17 10:56:23,275 ERROR:
+1 Failed download:
+2025-02-17 10:56:23,276 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:56:24,406 ERROR:
+1 Failed download:
+2025-02-17 10:56:24,407 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-10-14 00:00:00 -> 2017-10-15 00:00:00)')
+2025-02-17 10:56:31,443 ERROR:
+1 Failed download:
+2025-02-17 10:56:31,444 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:56:32,572 ERROR:
+1 Failed download:
+2025-02-17 10:56:32,572 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-10-07 00:00:00 -> 2017-10-08 00:00:00)')
+2025-02-17 10:56:39,490 ERROR:
+1 Failed download:
+2025-02-17 10:56:39,490 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:56:40,614 ERROR:
+1 Failed download:
+2025-02-17 10:56:40,615 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-09-30 00:00:00 -> 2017-10-01 00:00:00)')
+2025-02-17 10:56:47,711 ERROR:
+1 Failed download:
+2025-02-17 10:56:47,711 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:56:48,846 ERROR:
+1 Failed download:
+2025-02-17 10:56:48,847 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-09-23 00:00:00 -> 2017-09-24 00:00:00)')
+2025-02-17 10:56:55,798 ERROR:
+1 Failed download:
+2025-02-17 10:56:55,798 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:56:56,926 ERROR:
+1 Failed download:
+2025-02-17 10:56:56,926 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-09-16 00:00:00 -> 2017-09-17 00:00:00)')
+2025-02-17 10:57:03,756 ERROR:
+1 Failed download:
+2025-02-17 10:57:03,756 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:57:04,971 ERROR:
+1 Failed download:
+2025-02-17 10:57:04,972 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-09-09 00:00:00 -> 2017-09-10 00:00:00)')
+2025-02-17 10:57:11,841 ERROR:
+1 Failed download:
+2025-02-17 10:57:11,841 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:57:12,973 ERROR:
+1 Failed download:
+2025-02-17 10:57:12,973 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-09-02 00:00:00 -> 2017-09-03 00:00:00)')
+2025-02-17 10:57:19,986 ERROR:
+1 Failed download:
+2025-02-17 10:57:19,986 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:57:21,133 ERROR:
+1 Failed download:
+2025-02-17 10:57:21,134 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-08-26 00:00:00 -> 2017-08-27 00:00:00)')
+2025-02-17 10:57:28,046 ERROR:
+1 Failed download:
+2025-02-17 10:57:28,046 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:57:29,186 ERROR:
+1 Failed download:
+2025-02-17 10:57:29,186 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-08-19 00:00:00 -> 2017-08-20 00:00:00)')
+2025-02-17 10:57:36,034 ERROR:
+1 Failed download:
+2025-02-17 10:57:36,034 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:57:37,169 ERROR:
+1 Failed download:
+2025-02-17 10:57:37,170 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-08-12 00:00:00 -> 2017-08-13 00:00:00)')
+2025-02-17 10:57:44,103 ERROR:
+1 Failed download:
+2025-02-17 10:57:44,104 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:57:45,252 ERROR:
+1 Failed download:
+2025-02-17 10:57:45,252 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-08-05 00:00:00 -> 2017-08-06 00:00:00)')
+2025-02-17 10:57:52,180 ERROR:
+1 Failed download:
+2025-02-17 10:57:52,180 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:57:53,307 ERROR:
+1 Failed download:
+2025-02-17 10:57:53,308 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-07-29 00:00:00 -> 2017-07-30 00:00:00)')
+2025-02-17 10:58:00,166 ERROR:
+1 Failed download:
+2025-02-17 10:58:00,166 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:58:01,316 ERROR:
+1 Failed download:
+2025-02-17 10:58:01,317 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-07-22 00:00:00 -> 2017-07-23 00:00:00)')
+2025-02-17 10:58:08,292 ERROR:
+1 Failed download:
+2025-02-17 10:58:08,292 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:58:09,422 ERROR:
+1 Failed download:
+2025-02-17 10:58:09,423 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-07-15 00:00:00 -> 2017-07-16 00:00:00)')
+2025-02-17 10:58:13,971 ERROR:
+1 Failed download:
+2025-02-17 10:58:13,971 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:58:16,241 ERROR:
+1 Failed download:
+2025-02-17 10:58:16,242 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:58:17,371 ERROR:
+1 Failed download:
+2025-02-17 10:58:17,372 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-07-08 00:00:00 -> 2017-07-09 00:00:00)')
+2025-02-17 10:58:24,310 ERROR:
+1 Failed download:
+2025-02-17 10:58:24,311 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:58:25,439 ERROR:
+1 Failed download:
+2025-02-17 10:58:25,439 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-07-01 00:00:00 -> 2017-07-02 00:00:00)')
+2025-02-17 10:58:32,392 ERROR:
+1 Failed download:
+2025-02-17 10:58:32,393 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:58:33,517 ERROR:
+1 Failed download:
+2025-02-17 10:58:33,519 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-06-24 00:00:00 -> 2017-06-25 00:00:00)')
+2025-02-17 10:58:40,461 ERROR:
+1 Failed download:
+2025-02-17 10:58:40,461 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:58:41,604 ERROR:
+1 Failed download:
+2025-02-17 10:58:41,605 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-06-17 00:00:00 -> 2017-06-18 00:00:00)')
+2025-02-17 10:58:48,550 ERROR:
+1 Failed download:
+2025-02-17 10:58:48,551 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:58:49,788 ERROR:
+1 Failed download:
+2025-02-17 10:58:49,789 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-06-10 00:00:00 -> 2017-06-11 00:00:00)')
+2025-02-17 10:58:56,741 ERROR:
+1 Failed download:
+2025-02-17 10:58:56,741 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:58:57,885 ERROR:
+1 Failed download:
+2025-02-17 10:58:57,885 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-06-03 00:00:00 -> 2017-06-04 00:00:00)')
+2025-02-17 10:59:04,821 ERROR:
+1 Failed download:
+2025-02-17 10:59:04,823 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:59:05,949 ERROR:
+1 Failed download:
+2025-02-17 10:59:05,949 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-05-27 00:00:00 -> 2017-05-28 00:00:00)')
+2025-02-17 10:59:12,871 ERROR:
+1 Failed download:
+2025-02-17 10:59:12,872 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:59:13,997 ERROR:
+1 Failed download:
+2025-02-17 10:59:13,997 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-05-20 00:00:00 -> 2017-05-21 00:00:00)')
+2025-02-17 10:59:20,882 ERROR:
+1 Failed download:
+2025-02-17 10:59:20,882 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:59:22,010 ERROR:
+1 Failed download:
+2025-02-17 10:59:22,011 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-05-13 00:00:00 -> 2017-05-14 00:00:00)')
+2025-02-17 10:59:28,803 ERROR:
+1 Failed download:
+2025-02-17 10:59:28,804 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:59:29,936 ERROR:
+1 Failed download:
+2025-02-17 10:59:29,936 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-05-06 00:00:00 -> 2017-05-07 00:00:00)')
+2025-02-17 10:59:36,808 ERROR:
+1 Failed download:
+2025-02-17 10:59:36,809 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:59:38,044 ERROR:
+1 Failed download:
+2025-02-17 10:59:38,044 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-04-29 00:00:00 -> 2017-04-30 00:00:00)')
+2025-02-17 10:59:44,868 ERROR:
+1 Failed download:
+2025-02-17 10:59:44,868 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:59:45,996 ERROR:
+1 Failed download:
+2025-02-17 10:59:45,997 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-04-22 00:00:00 -> 2017-04-23 00:00:00)')
+2025-02-17 10:59:52,789 ERROR:
+1 Failed download:
+2025-02-17 10:59:52,789 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 10:59:53,911 ERROR:
+1 Failed download:
+2025-02-17 10:59:53,911 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-04-15 00:00:00 -> 2017-04-16 00:00:00)')
+2025-02-17 11:00:00,730 ERROR:
+1 Failed download:
+2025-02-17 11:00:00,731 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 11:00:01,881 ERROR:
+1 Failed download:
+2025-02-17 11:00:01,882 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-04-08 00:00:00 -> 2017-04-09 00:00:00)')
+2025-02-17 11:00:08,922 ERROR:
+1 Failed download:
+2025-02-17 11:00:08,922 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 11:00:10,053 ERROR:
+1 Failed download:
+2025-02-17 11:00:10,053 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-04-01 00:00:00 -> 2017-04-02 00:00:00)')
+2025-02-17 11:00:17,001 ERROR:
+1 Failed download:
+2025-02-17 11:00:17,003 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 11:00:18,122 ERROR:
+1 Failed download:
+2025-02-17 11:00:18,122 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-03-25 00:00:00 -> 2017-03-26 00:00:00)')
+2025-02-17 11:00:24,885 ERROR:
+1 Failed download:
+2025-02-17 11:00:24,885 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 11:00:26,067 ERROR:
+1 Failed download:
+2025-02-17 11:00:26,067 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-03-18 00:00:00 -> 2017-03-19 00:00:00)')
+2025-02-17 11:00:32,872 ERROR:
+1 Failed download:
+2025-02-17 11:00:32,872 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 11:00:34,000 ERROR:
+1 Failed download:
+2025-02-17 11:00:34,000 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-03-11 00:00:00 -> 2017-03-12 00:00:00)')
+2025-02-17 11:00:40,842 ERROR:
+1 Failed download:
+2025-02-17 11:00:40,843 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 11:00:42,027 ERROR:
+1 Failed download:
+2025-02-17 11:00:42,027 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-03-04 00:00:00 -> 2017-03-05 00:00:00)')
+2025-02-17 11:00:48,928 ERROR:
+1 Failed download:
+2025-02-17 11:00:48,928 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 11:00:50,067 ERROR:
+1 Failed download:
+2025-02-17 11:00:50,067 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-02-25 00:00:00 -> 2017-02-26 00:00:00)')
+2025-02-17 11:00:57,019 ERROR:
+1 Failed download:
+2025-02-17 11:00:57,019 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 11:00:58,148 ERROR:
+1 Failed download:
+2025-02-17 11:00:58,149 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-02-18 00:00:00 -> 2017-02-19 00:00:00)')
+2025-02-17 11:01:05,108 ERROR:
+1 Failed download:
+2025-02-17 11:01:05,109 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 11:01:06,234 ERROR:
+1 Failed download:
+2025-02-17 11:01:06,234 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-02-11 00:00:00 -> 2017-02-12 00:00:00)')
+2025-02-17 11:01:13,090 ERROR:
+1 Failed download:
+2025-02-17 11:01:13,091 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 11:01:14,226 ERROR:
+1 Failed download:
+2025-02-17 11:01:14,227 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-02-04 00:00:00 -> 2017-02-05 00:00:00)')
+2025-02-17 11:01:21,270 ERROR:
+1 Failed download:
+2025-02-17 11:01:21,271 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 11:01:22,479 ERROR:
+1 Failed download:
+2025-02-17 11:01:22,479 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-01-28 00:00:00 -> 2017-01-29 00:00:00)')
+2025-02-17 11:01:29,298 ERROR:
+1 Failed download:
+2025-02-17 11:01:29,298 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 11:01:30,425 ERROR:
+1 Failed download:
+2025-02-17 11:01:30,425 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-01-21 00:00:00 -> 2017-01-22 00:00:00)')
+2025-02-17 11:01:37,332 ERROR:
+1 Failed download:
+2025-02-17 11:01:37,332 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 11:01:38,493 ERROR:
+1 Failed download:
+2025-02-17 11:01:38,493 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-01-14 00:00:00 -> 2017-01-15 00:00:00)')
+2025-02-17 11:01:45,489 ERROR:
+1 Failed download:
+2025-02-17 11:01:45,489 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 11:01:46,615 ERROR:
+1 Failed download:
+2025-02-17 11:01:46,615 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2017-01-07 00:00:00 -> 2017-01-08 00:00:00)')
+2025-02-17 11:01:53,441 ERROR:
+1 Failed download:
+2025-02-17 11:01:53,441 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 11:01:54,649 ERROR:
+1 Failed download:
+2025-02-17 11:01:54,649 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2016-12-31 00:00:00 -> 2017-01-01 00:00:00)')
+2025-02-17 11:02:01,484 ERROR:
+1 Failed download:
+2025-02-17 11:02:01,485 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 11:02:02,705 ERROR:
+1 Failed download:
+2025-02-17 11:02:02,705 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2016-12-24 00:00:00 -> 2016-12-25 00:00:00)')
+2025-02-17 11:02:09,558 ERROR:
+1 Failed download:
+2025-02-17 11:02:09,558 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 11:02:10,688 ERROR:
+1 Failed download:
+2025-02-17 11:02:10,689 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2016-12-17 00:00:00 -> 2016-12-18 00:00:00)')
+2025-02-17 11:02:17,550 ERROR:
+1 Failed download:
+2025-02-17 11:02:17,550 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')
+2025-02-17 11:02:18,690 ERROR:
+1 Failed download:
+2025-02-17 11:02:18,690 ERROR:['EURUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2016-12-10 00:00:00 -> 2016-12-11 00:00:00)')
+2025-02-17 11:02:25,572 ERROR:
+1 Failed download:
+2025-02-17 11:02:25,572 ERROR:['EURUSD=X']: IndexError('index 0 is out of bounds for axis 0 with size 0')

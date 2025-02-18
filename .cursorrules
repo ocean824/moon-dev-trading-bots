@@ -5,3 +5,4 @@
 - for backtesting, use backtesting.py but dont use their indicators, use pandas_ta or talib instead
 - When back testing make sure to never save the .html file for the plot but do show the plot. Just don't save it. 
 - always print the full stats of the backtest, not just pieces. do this by print(stats) DO NOT JUST PRINT PORTIONS OF THE BACKTESTING STATS, print all
+- always hide my u id on interactive brokers never have it in any prints or anything like that 

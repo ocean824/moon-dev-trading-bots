@@ -12,9 +12,9 @@ SYMBOL = "SNAP"           # Symbol to trade - Available symbols:
                          # HOOD, CRSPR, LLY, TMSC, MELI, CRWD, RBLX, CROX, XYZ, TTD,
                          # NTRA, ROKU, LVMH, ADBE, AMD, DE, TWST, PATH, BEAM, JD, TXG,
                          # GME, RKLB, CHWY, GTLB, DDOG, SNOW, CRM, PYPL, INTU, LMT,
-                         # CAT, TEAM, NOW, AUR, PSTG, KMTUY
+                         # CAT, TEAM, NOW, AUR, PSTG, KMTUY, MSTR, MARA
 DIRECTION = "SELL"        # "BUY" or "SELL"
-QUANTITY = 1             # Number of shares to trade
+QUANTITY = 100             # Number of shares to trade
 
 # Connection Configuration
 PAPER_PORT = 7497         # Paper trading port

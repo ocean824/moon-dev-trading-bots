@@ -7,13 +7,13 @@ import time
 import pandas as pd
 
 # Trading Configuration
-SYMBOL = "PLTR"           # Symbol to trade - Available symbols:
+SYMBOL = "ROKU"           # Symbol to trade - Available symbols:
                          # SNAP, PLTR, RDDT, APP, NVDA, TSLA, COIN, GOOG, SMCI, SHOP, 
                          # HOOD, CRSPR, LLY, TMSC, MELI, CRWD, RBLX, CROX, XYZ, TTD,
                          # NTRA, ROKU, LVMH, ADBE, AMD, DE, TWST, PATH, BEAM, JD, TXG,
                          # GME, RKLB, CHWY, GTLB, DDOG, SNOW, CRM, PYPL, INTU, LMT,
                          # CAT, TEAM, NOW, AUR, PSTG, KMTUY, MSTR, MARA
-DIRECTION = "SELL"        # "BUY" or "SELL"
+DIRECTION = "BUY"        # "BUY" or "SELL"
 QUANTITY = 100           # Number of shares to trade
 LIMIT_PRICE = 11         # Limit price for the order
 

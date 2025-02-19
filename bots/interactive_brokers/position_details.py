@@ -98,7 +98,13 @@ try:
             if not app.pos_df.empty:
                 # Format the DataFrame for display
                 display_df = app.pos_df.copy()
-                pd.options.display.float_format = '${:,.2f}'.format
+                
+                # Set display format for monetary columns only
+                for col in ['Market Value', 'Unrealized PnL', 'Avg Cost']:
+                    display_df[col] = display_df[col].apply(lambda x: f'${x:,.2f}')
+                
+                # Position should be formatted as plain number
+                display_df['Position'] = display_df['Position'].apply(lambda x: f'{x:,.0f}')
                 
                 print("\n📊 Moon Dev's Position Summary:")
                 print("=" * 100)

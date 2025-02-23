@@ -13,8 +13,8 @@ SYMBOL = "ROKU"           # Symbol to trade - Available symbols:
                          # NTRA, ROKU, LVMH, ADBE, AMD, DE, TWST, PATH, BEAM, JD, TXG,
                          # GME, RKLB, CHWY, GTLB, DDOG, SNOW, CRM, PYPL, INTU, LMT,
                          # CAT, TEAM, NOW, AUR, PSTG, KMTUY, MSTR, MARA, HIMS
-DIRECTION = "BUY"        # "BUY" or "SELL"
-QUANTITY = 10             # Number of shares to trade
+DIRECTION = "SELL"        # "BUY" or "SELL"
+QUANTITY = 20             # Number of shares to trade
 
 # Connection Configuration
 PAPER_PORT = 7497         # Paper trading port

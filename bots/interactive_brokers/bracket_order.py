@@ -12,6 +12,8 @@ import pandas as pd
 SYMBOL = "SNAP"           # Symbol to trade - Available symbols:
                          # SNAP, PLTR, RDDT, APP, NVDA, TSLA, COIN, GOOG, SMCI, SHOP, 
                          # HOOD, CRSPR, LLY, TMSC, MELI, CRWD, RBLX, CROX, XYZ, TTD
+
+                        
 DIRECTION = "BUY"        # "BUY" or "SELL"
 QUANTITY = 100           # Number of shares to trade
 ENTRY_PRICE = 10.50      # Limit price for entry

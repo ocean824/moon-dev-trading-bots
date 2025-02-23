@@ -8,6 +8,7 @@ backtesting>=0.3.3
 
 # Data Collection
 yfinance>=0.2.18
+coinbase-advanced-py>=1.0.2  # Coinbase Advanced Trading SDK
 
 # Visualization
 matplotlib>=3.5.0

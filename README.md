@@ -67,6 +67,7 @@ The repository is organized into three main folders:
 - Historical price data
 - Data downloading scripts
 - Data processing utilities
+- data from yahoo, coinbase & hyperliquid
 
 ## 🛠️ Setup & Installation
 

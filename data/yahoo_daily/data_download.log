@@ -5964,3 +5964,44 @@
 2025-02-17 12:14:48,046 ERROR:
 1 Failed download:
 2025-02-17 12:14:48,046 ERROR:['GBPUSD=X']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (1d 2023-02-25 00:00:00 -> 2023-02-26 00:00:00)')
+2025-02-22 07:59:39,436 INFO:Starting download for ES=F
+2025-02-22 07:59:42,595 ERROR:
+1 Failed download:
+2025-02-22 07:59:42,595 ERROR:['ES=F']: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')
+2025-02-22 07:59:45,418 ERROR:
+1 Failed download:
+2025-02-22 07:59:45,418 ERROR:['ES=F']: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')
+2025-02-22 07:59:47,626 ERROR:
+1 Failed download:
+2025-02-22 07:59:47,626 ERROR:['ES=F']: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')
+2025-02-22 07:59:49,822 ERROR:
+1 Failed download:
+2025-02-22 07:59:49,822 ERROR:['ES=F']: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')
+2025-02-22 07:59:52,004 ERROR:
+1 Failed download:
+2025-02-22 07:59:52,004 ERROR:['ES=F']: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')
+2025-02-22 07:59:54,224 ERROR:
+1 Failed download:
+2025-02-22 07:59:54,224 ERROR:['ES=F']: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')
+2025-02-22 07:59:56,522 ERROR:
+1 Failed download:
+2025-02-22 07:59:56,522 ERROR:['ES=F']: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')
+2025-02-22 07:59:58,723 ERROR:
+1 Failed download:
+2025-02-22 07:59:58,723 ERROR:['ES=F']: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')
+2025-02-22 08:00:01,022 ERROR:
+1 Failed download:
+2025-02-22 08:00:01,022 ERROR:['ES=F']: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')
+2025-02-22 08:00:03,247 ERROR:
+1 Failed download:
+2025-02-22 08:00:03,247 ERROR:['ES=F']: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')
+2025-02-22 08:00:42,821 INFO:Starting download for NQ=F
+2025-02-22 08:00:44,933 ERROR:
+1 Failed download:
+2025-02-22 08:00:44,933 ERROR:['NQ=F']: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')
+2025-02-22 08:00:47,126 ERROR:
+1 Failed download:
+2025-02-22 08:00:47,126 ERROR:['NQ=F']: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')
+2025-02-22 08:00:49,335 ERROR:
+1 Failed download:
+2025-02-22 08:00:49,335 ERROR:['NQ=F']: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')

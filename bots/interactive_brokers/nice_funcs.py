@@ -415,9 +415,9 @@ if __name__ == "__main__":
     #prices = get_bid_ask("AAPL")
     
     # Test get OHLCV data
-    #data = get_ohlcv("AAPL", duration="30 Y", bar_size="15 mins")
+    data = get_ohlcv("AAPL", duration="30 Y", bar_size="15 mins")
     
-    # Test market hours
-    is_open = is_market_hours()
-    print(f"Market open: {is_open}")
-    pass
+    # # Test market hours
+    # is_open = is_market_hours()
+    # print(f"Market open: {is_open}")
+    # pass

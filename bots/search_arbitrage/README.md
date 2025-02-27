@@ -16,7 +16,7 @@ Search arbitrage is a digital marketing strategy that involves:
 - Sell clicks for $0.60+ (Google, etc.)
 - Profit $0.10+ per click
 
-With proper scaling, this can generate **$100k/DAY** with the right systems in place.
+With proper scaling, this can generate **$100k/MO** with the right systems in place.
 
 ## 🔍 Table of Contents
 
@@ -62,8 +62,8 @@ With proper scaling, this can generate **$100k/DAY** with the right systems in p
    - [RedTrack.io](https://redtrack.io/) - Traffic tracking and optimization
 
 2. **Ad Research**:
-   - Facebook Ad Library
-   - TikTok Ad Library
+   - [Facebook Ad Library](https://www.facebook.com/ads/library)
+   - [TikTok Ad Library](https://library.tiktok.com/ads)
    - [URL Decoder/Encoder](https://meyerweb.com/eric/tools/dencoder/)
 
 3. **Keyword Research**:
@@ -72,12 +72,7 @@ With proper scaling, this can generate **$100k/DAY** with the right systems in p
 
 4. **Creative Tools**:
    - Canva (for metadata changes)
-   - Video editing software
-
-### Recommended Services
-
-- [TheOptimizer.io](https://theoptimizer.io/)
-- [Trendzi.io](https://trendzi.io/) - Creative services for search ads
+   - Capcut (Video editing software)
 
 ## 🏗️ Setting Up Your Operation
 
@@ -121,6 +116,7 @@ With proper scaling, this can generate **$100k/DAY** with the right systems in p
    - Implement ClickFlare or Maximizer
    - Set up proper attribution models
    - Create stop-loss systems that auto-pause if CPA targets aren't met
+   - buyild custom tools to get an edge
 
 ## 💻 Traffic Sources Strategy
 

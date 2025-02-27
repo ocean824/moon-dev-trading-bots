@@ -38,7 +38,7 @@ With proper scaling, this can generate **$100k/MO** with the right systems in pl
 ### RSOC vs AFD
 
 - **RSOC (Related Search Organic Content)**: The current standard in search arbitrage. Requires one less click than AFD and provides higher advertiser quality.
-- **AFD (Arbitrage Funnel Design)**: An older product with lower margins.
+- **AFD (Adsense For Domains)**: An older product with lower margins.
 
 ### Key Players
 

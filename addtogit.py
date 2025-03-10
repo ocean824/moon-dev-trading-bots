@@ -19,7 +19,7 @@ def display_menu():
 def add_collaborator(repo_name, github_username):
     print(f"🚀 Moon Dev's Collaborator Adding System Initializing...")
 
-    g = Github('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')
+    g = Github('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') # this one is dead
     print(f"🔍 Attempting to access repositories...")
 
     try:

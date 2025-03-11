@@ -1,4 +1,6 @@
 '''
+NOT TESTED, PUT YOUR OWN IDEAS IN -- NON OF THIS IS TESTED OR FINANCIAL ADVICE
+
 This is looking for tiny gains when huge liquidations happened, 
 The premise behind this is Liquidations proved to back test well to just buy them. 
 That being said, the back test will never match up because as liquidation, you'll never get the entry at that point. 

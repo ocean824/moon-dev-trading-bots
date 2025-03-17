@@ -41,6 +41,9 @@ Available Methods:
 - get_oi_total(): Get total open interest data for ETH & BTC combined
 - get_copybot_follow_list(): Get Moon Dev's personal copy trading follow list (for reference only - DYOR!)
 - get_copybot_recent_transactions(): Get recent transactions from the followed wallets above
+- get_agg_positions_hlp(): Get aggregated positions on HLP data
+- get_positions_hlp(): Get detailed positions on HLP data
+- get_whale_addresses(): Get list of whale addresses
 
 
 
@@ -84,12 +87,13 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Get the project root directory
-PROJECT_ROOT = Path(__file__).parent.parent.parent
+PROJECT_ROOT = Path("/Users/md/Dropbox/dev/github/moon-dev-trading-bots")
 
 class MoonDevAPI:
     def __init__(self, api_key=None, base_url="http://api.moondev.com:8000"):
         """Initialize the API handler"""
-        self.base_dir = PROJECT_ROOT / "src" / "agents" / "api_data"
+        # Simplified data directory path
+        self.base_dir = PROJECT_ROOT / "data" / "moondev_api"
         self.base_dir.mkdir(parents=True, exist_ok=True)
         self.api_key = api_key or os.getenv('MOONDEV_API_KEY')
         self.base_url = base_url
@@ -99,8 +103,9 @@ class MoonDevAPI:
         self.chunk_size = 8192  # Smaller chunk size for more reliable downloads
         
         print("🌙 Moon Dev API: Ready to rock! 🚀")
-        print(f"📂 Cache directory: {self.base_dir.absolute()}")
+        print(f"📂 Data directory: {self.base_dir.absolute()}")
         print(f"🌐 API URL: {self.base_url}")
+        print(f"🔍 Debug - Project Root: {PROJECT_ROOT}")
         if not self.api_key:
             print("⚠️ No API key found! Please set MOONDEV_API_KEY in your .env file")
         else:
@@ -118,17 +123,30 @@ class MoonDevAPI:
             response = self.session.get(url, headers=self.headers)
             response.raise_for_status()
             
-            # Save to cache and read
+            # Save directly to moondev_api data directory
             save_path = self.base_dir / filename
+            print(f"🔍 Debug - Saving to: {save_path.absolute()}")
+            
+            # Ensure directory exists
+            self.base_dir.mkdir(parents=True, exist_ok=True)
+            
             with open(save_path, 'wb') as f:
                 f.write(response.content)
             
+            # Verify file was saved
+            if save_path.exists():
+                print(f"✅ File successfully saved to {save_path}")
+            else:
+                print(f"❌ Failed to save file to {save_path}")
+            
             df = pd.read_csv(save_path)
             print(f"✨ Successfully loaded {len(df)} rows from {filename}")
+            print(f"💾 Data saved to: {save_path}")
             return df
                 
         except Exception as e:
             print(f"💥 Error fetching {filename}: {str(e)}")
+            print(f"📋 Stack trace:\n{traceback.format_exc()}")
             return None
 
     def get_liquidation_data(self, limit=10000):
@@ -253,19 +271,54 @@ class MoonDevAPI:
                 
             response.raise_for_status()
             
-            # Save to cache and read
+            # Save directly to moondev_api data directory
             save_path = self.base_dir / "recent_txs.csv"
             with open(save_path, 'wb') as f:
                 f.write(response.content)
             
             df = pd.read_csv(save_path)
             print(f"✨ Successfully loaded {len(df)} rows from recent transactions")
+            print(f"💾 Data saved to: {save_path}")
             return df
                 
         except Exception as e:
             print(f"💥 Error fetching recent transactions: {str(e)}")
             if "403" in str(e):
                 print("❗ Make sure your API key is set in the .env file and has the correct permissions")
+            return None
+
+    def get_agg_positions_hlp(self):
+        """Get aggregated positions on HLP data"""
+        return self._fetch_csv("agg_positions_on_hlp.csv")
+
+    def get_positions_hlp(self):
+        """Get detailed positions on HLP data"""
+        return self._fetch_csv("positions_on_hlp.csv")
+
+    def get_whale_addresses(self):
+        """Get list of whale addresses"""
+        try:
+            print("🐋 Moon Dev API: Fetching whale addresses...")
+            
+            url = f'{self.base_url}/files/whale_addresses.txt'
+            response = self.session.get(url, headers=self.headers)
+            response.raise_for_status()
+            
+            # Save directly to moondev_api data directory
+            save_path = self.base_dir / "whale_addresses.txt"
+            with open(save_path, 'wb') as f:
+                f.write(response.content)
+            
+            # Read the text file
+            with open(save_path, 'r') as f:
+                addresses = f.read().splitlines()
+            
+            print(f"✨ Successfully loaded {len(addresses)} whale addresses")
+            print(f"💾 Data saved to: {save_path}")
+            return addresses
+                
+        except Exception as e:
+            print(f"💥 Error fetching whale addresses: {str(e)}")
             return None
 
 if __name__ == "__main__":
@@ -275,7 +328,8 @@ if __name__ == "__main__":
     # Initialize API
     api = MoonDevAPI()
     
-    print("\n📊 Testing Data...")
+    print("\n📊 Testing Data Storage...")
+    print(f"📂 Data will be saved to: {api.base_dir}")
     
     # Test Historical Liquidation Data
     print("\n💥 Testing Liquidation Data...")
@@ -289,11 +343,11 @@ if __name__ == "__main__":
     if funding_data is not None:
         print(f"✨ Latest Funding Data Preview:\n{funding_data.head()}")
     
-    # # Test New Solana Token Launches
-    # print("\n🔑 Testing Token Addresses...")
-    # token_data = api.get_token_addresses()
-    # if token_data is not None:
-    #     print(f"✨ Token Addresses Preview:\n{token_data.head()}")
+    # Test Token Addresses
+    print("\n🔑 Testing Token Addresses...")
+    token_data = api.get_token_addresses()
+    if token_data is not None:
+        print(f"✨ Token Addresses Preview:\n{token_data.head()}")
     
     # Test Total OI Data for ETH & BTC combined
     print("\n📈 Testing Total OI Data...")
@@ -307,18 +361,35 @@ if __name__ == "__main__":
     if oi_data is not None:
         print(f"✨ Detailed OI Data Preview:\n{oi_data.head()}")
     
-    # this is my personal copybot follow list it is not intented to be used by anyone else alone
-    # as always do your own research and build your own list of ppl but i put it here so you can see it
-    # print("\n👥 Testing CopyBot Follow List...")
-    # follow_list = api.get_copybot_follow_list()
-    # if follow_list is not None:
-    #     print(f"✨ Follow List Preview:\n{follow_list.head()}")
+    # Test CopyBot Follow List
+    print("\n👥 Testing CopyBot Follow List...")
+    follow_list = api.get_copybot_follow_list()
+    if follow_list is not None:
+        print(f"✨ Follow List Preview:\n{follow_list.head()}")
     
-    # from those people on the copy list, these are their recent transactions
-    # print("\n💸 Testing CopyBot Recent Transactions...")
-    # recent_txs = api.get_copybot_recent_transactions()
-    # if recent_txs is not None:
-    #     print(f"✨ Recent Transactions Preview:\n{recent_txs.head()}")
+    # Test CopyBot Recent Transactions
+    print("\n💸 Testing CopyBot Recent Transactions...")
+    recent_txs = api.get_copybot_recent_transactions()
+    if recent_txs is not None:
+        print(f"✨ Recent Transactions Preview:\n{recent_txs.head()}")
+    
+    # Test Aggregated Positions on HLP
+    print("\n📊 Testing Aggregated HLP Positions...")
+    agg_positions = api.get_agg_positions_hlp()
+    if agg_positions is not None:
+        print(f"✨ Aggregated HLP Positions Preview:\n{agg_positions.head()}")
+
+    # Test Detailed Positions on HLP
+    print("\n📊 Testing Detailed HLP Positions...")
+    positions = api.get_positions_hlp()
+    if positions is not None:
+        print(f"✨ Detailed HLP Positions Preview:\n{positions.head()}")
+
+    # Test Whale Addresses
+    print("\n🐋 Testing Whale Addresses...")
+    whale_addresses = api.get_whale_addresses()
+    if whale_addresses is not None:
+        print(f"✨ First few whale addresses:\n{whale_addresses[:5]}")
     
     print("\n✨ Moon Dev API Test Complete! ✨")
     print("\n💡 Note: Make sure to set MOONDEV_API_KEY in your .env file")

@@ -1608,3 +1608,8 @@ def symbol_info(symbol, price, stop_loss, take_profit, px_decimals, sz_decimals,
         "Take Profit": str(take_profit)
     }
 
+def get_current_price(symbol):
+    """Fetch the current price for a given symbol."""
+    ask, bid, _ = ask_bid(symbol)
+    return (ask + bid) / 2  # Return the mid price as the current price
+

@@ -112,42 +112,58 @@ class MoonDevAPI:
             print("🔑 API key loaded successfully!")
 
     def _fetch_csv(self, filename, limit=None):
-        """Fetch CSV data from the API"""
-        try:
-            print(f"🚀 Moon Dev API: Fetching {filename}{'with limit '+str(limit) if limit else ''}...")
-            
-            url = f'{self.base_url}/files/{filename}'
-            if limit:
-                url += f'?limit={limit}'
+        """Fetch CSV data from the API with retry logic"""
+        max_retries = 3
+        retry_delay = 2  # seconds
+        
+        for attempt in range(max_retries):
+            try:
+                print(f"🚀 Moon Dev API: Fetching {filename}{'with limit '+str(limit) if limit else ''}... (Attempt {attempt + 1}/{max_retries})")
                 
-            response = self.session.get(url, headers=self.headers)
-            response.raise_for_status()
-            
-            # Save directly to moondev_api data directory
-            save_path = self.base_dir / filename
-            print(f"🔍 Debug - Saving to: {save_path.absolute()}")
-            
-            # Ensure directory exists
-            self.base_dir.mkdir(parents=True, exist_ok=True)
-            
-            with open(save_path, 'wb') as f:
-                f.write(response.content)
-            
-            # Verify file was saved
-            if save_path.exists():
-                print(f"✅ File successfully saved to {save_path}")
-            else:
-                print(f"❌ Failed to save file to {save_path}")
-            
-            df = pd.read_csv(save_path)
-            print(f"✨ Successfully loaded {len(df)} rows from {filename}")
-            print(f"💾 Data saved to: {save_path}")
-            return df
+                url = f'{self.base_url}/files/{filename}'
+                if limit:
+                    url += f'?limit={limit}'
                 
-        except Exception as e:
-            print(f"💥 Error fetching {filename}: {str(e)}")
-            print(f"📋 Stack trace:\n{traceback.format_exc()}")
-            return None
+                # Use stream=True for better handling of large files
+                response = self.session.get(url, headers=self.headers, stream=True)
+                response.raise_for_status()
+                
+                # Save streamed content to a temporary file first
+                temp_file = self.base_dir / f"temp_{filename}"
+                with open(temp_file, 'wb') as f:
+                    # Use a larger chunk size for better performance
+                    for chunk in response.iter_content(chunk_size=8192*16):
+                        if chunk:
+                            f.write(chunk)
+                
+                # Once download is complete, read the file
+                df = pd.read_csv(temp_file)
+                print(f"✨ Successfully loaded {len(df)} rows from {filename}")
+                
+                # Move temp file to final location
+                final_file = self.base_dir / filename
+                temp_file.rename(final_file)
+                
+                print(f"💾 Data saved to: {final_file}")
+                return df
+                
+            except (requests.exceptions.ChunkedEncodingError, 
+                    requests.exceptions.ConnectionError,
+                    requests.exceptions.RequestException) as e:
+                print(f"⚠️ Attempt {attempt + 1} failed: {str(e)}")
+                if attempt < max_retries - 1:
+                    print(f"🔄 Retrying in {retry_delay} seconds...")
+                    time.sleep(retry_delay)
+                    retry_delay *= 2  # Exponential backoff
+                else:
+                    print(f"💥 Error fetching {filename} after {max_retries} attempts: {str(e)}")
+                    print(f"📋 Stack trace:\n{traceback.format_exc()}")
+                    return None
+                    
+            except Exception as e:
+                print(f"💥 Unexpected error fetching {filename}: {str(e)}")
+                print(f"📋 Stack trace:\n{traceback.format_exc()}")
+                return None
 
     def get_liquidation_data(self, limit=10000):
         """Get liquidation data from API, limited to last N rows by default"""
@@ -328,50 +344,50 @@ if __name__ == "__main__":
     # Initialize API
     api = MoonDevAPI()
     
-    print("\n📊 Testing Data Storage...")
-    print(f"📂 Data will be saved to: {api.base_dir}")
+    # print("\n📊 Testing Data Storage...")
+    # print(f"📂 Data will be saved to: {api.base_dir}")
     
-    # Test Historical Liquidation Data
-    print("\n💥 Testing Liquidation Data...")
-    liq_data = api.get_liquidation_data(limit=10000)
-    if liq_data is not None:
-        print(f"✨ Latest Liquidation Data Preview:\n{liq_data.head()}")
+    # # Test Historical Liquidation Data
+    # print("\n💥 Testing Liquidation Data...")
+    # liq_data = api.get_liquidation_data(limit=10000)
+    # if liq_data is not None:
+    #     print(f"✨ Latest Liquidation Data Preview:\n{liq_data.head()}")
     
-    # Test Funding Rate Data
-    print("\n💰 Testing Funding Data...")
-    funding_data = api.get_funding_data()
-    if funding_data is not None:
-        print(f"✨ Latest Funding Data Preview:\n{funding_data.head()}")
+    # # Test Funding Rate Data
+    # print("\n💰 Testing Funding Data...")
+    # funding_data = api.get_funding_data()
+    # if funding_data is not None:
+    #     print(f"✨ Latest Funding Data Preview:\n{funding_data.head()}")
     
-    # Test Token Addresses
-    print("\n🔑 Testing Token Addresses...")
-    token_data = api.get_token_addresses()
-    if token_data is not None:
-        print(f"✨ Token Addresses Preview:\n{token_data.head()}")
+    # # Test Token Addresses
+    # print("\n🔑 Testing Token Addresses...")
+    # token_data = api.get_token_addresses()
+    # if token_data is not None:
+    #     print(f"✨ Token Addresses Preview:\n{token_data.head()}")
     
-    # Test Total OI Data for ETH & BTC combined
-    print("\n📈 Testing Total OI Data...")
-    oi_total = api.get_oi_total()
-    if oi_total is not None:
-        print(f"✨ Total OI Data Preview:\n{oi_total.head()}")
+    # # Test Total OI Data for ETH & BTC combined
+    # print("\n📈 Testing Total OI Data...")
+    # oi_total = api.get_oi_total()
+    # if oi_total is not None:
+    #     print(f"✨ Total OI Data Preview:\n{oi_total.head()}")
     
-    # Test Detailed OI Data for ETH or BTC
-    print("\n📊 Testing Detailed OI Data...")
-    oi_data = api.get_oi_data()
-    if oi_data is not None:
-        print(f"✨ Detailed OI Data Preview:\n{oi_data.head()}")
+    # # Test Detailed OI Data for ETH or BTC
+    # print("\n📊 Testing Detailed OI Data...")
+    # oi_data = api.get_oi_data()
+    # if oi_data is not None:
+    #     print(f"✨ Detailed OI Data Preview:\n{oi_data.head()}")
     
-    # Test CopyBot Follow List
-    print("\n👥 Testing CopyBot Follow List...")
-    follow_list = api.get_copybot_follow_list()
-    if follow_list is not None:
-        print(f"✨ Follow List Preview:\n{follow_list.head()}")
+    # # Test CopyBot Follow List
+    # print("\n👥 Testing CopyBot Follow List...")
+    # follow_list = api.get_copybot_follow_list()
+    # if follow_list is not None:
+    #     print(f"✨ Follow List Preview:\n{follow_list.head()}")
     
-    # Test CopyBot Recent Transactions
-    print("\n💸 Testing CopyBot Recent Transactions...")
-    recent_txs = api.get_copybot_recent_transactions()
-    if recent_txs is not None:
-        print(f"✨ Recent Transactions Preview:\n{recent_txs.head()}")
+    # # Test CopyBot Recent Transactions
+    # print("\n💸 Testing CopyBot Recent Transactions...")
+    # recent_txs = api.get_copybot_recent_transactions()
+    # if recent_txs is not None:
+    #     print(f"✨ Recent Transactions Preview:\n{recent_txs.head()}")
     
     # Test Aggregated Positions on HLP
     print("\n📊 Testing Aggregated HLP Positions...")

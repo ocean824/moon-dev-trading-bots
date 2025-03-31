@@ -748,18 +748,12 @@ def display_market_metrics():
                 response.raise_for_status()
                 data = response.json()
                 
-                # Get the funding rate and convert to percentage
-                funding_rate = float(data['lastFundingRate']) * 100  # Convert to percentage
-                
-                # Print debug info for funding rate calculation
-                print(f"{Fore.CYAN}🔍 {token} Raw 8hr Funding Rate: {funding_rate}%")
-                
-                # Annualize the rate (3 periods per day * 365 days)
-                yearly_rate = funding_rate * 3 * 365
-                
-                print(f"{Fore.CYAN}📊 {token} Annualized Rate: {yearly_rate}%")
-                
+                # Get the raw funding rate from the API and calculate annualized rate
+                raw_funding_rate = float(data['lastFundingRate'])
+                funding_rate_pct = raw_funding_rate * 100
+                yearly_rate = funding_rate_pct * 3 * 365
                 binance_funding_rates[token] = yearly_rate
+                
             except Exception as e:
                 print(f"{Fore.RED}❌ Error fetching Binance funding rate for {token}: {str(e)}")
                 binance_funding_rates[token] = None

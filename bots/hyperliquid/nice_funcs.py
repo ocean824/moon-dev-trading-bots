@@ -36,7 +36,6 @@ rounding = 4
 cb_symbol = symbol + '/USDT' #BTC/USD
 
 def ask_bid(symbol):
-
     url = 'https://api.hyperliquid.xyz/info'
     headers = {'Content-Type': 'application/json'}
 
@@ -47,10 +46,7 @@ def ask_bid(symbol):
 
     response = requests.post(url, headers=headers, data=json.dumps(data))
     l2_data = response.json()
-    print(f'symbol: {symbol}....')
-    #print(l2_data)
     l2_data = l2_data['levels']
-    #print(l2_data)
 
     # get bid and ask 
     bid = float(l2_data[0][0]['px'])
@@ -770,6 +766,7 @@ def spot_kill_switch(sym, hoe_ass_symbol, account, market_order=False):
         
         # Check position again
         positions, in_pos, size, pos_sym, entry_px, pnl_perc, long = get_spot_position(sym, account)
+
 def kill_switch(symbol, account):
 
     positions, im_in_pos, pos_size, pos_sym, entry_px, pnl_perc, long = get_position(symbol, account)

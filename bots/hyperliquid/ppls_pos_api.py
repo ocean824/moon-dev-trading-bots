@@ -67,10 +67,10 @@ MOON_DEV_QUOTES = [
 # ===== CONFIGURATION =====
 DATA_DIR = "bots/hyperliquid/data/ppls_positions_api"  # Directory path, not file path
 MIN_POSITION_VALUE = 25000  # Only track positions with value >= $25,000
-TOP_N_POSITIONS = 25  # Number of top positions to display
+TOP_N_POSITIONS = 30  # Number of top positions to display
 
 # List of tokens to analyze for positions closest to liquidation
-TOKENS_TO_ANALYZE = ['BTC', 'ETH', 'WIF', 'SOL', 'FARTCOIN', 'BNB']
+TOKENS_TO_ANALYZE = ['BTC', 'ETH', 'XRP', 'SOL']
 
 # Highlight threshold for positions
 HIGHLIGHT_THRESHOLD = 2000000  # $2 million
@@ -83,8 +83,7 @@ def ensure_data_dir():
     """Ensure the data directory exists"""
     try:
         os.makedirs(DATA_DIR, exist_ok=True)
-        print(f"{Fore.CYAN}🌙 Moon Dev says: {Fore.GREEN}Data directory ready at {DATA_DIR} 🚀")
-        print(f"{Fore.MAGENTA}💫 Thanks for using Moon Dev's API-powered tools! 💫")
+        print(f"{Fore.GREEN}✅ Data directory ready at {DATA_DIR}")
     except Exception as e:
         print(f"{Fore.RED}⚠️ Error creating directory: {str(e)}")
         return False
@@ -115,7 +114,7 @@ def display_top_individual_positions(df, n=TOP_N_POSITIONS):
         inconsistent_positions = valid_liq_df[~valid_liq_df['position_type_verified']]
         
         if len(inconsistent_positions) > 0:
-            print(f"{Fore.YELLOW}⚠️ Note: Some positions being displayed have been reclassified based on their liquidation prices.")
+            print(f"{Fore.YELLOW}⚠️ Note: Some positions have been reclassified based on their liquidation prices.")
             
             # Create a corrected position type column based on liquidation vs entry price
             valid_liq_df['is_long_corrected'] = valid_liq_df['liquidation_price'] < valid_liq_df['entry_price']
@@ -130,14 +129,9 @@ def display_top_individual_positions(df, n=TOP_N_POSITIONS):
     longs = display_df[display_df['is_long']].sort_values('position_value', ascending=False)
     shorts = display_df[~display_df['is_long']].sort_values('position_value', ascending=False)
     
-    # Print header with fancy box
-    print(f"\n{Fore.CYAN}{'='*120}")
-    print(f"{Fore.CYAN}{'='*35} 🐳 TOP INDIVIDUAL WHALE POSITIONS 🐳 {'='*35}")
-    print(f"{Fore.CYAN}{'='*120}")
-    
     # Display top long positions
     print(f"\n{Fore.GREEN}{Style.BRIGHT}🚀 TOP {n} INDIVIDUAL LONG POSITIONS 📈")
-    print(f"{Fore.GREEN}{'-'*120}")
+    print(f"{Fore.GREEN}{'-'*80}")
     
     if len(longs) > 0:
         for i, (_, row) in enumerate(longs.head(n).iterrows(), 1):
@@ -155,7 +149,7 @@ def display_top_individual_positions(df, n=TOP_N_POSITIONS):
     
     # Display top short positions
     print(f"\n{Fore.RED}{Style.BRIGHT}💥 TOP {n} INDIVIDUAL SHORT POSITIONS 📉")
-    print(f"{Fore.RED}{'-'*120}")
+    print(f"{Fore.RED}{'-'*80}")
     
     if len(shorts) > 0:
         for i, (_, row) in enumerate(shorts.head(n).iterrows(), 1):
@@ -171,11 +165,6 @@ def display_top_individual_positions(df, n=TOP_N_POSITIONS):
     else:
         print(f"{Fore.YELLOW}No short positions found!")
     
-    # Print footer
-    print(f"\n{Fore.CYAN}{'='*120}")
-    print(f"{Fore.CYAN}{'='*30} 🌙 Moon Dev Whale Tracker - Happy Trading! 🚀 {'='*30}")
-    print(f"{Fore.CYAN}{'='*120}")
-    
     return longs.head(n), shorts.head(n)
 
 def display_risk_metrics(df):
@@ -184,10 +173,6 @@ def display_risk_metrics(df):
     """
     if df is None or df.empty:
         return None, None, None
-    
-    print(f"\n{Fore.CYAN}{'='*120}")
-    print(f"{Fore.CYAN}{'='*35} 🔥 POSITIONS CLOSEST TO LIQUIDATION 🔥 {'='*35}")
-    print(f"{Fore.CYAN}{'='*120}")
     
     # Create a copy to avoid modifying the original
     risk_df = df.copy()
@@ -205,10 +190,7 @@ def display_risk_metrics(df):
     # Fetch current prices for tokens in TOKENS_TO_ANALYZE once
     unique_coins = risk_df['coin'].unique()
     current_prices = {coin: n.get_current_price(coin) for coin in unique_coins}
-    print(f"{Fore.CYAN}🔍 Fetching current prices for: {', '.join(unique_coins)}")
-    for coin, price in current_prices.items():
-        print(f"{Fore.YELLOW}💰 Current price for {coin}: ${price:,.2f}")
-
+    
     # Add current price to the DataFrame
     risk_df['current_price'] = risk_df['coin'].map(current_prices)
     
@@ -232,11 +214,18 @@ def display_risk_metrics(df):
     
     # Display positions closest to liquidation - LONGS
     print(f"\n{Fore.GREEN}{Style.BRIGHT}🚀 TOP {TOP_N_POSITIONS} LONG POSITIONS CLOSEST TO LIQUIDATION 📈")
-    print(f"{Fore.GREEN}{'-'*120}")
+    print(f"{Fore.GREEN}{'-'*80}")
     
     if len(risky_longs) > 0:
+        running_total_value = 0
+        highest_distance = 0  # Track highest distance instead of closest
+        last_pct_threshold = 0  # Track the last percentage threshold for 2% summaries
+        
         for i, (_, row) in enumerate(risky_longs.head(TOP_N_POSITIONS).iterrows(), 1):
             highlight = row['position_value'] > HIGHLIGHT_THRESHOLD
+            running_total_value += row['position_value']
+            highest_distance = max(highest_distance, row['distance_to_liq_pct'])  # Track max instead of min
+            
             display_text = f"{Fore.GREEN}#{i} {Fore.YELLOW}{row['coin']} {Fore.GREEN}${row['position_value']:,.2f} " + \
                            f"{Fore.BLUE}| Entry: ${row['entry_price']:,.2f} " + \
                            f"{Fore.RED}| Liq: ${row['liquidation_price']:,.2f} " + \
@@ -244,7 +233,6 @@ def display_risk_metrics(df):
                            f"{Fore.MAGENTA}| Distance: {row['distance_to_liq_pct']:.2f}% " + \
                            f"{Fore.CYAN}| Leverage: {row['leverage']}x"
             if highlight:
-                # Use darker colors on yellow background for better readability
                 display_text = colored(f"#{i} {row['coin']} ${row['position_value']:,.2f} " + \
                                f"| Entry: ${row['entry_price']:,.2f} " + \
                                f"| Liq: ${row['liquidation_price']:,.2f} " + \
@@ -253,16 +241,36 @@ def display_risk_metrics(df):
                                f"| Leverage: {row['leverage']}x", 'black', 'on_yellow')
             print(display_text)
             print(f"{Fore.CYAN}   Address: {row['address']}")
+            
+            # Add aggregate summary every 10 positions
+            if i % 10 == 0:
+                agg_display = f"📊 AGGREGATE (1-{i}): Total Long Positions: ${running_total_value:,.2f} | All Liquidated Within: {highest_distance:.2f}%"
+                print(colored(agg_display, 'black', 'on_cyan'))
+                print(f"{Fore.CYAN}{'-'*80}")
+            
+            # Add aggregate summary every 2% distance threshold
+            current_pct_threshold = int(row['distance_to_liq_pct'] / 2) * 2
+            if current_pct_threshold > last_pct_threshold:
+                pct_agg_display = f"📊 LIQUIDATION THRESHOLD 0-{current_pct_threshold}%: Total Long Value: ${running_total_value:,.2f}"
+                print(colored(pct_agg_display, 'white', 'on_blue'))
+                last_pct_threshold = current_pct_threshold
     else:
         print(f"{Fore.YELLOW}No long positions with liquidation prices found!")
     
     # Display positions closest to liquidation - SHORTS
     print(f"\n{Fore.RED}{Style.BRIGHT}💥 TOP {TOP_N_POSITIONS} SHORT POSITIONS CLOSEST TO LIQUIDATION 📉")
-    print(f"{Fore.RED}{'-'*120}")
+    print(f"{Fore.RED}{'-'*80}")
     
     if len(risky_shorts) > 0:
+        running_total_value = 0
+        highest_distance = 0  # Track highest distance instead of closest
+        last_pct_threshold = 0  # Track the last percentage threshold for 2% summaries
+        
         for i, (_, row) in enumerate(risky_shorts.head(TOP_N_POSITIONS).iterrows(), 1):
             highlight = row['position_value'] > HIGHLIGHT_THRESHOLD
+            running_total_value += row['position_value']
+            highest_distance = max(highest_distance, row['distance_to_liq_pct'])  # Track max instead of min
+            
             display_text = f"{Fore.RED}#{i} {Fore.YELLOW}{row['coin']} {Fore.RED}${row['position_value']:,.2f} " + \
                            f"{Fore.BLUE}| Entry: ${row['entry_price']:,.2f} " + \
                            f"{Fore.RED}| Liq: ${row['liquidation_price']:,.2f} " + \
@@ -270,7 +278,6 @@ def display_risk_metrics(df):
                            f"{Fore.MAGENTA}| Distance: {row['distance_to_liq_pct']:.2f}% " + \
                            f"{Fore.CYAN}| Leverage: {row['leverage']}x"
             if highlight:
-                # Use darker colors on yellow background for better readability
                 display_text = colored(f"#{i} {row['coin']} ${row['position_value']:,.2f} " + \
                                f"| Entry: ${row['entry_price']:,.2f} " + \
                                f"| Liq: ${row['liquidation_price']:,.2f} " + \
@@ -279,13 +286,21 @@ def display_risk_metrics(df):
                                f"| Leverage: {row['leverage']}x", 'black', 'on_yellow')
             print(display_text)
             print(f"{Fore.CYAN}   Address: {row['address']}")
+            
+            # Add aggregate summary every 10 positions
+            if i % 10 == 0:
+                agg_display = f"📊 AGGREGATE (1-{i}): Total Short Positions: ${running_total_value:,.2f} | All Liquidated Within: {highest_distance:.2f}%"
+                print(colored(agg_display, 'black', 'on_cyan'))
+                print(f"{Fore.CYAN}{'-'*80}")
+            
+            # Add aggregate summary every 2% distance threshold
+            current_pct_threshold = int(row['distance_to_liq_pct'] / 2) * 2
+            if current_pct_threshold > last_pct_threshold:
+                pct_agg_display = f"📊 LIQUIDATION THRESHOLD 0-{current_pct_threshold}%: Total Short Value: ${running_total_value:,.2f}"
+                print(colored(pct_agg_display, 'white', 'on_blue'))
+                last_pct_threshold = current_pct_threshold
     else:
         print(f"{Fore.YELLOW}No short positions with liquidation prices found!")
-    
-    # Print footer
-    print(f"\n{Fore.CYAN}{'='*120}")
-    print(f"{Fore.CYAN}{'='*30} 🌙 Moon Dev Liquidation Tracker - Trade Safely! 🚀 {'='*30}")
-    print(f"{Fore.CYAN}{'='*120}")
     
     return risky_longs.head(TOP_N_POSITIONS), risky_shorts.head(TOP_N_POSITIONS), current_prices
 
@@ -306,7 +321,6 @@ def save_liquidation_risk_to_csv(risky_longs_df, risky_shorts_df):
         # Save to CSV
         longs_file = os.path.join(DATA_DIR, "liquidation_closest_long_positions.csv")
         risky_longs_df.to_csv(longs_file, index=False, float_format='%.2f')
-        print(f"{Fore.GREEN}🌙 Moon Dev says: Saved {len(risky_longs_df)} long positions closest to liquidation to {longs_file} 🚀")
     
     # Save risky short positions
     if risky_shorts_df is not None and not risky_shorts_df.empty:
@@ -317,7 +331,6 @@ def save_liquidation_risk_to_csv(risky_longs_df, risky_shorts_df):
         # Save to CSV
         shorts_file = os.path.join(DATA_DIR, "liquidation_closest_short_positions.csv")
         risky_shorts_df.to_csv(shorts_file, index=False, float_format='%.2f')
-        print(f"{Fore.GREEN}🌙 Moon Dev says: Saved {len(risky_shorts_df)} short positions closest to liquidation to {shorts_file} 🚀")
     
     # Combine risky long and short positions into a single file
     if (risky_longs_df is not None and not risky_longs_df.empty) or (risky_shorts_df is not None and not risky_shorts_df.empty):
@@ -330,7 +343,10 @@ def save_liquidation_risk_to_csv(risky_longs_df, risky_shorts_df):
         # Save to CSV
         combined_file = os.path.join(DATA_DIR, "liquidation_closest_positions.csv")
         combined_df.to_csv(combined_file, index=False, float_format='%.2f')
-        print(f"{Fore.GREEN}🌙 Moon Dev says: Saved {len(combined_df)} positions closest to liquidation to {combined_file} 🚀")
+        # Create a combined message about all files saved
+        long_count = 0 if risky_longs_df is None else len(risky_longs_df)
+        short_count = 0 if risky_shorts_df is None else len(risky_shorts_df)
+        print(f"{Fore.GREEN}🌙 Moon Dev says: Saved {long_count} long and {short_count} short positions closest to liquidation to CSV files 🚀")
 
 def save_top_whale_positions_to_csv(longs_df, shorts_df):
     """
@@ -352,7 +368,6 @@ def save_top_whale_positions_to_csv(longs_df, shorts_df):
         # Save to CSV
         longs_file = os.path.join(DATA_DIR, "top_whale_long_positions.csv")
         longs_df.to_csv(longs_file, index=False, float_format='%.2f')
-        print(f"{Fore.GREEN}🌙 Moon Dev says: Saved {len(longs_df)} top long whale positions to {longs_file} 🚀")
     
     # Save top short positions
     if shorts_df is not None and not shorts_df.empty:
@@ -363,7 +378,6 @@ def save_top_whale_positions_to_csv(longs_df, shorts_df):
         # Save to CSV
         shorts_file = os.path.join(DATA_DIR, "top_whale_short_positions.csv")
         shorts_df.to_csv(shorts_file, index=False, float_format='%.2f')
-        print(f"{Fore.GREEN}🌙 Moon Dev says: Saved {len(shorts_df)} top short whale positions to {shorts_file} 🚀")
     
     # Combine long and short positions into a single file
     if (longs_df is not None and not longs_df.empty) or (shorts_df is not None and not shorts_df.empty):
@@ -388,7 +402,6 @@ def process_positions(df, coin_filter=None):
         return pd.DataFrame()
     
     print(f"{Fore.CYAN}🔍 Processing {len(df)} positions...")
-    print(f"{Fore.YELLOW}🪄 {get_random_quote()}")
     
     # Filter positions below minimum value threshold
     filtered_df = df[df['position_value'] >= MIN_POSITION_VALUE].copy()
@@ -419,8 +432,6 @@ def process_positions(df, coin_filter=None):
         
         if len(inconsistent_positions) > 0:
             print(f"{Fore.RED}⚠️ WARNING: Found {len(inconsistent_positions)} positions with inconsistent position types!")
-            print(f"{Fore.RED}⚠️ For long positions, liquidation price should be LOWER than entry price.")
-            print(f"{Fore.RED}⚠️ For short positions, liquidation price should be HIGHER than entry price.")
             print(f"{Fore.YELLOW}🔧 Correcting position types based on liquidation vs. entry price relationships...")
             
             # Create a corrected position type column based on liquidation vs entry price
@@ -439,12 +450,11 @@ def process_positions(df, coin_filter=None):
         coin_filter = coin_filter.upper()  # Convert to uppercase for case-insensitive matching
         filtered_df = filtered_df[filtered_df['coin'] == coin_filter]
         print(f"{Fore.MAGENTA}🪙 Filtering for {coin_filter} positions only")
-        print(f"{Fore.MAGENTA}🔍 Found {len(filtered_df)} {coin_filter} positions with value >= ${MIN_POSITION_VALUE:,}")
     
     print(f"{Fore.GREEN}✅ Processed {len(filtered_df)} positions after filtering (min value: ${MIN_POSITION_VALUE:,})")
     return filtered_df
 
-def save_positions_to_csv(df, current_prices=None):
+def save_positions_to_csv(df, current_prices=None, quiet=False):
     """
     Save all positions to a CSV file and create aggregated views
     """
@@ -461,10 +471,8 @@ def save_positions_to_csv(df, current_prices=None):
     # Save all positions
     positions_file = os.path.join(DATA_DIR, "all_positions.csv")
     df.to_csv(positions_file, index=False, float_format='%.2f')
-    print(f"{Fore.GREEN}🌙 Moon Dev says: Saved {len(df)} positions to {positions_file} 🚀")
     
     # Create and save aggregated view
-    print(f"\n{Fore.YELLOW}🔄 Creating aggregated view...")
     agg_df = df.groupby(['coin', 'is_long']).agg({
         'position_value': 'sum',
         'unrealized_pnl': 'sum',
@@ -492,7 +500,6 @@ def save_positions_to_csv(df, current_prices=None):
     # Save aggregated view
     agg_file = os.path.join(DATA_DIR, "aggregated_positions.csv")
     agg_df.to_csv(agg_file, index=False, float_format='%.2f')
-    print(f"{Fore.GREEN}📊 Saved aggregated positions to {agg_file}")
     
     # Display summaries (for terminal display only, not affecting CSV output)
     print(f"\n{Fore.CYAN}{'='*30} POSITION SUMMARY {'='*30}")
@@ -527,16 +534,13 @@ def save_positions_to_csv(df, current_prices=None):
     # Check if we still need to get prices (should never happen as display_risk_metrics has already fetched them)
     if current_prices is None:
         # Fetch current prices for tokens in TOKENS_TO_ANALYZE only if needed
-        print(f"{Fore.YELLOW}🔍 No current prices available, fetching now...")
         unique_coins = df[df['coin'].isin(TOKENS_TO_ANALYZE)]['coin'].unique()
         current_prices = {coin: n.get_current_price(coin) for coin in unique_coins}
-        for coin, price in current_prices.items():
-            print(f"{Fore.YELLOW}💰 Current price for {coin}: ${price:,.2f}")
 
     # Use current prices for liquidation impact analysis
-    print(f"\n{Fore.CYAN}{'='*120}")
-    print(f"{Fore.CYAN}{'='*35} 💥 LIQUIDATION IMPACT FOR 3% PRICE MOVE 💥 {'='*35}")
-    print(f"{Fore.CYAN}{'='*120}")
+    print(f"\n{Fore.CYAN}{'='*80}")
+    print(f"{Fore.CYAN}{'='*20} 💥 LIQUIDATION IMPACT FOR 3% PRICE MOVE 💥 {'='*20}")
+    print(f"{Fore.CYAN}{'='*80}")
 
     # Initialize dictionaries to track liquidation values
     total_long_liquidations = {}
@@ -546,33 +550,34 @@ def save_positions_to_csv(df, current_prices=None):
     
     for coin in TOKENS_TO_ANALYZE:
         if coin not in current_prices:
-            print(f"{Fore.YELLOW}⚠️ No price data for {coin}, skipping...")
             continue
             
         # Filter positions for the current coin
         coin_positions = df[df['coin'] == coin].copy()
         if coin_positions.empty:
-            print(f"{Fore.YELLOW}⚠️ No positions found for {coin}, skipping...")
             continue
 
         # Add current price to the coin positions DataFrame
         current_price = current_prices[coin]
         coin_positions['current_price'] = current_price
         
-        # Calculate 3% price move
-        coin_positions['price_move'] = coin_positions['current_price'] * 0.03
+        # Calculate price levels for 3% moves
+        price_3pct_down = current_price * 0.97
+        price_3pct_up = current_price * 1.03
 
         # Calculate potential liquidations for long positions
         long_liquidations = coin_positions[(coin_positions['is_long']) &
-                                         (coin_positions['liquidation_price'] >= coin_positions['current_price'] - coin_positions['price_move'])]
+                                         (coin_positions['liquidation_price'] >= price_3pct_down) &
+                                         (coin_positions['liquidation_price'] <= current_price)]
+        
         total_long_liquidation_value = long_liquidations['position_value'].sum()
-        long_price_after_move = current_price - (current_price * 0.03)
-
+        
         # Calculate potential liquidations for short positions
         short_liquidations = coin_positions[(~coin_positions['is_long']) &
-                                          (coin_positions['liquidation_price'] <= coin_positions['current_price'] + coin_positions['price_move'])]
+                                          (coin_positions['liquidation_price'] <= price_3pct_up) &
+                                          (coin_positions['liquidation_price'] >= current_price)]
+        
         total_short_liquidation_value = short_liquidations['position_value'].sum()
-        short_price_after_move = current_price + (current_price * 0.03)
 
         # Store liquidation values in dictionary
         total_long_liquidations[coin] = total_long_liquidation_value
@@ -582,32 +587,33 @@ def save_positions_to_csv(df, current_prices=None):
         all_long_liquidations += total_long_liquidation_value
         all_short_liquidations += total_short_liquidation_value
 
-        # Display results
-        print(f"{Fore.GREEN}{coin} Long Liquidations (3% move DOWN to ${long_price_after_move:,.2f}): ${total_long_liquidation_value:,.2f}")
-        print(f"{Fore.RED}{coin} Short Liquidations (3% move UP to ${short_price_after_move:,.2f}): ${total_short_liquidation_value:,.2f}")
+        # Display results (only if not in quiet mode)
+        if not quiet:
+            print(f"{Fore.GREEN}{coin} Long Liquidations (3% move DOWN to ${price_3pct_down:,.2f}): ${total_long_liquidation_value:,.2f}")
+            print(f"{Fore.RED}{coin} Short Liquidations (3% move UP to ${price_3pct_up:,.2f}): ${total_short_liquidation_value:,.2f}")
 
     # Display summary of total liquidations
-    print(f"\n{Fore.CYAN}{'='*120}")
-    print(f"{Fore.CYAN}{'='*35} 💰 TOTAL LIQUIDATION SUMMARY 💰 {'='*35}")
-    print(f"{Fore.CYAN}{'='*120}")
+    print(f"\n{Fore.CYAN}{'='*80}")
+    print(f"{Fore.CYAN}{'='*25} 💰 TOTAL LIQUIDATION SUMMARY 💰 {'='*25}")
+    print(f"{Fore.CYAN}{'='*80}")
     print(f"{Fore.GREEN}Total Long Liquidations (3% move DOWN): ${all_long_liquidations:,.2f}")
     print(f"{Fore.RED}Total Short Liquidations (3% move UP): ${all_short_liquidations:,.2f}")
     
     # Generate trading recommendations based on liquidation imbalance
-    print(f"\n{Fore.CYAN}{'='*120}")
-    print(f"{Fore.CYAN}{'='*35} 🚀 TRADING RECOMMENDATIONS 🚀 {'='*35}")
-    print(f"{Fore.CYAN}{'='*120}")
+    print(f"\n{Fore.CYAN}{'='*80}")
+    print(f"{Fore.CYAN}{'='*20} 🚀 MARKET DIRECTION (NFA) 🚀 {'='*20}")
+    print(f"{Fore.CYAN}{'='*80}")
     
-    # Overall market recommendation
+    # Overall market direction
     if all_long_liquidations > all_short_liquidations:
-        recommendation = f"MARKET RECOMMENDATION: SHORT THE MARKET (${all_long_liquidations:,.2f} long liquidations at risk within a 3% move of current price)"
-        print(f"{Back.GREEN}{Fore.BLACK}{Style.BRIGHT}{recommendation}{Style.RESET_ALL}")
+        direction = f"MARKET DIRECTION (NFA): SHORT THE MARKET (${all_long_liquidations:,.2f} long liquidations at risk within a 3% move of current price)"
+        print(f"{Back.GREEN}{Fore.BLACK}{Style.BRIGHT}{direction}{Style.RESET_ALL}")
     else:
-        recommendation = f"MARKET RECOMMENDATION: LONG THE MARKET (${all_short_liquidations:,.2f} short liquidations at risk within a 3% move of current price)"
-        print(f"{Back.GREEN}{Fore.BLACK}{Style.BRIGHT}{recommendation}{Style.RESET_ALL}")
+        direction = f"MARKET DIRECTION (NFA): LONG THE MARKET (${all_short_liquidations:,.2f} short liquidations at risk within a 3% move of current price)"
+        print(f"{Back.GREEN}{Fore.BLACK}{Style.BRIGHT}{direction}{Style.RESET_ALL}")
     
-    # Individual coin recommendations
-    print(f"\n{Fore.CYAN}{'='*30} INDIVIDUAL COIN RECOMMENDATIONS {'='*30}")
+    # Individual coin directions
+    print(f"\n{Fore.CYAN}{'='*30} INDIVIDUAL COIN DIRECTION (NFA) {'='*30}")
     
     # Sort coins by liquidation imbalance (largest difference first)
     liquidation_imbalance = {}
@@ -621,7 +627,7 @@ def save_positions_to_csv(df, current_prices=None):
         long_liq = total_long_liquidations[coin]
         short_liq = total_short_liquidations[coin]
         
-        # Only show recommendations for coins with significant liquidation risk
+        # Only show directions for coins with significant liquidation risk
         if long_liq < 10000 and short_liq < 10000:
             continue
             
@@ -633,12 +639,123 @@ def save_positions_to_csv(df, current_prices=None):
             print(f"{Back.GREEN}{Fore.BLACK}{Style.BRIGHT}{rec}{Style.RESET_ALL}")
     
     print(f"\n{Fore.MAGENTA}💡 Trading strategy: Target coins with largest liquidation imbalance for potential cascade liquidations")
-    print(f"{Fore.YELLOW}⚠️ Moon Dev says: Always use proper risk management! Liquidation hunting is high-risk trading!")
+    print(f"{Fore.YELLOW}⚠️ NFA: This analysis is NOT financial advice. Always do your own research! 📚")
+    
+    # Create liquidation thresholds table
+    create_liquidation_thresholds_table(df, current_prices, quiet)
 
-    print(f"{Fore.CYAN}{'='*80}")
-    print(f"{Fore.CYAN}{'='*20} 🌙 Moon Dev Liquidation Impact Analysis Complete! 🚀 {'='*20}")
+    # Combine the save notifications and execution time in one summary line
+    long_count = len(longs_df) if longs_df is not None else 0
+    short_count = len(shorts_df) if shorts_df is not None else 0
+    print(f"{Fore.GREEN}🌙 Moon Dev saved {long_count} long and {short_count} short positions to CSV files in {DATA_DIR} 📊")
     
     return df, agg_df
+
+def create_liquidation_thresholds_table(df, current_prices, quiet=False):
+    """
+    Create and display a table of liquidation thresholds at different price move percentages
+    """
+    print(f"\n{Fore.CYAN}{'='*80}")
+    print(f"{Fore.CYAN}{'='*15} 📊 LIQUIDATION THRESHOLDS BY PERCENTAGE MOVE 📊 {'='*15}")
+    print(f"{Fore.CYAN}{'='*80}")
+    
+    # Define thresholds to analyze
+    thresholds = [2, 4, 6, 8, 10]
+    
+    # Initialize data structures for the table
+    table_data = {
+        'Threshold': [f"0-{t}%" for t in thresholds],
+        'Long Liquidations ($)': [],
+        'Short Liquidations ($)': [],
+        'Total Liquidations ($)': [],
+        'Net Imbalance ($)': [],
+        'NFA': []  # Changed from 'Recommended Direction' to 'NFA'
+    }
+    
+    # Calculate liquidations for each threshold
+    for threshold in thresholds:
+        total_long_liquidations = 0
+        total_short_liquidations = 0
+        
+        for coin in TOKENS_TO_ANALYZE:
+            if coin not in current_prices:
+                continue
+                
+            # Filter positions for the current coin
+            coin_positions = df[df['coin'] == coin].copy()
+            if coin_positions.empty:
+                continue
+                
+            # Get current price and calculate threshold prices
+            current_price = current_prices[coin]
+            price_down = current_price * (1 - threshold/100)
+            price_up = current_price * (1 + threshold/100)
+            
+            # Calculate liquidations for long positions
+            long_liquidations = coin_positions[(coin_positions['is_long']) &
+                                             (coin_positions['liquidation_price'] >= price_down) &
+                                             (coin_positions['liquidation_price'] <= current_price)]
+            
+            long_value = long_liquidations['position_value'].sum()
+            
+            # Calculate liquidations for short positions
+            short_liquidations = coin_positions[(~coin_positions['is_long']) &
+                                              (coin_positions['liquidation_price'] <= price_up) &
+                                              (coin_positions['liquidation_price'] >= current_price)]
+            
+            short_value = short_liquidations['position_value'].sum()
+            
+            # Add to totals
+            total_long_liquidations += long_value
+            total_short_liquidations += short_value
+        
+        # Add data to table
+        total_liquidations = total_long_liquidations + total_short_liquidations
+        imbalance = total_long_liquidations - total_short_liquidations
+        
+        if abs(imbalance) < 10000:  # Less than $10k imbalance
+            direction = "NEUTRAL"
+        elif imbalance > 0:
+            direction = "SHORT"
+        else:
+            direction = "LONG"
+        
+        table_data['Long Liquidations ($)'].append(total_long_liquidations)
+        table_data['Short Liquidations ($)'].append(total_short_liquidations)
+        table_data['Total Liquidations ($)'].append(total_liquidations)
+        table_data['Net Imbalance ($)'].append(imbalance)
+        table_data['NFA'].append(direction)  # Changed from 'Recommended Direction' to 'NFA'
+    
+    # Create and display the overall table
+    table_df = pd.DataFrame(table_data)
+    
+    # Format numeric columns with commas
+    for col in ['Long Liquidations ($)', 'Short Liquidations ($)', 'Total Liquidations ($)', 'Net Imbalance ($)']:
+        table_df[col] = table_df[col].apply(lambda x: f"${x:,.2f}")
+    
+    # Create a styled string representation of the table
+    styled_table = f"\n{Fore.CYAN}{'='*120}\n"
+    styled_table += f"{Fore.YELLOW}{'Threshold':<12} | {'Long Liquidations':<25} | {'Short Liquidations':<25} | {'Total Liquidations':<25} | {'Net Imbalance':<25} | {'NFA':<15}\n"  # Changed 'Recommendation' to 'NFA'
+    styled_table += f"{Fore.CYAN}{'-'*120}\n"
+    
+    for i, row in table_df.iterrows():
+        direction = row['NFA']  # Changed from 'Recommended Direction' to 'NFA'
+        direction_color = Fore.GREEN if direction == "LONG" else (Fore.RED if direction == "SHORT" else Fore.YELLOW)
+        
+        styled_table += f"{Fore.WHITE}{row['Threshold']:<12} | "
+        styled_table += f"{Fore.GREEN}{row['Long Liquidations ($)']:<25} | "
+        styled_table += f"{Fore.RED}{row['Short Liquidations ($)']:<25} | "
+        styled_table += f"{Fore.CYAN}{row['Total Liquidations ($)']:<25} | "
+        styled_table += f"{Fore.MAGENTA}{row['Net Imbalance ($)']:<25} | "
+        styled_table += f"{direction_color}{direction:<15}\n"
+        
+    styled_table += f"{Fore.CYAN}{'='*120}"
+    
+    print(styled_table)
+    
+    # Save the table to CSV
+    table_file = os.path.join(DATA_DIR, "liquidation_thresholds_table.csv")
+    table_df.to_csv(table_file, index=False)
 
 def fetch_positions_from_api():
     """
@@ -646,7 +763,6 @@ def fetch_positions_from_api():
     """
     try:
         print(f"{Fore.CYAN}🌙 Moon Dev API: {Fore.GREEN}Fetching HLP positions data... 🚀")
-        print(f"{Fore.YELLOW}🧙‍♂️ Summoning the power of Moon Dev's API... please wait!")
         
         # Initialize the API
         api = MoonDevAPI()
@@ -659,16 +775,7 @@ def fetch_positions_from_api():
             return None
             
         print(f"{Fore.GREEN}✅ Successfully fetched {len(positions_df)} positions from Moon Dev API! 🎉")
-        print(f"{Fore.CYAN}🌟 Moon Dev's API has delivered the whale data! Ready to analyze! 🐋")
-
-        # Debug: Print the first few rows of the DataFrame to verify data mapping
-        print(f"{Fore.CYAN}🔍 Debug: First few rows of positions data:")
-        print(positions_df.head())
-
-        # Debug: Print column names to ensure correct mapping
-        print(f"{Fore.CYAN}🔍 Debug: Column names in positions data:")
-        print(positions_df.columns)
-
+        
         return positions_df
         
     except Exception as e:
@@ -682,7 +789,6 @@ def fetch_aggregated_positions_from_api():
     """
     try:
         print(f"{Fore.CYAN}🌙 Moon Dev API: {Fore.GREEN}Fetching aggregated HLP positions data... 🚀")
-        print(f"{Fore.YELLOW}⚡ Moon Dev's API working its magic... ⚡")
         
         # Initialize the API
         api = MoonDevAPI()
@@ -695,7 +801,7 @@ def fetch_aggregated_positions_from_api():
             return None
             
         print(f"{Fore.GREEN}✅ Successfully fetched {len(agg_positions_df)} aggregated positions from Moon Dev API! 🎯")
-        print(f"{Fore.CYAN}🔮 Moon Dev's crystal ball has revealed the market trends! 📊")
+        
         return agg_positions_df
         
     except Exception as e:
@@ -723,6 +829,10 @@ def bot():
                         help='Filter positions by coin (e.g., BTC, ETH, SOL)')
     parser.add_argument('--verify-positions', action='store_true', default=True,
                         help='Verify and correct position types based on liquidation prices')
+    parser.add_argument('--quiet', action='store_true', default=False,
+                        help='Reduce verbosity of output')
+    parser.add_argument('--no-symbol-debug', action='store_true', default=True,
+                        help='Disable printing of individual symbols during analysis')
     args = parser.parse_args()
     
     # Update configuration based on arguments
@@ -730,34 +840,9 @@ def bot():
     TOP_N_POSITIONS = args.top_n
     
     start_time = time.time()
-    print(f"sup dawg")
-    print(f"\n{Fore.CYAN}{'='*80}")
-    print(f"{Fore.MAGENTA}{'*'*20} 🌙 Moon Dev's Whale Position Tracker (API Version) 🐋 {'*'*20}")
-    print(f"{Fore.CYAN}{'='*80}")
-    print(f"{Fore.YELLOW}🚀 Initializing Moon Dev's whale tracking systems... 📡")
-    print(f"{Fore.YELLOW}💬 {get_random_quote()}")
-    
-    # Explain position verification
-    if args.verify_positions:
-        print(f"\n{Fore.CYAN}{'='*80}")
-        print(f"{Fore.CYAN}{'='*25} 📋 POSITION TYPE VERIFICATION INFO 📋 {'='*25}")
-        print(f"{Fore.CYAN}{'='*80}")
-        print(f"{Fore.YELLOW}ℹ️ This script verifies position types (LONG/SHORT) based on liquidation prices:")
-        print(f"{Fore.GREEN}✅ LONG positions: Liquidation price should be LOWER than entry price")
-        print(f"{Fore.GREEN}   Example: Entry $100, Liquidation $80 → Price drops, position is liquidated")
-        print(f"{Fore.RED}✅ SHORT positions: Liquidation price should be HIGHER than entry price")
-        print(f"{Fore.RED}   Example: Entry $100, Liquidation $120 → Price rises, position is liquidated")
-        print(f"{Fore.YELLOW}🔍 If position data doesn't match these rules, the script will auto-correct it.")
-        print(f"{Fore.CYAN}{'='*80}\n")
     
     # Ensure data directory exists
     ensure_data_dir()
-    
-    print(f"{Fore.YELLOW}💰 Minimum position value: ${MIN_POSITION_VALUE:,}")
-    print(f"{Fore.YELLOW}🔝 Top positions to display: {TOP_N_POSITIONS}")
-    if args.coin:
-        print(f"{Fore.YELLOW}🪙 Filtering for coin: {args.coin.upper()}")
-    print(f"{Fore.CYAN}⭐ Moon Dev API is ready to show you the money! 💸")
     
     # Fetch aggregated positions data first (this is faster)
     agg_df = fetch_aggregated_positions_from_api()
@@ -766,8 +851,6 @@ def bot():
         # Save aggregated positions
         agg_file = os.path.join(DATA_DIR, "aggregated_positions_from_api.csv")
         agg_df.to_csv(agg_file, index=False, float_format='%.2f')
-        print(f"{Fore.GREEN}📊 Saved aggregated positions to {agg_file}")
-        print(f"{Fore.CYAN}💾 Moon Dev has blessed your disk with whale data! 🐋")
         
         # Add direction column
         agg_df['direction'] = agg_df['is_long'].apply(lambda x: 'LONG' if x else 'SHORT')
@@ -776,22 +859,21 @@ def bot():
         if args.coin:
             coin = args.coin.upper()
             agg_df = agg_df[agg_df['coin'] == coin]
-            print(f"{Fore.MAGENTA}🪙 Filtered for {coin} aggregated positions")
-            print(f"{Fore.MAGENTA}🔍 Found {len(agg_df)} {coin} aggregated positions")
         
-        # Display aggregated summaries
-        print(f"\n{Fore.CYAN}{'='*30} AGGREGATED POSITION SUMMARY {'='*30}")
-        display_cols = ['coin', 'direction', 'total_value', 'num_traders', 'liquidation_price']
-        
-        # Temporarily format numbers with commas for display only
-        with pd.option_context('display.float_format', '{:,.2f}'.format):
-            print(f"{Fore.WHITE}{agg_df[display_cols]}")
+        if not args.quiet:
+            # Display aggregated summaries
+            print(f"\n{Fore.CYAN}{'='*30} AGGREGATED POSITION SUMMARY {'='*30}")
+            display_cols = ['coin', 'direction', 'total_value', 'num_traders', 'liquidation_price']
             
-            print(f"\n{Fore.GREEN}🔝 TOP LONG POSITIONS (AGGREGATED):")
-            print(f"{Fore.GREEN}{agg_df[agg_df['is_long']][display_cols].head()}")
-            
-            print(f"\n{Fore.RED}🔝 TOP SHORT POSITIONS (AGGREGATED):")
-            print(f"{Fore.RED}{agg_df[~agg_df['is_long']][display_cols].head()}")
+            # Temporarily format numbers with commas for display only
+            with pd.option_context('display.float_format', '{:,.2f}'.format):
+                print(f"{Fore.WHITE}{agg_df[display_cols]}")
+                
+                print(f"\n{Fore.GREEN}🔝 TOP LONG POSITIONS (AGGREGATED):")
+                print(f"{Fore.GREEN}{agg_df[agg_df['is_long']][display_cols].head()}")
+                
+                print(f"\n{Fore.RED}🔝 TOP SHORT POSITIONS (AGGREGATED):")
+                print(f"{Fore.RED}{agg_df[~agg_df['is_long']][display_cols].head()}")
     
     # If not only showing aggregated data, fetch and process detailed positions
     if not args.agg_only:
@@ -816,15 +898,13 @@ def bot():
                 save_liquidation_risk_to_csv(risky_longs_df, risky_shorts_df)
                 
                 # Pass the already fetched current prices to save_positions_to_csv
-                positions_df, _ = save_positions_to_csv(processed_df, current_prices)
+                positions_df, _ = save_positions_to_csv(processed_df, current_prices, quiet=args.quiet)
             else:
                 print(f"{Fore.RED}⚠️ No positions found after filtering! Try adjusting your filters.")
     
     # Calculate and display execution time
     execution_time = time.time() - start_time
-    print(f"{Fore.CYAN}⏱️ Execution time: {execution_time:.2f} seconds ({execution_time/60:.2f} minutes)")
-    print(f"{Fore.CYAN}📁 CSV files saved in: {DATA_DIR}")
-    print(f"{Fore.MAGENTA}⏰ NEXT RUN SCHEDULED IN 1 MINUTE ⏰")
+    print(f"{Fore.CYAN}⏱️ Analysis completed in {execution_time:.2f} seconds")
 
 if __name__ == "__main__":
     # Initial run

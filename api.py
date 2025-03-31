@@ -101,15 +101,6 @@ class MoonDevAPI:
         self.session = requests.Session()
         self.max_retries = 3
         self.chunk_size = 8192  # Smaller chunk size for more reliable downloads
-        
-        print("🌙 Moon Dev API: Ready to rock! 🚀")
-        print(f"📂 Data directory: {self.base_dir.absolute()}")
-        print(f"🌐 API URL: {self.base_url}")
-        print(f"🔍 Debug - Project Root: {PROJECT_ROOT}")
-        if not self.api_key:
-            print("⚠️ No API key found! Please set MOONDEV_API_KEY in your .env file")
-        else:
-            print("🔑 API key loaded successfully!")
 
     def _fetch_csv(self, filename, limit=None):
         """Fetch CSV data from the API with retry logic"""
@@ -118,8 +109,6 @@ class MoonDevAPI:
         
         for attempt in range(max_retries):
             try:
-                print(f"🚀 Moon Dev API: Fetching {filename}{'with limit '+str(limit) if limit else ''}... (Attempt {attempt + 1}/{max_retries})")
-                
                 url = f'{self.base_url}/files/{filename}'
                 if limit:
                     url += f'?limit={limit}'
@@ -138,21 +127,17 @@ class MoonDevAPI:
                 
                 # Once download is complete, read the file
                 df = pd.read_csv(temp_file)
-                print(f"✨ Successfully loaded {len(df)} rows from {filename}")
                 
                 # Move temp file to final location
                 final_file = self.base_dir / filename
                 temp_file.rename(final_file)
                 
-                print(f"💾 Data saved to: {final_file}")
                 return df
                 
             except (requests.exceptions.ChunkedEncodingError, 
                     requests.exceptions.ConnectionError,
                     requests.exceptions.RequestException) as e:
-                print(f"⚠️ Attempt {attempt + 1} failed: {str(e)}")
                 if attempt < max_retries - 1:
-                    print(f"🔄 Retrying in {retry_delay} seconds...")
                     time.sleep(retry_delay)
                     retry_delay *= 2  # Exponential backoff
                 else:
@@ -188,8 +173,6 @@ class MoonDevAPI:
         
         for attempt in range(max_retries):
             try:
-                print(f"🚀 Moon Dev API: Fetching oi.csv... (Attempt {attempt + 1}/{max_retries})")
-                
                 url = f'{self.base_url}/files/oi.csv'
                 
                 # Use stream=True and a larger chunk size
@@ -206,7 +189,6 @@ class MoonDevAPI:
                 
                 # Once download is complete, read the file
                 df = pd.read_csv(temp_file)
-                print(f"✨ Successfully loaded {len(df)} rows from oi.csv")
                 
                 # Move temp file to final location
                 final_file = self.base_dir / "oi.csv"
@@ -217,9 +199,7 @@ class MoonDevAPI:
             except (requests.exceptions.ChunkedEncodingError, 
                     requests.exceptions.ConnectionError,
                     requests.exceptions.RequestException) as e:
-                print(f"⚠️ Attempt {attempt + 1} failed: {str(e)}")
                 if attempt < max_retries - 1:
-                    print(f"🔄 Retrying in {retry_delay} seconds...")
                     time.sleep(retry_delay)
                     retry_delay *= 2  # Exponential backoff
                 else:

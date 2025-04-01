@@ -695,7 +695,7 @@ def display_highlighted_positions(df):
         return
         
     print(f"\n{Fore.CYAN}{'='*140}")
-    print(f"{Fore.CYAN}{'='*15} 🚨 HIGHLIGHTED POSITIONS (>${HIGHLIGHT_THRESHOLD:,}) 🚨 {'='*15}")
+    print(f"{Fore.CYAN}{'='*15} 🚨 POSITIONS CLOSEST TO LIQUIDATION (>${HIGHLIGHT_THRESHOLD:,}) 🚨 {'='*15}")
     print(f"{Fore.CYAN}{'='*140}")
     
     # Create header with fixed widths
@@ -833,7 +833,7 @@ def create_liquidation_thresholds_table(df, current_prices, quiet=False):
     
     # Display liquidation thresholds table last
     print(f"\n{Fore.CYAN}{'='*80}")
-    print(f"{Fore.CYAN}{'='*15} 📊 LIQUIDATION THRESHOLDS BY PERCENTAGE MOVE 📊 {'='*15}")
+    print(f"{Fore.CYAN}{'='*15} 📊 PENDING LIQUIDATIONS BY PERCENTAGE MOVE 📊 {'='*15}")
     print(f"{Fore.CYAN}{'='*80}")
     
     # Define thresholds to analyze

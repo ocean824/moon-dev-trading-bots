@@ -1610,3 +1610,107 @@ def get_current_price(symbol):
     ask, bid, _ = ask_bid(symbol)
     return (ask + bid) / 2  # Return the mid price as the current price
 
+def get_balance(account):
+    """
+    Get the current account balance from Hyperliquid
+    
+    Args:
+        account: Trading account
+        
+    Returns:
+        float: Current account balance in USD
+    """
+    try:
+        # Connect to Hyperliquid API
+        info = Info(constants.MAINNET_API_URL)
+        exchange = Exchange(constants.MAINNET_API_URL)
+        
+        # Get user state which includes balance info
+        user_state = info.user_state(account.address)
+        
+        # Check if we got proper data
+        if user_state and 'marginSummary' in user_state and 'accountValue' in user_state['marginSummary']:
+            # Get account value directly from marginSummary
+            account_value = float(user_state['marginSummary']['accountValue'])
+            print(f"🌙 MOON DEV BALANCE CHECK: ${account_value:,.2f} 💰")
+            return account_value
+            
+        # If marginSummary not available, try to calculate from positions
+        elif user_state and 'assetPositions' in user_state:
+            balance = 0.0
+            
+            # Sum up all positions value
+            for asset in user_state['assetPositions']:
+                if 'position' in asset and 'szi' in asset['position'] and 'entryPx' in asset['position']:
+                    try:
+                        pos_size = float(asset['position']['szi'])
+                        entry_px = float(asset['position']['entryPx'])
+                        balance += abs(pos_size * entry_px)
+                    except (ValueError, TypeError):
+                        continue
+            
+            if balance > 0:
+                print(f"🌙 MOON DEV BALANCE CHECK (from positions): ${balance:,.2f} 💰")
+                return balance
+            
+        # Try direct account value API as fallback
+        try:
+            account_value = exchange.get_account_value(account.address, account)
+            if 'data' in account_value and 'accountValue' in account_value['data']:
+                balance = float(account_value['data']['accountValue'])
+                print(f"🌙 MOON DEV BALANCE CHECK (fallback): ${balance:,.2f} 💰")
+                return balance
+        except:
+            pass
+                
+        print(f"❌ Failed to get balance: Unexpected response format")
+        return 0.0
+        
+    except Exception as e:
+        print(f"❌ Error getting balance: {str(e)}")
+        # Return a default value to prevent errors
+        return 0.0
+
+def get_account_value(account):
+    """
+    Get account information including total value
+    
+    Args:
+        account: Trading account
+        
+    Returns:
+        dict: Account information response
+    """
+    try:
+        # Connect to Hyperliquid using the existing pattern
+        info = Info(constants.MAINNET_API_URL)
+        exchange = Exchange(constants.MAINNET_API_URL)
+        
+        # Get account value using your existing patterns
+        response = exchange.get_account_value(account.address, account)
+        return response
+    except Exception as e:
+        print(f"❌ Error getting account information: {str(e)}")
+        return {"error": str(e)}
+
+def connect():
+    """
+    Connect to Hyperliquid API
+    
+    Returns:
+        dict: Connection with exchange and wallet
+    """
+    try:
+        print("🌙 MOON DEV connecting to Hyperliquid API... 🚀")
+        # Connect to Hyperliquid using the same pattern as in other functions
+        info = Info(constants.MAINNET_API_URL)
+        exchange = Exchange(constants.MAINNET_API_URL)
+        
+        return {
+            "info": info,
+            "exchange": exchange
+        }
+    except Exception as e:
+        print(f"❌ Error connecting to Hyperliquid: {str(e)}")
+        raise e
+

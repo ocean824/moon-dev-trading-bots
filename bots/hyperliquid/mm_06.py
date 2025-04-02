@@ -27,6 +27,7 @@ import uuid
 import pathlib
 import io
 import contextlib
+import risk  # Add risk management import
 
 # Add the parent directory to the Python path so we can import modules from there
 parent_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -153,6 +154,10 @@ ANALYSIS_INTERVAL_MINUTES = 15  # How often to refresh the bias analysis
 
 # DataFrame to track positions
 positions_df = None
+
+# Add risk management constants
+RISK_LOOKBACK_HOURS = 12  # Hours to look back for balance comparison
+RISK_MAX_DRAWDOWN_PERCENT = 20  # Maximum allowed drawdown percentage
 
 def init_positions_tracker():
     """Initialize the positions tracker and load existing data"""
@@ -739,6 +744,12 @@ def bot():
         print(f"\n{Fore.CYAN}{'='*80}")
         print(f"{Fore.YELLOW}🌙 Moon Dev's Liquidation Hunter - {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} 🚀")
         print(f"{Fore.CYAN}{'='*80}")
+        
+        # First check risk management
+        print(f"\n{Back.GREEN}{Fore.BLACK}🔍 MOON DEV RISK MANAGEMENT CHECK IN PROGRESS...{Style.RESET_ALL}")
+        if risk.risk_check(account, RISK_LOOKBACK_HOURS, RISK_MAX_DRAWDOWN_PERCENT):
+            print(f"{Back.RED}{Fore.WHITE}🚫 MOON DEV RISK MANAGEMENT TRIGGERED, STOPPING BOT EXECUTION 🛑{Style.RESET_ALL}")
+            return
         
         # Check if we need to refresh our market analysis
         global last_analysis_time

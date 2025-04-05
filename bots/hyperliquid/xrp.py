@@ -1,6 +1,6 @@
 # ===== MOON DEV XRP LIQUIDATION HUNTER =====
 # Main configuration constant - adjust this to change the liquidation threshold
-LIQUIDATION_THRESHOLD_PERCENT = 6  # Percentage price move to analyze for potential pending liquidations
+LIQUIDATION_THRESHOLD_PERCENT = 20  # Percentage price move to analyze for potential pending liquidations
 
 '''
 Everyone talks about cults, but they leave out the original cult 

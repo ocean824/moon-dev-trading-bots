@@ -273,32 +273,24 @@ def get_sz_px_decimals(symbol):
     return sz_decimals, px_decimals
 
 def limit_order(coin, is_buy, sz, limit_px, reduce_only, account):
-    #account: LocalAccount = eth_account.Account.from_key(key)
     exchange = Exchange(account, constants.MAINNET_API_URL)
-    # info = Info(constants.MAINNET_API_URL, skip_ws=True)
-    # user_state = info.user_state(account.address)
-    # print(f'this is current account value: {user_state["marginSummary"]["accountValue"]}')
     
     rounding = get_sz_px_decimals(coin)[0]
     sz = round(sz,rounding)
-    print(f"coin: {coin}, type: {type(coin)}")
-    print(f"is_buy: {is_buy}, type: {type(is_buy)}")
-    print(f"sz: {sz}, type: {type(sz)}")
-    print(f"limit_px: {limit_px}, type: {type(limit_px)}")
-    print(f"reduce_only: {reduce_only}, type: {type(reduce_only)}")
+    print(f"🌙 Moon Dev placing order:")
+    print(f"Symbol: {coin}")
+    print(f"Side: {'BUY' if is_buy else 'SELL'}")
+    print(f"Size: {sz}")
+    print(f"Price: ${limit_px}")
+    print(f"Reduce Only: {reduce_only}")
 
-
-    #limit_px = str(limit_px)
-    # sz = str(sz)
-    #print(f"limit_px: {limit_px}, type: {type(limit_px)}")
-    # print(f"sz: {sz}, type: {type(sz)}")
-    print(f'placing limit order for {coin} {sz} @ {limit_px}')
     order_result = exchange.order(coin, is_buy, sz, limit_px, {"limit": {"tif": "Gtc"}}, reduce_only=reduce_only)
+    print(f"🔍 Raw order result (type {type(order_result)}): {order_result}")
 
-    if is_buy == True:
-        print(f"limit BUY order placed thanks moon, resting: {order_result['response']['data']['statuses'][0]}")
+    if isinstance(order_result, dict) and 'response' in order_result:
+        print(f"✅ Order placed with status: {order_result['response']['data']['statuses'][0]}")
     else:
-        print(f"limit SELL order placed thanks moon, resting: {order_result['response']['data']['statuses'][0]}")
+        print(f"✅ Order placed (raw response)")
 
     return order_result
 

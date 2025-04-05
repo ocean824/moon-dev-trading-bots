@@ -9,6 +9,10 @@ import traceback
 import nice_funcs as n
 from hyperliquid.utils import constants
 from hyperliquid.exchange import Exchange
+import time
+from dotenv import load_dotenv
+from eth_account.signers.local import LocalAccount
+import eth_account
 
 # Initialize colorama for terminal colors
 from colorama import init
@@ -18,6 +22,10 @@ init(autoreset=True)
 DEFAULT_LOOKBACK_HOURS = 12
 DEFAULT_MAX_DRAWDOWN_PERCENT = 20
 BALANCE_HISTORY_FILE = "balance_history.csv"
+
+# Constants for kill switch
+KILL_UNDER_CONSTANT = True  # Toggle this to enable/disable the kill under price check
+KILL_PRICE = 82600  # Example kill price, adjust as needed
 
 def get_balance_history_path():
     """Get the path to the balance history CSV file"""
@@ -207,6 +215,24 @@ def check_drawdown(account, lookback_hours=DEFAULT_LOOKBACK_HOURS, max_drawdown_
         print(f"{Fore.RED}📋 Stack trace:\n{traceback.format_exc()}")
         return False, "Error checking drawdown", 0
 
+def check_and_kill_if_below_price(symbol, account, stop_loss_price):
+    """
+    Check if the current price of the symbol is below the stop loss price and call kill switch if true.
+
+    Args:
+        symbol: The trading symbol to check.
+        account: The trading account.
+        stop_loss_price: The stop loss price to compare against.
+    """
+    # Get the current price of the symbol
+    current_price = n.get_current_price(symbol)
+    print(f"{Back.GREEN}{Fore.BLACK}🌙 MOON DEV CHECK: Current price of {symbol} is ${current_price:.2f} vs Kill price ${stop_loss_price:.2f} 🚀{Style.RESET_ALL}")
+
+    # Check if the current price is below the stop loss price
+    if current_price < stop_loss_price:
+        print(f"{Back.GREEN}{Fore.BLACK}🚨 MOON DEV ALERT: {symbol} price (${current_price:.2f}) is below stop loss price (${stop_loss_price:.2f}). Initiating kill switch!{Style.RESET_ALL}")
+        n.kill_switch(symbol, account)
+
 def risk_check(account, lookback_hours=DEFAULT_LOOKBACK_HOURS, max_drawdown_percent=DEFAULT_MAX_DRAWDOWN_PERCENT):
     """
     Main risk check function that can be imported into any bot
@@ -244,6 +270,10 @@ def risk_check(account, lookback_hours=DEFAULT_LOOKBACK_HOURS, max_drawdown_perc
             return True
         else:
             print(f"{Back.GREEN}{Fore.BLACK}✅ 🌙 MOON DEV SAYS: {message}{Style.RESET_ALL}")
+
+        # Check if the kill under constant is enabled and perform the check
+        if KILL_UNDER_CONSTANT:
+            check_and_kill_if_below_price('BTC', account, KILL_PRICE)  # Example symbol, adjust as needed
         
         return False
         
@@ -251,3 +281,46 @@ def risk_check(account, lookback_hours=DEFAULT_LOOKBACK_HOURS, max_drawdown_perc
         print(f"{Fore.RED}❌ Error in risk check: {str(e)}")
         print(f"{Fore.RED}📋 Stack trace:\n{traceback.format_exc()}")
         return False
+
+if __name__ == "__main__":
+    import sys
+    
+    # Example usage of risk_check when running this file directly
+    # Initialize account using environment variable
+    load_dotenv()
+    HYPER_LIQUID_KEY = os.getenv('HYPER_LIQUID_KEY_COLLECTOR') # HYPER_LIQUID_KEY_COLLECTOR
+    account = LocalAccount = eth_account.Account.from_key(HYPER_LIQUID_KEY)
+    
+    # Check command-line arguments to determine which check to run
+    if len(sys.argv) > 1 and sys.argv[1] == 'price_check':
+        print("🌙 MOON DEV: Starting price check loop... 🚀")
+        while True:
+            try:
+                # Run price check
+                print("🌙 MOON DEV: Running price check... 🚀")
+                check_and_kill_if_below_price('BTC', account, KILL_PRICE)
+                print("🌙 MOON DEV: Price check completed! 🌟")
+                
+                # Wait for 15 seconds before the next check
+                time.sleep(15)
+            except Exception as e:
+                print(f"{Fore.RED}❌ Encountered an error: {e}")
+                print(f"{Fore.RED}📋 Stack trace:\n{traceback.format_exc()}")
+                # Wait before retrying to avoid rapid error logging
+                time.sleep(10)
+    else:
+        print("🌙 MOON DEV: Starting full risk check loop... 🚀")
+        while True:
+            try:
+                # Run full risk check
+                print("🌙 MOON DEV: Running risk check... 🚀")
+                risk_check(account)
+                print("🌙 MOON DEV: Risk check completed! 🌟")
+                
+                # Wait for 15 seconds before the next check
+                time.sleep(15)
+            except Exception as e:
+                print(f"{Fore.RED}❌ Encountered an error: {e}")
+                print(f"{Fore.RED}📋 Stack trace:\n{traceback.format_exc()}")
+                # Wait before retrying to avoid rapid error logging
+                time.sleep(10)

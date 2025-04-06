@@ -548,135 +548,115 @@ def manage_positions(best_long, best_short):
     print(f"{Fore.YELLOW}Combined Stop Loss: {COMBINED_STOP_LOSS}%")
     print(f"{Fore.YELLOW}Combined Take Profit: {COMBINED_TAKE_PROFIT}%")
     
-    while True:
-        # Track total PnL across both positions
-        total_pnl = 0
+    # First check all current positions
+    total_pnl = 0
+    current_positions = []
+    
+    # Get all current positions first
+    for symbol in TOKENS_TO_ANALYZE:
+        positions, im_in_pos, pos_size, pos_sym, entry_px, pnl_perc, is_long = n.get_position(symbol, account)
+        if im_in_pos:
+            current_positions.append({
+                'symbol': symbol,
+                'size': pos_size,
+                'is_long': is_long,
+                'pnl': pnl_perc
+            })
+            total_pnl += pnl_perc
+            direction = "LONG 🚀" if is_long else "SHORT 📉"
+            print(f"{Fore.YELLOW}Found active position: {direction} {symbol}, Size={pos_size}, PnL={pnl_perc:.2f}%")
+    
+    print(f"{Fore.YELLOW}💰 Total Combined PnL: {total_pnl:.2f}%")
+    print(f"{Fore.YELLOW}📊 Current Position Count: {len(current_positions)}")
+    
+    # SAFETY CHECK: If we have more than 2 positions, close everything and return
+    if len(current_positions) > 2:
+        print(f"{Fore.RED}⚠️ SAFETY TRIGGERED: Found {len(current_positions)} positions (max allowed: 2)")
+        print(f"{Fore.RED}🚨 Closing all positions immediately...")
+        n.close_all_positions(account)
+        print(f"{Fore.RED}✅ All positions closed. Waiting for next cycle.")
+        return
+    
+    # If we already have exactly 2 positions, just monitor
+    if len(current_positions) == 2:
+        print(f"{Fore.YELLOW}📊 Have maximum allowed positions (2) - monitoring only")
+        if total_pnl <= COMBINED_STOP_LOSS:
+            print(f"{Fore.RED}🛑 Stop Loss hit! Combined PnL ({total_pnl:.2f}%) <= Stop Loss ({COMBINED_STOP_LOSS}%)")
+            print(f"{Fore.RED}🔄 Closing all positions safely...")
+            close_positions_safely(account)
+        elif total_pnl >= COMBINED_TAKE_PROFIT:
+            print(f"{Fore.GREEN}🎯 Take Profit hit! Combined PnL ({total_pnl:.2f}%) >= Take Profit ({COMBINED_TAKE_PROFIT}%)")
+            print(f"{Fore.GREEN}🔄 Closing all positions safely...")
+            close_positions_safely(account)
+        else:
+            print(f"{Fore.GREEN}✅ Both positions active, monitoring PnL...")
+            print(f"{Fore.YELLOW}📊 PnL Status: {total_pnl:.2f}% | SL: {COMBINED_STOP_LOSS}% | TP: {COMBINED_TAKE_PROFIT}%")
+        return
+    
+    # If we have one position, only try to enter the opposite type
+    if len(current_positions) == 1:
+        current_pos = current_positions[0]
+        print(f"{Fore.YELLOW}🔍 Have one {'LONG' if current_pos['is_long'] else 'SHORT'} position, looking for opposite...")
         
-        # Check existing positions for both symbols
-        long_positions = {}
-        short_positions = {}
-        
+        # If we're in a long, only try to enter short and vice versa
+        if current_pos['is_long']:
+            if best_short is None or best_short['symbol'] == current_pos['symbol']:
+                print(f"{Fore.YELLOW}⚠️ No valid short opportunity found, monitoring current position")
+                return
+            try_enter_position(best_short, False)
+        else:
+            if best_long is None or best_long['symbol'] == current_pos['symbol']:
+                print(f"{Fore.YELLOW}⚠️ No valid long opportunity found, monitoring current position")
+                return
+            try_enter_position(best_long, True)
+        return
+    
+    # If we have no positions, try to enter both if available
+    if len(current_positions) == 0:
+        print(f"{Fore.GREEN}🎯 No current positions, attempting to enter trades...")
         if best_long is not None:
-            # Check if we have a position in the long symbol
-            positions, im_in_pos, pos_size, pos_sym, entry_px, pnl_perc, is_long = n.get_position(best_long['symbol'], account)
-            if im_in_pos:
-                long_positions[best_long['symbol']] = {
-                    'size': pos_size,
-                    'entry': entry_px,
-                    'pnl': pnl_perc,
-                    'is_long': is_long
-                }
-                total_pnl += pnl_perc
-                print(f"{Fore.GREEN}📈 Existing {best_long['symbol']} position: Size={pos_size}, PnL={pnl_perc:.2f}%")
-        
+            try_enter_position(best_long, True)
         if best_short is not None:
-            # Check if we have a position in the short symbol
-            positions, im_in_pos, pos_size, pos_sym, entry_px, pnl_perc, is_long = n.get_position(best_short['symbol'], account)
-            if im_in_pos:
-                short_positions[best_short['symbol']] = {
-                    'size': pos_size,
-                    'entry': entry_px,
-                    'pnl': pnl_perc,
-                    'is_long': is_long
-                }
-                total_pnl += pnl_perc
-                print(f"{Fore.RED}📉 Existing {best_short['symbol']} position: Size={pos_size}, PnL={pnl_perc:.2f}%")
+            try_enter_position(best_short, False)
+        return
+
+def try_enter_position(position, is_long):
+    """Helper function to try entering a position"""
+    if position is None:
+        return
         
-        print(f"{Fore.YELLOW}💰 Total Combined PnL: {total_pnl:.2f}%")
+    try:
+        # Cancel any existing orders first
+        print(f"{Fore.YELLOW}🗑️ Canceling existing orders for {position['symbol']}...")
+        n.cancel_symbol_orders(account, position['symbol'])
+        time.sleep(0.5)
         
-        # Check if we've hit our stop loss or take profit targets
-        if len(long_positions) > 0 and len(short_positions) > 0:
-            if total_pnl <= COMBINED_STOP_LOSS:
-                print(f"{Fore.RED}🛑 Stop Loss hit! Combined PnL ({total_pnl:.2f}%) <= Stop Loss ({COMBINED_STOP_LOSS}%)")
-                print(f"{Fore.RED}🔄 Closing all positions safely...")
-                close_positions_safely(account)
-                break
-            elif total_pnl >= COMBINED_TAKE_PROFIT:
-                print(f"{Fore.GREEN}🎯 Take Profit hit! Combined PnL ({total_pnl:.2f}%) >= Take Profit ({COMBINED_TAKE_PROFIT}%)")
-                print(f"{Fore.GREEN}🔄 Closing all positions safely...")
-                close_positions_safely(account)
-                break
-            else:
-                print(f"{Fore.GREEN}✅ Both positions active, monitoring PnL...")
-                print(f"{Fore.YELLOW}📊 PnL Status: {total_pnl:.2f}% | SL: {COMBINED_STOP_LOSS}% | TP: {COMBINED_TAKE_PROFIT}%")
-                break
+        # Get current price and size
+        symbol_str = str(position['symbol'])
+        ask, bid, _ = n.ask_bid(symbol_str)
+        time.sleep(0.5)
+        lev, pos_size = n.adjust_leverage_usd_size(symbol_str, POSITION_SIZE_USD, LEVERAGE, account)
+        time.sleep(0.5)
         
-        try:
-            # Cancel any existing orders for both symbols
-            if best_long is not None and best_long['symbol'] not in long_positions:
-                print(f"{Fore.YELLOW}🗑️ Canceling existing orders for {best_long['symbol']}...")
-                try:
-                    n.cancel_symbol_orders(account, best_long['symbol'])
-                except Exception as e:
-                    if "Too many cumulative requests" in str(e):
-                        print(f"{Fore.YELLOW}⚠️ Rate limited, waiting 60 seconds...")
-                        time.sleep(60)
-                        continue
-            
-            if best_short is not None and best_short['symbol'] not in short_positions:
-                print(f"{Fore.YELLOW}🗑️ Canceling existing orders for {best_short['symbol']}...")
-                try:
-                    n.cancel_symbol_orders(account, best_short['symbol'])
-                except Exception as e:
-                    if "Too many cumulative requests" in str(e):
-                        print(f"{Fore.YELLOW}⚠️ Rate limited, waiting 60 seconds...")
-                        time.sleep(60)
-                        continue
-            
-            time.sleep(1)  # Small delay to ensure orders are cancelled
-            
-            # Place both orders if needed
-            if best_long is not None and best_long['symbol'] not in long_positions:
-                # Get current price and size for long
-                symbol_str = str(best_long['symbol'])  # Convert to string explicitly
-                ask, bid, _ = n.ask_bid(symbol_str)
-                time.sleep(0.5)  # Small delay before leverage adjustment
-                lev, pos_size = n.adjust_leverage_usd_size(symbol_str, POSITION_SIZE_USD, LEVERAGE, account)
-                time.sleep(0.5)  # Small delay before order placement
-                
-                # Debug prints for long order
-                print(f"\n{Fore.CYAN}🔍 LONG ORDER DEBUG INFO:")
-                print(f"Symbol (type {type(symbol_str)}): {symbol_str}")
-                print(f"Is Buy (type {type(True)}): {True}")
-                print(f"Position Size (type {type(pos_size)}): {pos_size}")
-                print(f"Bid Price (type {type(bid)}): {bid}")
-                print(f"Reduce Only (type {type(False)}): {False}")
-                print(f"Account type: {type(account)}")
-                
-                # Place limit order at the bid price for long
-                print(f"{Fore.GREEN}🚀 Moon Dev placing LONG order with above parameters...")
-                n.limit_order(symbol_str, True, pos_size, bid, False, account)
-                print(f"{Fore.GREEN}✅ Limit LONG order placed!")
-            
-            if best_short is not None and best_short['symbol'] not in short_positions:
-                # Get current price and size for short
-                symbol_str = str(best_short['symbol'])  # Convert to string explicitly
-                ask, bid, _ = n.ask_bid(symbol_str)
-                time.sleep(0.5)  # Small delay before leverage adjustment
-                lev, pos_size = n.adjust_leverage_usd_size(symbol_str, POSITION_SIZE_USD, LEVERAGE, account)
-                time.sleep(0.5)  # Small delay before order placement
-                
-                # Debug prints for short order
-                print(f"\n{Fore.CYAN}🔍 SHORT ORDER DEBUG INFO:")
-                print(f"Symbol (type {type(symbol_str)}): {symbol_str}")
-                print(f"Is Buy (type {type(False)}): {False}")
-                print(f"Position Size (type {type(pos_size)}): {pos_size}")
-                print(f"Ask Price (type {type(ask)}): {ask}")
-                print(f"Reduce Only (type {type(False)}): {False}")
-                print(f"Account type: {type(account)}")
-                
-                # Place limit order at the ask price for short
-                print(f"{Fore.RED}📉 Moon Dev placing SHORT order with above parameters...")
-                n.limit_order(symbol_str, False, pos_size, ask, False, account)
-                print(f"{Fore.RED}✅ Limit SHORT order placed!")
-            
-        except Exception as e:
-            print(f"{Fore.RED}❌ Error during order management: {str(e)}")
-            print(f"{Fore.RED}📋 Stack trace:\n{traceback.format_exc()}")
+        # Debug prints
+        print(f"\n{Fore.CYAN}🔍 {'LONG' if is_long else 'SHORT'} ORDER DEBUG INFO:")
+        print(f"Symbol: {symbol_str}")
+        print(f"Is Buy: {is_long}")
+        print(f"Position Size: {pos_size}")
+        print(f"Price: ${bid if is_long else ask}")
         
-        print(f"\n{Fore.CYAN}{'='*100}")
-        print(f"{Fore.YELLOW}⏳ Moon Dev waiting 10 seconds to check if orders filled... 🌙")
-        time.sleep(10)  # Wait before checking fills
+        # Place the order
+        entry_price = bid if is_long else ask
+        print(f"{Fore.GREEN if is_long else Fore.RED}🚀 Moon Dev placing {'LONG' if is_long else 'SHORT'} order...")
+        n.limit_order(symbol_str, is_long, pos_size, entry_price, False, account)
+        print(f"{Fore.GREEN}✅ Limit order placed!")
+        
+    except Exception as e:
+        print(f"{Fore.RED}❌ Error placing {'long' if is_long else 'short'} order: {str(e)}")
+        print(f"{Fore.RED}📋 Stack trace:\n{traceback.format_exc()}")
+        
+    print(f"{Fore.YELLOW}⏳ Waiting 10 seconds to check fill... 🌙")
+    time.sleep(10)
 
 def main():
     """Main function to run the liquidation analysis"""

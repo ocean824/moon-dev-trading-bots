@@ -48,3 +48,15 @@ NOW
 AUR
 PSTG
 KMTUY
+
+in order to build an algo we need these things: 
+
+[x] get data
+[x] buy or sell any stock or future with market orders
+[x] buy or sell any stock with limit orders
+[x] get position info
+[x] cancel all orders 
+[x] cancel all orders and close all positions
+[x] get bid ask for any position
+[x] OHLCV data
+[x] kill switch - which is cancel and close all positions 

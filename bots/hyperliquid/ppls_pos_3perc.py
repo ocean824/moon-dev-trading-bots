@@ -47,11 +47,10 @@ pd.set_option('display.width', 1000)
 
 # Moon Dev ASCII Art Banner
 MOON_DEV_BANNER = f"""{Fore.CYAN}
-   __  ___                    ____           
-  /  |/  /___  ____  ____    / __ \___  _  __
- / /|_/ / __ \/ __ \/ __ \  / / / / _ \| |/_/
-/ /  / / /_/ / /_/ / / / / / /_/ /  __/>  <  
-/_/  /_/\____/\____/_/ /_(_)____/\___/_/|_|  
+  __  __  ___   ___  _  _    ___  ___ _   _ 
+ |  \\/  |/ _ \\ / _ \\| \\| |  |   \\| __\\ \\ / /
+ | |\\/| | (_) | (_) | .` |  | |) | _| \\ V / 
+ |_|  |_|\\___/ \\___/|_|\\_|  |___/|___| \\_/  
                                              
 {Fore.MAGENTA}🚀 Hyperliquid Position Tracker API Edition 🌙{Fore.RESET}
 """
@@ -220,9 +219,9 @@ def display_top_individual_positions(df, n=TOP_N_POSITIONS):
             liq_price = row['liquidation_price'] if row['liquidation_price'] > 0 else "N/A"
             liq_display = f"${liq_price:,.2f}" if liq_price != "N/A" else "N/A"
             
-            print(f"{Fore.GREEN}#{i} {Fore.YELLOW}{row['coin']} {Fore.GREEN}${row['position_value']:,.2f} " + 
+            print(f"{Fore.GREEN}#{i} {Fore.YELLOW}{row['coin']} {Fore.GREEN}${row['position_value']:,.0f} " + 
                   f"{Fore.BLUE}| Entry: ${row['entry_price']:,.2f} " +
-                  f"{Fore.MAGENTA}| PnL: ${row['unrealized_pnl']:,.2f} " +
+                  f"{Fore.MAGENTA}| PnL: ${row['unrealized_pnl']:,.0f} " +
                   f"{Fore.CYAN}| Leverage: {row['leverage']}x " +
                   f"{Fore.RED}| Liq: {liq_display}")
             print(f"{Fore.CYAN}   Address: {row['address']}")
@@ -238,9 +237,9 @@ def display_top_individual_positions(df, n=TOP_N_POSITIONS):
             liq_price = row['liquidation_price'] if row['liquidation_price'] > 0 else "N/A"
             liq_display = f"${liq_price:,.2f}" if liq_price != "N/A" else "N/A"
             
-            print(f"{Fore.RED}#{i} {Fore.YELLOW}{row['coin']} {Fore.RED}${row['position_value']:,.2f} " + 
+            print(f"{Fore.RED}#{i} {Fore.YELLOW}{row['coin']} {Fore.RED}${row['position_value']:,.0f} " + 
                   f"{Fore.BLUE}| Entry: ${row['entry_price']:,.2f} " +
-                  f"{Fore.MAGENTA}| PnL: ${row['unrealized_pnl']:,.2f} " +
+                  f"{Fore.MAGENTA}| PnL: ${row['unrealized_pnl']:,.0f} " +
                   f"{Fore.CYAN}| Leverage: {row['leverage']}x " +
                   f"{Fore.RED}| Liq: {liq_display}")
             print(f"{Fore.CYAN}   Address: {row['address']}")
@@ -311,7 +310,7 @@ def display_risk_metrics(df):
             # Get USDC balance for top 2 positions
             usdc_balance = get_spot_position_usd(row['address']) if i <= 2 else 0
             
-            display_text = f"{Fore.GREEN}#{i} {Fore.YELLOW}{row['coin']} {Fore.GREEN}${row['position_value']:,.2f} " + \
+            display_text = f"{Fore.GREEN}#{i} {Fore.YELLOW}{row['coin']} {Fore.GREEN}${row['position_value']:,.0f} " + \
                            f"{Fore.BLUE}| Entry: ${row['entry_price']:,.2f} " + \
                            f"{Fore.RED}| Liq: ${row['liquidation_price']:,.2f} " + \
                            f"{Fore.MAGENTA}| Current: ${row['current_price']:,.2f} " + \
@@ -319,28 +318,28 @@ def display_risk_metrics(df):
                            f"{Fore.CYAN}| Leverage: {row['leverage']}x"
             
             if i <= 2:
-                display_text += f" {Fore.MAGENTA}| 💰 USDC: ${usdc_balance:,.2f}"
+                display_text += f" {Fore.MAGENTA}| 💰 USDC: ${usdc_balance:,.0f}"
             
             if highlight:
-                display_text = colored(f"#{i} {row['coin']} ${row['position_value']:,.2f} " + \
+                display_text = colored(f"#{i} {row['coin']} ${row['position_value']:,.0f} " + \
                                f"| Entry: ${row['entry_price']:,.2f} " + \
                                f"| Liq: ${row['liquidation_price']:,.2f} " + \
                                f"| Current: ${row['current_price']:,.2f} " + \
                                f"| Distance: {row['distance_to_liq_pct']:.2f}% " + \
                                f"| Leverage: {row['leverage']}x" + \
-                               (f" | 💰 USDC: ${usdc_balance:,.2f}" if i <= 2 else ""), 'black', 'on_yellow')
+                               (f" | 💰 USDC: ${usdc_balance:,.0f}" if i <= 2 else ""), 'black', 'on_yellow')
             
             print(display_text)
             print(f"{Fore.CYAN}   Address: {row['address']}")
             
             if i % 10 == 0:
-                agg_display = f"📊 AGGREGATE (1-{i}): Total Long Positions: ${running_total_value:,.2f} | All Liquidated Within: {highest_distance:.2f}%"
+                agg_display = f"📊 AGGREGATE (1-{i}): Total Long Positions: ${running_total_value:,.0f} | All Liquidated Within: {highest_distance:.2f}%"
                 print(colored(agg_display, 'black', 'on_cyan'))
                 print(f"{Fore.CYAN}{'-'*80}")
             
             current_pct_threshold = int(row['distance_to_liq_pct'] / 2) * 2
             if current_pct_threshold > last_pct_threshold:
-                pct_agg_display = f"📊 LIQUIDATION THRESHOLD 0-{current_pct_threshold}%: Total Long Value: ${running_total_value:,.2f}"
+                pct_agg_display = f"📊 LIQUIDATION THRESHOLD 0-{current_pct_threshold}%: Total Long Value: ${running_total_value:,.0f}"
                 print(colored(pct_agg_display, 'white', 'on_blue'))
                 last_pct_threshold = current_pct_threshold
     else:
@@ -363,7 +362,7 @@ def display_risk_metrics(df):
             # Get USDC balance for top 2 positions
             usdc_balance = get_spot_position_usd(row['address']) if i <= 2 else 0
             
-            display_text = f"{Fore.RED}#{i} {Fore.YELLOW}{row['coin']} {Fore.RED}${row['position_value']:,.2f} " + \
+            display_text = f"{Fore.RED}#{i} {Fore.YELLOW}{row['coin']} {Fore.RED}${row['position_value']:,.0f} " + \
                            f"{Fore.BLUE}| Entry: ${row['entry_price']:,.2f} " + \
                            f"{Fore.RED}| Liq: ${row['liquidation_price']:,.2f} " + \
                            f"{Fore.MAGENTA}| Current: ${row['current_price']:,.2f} " + \
@@ -371,28 +370,28 @@ def display_risk_metrics(df):
                            f"{Fore.CYAN}| Leverage: {row['leverage']}x"
             
             if i <= 2:
-                display_text += f" {Fore.MAGENTA}| 💰 USDC: ${usdc_balance:,.2f}"
+                display_text += f" {Fore.MAGENTA}| 💰 USDC: ${usdc_balance:,.0f}"
             
             if highlight:
-                display_text = colored(f"#{i} {row['coin']} ${row['position_value']:,.2f} " + \
+                display_text = colored(f"#{i} {row['coin']} ${row['position_value']:,.0f} " + \
                                f"| Entry: ${row['entry_price']:,.2f} " + \
                                f"| Liq: ${row['liquidation_price']:,.2f} " + \
                                f"| Current: ${row['current_price']:,.2f} " + \
                                f"| Distance: {row['distance_to_liq_pct']:.2f}% " + \
                                f"| Leverage: {row['leverage']}x" + \
-                               (f" | 💰 USDC: ${usdc_balance:,.2f}" if i <= 2 else ""), 'black', 'on_yellow')
+                               (f" | 💰 USDC: ${usdc_balance:,.0f}" if i <= 2 else ""), 'black', 'on_yellow')
             
             print(display_text)
             print(f"{Fore.CYAN}   Address: {row['address']}")
             
             if i % 10 == 0:
-                agg_display = f"📊 AGGREGATE (1-{i}): Total Short Positions: ${running_total_value:,.2f} | All Liquidated Within: {highest_distance:.2f}%"
+                agg_display = f"📊 AGGREGATE (1-{i}): Total Short Positions: ${running_total_value:,.0f} | All Liquidated Within: {highest_distance:.2f}%"
                 print(colored(agg_display, 'black', 'on_cyan'))
                 print(f"{Fore.CYAN}{'-'*80}")
             
             current_pct_threshold = int(row['distance_to_liq_pct'] / 2) * 2
             if current_pct_threshold > last_pct_threshold:
-                pct_agg_display = f"📊 LIQUIDATION THRESHOLD 0-{current_pct_threshold}%: Total Short Value: ${running_total_value:,.2f}"
+                pct_agg_display = f"📊 LIQUIDATION THRESHOLD 0-{current_pct_threshold}%: Total Short Value: ${running_total_value:,.0f}"
                 print(colored(pct_agg_display, 'white', 'on_blue'))
                 last_pct_threshold = current_pct_threshold
     else:
@@ -416,7 +415,7 @@ def save_liquidation_risk_to_csv(risky_longs_df, risky_shorts_df):
         
         # Save to CSV
         longs_file = os.path.join(DATA_DIR, "liquidation_closest_long_positions.csv")
-        risky_longs_df.to_csv(longs_file, index=False, float_format='%.2f')
+        risky_longs_df.to_csv(longs_file, index=False, float_format='%.0f')
     
     # Save risky short positions
     if risky_shorts_df is not None and not risky_shorts_df.empty:
@@ -426,7 +425,7 @@ def save_liquidation_risk_to_csv(risky_longs_df, risky_shorts_df):
         
         # Save to CSV
         shorts_file = os.path.join(DATA_DIR, "liquidation_closest_short_positions.csv")
-        risky_shorts_df.to_csv(shorts_file, index=False, float_format='%.2f')
+        risky_shorts_df.to_csv(shorts_file, index=False, float_format='%.0f')
     
     # Combine risky long and short positions into a single file
     if (risky_longs_df is not None and not risky_longs_df.empty) or (risky_shorts_df is not None and not risky_shorts_df.empty):
@@ -438,7 +437,7 @@ def save_liquidation_risk_to_csv(risky_longs_df, risky_shorts_df):
         
         # Save to CSV
         combined_file = os.path.join(DATA_DIR, "liquidation_closest_positions.csv")
-        combined_df.to_csv(combined_file, index=False, float_format='%.2f')
+        combined_df.to_csv(combined_file, index=False, float_format='%.0f')
         # Create a combined message about all files saved
         long_count = 0 if risky_longs_df is None else len(risky_longs_df)
         short_count = 0 if risky_shorts_df is None else len(risky_shorts_df)
@@ -463,7 +462,7 @@ def save_top_whale_positions_to_csv(longs_df, shorts_df):
         
         # Save to CSV
         longs_file = os.path.join(DATA_DIR, "top_whale_long_positions.csv")
-        longs_df.to_csv(longs_file, index=False, float_format='%.2f')
+        longs_df.to_csv(longs_file, index=False, float_format='%.0f')
     
     # Save top short positions
     if shorts_df is not None and not shorts_df.empty:
@@ -473,7 +472,7 @@ def save_top_whale_positions_to_csv(longs_df, shorts_df):
         
         # Save to CSV
         shorts_file = os.path.join(DATA_DIR, "top_whale_short_positions.csv")
-        shorts_df.to_csv(shorts_file, index=False, float_format='%.2f')
+        shorts_df.to_csv(shorts_file, index=False, float_format='%.0f')
     
     # Combine long and short positions into a single file
     if (longs_df is not None and not longs_df.empty) or (shorts_df is not None and not shorts_df.empty):
@@ -485,7 +484,7 @@ def save_top_whale_positions_to_csv(longs_df, shorts_df):
         
         # Save to CSV
         combined_file = os.path.join(DATA_DIR, "top_whale_positions.csv")
-        combined_df.to_csv(combined_file, index=False, float_format='%.2f')
+        combined_df.to_csv(combined_file, index=False, float_format='%.0f')
         print(f"{Fore.GREEN}🌙 Moon Dev says: Saved {len(combined_df)} combined top whale positions to {combined_file} 🚀")
 
 def process_positions(df, coin_filter=None):
@@ -566,7 +565,7 @@ def save_positions_to_csv(df, current_prices=None, quiet=False):
     
     # Save all positions
     positions_file = os.path.join(DATA_DIR, "all_positions.csv")
-    df.to_csv(positions_file, index=False, float_format='%.2f')
+    df.to_csv(positions_file, index=False, float_format='%.0f')
     
     # Create and save aggregated view
     agg_df = df.groupby(['coin', 'is_long']).agg({
@@ -595,14 +594,14 @@ def save_positions_to_csv(df, current_prices=None, quiet=False):
     
     # Save aggregated view
     agg_file = os.path.join(DATA_DIR, "aggregated_positions.csv")
-    agg_df.to_csv(agg_file, index=False, float_format='%.2f')
+    agg_df.to_csv(agg_file, index=False, float_format='%.0f')
     
     # Display summaries (for terminal display only, not affecting CSV output)
     print(f"\n{Fore.CYAN}{'='*30} POSITION SUMMARY {'='*30}")
     display_cols = ['coin', 'direction', 'total_value', 'num_traders', 'avg_value_per_trader', 'avg_leverage']
     
     # Temporarily format numbers with commas for display only
-    with pd.option_context('display.float_format', '{:,.2f}'.format):
+    with pd.option_context('display.float_format', '{:,.0f}'.format):
         print(f"{Fore.WHITE}{agg_df[display_cols]}")
         
         print(f"\n{Fore.GREEN}🔝 TOP LONG POSITIONS (AGGREGATED):")
@@ -685,15 +684,15 @@ def save_positions_to_csv(df, current_prices=None, quiet=False):
 
         # Display results (only if not in quiet mode)
         if not quiet:
-            print(f"{Fore.GREEN}{coin} Long Liquidations (3% move DOWN to ${price_3pct_down:,.2f}): ${total_long_liquidation_value:,.2f}")
-            print(f"{Fore.RED}{coin} Short Liquidations (3% move UP to ${price_3pct_up:,.2f}): ${total_short_liquidation_value:,.2f}")
+            print(f"{Fore.GREEN}{coin} Long Liquidations (3% move DOWN to ${price_3pct_down:,.2f}): ${total_long_liquidation_value:,.0f}")
+            print(f"{Fore.RED}{coin} Short Liquidations (3% move UP to ${price_3pct_up:,.2f}): ${total_short_liquidation_value:,.0f}")
 
     # Display summary of total liquidations
     print(f"\n{Fore.CYAN}{'='*80}")
     print(f"{Fore.CYAN}{'='*25} 💰 TOTAL LIQUIDATION SUMMARY 💰 {'='*25}")
     print(f"{Fore.CYAN}{'='*80}")
-    print(f"{Fore.GREEN}Total Long Liquidations (3% move DOWN): ${all_long_liquidations:,.2f}")
-    print(f"{Fore.RED}Total Short Liquidations (3% move UP): ${all_short_liquidations:,.2f}")
+    print(f"{Fore.GREEN}Total Long Liquidations (3% move DOWN): ${all_long_liquidations:,.0f}")
+    print(f"{Fore.RED}Total Short Liquidations (3% move UP): ${all_short_liquidations:,.0f}")
     
     # Generate trading recommendations based on liquidation imbalance
     print(f"\n{Fore.CYAN}{'='*80}")
@@ -702,10 +701,10 @@ def save_positions_to_csv(df, current_prices=None, quiet=False):
     
     # Overall market direction
     if all_long_liquidations > all_short_liquidations:
-        direction = f"MARKET DIRECTION (NFA): SHORT THE MARKET (${all_long_liquidations:,.2f} long liquidations at risk within a 3% move of current price)"
+        direction = f"MARKET DIRECTION (NFA): SHORT THE MARKET (${all_long_liquidations:,.0f} long liquidations at risk within a 3% move of current price)"
         print(f"{Back.GREEN}{Fore.BLACK}{Style.BRIGHT}{direction}{Style.RESET_ALL}")
     else:
-        direction = f"MARKET DIRECTION (NFA): LONG THE MARKET (${all_short_liquidations:,.2f} short liquidations at risk within a 3% move of current price)"
+        direction = f"MARKET DIRECTION (NFA): LONG THE MARKET (${all_short_liquidations:,.0f} short liquidations at risk within a 3% move of current price)"
         print(f"{Back.GREEN}{Fore.BLACK}{Style.BRIGHT}{direction}{Style.RESET_ALL}")
     
     # Individual coin directions
@@ -728,10 +727,10 @@ def save_positions_to_csv(df, current_prices=None, quiet=False):
             continue
             
         if long_liq > short_liq:
-            rec = f"{coin}: SHORT (${long_liq:,.2f} long liquidations vs ${short_liq:,.2f} short within a 3% move)"
+            rec = f"{coin}: SHORT (${long_liq:,.0f} long liquidations vs ${short_liq:,.0f} short within a 3% move)"
             print(f"{Back.GREEN}{Fore.BLACK}{Style.BRIGHT}{rec}{Style.RESET_ALL}")
         else:
-            rec = f"{coin}: LONG (${short_liq:,.2f} short liquidations vs ${long_liq:,.2f} long within a 3% move)"
+            rec = f"{coin}: LONG (${short_liq:,.0f} short liquidations vs ${long_liq:,.0f} long within a 3% move)"
             print(f"{Back.GREEN}{Fore.BLACK}{Style.BRIGHT}{rec}{Style.RESET_ALL}")
     
     print(f"\n{Fore.MAGENTA}💡 Trading strategy: Target coins with largest liquidation imbalance for potential cascade liquidations")
@@ -806,26 +805,26 @@ def display_highlighted_positions(df):
         usdc_balance = get_spot_position_usd(row['address'])
         print(f"{Fore.GREEN}{'LONG #' + str(i):<10} | "
               f"{Fore.YELLOW}{row['coin']:<4} | "
-              f"{Fore.GREEN}${row['position_value']:>15,.2f} | "
+              f"{Fore.GREEN}${row['position_value']:>15,.0f} | "
               f"{Fore.BLUE}${row['entry_price']:>10,.2f} | "
               f"{Fore.RED}${row['liquidation_price']:>10,.2f} | "
               f"{Fore.MAGENTA}{row['distance_to_liq_pct']:>7.2f}% | "
               f"{Fore.CYAN}{row['leverage']:>3}x".ljust(8) + " | "
               f"{Fore.BLUE}{row['address']} | "
-              f"{Fore.MAGENTA}${usdc_balance:>10,.2f}")
+              f"{Fore.MAGENTA}${usdc_balance:>10,.0f}")
     
     # Display short positions
     for i, (_, row) in enumerate(top_shorts.iterrows(), 1):
         usdc_balance = get_spot_position_usd(row['address'])
         print(f"{Fore.RED}{'SHORT #' + str(i):<10} | "
               f"{Fore.YELLOW}{row['coin']:<4} | "
-              f"{Fore.RED}${row['position_value']:>15,.2f} | "
+              f"{Fore.RED}${row['position_value']:>15,.0f} | "
               f"{Fore.BLUE}${row['entry_price']:>10,.2f} | "
               f"{Fore.RED}${row['liquidation_price']:>10,.2f} | "
               f"{Fore.MAGENTA}{row['distance_to_liq_pct']:>7.2f}% | "
               f"{Fore.CYAN}{row['leverage']:>3}x".ljust(8) + " | "
               f"{Fore.BLUE}{row['address']} | "
-              f"{Fore.MAGENTA}${usdc_balance:>10,.2f}")
+              f"{Fore.MAGENTA}${usdc_balance:>10,.0f}")
     
     print(f"{Fore.CYAN}{'='*140}")
 
@@ -1017,7 +1016,7 @@ def create_liquidation_thresholds_table(df, current_prices, quiet=False):
     
     # Format numeric columns with commas and percentages
     for col in ['Long Liquidations ($)', 'Short Liquidations ($)', 'Total Liquidations ($)']:
-        table_df[col] = table_df[col].apply(lambda x: f"${x:,.2f}")
+        table_df[col] = table_df[col].apply(lambda x: f"${x:,.0f}")
     
     # Format imbalance as percentage with sign
     table_df['Imbalance (%)'] = table_df['Imbalance (%)'].apply(lambda x: f"{x:+.2f}%")
@@ -1066,62 +1065,15 @@ def fetch_positions_from_api():
         positions_df = api.get_positions_hlp()
         
         if positions_df is None or positions_df.empty:
-            print(f"{Fore.YELLOW}⚠️ No positions data received from API, using mock data for testing!")
-            
-            # Create mock data for testing
-            mock_data = {
-                'address': [f'wallet_{i}' for i in range(50)],
-                'coin': np.random.choice(['BTC', 'ETH', 'SOL', 'XRP'], 50),
-                'is_long': np.random.choice([True, False], 50),
-                'entry_price': np.random.uniform(10000, 60000, 50),
-                'position_value': np.random.uniform(5000, 5000000, 50),
-                'unrealized_pnl': np.random.uniform(-500000, 500000, 50),
-                'liquidation_price': np.random.uniform(1000, 70000, 50),
-                'leverage': np.random.uniform(1, 20, 50)
-            }
-            
-            positions_df = pd.DataFrame(mock_data)
-            
-            # Ensure the liquidation prices make sense relative to entry prices
-            for i, row in positions_df.iterrows():
-                if row['is_long']:
-                    positions_df.at[i, 'liquidation_price'] = row['entry_price'] * 0.8  # 20% below entry
-                else:
-                    positions_df.at[i, 'liquidation_price'] = row['entry_price'] * 1.2  # 20% above entry
-            
-            print(f"{Fore.GREEN}🌙 Moon Dev says: Created mock data with {len(positions_df)} positions for testing! 🚀")
-            return positions_df
+            print(f"{Fore.YELLOW}⚠️ No positions data received from API!")
+            return None
             
         return positions_df
         
     except Exception as e:
         print(f"{Fore.RED}❌ Error fetching positions: {str(e)}")
         print(f"{Fore.RED}📋 Stack trace:\n{traceback.format_exc()}")
-        
-        # Create mock data in case of error
-        print(f"{Fore.YELLOW}⚠️ Creating mock data due to error...")
-        mock_data = {
-            'address': [f'wallet_{i}' for i in range(50)],
-            'coin': np.random.choice(['BTC', 'ETH', 'SOL', 'XRP'], 50),
-            'is_long': np.random.choice([True, False], 50),
-            'entry_price': np.random.uniform(10000, 60000, 50),
-            'position_value': np.random.uniform(5000, 5000000, 50),
-            'unrealized_pnl': np.random.uniform(-500000, 500000, 50),
-            'liquidation_price': np.random.uniform(1000, 70000, 50),
-            'leverage': np.random.uniform(1, 20, 50)
-        }
-        
-        positions_df = pd.DataFrame(mock_data)
-        
-        # Ensure the liquidation prices make sense relative to entry prices
-        for i, row in positions_df.iterrows():
-            if row['is_long']:
-                positions_df.at[i, 'liquidation_price'] = row['entry_price'] * 0.8  # 20% below entry
-            else:
-                positions_df.at[i, 'liquidation_price'] = row['entry_price'] * 1.2  # 20% above entry
-        
-        print(f"{Fore.GREEN}🌙 Moon Dev says: Created mock data with {len(positions_df)} positions for testing! 🚀")
-        return positions_df
+        return None
 
 def fetch_aggregated_positions_from_api():
     """
@@ -1135,42 +1087,15 @@ def fetch_aggregated_positions_from_api():
         agg_positions_df = api.get_agg_positions_hlp()
         
         if agg_positions_df is None or agg_positions_df.empty:
-            print(f"{Fore.YELLOW}⚠️ No aggregated positions data received from API, using mock data for testing!")
-            
-            # Create mock aggregated data
-            mock_data = {
-                'coin': ['BTC', 'ETH', 'SOL', 'XRP', 'BTC', 'ETH', 'SOL', 'XRP'],
-                'is_long': [True, True, True, True, False, False, False, False],
-                'total_value': np.random.uniform(1000000, 300000000, 8),
-                'num_traders': np.random.randint(50, 500, 8),
-                'avg_liquidation_price': [30000, 2000, 80, 0.5, 50000, 3500, 120, 0.8]
-            }
-            
-            agg_positions_df = pd.DataFrame(mock_data)
-            
-            print(f"{Fore.GREEN}🌙 Moon Dev says: Created mock aggregated data with {len(agg_positions_df)} rows for testing! 🚀")
-            return agg_positions_df
+            print(f"{Fore.YELLOW}⚠️ No aggregated positions data received from API!")
+            return None
             
         return agg_positions_df
         
     except Exception as e:
         print(f"{Fore.RED}❌ Error fetching aggregated positions: {str(e)}")
         print(f"{Fore.RED}📋 Stack trace:\n{traceback.format_exc()}")
-        
-        # Create mock aggregated data in case of error
-        print(f"{Fore.YELLOW}⚠️ Creating mock aggregated data due to error...")
-        mock_data = {
-            'coin': ['BTC', 'ETH', 'SOL', 'XRP', 'BTC', 'ETH', 'SOL', 'XRP'],
-            'is_long': [True, True, True, True, False, False, False, False],
-            'total_value': np.random.uniform(1000000, 300000000, 8),
-            'num_traders': np.random.randint(50, 500, 8),
-            'avg_liquidation_price': [30000, 2000, 80, 0.5, 50000, 3500, 120, 0.8]
-        }
-        
-        agg_positions_df = pd.DataFrame(mock_data)
-        
-        print(f"{Fore.GREEN}🌙 Moon Dev says: Created mock aggregated data with {len(agg_positions_df)} rows for testing! 🚀")
-        return agg_positions_df
+        return None
 
 def bot():
     """Main function to run the position tracker (renamed from main to bot)"""
@@ -1213,7 +1138,7 @@ def bot():
     if agg_df is not None:
         # Save aggregated positions
         agg_file = os.path.join(DATA_DIR, "aggregated_positions_from_api.csv")
-        agg_df.to_csv(agg_file, index=False, float_format='%.2f')
+        agg_df.to_csv(agg_file, index=False, float_format='%.0f')
         
         # Add direction column
         agg_df['direction'] = agg_df['is_long'].apply(lambda x: 'LONG' if x else 'SHORT')
@@ -1229,7 +1154,7 @@ def bot():
             display_cols = ['coin', 'direction', 'total_value', 'num_traders', 'liquidation_price']
             
             # Temporarily format numbers with commas for display only
-            with pd.option_context('display.float_format', '{:,.2f}'.format):
+            with pd.option_context('display.float_format', '{:,.0f}'.format):
                 print(f"{Fore.WHITE}{agg_df[display_cols]}")
                 
                 print(f"\n{Fore.GREEN}🔝 TOP LONG POSITIONS (AGGREGATED):")

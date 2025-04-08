@@ -61,6 +61,87 @@ COMBINED_TAKE_PROFIT = 3  # Combined take profit percentage (positive)
 LIQUIDATION_THRESHOLD = 300000  # $300k threshold for total liquidations to trigger entries
 LIQUIDATION_LOOKBACK_MINUTES = 5  # Time period to look back for liquidations
 
+# API Rate Limiting Settings
+MAX_RETRIES = 3  # Maximum number of retries for API calls
+BASE_DELAY = 1.0  # Base delay between API calls in seconds
+RETRY_DELAY = 2.0  # Delay between retries in seconds
+
+def api_call_with_retry(func, *args, **kwargs):
+    """
+    Wrapper function to handle API calls with retry logic
+    """
+    for attempt in range(MAX_RETRIES):
+        try:
+            # Add random jitter to base delay
+            jitter = random.uniform(0.1, 0.5)
+            time.sleep(BASE_DELAY + jitter)
+            
+            result = func(*args, **kwargs)
+            return result
+            
+        except Exception as e:
+            if '429' in str(e):  # Rate limit error
+                if attempt < MAX_RETRIES - 1:  # Don't sleep on last attempt
+                    sleep_time = RETRY_DELAY * (attempt + 1) + random.uniform(0.1, 0.5)
+                    print(f"{Fore.YELLOW}⚠️ Rate limit hit, waiting {sleep_time:.1f}s before retry {attempt + 1}/{MAX_RETRIES}")
+                    time.sleep(sleep_time)
+                continue
+            raise  # Re-raise other exceptions
+    
+    print(f"{Fore.RED}❌ Max retries ({MAX_RETRIES}) reached, skipping operation")
+    return None
+
+def get_position_safely(symbol, account):
+    """Safe wrapper for position checking"""
+    print(f"\n{Fore.CYAN}🔍 Moon Dev checking position for {symbol}...")
+    try:
+        result = api_call_with_retry(n.get_position, symbol, account)
+        
+        # Debug the raw result
+        print(f"{Fore.YELLOW}📋 Raw position data type: {type(result)}")
+        print(f"{Fore.YELLOW}📋 Raw position data: {result}")
+        
+        if result is None:
+            print(f"{Fore.RED}❌ Got None response checking position for {symbol}")
+            return None, False, 0, None, 0, 0, True  # Return default values
+            
+        # Check if result is a tuple with expected length
+        if isinstance(result, tuple) and len(result) == 7:
+            print(f"{Fore.GREEN}✅ Successfully got position data for {symbol}")
+            return result
+        else:
+            print(f"{Fore.RED}❌ Unexpected position data format for {symbol}")
+            print(f"{Fore.RED}Expected tuple of length 7, got: {type(result)} of length {len(result) if hasattr(result, '__len__') else 'N/A'}")
+            return None, False, 0, None, 0, 0, True  # Return default values
+            
+    except Exception as e:
+        print(f"{Fore.RED}❌ Error in get_position_safely for {symbol}: {str(e)}")
+        print(f"{Fore.RED}📋 Stack trace:\n{traceback.format_exc()}")
+        return None, False, 0, None, 0, 0, True  # Return default values
+
+def get_price_safely(symbol):
+    """Safe wrapper for price checking"""
+    print(f"\n{Fore.CYAN}💰 Moon Dev fetching price for {symbol}...")
+    try:
+        result = api_call_with_retry(n.ask_bid, symbol)
+        if result is None:
+            print(f"{Fore.RED}❌ Got None response fetching price for {symbol}")
+            return None, None, None
+        ask, bid, last = result
+        print(f"{Fore.GREEN}✅ Got prices for {symbol}:")
+        print(f"{Fore.YELLOW}📈 Ask: ${ask if ask else 'None'}")
+        print(f"{Fore.YELLOW}📉 Bid: ${bid if bid else 'None'}")
+        print(f"{Fore.YELLOW}📊 Last: ${last if last else 'None'}")
+        return result
+    except Exception as e:
+        print(f"{Fore.RED}❌ Error in get_price_safely for {symbol}: {str(e)}")
+        print(f"{Fore.RED}📋 Stack trace:\n{traceback.format_exc()}")
+        return None, None, None
+
+def adjust_leverage_safely(symbol, size, leverage, account):
+    """Safe wrapper for leverage adjustment"""
+    return api_call_with_retry(n.adjust_leverage_usd_size, symbol, size, leverage, account)
+
 # # # CLOSE ALL POSITIONS
 # n.close_all_positions(account)
 # time.sleep(7886)
@@ -450,8 +531,8 @@ def display_liquidation_risk(df):
 def fetch_positions_from_api():
     """Fetch positions from Moon Dev API"""
     try:
-        # Get positions data from the API
-        positions_df = api.get_positions_hlp()
+        # Get positions data from the API with retry logic
+        positions_df = api_call_with_retry(api.get_positions_hlp)
         
         if positions_df is None or positions_df.empty:
             print(f"{Fore.RED}❌ No positions data received from API!")
@@ -551,8 +632,8 @@ def get_recent_liquidations():
         float: Total liquidation amount in USD
     """
     try:
-        # Fetch liquidation data
-        liquidations = api.get_liquidation_data(limit=1000)
+        # Fetch liquidation data with retry logic
+        liquidations = api_call_with_retry(api.get_liquidation_data, limit=1000)
         if liquidations is None:
             print(f"{Fore.RED}❌ Failed to fetch liquidation data")
             return 0
@@ -561,13 +642,12 @@ def get_recent_liquidations():
         current_time_ms = int(datetime.now().timestamp() * 1000)
         cutoff_time_ms = current_time_ms - (LIQUIDATION_LOOKBACK_MINUTES * 60 * 1000)
         
-        # Filter liquidations within the lookback period using the timestamp column (index 10)
+        # Filter liquidations within the lookback period
         recent_liquidations = liquidations[liquidations.iloc[:, 10].astype(float) >= cutoff_time_ms]
         
         if recent_liquidations.empty:
             return 0
         
-        # Calculate total liquidations (column 11 contains USD values)
         total_liquidations = recent_liquidations.iloc[:, 11].astype(float).sum()
         
         print(f"\n{Fore.CYAN}💧 Total Liquidations in the last {LIQUIDATION_LOOKBACK_MINUTES} minutes:")
@@ -594,45 +674,80 @@ def manage_positions(best_long, best_short):
     total_pnl = 0
     current_positions = []
     
-    # Get all current positions first
+    # Get all current positions first with delay between checks
     for symbol in TOKENS_TO_ANALYZE:
-        positions, im_in_pos, pos_size, pos_sym, entry_px, pnl_perc, is_long = n.get_position(symbol, account)
-        if im_in_pos:
-            current_positions.append({
-                'symbol': symbol,
-                'size': pos_size,
-                'is_long': is_long,
-                'pnl': pnl_perc
-            })
-            total_pnl += pnl_perc
-            direction = "LONG 🚀" if is_long else "SHORT 📉"
-            print(f"{Fore.YELLOW}Found active position: {direction} {symbol}, Size={pos_size}, PnL={pnl_perc:.2f}%")
+        try:
+            print(f"\n{Fore.CYAN}{'='*50}")
+            print(f"{Fore.CYAN}🔍 Checking {symbol} position and price data...")
+            
+            # Get position data with detailed error handling
+            positions, im_in_pos, pos_size, pos_sym, entry_px, pnl_perc, is_long = get_position_safely(symbol, account)
+            
+            if positions is None:
+                print(f"{Fore.YELLOW}⚠️ No position data for {symbol}, continuing to next symbol")
+                continue
+                
+            if im_in_pos:
+                current_positions.append({
+                    'symbol': symbol,
+                    'size': pos_size,
+                    'is_long': is_long,
+                    'pnl': pnl_perc
+                })
+                total_pnl += pnl_perc
+                direction = "LONG 🚀" if is_long else "SHORT 📉"
+                print(f"{Fore.YELLOW}Found active position: {direction} {symbol}, Size={pos_size}, PnL={pnl_perc:.2f}%")
+            else:
+                print(f"{Fore.YELLOW}No active position for {symbol}")
+                
+        except Exception as e:
+            print(f"{Fore.RED}❌ Error checking position for {symbol}: {str(e)}")
+            print(f"{Fore.RED}📋 Stack trace:\n{traceback.format_exc()}")
+            continue
+        
+        time.sleep(1)  # Increased delay between position checks
     
-    print(f"{Fore.YELLOW}💰 Total Combined PnL: {total_pnl:.2f}%")
+    print(f"\n{Fore.YELLOW}💰 Total Combined PnL: {total_pnl:.2f}%")
     print(f"{Fore.YELLOW}📊 Current Position Count: {len(current_positions)}")
     
     # SAFETY CHECK: If we have more than 2 positions, close everything and return
     if len(current_positions) > 2:
         print(f"{Fore.RED}⚠️ SAFETY TRIGGERED: Found {len(current_positions)} positions (max allowed: 2)")
         print(f"{Fore.RED}🚨 Closing all positions immediately...")
-        n.close_all_positions(account)
-        print(f"{Fore.RED}✅ All positions closed. Waiting for next cycle.")
+        success = close_positions_safely(account)
+        if success:
+            print(f"{Fore.GREEN}✅ Successfully closed all positions")
+        else:
+            print(f"{Fore.RED}❌ Failed to close all positions, please check manually!")
         return
+    
+    # Check for take profit or stop loss if we have any positions
+    if len(current_positions) > 0:
+        print(f"\n{Fore.CYAN}📊 Checking Combined PnL against TP/SL...")
+        print(f"{Fore.YELLOW}Current PnL: {total_pnl:.2f}% | SL: {COMBINED_STOP_LOSS}% | TP: {COMBINED_TAKE_PROFIT}%")
+        
+        # Check if we hit stop loss or take profit
+        if total_pnl <= COMBINED_STOP_LOSS:
+            print(f"{Fore.RED}🛑 Stop Loss hit! Combined PnL ({total_pnl:.2f}%) <= Stop Loss ({COMBINED_STOP_LOSS}%)")
+            print(f"{Fore.RED}🔄 Closing all positions safely...")
+            success = close_positions_safely(account)
+            if not success:
+                print(f"{Fore.RED}❌ Failed to close positions on stop loss, please check manually!")
+            return
+            
+        elif total_pnl >= COMBINED_TAKE_PROFIT:
+            print(f"{Fore.GREEN}🎯 Take Profit hit! Combined PnL ({total_pnl:.2f}%) >= Take Profit ({COMBINED_TAKE_PROFIT}%)")
+            print(f"{Fore.GREEN}🔄 Closing all positions safely...")
+            success = close_positions_safely(account)
+            if not success:
+                print(f"{Fore.RED}❌ Failed to close positions on take profit, please check manually!")
+            return
     
     # If we already have exactly 2 positions, just monitor
     if len(current_positions) == 2:
         print(f"{Fore.YELLOW}📊 Have maximum allowed positions (2) - monitoring only")
-        if total_pnl <= COMBINED_STOP_LOSS:
-            print(f"{Fore.RED}🛑 Stop Loss hit! Combined PnL ({total_pnl:.2f}%) <= Stop Loss ({COMBINED_STOP_LOSS}%)")
-            print(f"{Fore.RED}🔄 Closing all positions safely...")
-            close_positions_safely(account)
-        elif total_pnl >= COMBINED_TAKE_PROFIT:
-            print(f"{Fore.GREEN}🎯 Take Profit hit! Combined PnL ({total_pnl:.2f}%) >= Take Profit ({COMBINED_TAKE_PROFIT}%)")
-            print(f"{Fore.GREEN}🔄 Closing all positions safely...")
-            close_positions_safely(account)
-        else:
-            print(f"{Fore.GREEN}✅ Both positions active, monitoring PnL...")
-            print(f"{Fore.YELLOW}📊 PnL Status: {total_pnl:.2f}% | SL: {COMBINED_STOP_LOSS}% | TP: {COMBINED_TAKE_PROFIT}%")
+        print(f"{Fore.GREEN}✅ Both positions active, monitoring PnL...")
+        print(f"{Fore.YELLOW}📊 PnL Status: {total_pnl:.2f}% | SL: {COMBINED_STOP_LOSS}% | TP: {COMBINED_TAKE_PROFIT}%")
         return
     
     # Check total liquidations before attempting any entries
@@ -667,6 +782,7 @@ def manage_positions(best_long, best_short):
         print(f"{Fore.GREEN}🎯 No current positions, attempting to enter both trades...")
         if best_long is not None:
             try_enter_position(best_long, True)
+            time.sleep(2)  # Add delay between entries
         if best_short is not None:
             try_enter_position(best_short, False)
         return
@@ -677,30 +793,57 @@ def try_enter_position(position, is_long):
         return
         
     try:
-        # Cancel any existing orders first
-        print(f"{Fore.YELLOW}🗑️ Canceling existing orders for {position['symbol']}...")
-        n.cancel_symbol_orders(account, position['symbol'])
-        time.sleep(0.5)
-        
-        # Get current price and size
         symbol_str = str(position['symbol'])
-        ask, bid, _ = n.ask_bid(symbol_str)
-        time.sleep(0.5)
-        lev, pos_size = n.adjust_leverage_usd_size(symbol_str, POSITION_SIZE_USD, LEVERAGE, account)
-        time.sleep(0.5)
+        print(f"\n{Fore.CYAN}{'='*50}")
+        print(f"{Fore.CYAN}🎯 Attempting to enter {'LONG' if is_long else 'SHORT'} position for {symbol_str}")
+        
+        # Cancel any existing orders first
+        print(f"{Fore.YELLOW}🗑️ Canceling existing orders for {symbol_str}...")
+        n.cancel_symbol_orders(account, symbol_str)
+        time.sleep(1)  # Increased delay after cancel
+        
+        # Get current price with detailed debugging
+        print(f"\n{Fore.CYAN}📊 Fetching current prices for {symbol_str}...")
+        ask, bid, _ = get_price_safely(symbol_str)
+        
+        if None in (ask, bid):
+            print(f"{Fore.RED}❌ Invalid price data for {symbol_str}:")
+            print(f"{Fore.RED}Ask: {ask}")
+            print(f"{Fore.RED}Bid: {bid}")
+            return
+            
+        time.sleep(1)  # Delay between API calls
+        
+        # Get leverage and position size with debugging
+        print(f"\n{Fore.CYAN}⚙️ Adjusting leverage for {symbol_str}...")
+        lev, pos_size = adjust_leverage_safely(symbol_str, POSITION_SIZE_USD, LEVERAGE, account)
+        
+        if None in (lev, pos_size):
+            print(f"{Fore.RED}❌ Failed to adjust leverage for {symbol_str}")
+            print(f"{Fore.RED}Leverage: {lev}")
+            print(f"{Fore.RED}Position Size: {pos_size}")
+            return
+            
+        time.sleep(1)  # Delay between API calls
         
         # Debug prints
-        print(f"\n{Fore.CYAN}🔍 {'LONG' if is_long else 'SHORT'} ORDER DEBUG INFO:")
+        print(f"\n{Fore.CYAN}🔍 ORDER DETAILS:")
         print(f"Symbol: {symbol_str}")
-        print(f"Is Buy: {is_long}")
+        print(f"Direction: {'LONG 🚀' if is_long else 'SHORT 📉'}")
         print(f"Position Size: {pos_size}")
-        print(f"Price: ${bid if is_long else ask}")
+        print(f"Entry Price: ${bid if is_long else ask}")
+        print(f"Leverage: {lev}x")
         
-        # Place the order
+        # Place the order with retry logic
         entry_price = bid if is_long else ask
-        print(f"{Fore.GREEN if is_long else Fore.RED}🚀 Moon Dev placing {'LONG' if is_long else 'SHORT'} order...")
-        n.limit_order(symbol_str, is_long, pos_size, entry_price, False, account)
-        print(f"{Fore.GREEN}✅ Limit order placed!")
+        print(f"\n{Fore.GREEN if is_long else Fore.RED}🚀 Moon Dev placing {'LONG' if is_long else 'SHORT'} order...")
+        result = api_call_with_retry(n.limit_order, symbol_str, is_long, pos_size, entry_price, False, account)
+        
+        if result is None:
+            print(f"{Fore.RED}❌ Failed to place order")
+            return
+            
+        print(f"{Fore.GREEN}✅ Limit order placed successfully!")
         
     except Exception as e:
         print(f"{Fore.RED}❌ Error placing {'long' if is_long else 'short'} order: {str(e)}")
@@ -709,26 +852,110 @@ def try_enter_position(position, is_long):
     print(f"{Fore.YELLOW}⏳ Waiting 10 seconds to check fill... 🌙")
     time.sleep(10)
 
+def check_pnl_and_close_if_needed():
+    """Check combined PnL and close positions if TP/SL hit"""
+    print(f"\n{Fore.CYAN}{'='*100}")
+    print(f"{Fore.CYAN}🔍 MOON DEV CHECKING COMBINED PNL FIRST")
+    print(f"{Fore.CYAN}{'='*100}")
+    
+    total_pnl = 0
+    current_positions = []
+    
+    # Get all current positions first
+    for symbol in TOKENS_TO_ANALYZE:
+        try:
+            positions, im_in_pos, pos_size, pos_sym, entry_px, pnl_perc, is_long = get_position_safely(symbol, account)
+            if im_in_pos:
+                current_positions.append({
+                    'symbol': symbol,
+                    'size': pos_size,
+                    'is_long': is_long,
+                    'pnl': pnl_perc
+                })
+                total_pnl += pnl_perc
+                direction = "LONG 🚀" if is_long else "SHORT 📉"
+                print(f"{Fore.YELLOW}Active position: {direction} {symbol}, Size={pos_size}, PnL={pnl_perc:.2f}%")
+        except Exception as e:
+            print(f"{Fore.RED}❌ Error checking position for {symbol}: {str(e)}")
+            continue
+        time.sleep(1)
+    
+    if not current_positions:
+        print(f"{Fore.YELLOW}No active positions to check")
+        return False
+        
+    print(f"\n{Fore.YELLOW}💰 Total Combined PnL: {total_pnl:.2f}%")
+    print(f"{Fore.YELLOW}📊 Stop Loss: {COMBINED_STOP_LOSS}% | Take Profit: {COMBINED_TAKE_PROFIT}%")
+    
+    # Check if we need to close positions
+    if total_pnl <= COMBINED_STOP_LOSS:
+        print(f"{Fore.RED}🛑 Stop Loss hit! Combined PnL ({total_pnl:.2f}%) <= Stop Loss ({COMBINED_STOP_LOSS}%)")
+        print(f"{Fore.RED}🔄 Closing all positions safely...")
+        success = close_positions_safely(account)
+        if success:
+            print(f"{Fore.GREEN}✅ Successfully closed all positions on Stop Loss")
+        else:
+            print(f"{Fore.RED}❌ Failed to close positions on Stop Loss!")
+        return True
+        
+    elif total_pnl >= COMBINED_TAKE_PROFIT:
+        print(f"{Fore.GREEN}🎯 Take Profit hit! Combined PnL ({total_pnl:.2f}%) >= Take Profit ({COMBINED_TAKE_PROFIT}%)")
+        print(f"{Fore.GREEN}🔄 Closing all positions safely...")
+        success = close_positions_safely(account)
+        if success:
+            print(f"{Fore.GREEN}✅ Successfully closed all positions on Take Profit")
+        else:
+            print(f"{Fore.RED}❌ Failed to close positions on Take Profit!")
+        return True
+    
+    print(f"{Fore.GREEN}✅ PnL within bounds, continuing with analysis...")
+    return False
+
 def main():
     """Main function to run the liquidation analysis"""
-    print(f"{Fore.CYAN}🌙 Moon Dev's Liquidation Analysis Bot Starting... 🚀")
-    
-    # Fetch positions data
-    positions_df = fetch_positions_from_api()
-    
-    if positions_df is not None:
-        # Process positions
-        processed_df = process_positions(positions_df)
+    try:
+        print(f"\n{Fore.CYAN}{'='*100}")
+        print(f"{Fore.CYAN}🌙 Moon Dev's Liquidation Analysis Bot Starting... 🚀")
+        print(f"{Fore.CYAN}{'='*100}")
         
-        if not processed_df.empty:
-            # Display liquidation risk analysis
-            display_liquidation_risk(processed_df)
+        # First thing: Check PnL and close positions if needed
+        if check_pnl_and_close_if_needed():
+            print(f"{Fore.YELLOW}Positions closed on TP/SL - skipping analysis for this cycle")
+            return
+        
+        # Add delay before continuing with analysis
+        time.sleep(random.uniform(0.5, 1.5))
+        
+        # Continue with regular analysis only if we didn't close positions
+        print(f"\n{Fore.CYAN}{'='*100}")
+        print(f"{Fore.CYAN}🔍 CONTINUING WITH LIQUIDATION ANALYSIS")
+        print(f"{Fore.CYAN}{'='*100}")
+        
+        # Fetch positions data
+        positions_df = fetch_positions_from_api()
+        
+        if positions_df is not None:
+            # Process positions
+            processed_df = process_positions(positions_df)
+            
+            if not processed_df.empty:
+                # Display liquidation risk analysis
+                display_liquidation_risk(processed_df)
+            else:
+                print(f"{Fore.RED}⚠️ No positions found after filtering!")
         else:
-            print(f"{Fore.RED}⚠️ No positions found after filtering!")
-    else:
-        print(f"{Fore.RED}⚠️ Could not fetch positions data!")
+            print(f"{Fore.RED}⚠️ Could not fetch positions data!")
+        
+        # Always print final PnL status
+        print_final_status()
+        
+    except Exception as e:
+        print(f"{Fore.RED}❌ Error in main function: {str(e)}")
+        print(f"{Fore.RED}📋 Stack trace:\n{traceback.format_exc()}")
+        time.sleep(5)  # Wait before next cycle on error
 
-    # Always print final PnL status at the end of each run
+def print_final_status():
+    """Print final PnL status with safe position checking"""
     print(f"\n{Fore.CYAN}{'='*100}")
     print(f"{Fore.CYAN}🌙 MOON DEV'S CURRENT POSITION STATUS 🌙")
     print(f"{Fore.CYAN}{'='*100}")
@@ -736,15 +963,19 @@ def main():
     total_pnl = 0
     active_positions = []
     
-    # Check all tokens we track
     for symbol in TOKENS_TO_ANALYZE:
-        positions, im_in_pos, pos_size, pos_sym, entry_px, pnl_perc, is_long = n.get_position(symbol, account)
-        if im_in_pos:
-            total_pnl += pnl_perc
-            direction = "LONG 🚀" if is_long else "SHORT 📉"
-            active_positions.append(f"{direction} {symbol}: Size={pos_size}, PnL={pnl_perc:.2f}%")
+        try:
+            positions, im_in_pos, pos_size, pos_sym, entry_px, pnl_perc, is_long = get_position_safely(symbol, account)
+            if im_in_pos:
+                total_pnl += pnl_perc
+                direction = "LONG 🚀" if is_long else "SHORT 📉"
+                active_positions.append(f"{direction} {symbol}: Size={pos_size}, PnL={pnl_perc:.2f}%")
+        except Exception as e:
+            print(f"{Fore.RED}❌ Error checking final status for {symbol}: {str(e)}")
+            continue
+        
+        time.sleep(0.5)  # Small delay between position checks
     
-    # Print active positions
     if active_positions:
         for pos in active_positions:
             print(f"{Fore.YELLOW}{pos}")
@@ -760,8 +991,8 @@ if __name__ == "__main__":
     print(f"{Fore.CYAN}Running initial analysis...")
     main()
     
-    print(f"{Fore.CYAN}Setting up schedule to run every 15 seconds...")
-    schedule.every(15).seconds.do(main)
+    print(f"{Fore.CYAN}Setting up schedule to run every 30 seconds...")
+    schedule.every(30).seconds.do(main)
     
     while True:
         try:
@@ -773,5 +1004,5 @@ if __name__ == "__main__":
         except Exception as e:
             print(f"{Fore.RED}❌ Error in main loop: {str(e)}")
             print(f"{Fore.RED}📋 Stack trace:\n{traceback.format_exc()}")
-            time.sleep(10)  # Wait 10 seconds before retrying
+            time.sleep(10)  # Increased wait time on error
             continue

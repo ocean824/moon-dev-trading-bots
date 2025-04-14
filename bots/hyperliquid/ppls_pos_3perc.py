@@ -181,31 +181,6 @@ def display_top_individual_positions(df, n=TOP_N_POSITIONS):
     # Create a copy to avoid modifying the original
     display_df = df.copy()
     
-    # Validate position types for positions with valid liquidation prices
-    valid_liq_df = display_df[display_df['liquidation_price'] > 0].copy()
-    if not valid_liq_df.empty:
-        # Verify if the position type matches the relationship between entry and liquidation price
-        valid_liq_df['position_type_verified'] = np.where(
-            valid_liq_df['is_long'],
-            valid_liq_df['liquidation_price'] < valid_liq_df['entry_price'],  # Long should have liq price < entry
-            valid_liq_df['liquidation_price'] > valid_liq_df['entry_price']   # Short should have liq price > entry
-        )
-        
-        # Count inconsistencies
-        inconsistent_positions = valid_liq_df[~valid_liq_df['position_type_verified']]
-        
-        if len(inconsistent_positions) > 0:
-            print(f"{Fore.YELLOW}⚠️ Note: Some positions have been reclassified based on their liquidation prices.")
-            
-            # Create a corrected position type column based on liquidation vs entry price
-            valid_liq_df['is_long_corrected'] = valid_liq_df['liquidation_price'] < valid_liq_df['entry_price']
-            
-            # Update the is_long column with corrected values
-            valid_liq_df['is_long'] = valid_liq_df['is_long_corrected']
-            
-            # Update the display dataframe with corrected position types
-            display_df.loc[valid_liq_df.index, 'is_long'] = valid_liq_df['is_long']
-    
     # Sort by position value
     longs = display_df[display_df['is_long']].sort_values('position_value', ascending=False)
     shorts = display_df[~display_df['is_long']].sort_values('position_value', ascending=False)
@@ -281,10 +256,6 @@ def display_risk_metrics(df):
         abs((risk_df['current_price'] - risk_df['liquidation_price']) / risk_df['current_price'] * 100),
         abs((risk_df['liquidation_price'] - risk_df['current_price']) / risk_df['current_price'] * 100)
     )
-
-    # Correct position type based on liquidation price
-    risk_df['is_long_corrected'] = risk_df['liquidation_price'] < risk_df['entry_price']
-    risk_df['is_long'] = risk_df['is_long_corrected']
 
     # Sort by distance to liquidation (ascending)
     risk_df = risk_df.sort_values('distance_to_liq_pct')
@@ -511,34 +482,6 @@ def process_positions(df, coin_filter=None):
     if 'is_long' in filtered_df.columns and filtered_df['is_long'].dtype != bool:
         filtered_df['is_long'] = filtered_df['is_long'].map({'True': True, 'False': False}) 
         # If it's stored as strings like 'True' and 'False'
-    
-    # Validate position types for positions with valid liquidation prices
-    valid_liq_df = filtered_df[filtered_df['liquidation_price'] > 0].copy()
-    if not valid_liq_df.empty:
-        # Verify if the position type matches the relationship between entry and liquidation price
-        valid_liq_df['position_type_verified'] = np.where(
-            valid_liq_df['is_long'],
-            valid_liq_df['liquidation_price'] < valid_liq_df['entry_price'],  # Long should have liq price < entry
-            valid_liq_df['liquidation_price'] > valid_liq_df['entry_price']   # Short should have liq price > entry
-        )
-        
-        # Count inconsistencies
-        inconsistent_positions = valid_liq_df[~valid_liq_df['position_type_verified']]
-        
-        if len(inconsistent_positions) > 0:
-            print(f"{Fore.RED}⚠️ WARNING: Found {len(inconsistent_positions)} positions with inconsistent position types!")
-            print(f"{Fore.YELLOW}🔧 Correcting position types based on liquidation vs. entry price relationships...")
-            
-            # Create a corrected position type column based on liquidation vs entry price
-            valid_liq_df['is_long_corrected'] = valid_liq_df['liquidation_price'] < valid_liq_df['entry_price']
-            
-            # Update the is_long column with corrected values
-            valid_liq_df['is_long'] = valid_liq_df['is_long_corrected']
-            
-            # Update the filtered dataframe with corrected position types
-            filtered_df.loc[valid_liq_df.index, 'is_long'] = valid_liq_df['is_long']
-            
-            print(f"{Fore.GREEN}✅ Position types corrected!")
     
     # Filter by coin if specified
     if coin_filter:
@@ -788,21 +731,20 @@ def display_highlighted_positions(df):
     if top_longs.empty and top_shorts.empty:
         return
         
-    print(f"\n{Fore.CYAN}{'='*140}")
+    print(f"\n{Fore.CYAN}{'='*120}")
     print(f"{Fore.CYAN}{'='*15} 🚨 POSITIONS CLOSEST TO LIQUIDATION (>${HIGHLIGHT_THRESHOLD:,}) 🚨 {'='*15}")
-    print(f"{Fore.CYAN}{'='*140}")
+    print(f"{Fore.CYAN}{'='*120}")
     
     # Create header with fixed widths
     header = (f"{Fore.YELLOW}{'Position':<10} | {'Coin':<4} | {'Value':>17} | "
-             f"{'Entry':>12} | {'Liq':>12} | {'Distance':>9} | {'Leverage':>8} | {'Address':>42} | {'USDC':>12}")
-    separator = f"{Fore.CYAN}{'-'*10}-+-{'-'*4}-+-{'-'*17}-+-{'-'*12}-+-{'-'*12}-+-{'-'*9}-+-{'-'*8}-+-{'-'*42}-+-{'-'*12}"
+             f"{'Entry':>12} | {'Liq':>12} | {'Distance':>9} | {'Leverage':>8} | {'Address':>42}")
+    separator = f"{Fore.CYAN}{'-'*10}-+-{'-'*4}-+-{'-'*17}-+-{'-'*12}-+-{'-'*12}-+-{'-'*9}-+-{'-'*8}-+-{'-'*42}"
     
     print(header)
     print(separator)
     
     # Display long positions
     for i, (_, row) in enumerate(top_longs.iterrows(), 1):
-        usdc_balance = get_spot_position_usd(row['address'])
         print(f"{Fore.GREEN}{'LONG #' + str(i):<10} | "
               f"{Fore.YELLOW}{row['coin']:<4} | "
               f"{Fore.GREEN}${row['position_value']:>15,.0f} | "
@@ -810,12 +752,10 @@ def display_highlighted_positions(df):
               f"{Fore.RED}${row['liquidation_price']:>10,.2f} | "
               f"{Fore.MAGENTA}{row['distance_to_liq_pct']:>7.2f}% | "
               f"{Fore.CYAN}{row['leverage']:>3}x".ljust(8) + " | "
-              f"{Fore.BLUE}{row['address']} | "
-              f"{Fore.MAGENTA}${usdc_balance:>10,.0f}")
+              f"{Fore.BLUE}{row['address']}")
     
     # Display short positions
     for i, (_, row) in enumerate(top_shorts.iterrows(), 1):
-        usdc_balance = get_spot_position_usd(row['address'])
         print(f"{Fore.RED}{'SHORT #' + str(i):<10} | "
               f"{Fore.YELLOW}{row['coin']:<4} | "
               f"{Fore.RED}${row['position_value']:>15,.0f} | "
@@ -823,10 +763,9 @@ def display_highlighted_positions(df):
               f"{Fore.RED}${row['liquidation_price']:>10,.2f} | "
               f"{Fore.MAGENTA}{row['distance_to_liq_pct']:>7.2f}% | "
               f"{Fore.CYAN}{row['leverage']:>3}x".ljust(8) + " | "
-              f"{Fore.BLUE}{row['address']} | "
-              f"{Fore.MAGENTA}${usdc_balance:>10,.0f}")
+              f"{Fore.BLUE}{row['address']}")
     
-    print(f"{Fore.CYAN}{'='*140}")
+    print(f"{Fore.CYAN}{'='*120}")
 
 def display_market_metrics():
     """

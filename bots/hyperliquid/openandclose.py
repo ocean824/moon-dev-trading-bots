@@ -67,13 +67,14 @@ colorama.init(autoreset=True)
 load_dotenv()
 
 # Get the Hyperliquid key from environment variables
-HYPER_LIQUID_KEY = os.getenv('HYPER_LIQUID_KEY')
+#HYPER_LIQUID_KEY = os.getenv('HYPER_LIQUID_KEY')
+HYPER_LIQUID_KEY = os.getenv('HYPER_LIQUID_KEY_COLLECTOR')
 
 # ===== CONFIGURATION =====
 # Symbol to trade
 SYMBOL = 'BTC'  # Default symbol, can be changed as needed
-LEVERAGE = 10     # Leverage to use for trading
-POSITION_SIZE_USD = 10  # Position size in USD
+LEVERAGE = 40     # Leverage to use for trading
+POSITION_SIZE_USD = 100000  # Position size in USD
 
 # Time window configuration
 ANALYSIS_START_TIME_MORNING = '05:30'  # 5:30 AM Eastern
@@ -85,7 +86,7 @@ TRADING_END_TIME_MORNING = '11:00'     # 11:00 AM Eastern
 ANALYSIS_START_TIME_AFTERNOON = '10:30'  # 10:30 AM Eastern (4 hours before trading start)
 ANALYSIS_END_TIME_AFTERNOON = '14:30'    # 2:30 PM Eastern
 TRADING_START_TIME_AFTERNOON = '14:30'   # 2:30 PM Eastern
-TRADING_END_TIME_AFTERNOON = '16:00'     # 4:00 PM Eastern
+TRADING_END_TIME_AFTERNOON = '20:00'     # 4:00 PM Eastern
 
 # For backward compatibility
 ANALYSIS_START_TIME = ANALYSIS_START_TIME_MORNING
@@ -94,7 +95,7 @@ TRADING_START_TIME = TRADING_START_TIME_MORNING
 TRADING_END_TIME = TRADING_END_TIME_MORNING
 
 # Price move threshold to consider as "extreme"
-EXTREME_PRICE_MOVE_PERCENT = 3  # 3% price move is considered extreme
+EXTREME_PRICE_MOVE_PERCENT = 2  # 3% price move is considered extreme
 
 # Analysis timeframe
 ANALYSIS_TIMEFRAME = '5m'  # 5-minute candles
@@ -102,11 +103,11 @@ LOOKBACK_HOURS = 4  # Look back 4 hours for analysis
 
 # Liquidation configuration
 LIQUIDATION_LOOKBACK_MINUTES = 5  # Look back this many minutes for liquidations
-ENTRY_LIQUIDATION_THRESHOLD = 1000000 #1000000  # $1M in liquidations to trigger entry
+ENTRY_LIQUIDATION_THRESHOLD = 600000 #1000000  # $1M in liquidations to trigger entry
 
 # Take profit and stop loss settings
-TAKE_PROFIT_PERCENT = 19  # Take profit percentage
-STOP_LOSS_PERCENT = -18 # Stop loss percentage
+TAKE_PROFIT_PERCENT = 50  # Take profit percentage
+STOP_LOSS_PERCENT = -12 # Stop loss percentage
 
 # Moon Dev ASCII Art Banner
 # Moon Dev ASCII Art Banner
@@ -604,37 +605,57 @@ def enter_position(direction):
         # Cancel any existing orders
         n.cancel_all_orders(account)
         
-        # Adjust leverage and position size
-        leverage, pos_size = n.adjust_leverage_usd_size(SYMBOL, POSITION_SIZE_USD, LEVERAGE, account)
+        # Debug the current settings
+        print(f"{Fore.CYAN}🔍 DEBUG INFO: Target position size: ${POSITION_SIZE_USD}, Leverage: {LEVERAGE}x")
         
-        # Get current price
-        #current_price = n.get_current_price(SYMBOL)
-
+        # Get current price first for better calculations
         ask, bid, l2_data = n.ask_bid(SYMBOL)
+        current_price = ask if direction == "short" else bid
+        
+        print(f"{Fore.CYAN}🔍 DEBUG INFO: Current price: ${current_price}")
+        
+        # Calculate raw size WITHOUT leverage (actual coins to be traded)
+        raw_size = POSITION_SIZE_USD / current_price
         
         # Get size and price decimals for proper rounding
         sz_decimals, px_decimals = n.get_sz_px_decimals(SYMBOL)
         
-        # Round the price to the correct number of decimal places
-        #current_price = round(current_price, px_decimals)
-        #print(f"🌙 Moon Dev rounded price to {px_decimals} decimals: ${current_price}")
+        # Round the raw size to the correct number of decimal places
+        raw_size = round(raw_size, sz_decimals)
         
-        # Place the order
+        print(f"{Fore.CYAN}🔍 DEBUG INFO: Raw size (without leverage): {raw_size} {SYMBOL}")
+        print(f"{Fore.CYAN}🔍 DEBUG INFO: Total notional value: ${raw_size * current_price}")
+        
+        # Set the leverage first
+        print(f"{Fore.CYAN}🔍 DEBUG INFO: Setting leverage to {LEVERAGE}x")
+        exchange = n.Exchange(account, n.constants.MAINNET_API_URL)
+        leverage_response = exchange.update_leverage(LEVERAGE, SYMBOL)
+        print(f"{Fore.CYAN}🔍 DEBUG INFO: Leverage response: {leverage_response}")
+        
+        # Place the order with the raw size (NOT multiplied by leverage)
         if direction == "long":
-            n.limit_order(SYMBOL, True, pos_size, bid, False, account)
+            print(f"{Fore.GREEN}🚀 Placing LONG order for {raw_size} {SYMBOL} at ${bid}")
+            n.limit_order(SYMBOL, True, raw_size, bid, False, account)
             print(f"{Fore.GREEN}🚀 ENTERED LONG POSITION at ${bid:.2f}")
         else:  # direction == "short"
-            n.limit_order(SYMBOL, False, pos_size, ask, False, account)
+            print(f"{Fore.RED}💥 Placing SHORT order for {raw_size} {SYMBOL} at ${ask}")
+            n.limit_order(SYMBOL, False, raw_size, ask, False, account)
             print(f"{Fore.RED}💥 ENTERED SHORT POSITION at ${ask:.2f}")
         
         # Wait for order to be filled
         time.sleep(5)
         
         # Check if position was opened
-        _, in_position, _, _, _, _, _ = n.get_position(SYMBOL, account)
+        _, in_position, pos_size, _, entry_price, _, _ = n.get_position(SYMBOL, account)
         
         if in_position:
+            # Calculate and display the actual position value
+            position_value = pos_size * entry_price * LEVERAGE
             print(f"{Fore.GREEN}✅ Position successfully opened!")
+            print(f"{Fore.GREEN}📊 Position size: {pos_size} {SYMBOL}")
+            print(f"{Fore.GREEN}📊 Entry price: ${entry_price:.2f}")
+            print(f"{Fore.GREEN}📊 Leverage: {LEVERAGE}x")
+            print(f"{Fore.GREEN}📊 Total position value: ${position_value:.2f}")
             return True
         else:
             print(f"{Fore.RED}❌ Failed to open position. Order may not have filled.")
@@ -668,6 +689,27 @@ def bot():
         print(f"{Fore.YELLOW}🌙 Moon Dev's Open Only Bot - {current_time.strftime('%Y-%m-%d %H:%M:%S')} ET 🚀")
         print(f"{Fore.CYAN}{'='*80}")
         
+        # Check if we're outside trading hours and have positions - close them if so
+        trading_session = is_trading_time()
+        if not trading_session:
+            # Check if we have any open positions
+            positions, in_position, pos_size, pos_sym, entry_price, pnl_percent, is_long = n.get_position(SYMBOL, account)
+            
+            if in_position:
+                current_hour_minute = current_time.strftime("%H:%M")
+                print(f"{Fore.YELLOW}⏰ Outside trading hours with open position. Current time: {current_hour_minute}")
+                print(f"{Fore.RED}🔴 CLOSING ALL POSITIONS using close_all_positions")
+                # Close all positions since we're outside trading hours
+                n.close_all_positions(account)
+                return
+            else:
+                current_hour_minute = current_time.strftime("%H:%M")
+                print(f"{Fore.YELLOW}⏰ Not in any trading window. Current time: {current_hour_minute}")
+                print(f"{Fore.YELLOW}⏰ Morning window: {TRADING_START_TIME_MORNING} - {TRADING_END_TIME_MORNING}")
+                print(f"{Fore.YELLOW}⏰ Afternoon window: {TRADING_START_TIME_AFTERNOON} - {TRADING_END_TIME_AFTERNOON}")
+                return
+        
+        # If we're in trading hours, proceed with normal operations
         # First check PnL to see if we need to exit with profit or loss
         print(f"{Fore.YELLOW}💰 Checking PnL conditions first...")
         n.pnl_close(SYMBOL, TAKE_PROFIT_PERCENT, STOP_LOSS_PERCENT, account)
@@ -704,15 +746,6 @@ def bot():
                 return
             
             # If we're still in a position, don't try to enter new ones
-            return
-        
-        # If we're not in a position, check if it's trading time
-        trading_session = is_trading_time()
-        if not trading_session:
-            current_hour_minute = current_time.strftime("%H:%M")
-            print(f"{Fore.YELLOW}⏰ Not in any trading window. Current time: {current_hour_minute}")
-            print(f"{Fore.YELLOW}⏰ Morning window: {TRADING_START_TIME_MORNING} - {TRADING_END_TIME_MORNING}")
-            print(f"{Fore.YELLOW}⏰ Afternoon window: {TRADING_START_TIME_AFTERNOON} - {TRADING_END_TIME_AFTERNOON}")
             return
         
         # Now determine which direction to trade based on the current session

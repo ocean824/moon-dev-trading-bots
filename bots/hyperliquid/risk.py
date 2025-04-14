@@ -25,7 +25,7 @@ BALANCE_HISTORY_FILE = "balance_history.csv"
 
 # Constants for kill switch
 KILL_UNDER_CONSTANT = True  # Toggle this to enable/disable the kill under price check
-KILL_PRICE = 78649  # Example kill price, adjust as needed
+KILL_PRICE = 79345  # Example kill price, adjust as needed
 
 def get_balance_history_path():
     """Get the path to the balance history CSV file"""

@@ -350,7 +350,7 @@ def adjust_leverage_usd_size(symbol, usd_size, leverage, account):
         acct_value = user_state["marginSummary"]["accountValue"]
         acct_value = float(acct_value)
 
-        print(exchange.update_leverage(leverage, symbol))
+        print(exchange.update_leverage(leverage, symbol, is_cross=False))
 
         price = ask_bid(symbol)[0]
 

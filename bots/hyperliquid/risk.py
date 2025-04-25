@@ -28,7 +28,7 @@ SYMBOL = 'ETH'
 KILL_UNDER_CONSTANT = True  # Toggle this to enable/disable the kill under price check
 KILL_PRICE = 1500 # Example kill price, adjust as needed
 KILL_OVER_CONSTANT = True  # Toggle this to enable/disable the kill over price check
-KILL_OVER_PRICE = 1825 # Example kill over price, adjust as needed
+KILL_OVER_PRICE = 1841 # Example kill over price, adjust as needed
 
 def get_balance_history_path():
     """Get the path to the balance history CSV file"""

@@ -1,4 +1,32 @@
 '''
+
+This is a Moving Average (MA) Reversal Strategy that trades Bitcoin (BTC) using two moving averages. Let me break down the key components:
+1. Core Strategy Logic:
+* Uses two Simple Moving Averages (SMA):
+* A faster MA (shorter period, default 20)
+* A slower MA (longer period, default 40)
+1. Entry Rules:
+* Long Position: Enter when price is above both moving averages
+* Short Position: Enter when price is above fast MA but below slow MA
+1. Risk Management:
+* Takes profit at a percentage gain (default 10%)
+* Stops loss at a percentage loss (default 10%)
+* Short positions are closed when price moves above the slow MA
+* Commission is set at 0.2% per trade
+1. Best Performing Parameters (from the optimization results):
+* Fast MA: 28 periods
+* Slow MA: 30 periods
+* Take Profit: 1%
+* Stop Loss: 2%
+1. Performance Highlights (from the in-sample test):
+* Win Rate: ~65%
+* Profit Factor: 2.13 (meaning for every $1 lost, $2.13 was made)
+* Maximum Drawdown: 63%
+* Average Trade Duration: 9 days
+
+
+
+
 ✨ Moon Dev's Best Parameters ✨
 ==================================================
 Fast MA: 25

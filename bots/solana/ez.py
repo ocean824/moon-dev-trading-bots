@@ -13,8 +13,8 @@ from termcolor import colored, cprint
 import schedule 
 
 CONTRACT_ADDRESS = '7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr'
-TOTAL_USD_POSITION_SIZE = 3
-MAX_USD_ORDER_SIZE = 1
+TOTAL_USD_POSITION_SIZE = 10000
+MAX_USD_ORDER_SIZE = 50
 SLEEP_BETWEEN_ORDERS = 600 # the time betweens orders is important... this works for entries AND exits to get the BEST price
 SLIPPAGE = 49 # 5000 is 50%, 500 is 5% and 50 is .5%
 PRIORITY_FEE = 20000 # 200000 is about .035 usd at 150 sol, after a bit of testing 100000 is sufficient and is .02 usd

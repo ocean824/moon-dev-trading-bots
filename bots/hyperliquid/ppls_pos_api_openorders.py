@@ -77,7 +77,7 @@ TOP_N_POSITIONS = 30  # Number of top positions to display
 
 # List of tokens to analyze for positions closest to liquidation
 #TOKENS_TO_ANALYZE = ['BTC', 'ETH', 'XRP', 'SOL']
-TOKENS_TO_ANALYZE = ['FARTCOIN']
+TOKENS_TO_ANALYZE = ['TRUMP']
 
 # Highlight threshold for positions
 HIGHLIGHT_THRESHOLD = 2000000  # $2 million

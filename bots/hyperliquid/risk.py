@@ -24,8 +24,11 @@ DEFAULT_MAX_DRAWDOWN_PERCENT = 20
 BALANCE_HISTORY_FILE = "balance_history.csv"
 
 # Constants for kill switch
+SYMBOL = 'ETH'
 KILL_UNDER_CONSTANT = True  # Toggle this to enable/disable the kill under price check
-KILL_PRICE = 79345  # Example kill price, adjust as needed
+KILL_PRICE = 1500 # Example kill price, adjust as needed
+KILL_OVER_CONSTANT = True  # Toggle this to enable/disable the kill over price check
+KILL_OVER_PRICE = 1825 # Example kill over price, adjust as needed
 
 def get_balance_history_path():
     """Get the path to the balance history CSV file"""
@@ -217,21 +220,46 @@ def check_drawdown(account, lookback_hours=DEFAULT_LOOKBACK_HOURS, max_drawdown_
 
 def check_and_kill_if_below_price(symbol, account, stop_loss_price):
     """
-    Check if the current price of the symbol is below the stop loss price and call kill switch if true.
+    Check if the current price of the symbol is below the stop loss price or above kill over price and call kill switch if true.
 
     Args:
         symbol: The trading symbol to check.
         account: The trading account.
         stop_loss_price: The stop loss price to compare against.
     """
-    # Get the current price of the symbol
+    # Get the current price of the symbol and timestamp
     current_price = n.get_current_price(symbol)
-    print(f"{Back.GREEN}{Fore.BLACK}🌙 MOON DEV CHECK: Current price of {symbol} is ${current_price:.2f} vs Kill price ${stop_loss_price:.2f} 🚀{Style.RESET_ALL}")
+    current_time = datetime.now(pytz.timezone('US/Eastern'))
+    time_str = current_time.strftime('%Y-%m-%d %I:%M:%S %p EST')
+    
+    # Print price check header
+    print(f"\n{Back.GREEN}{Fore.BLACK}{'='*100}{Style.RESET_ALL}")
+    print(f"{Back.GREEN}{Fore.BLACK}🌙 MOON DEV PRICE CHECK STATUS 🌙{Style.RESET_ALL}")
+    print(f"{Back.GREEN}{Fore.BLACK}{'='*100}{Style.RESET_ALL}")
+    print(f"{Back.GREEN}{Fore.BLACK}⏰ Time: {time_str}{Style.RESET_ALL}")
+    print(f"{Back.GREEN}{Fore.BLACK}📊 Current {symbol} Price: ${current_price:,.2f}{Style.RESET_ALL}")
+    print(f"{Back.GREEN}{Fore.BLACK}⚠️ Kill Under Price: ${stop_loss_price:,.2f} | Kill Over Price: ${KILL_OVER_PRICE:,.2f}{Style.RESET_ALL}")
+    print(f"{Back.GREEN}{Fore.BLACK}{'='*100}{Style.RESET_ALL}\n")
 
-    # Check if the current price is below the stop loss price
+    # Check if the current price is below the stop loss price or above kill over price
     if current_price < stop_loss_price:
-        print(f"{Back.GREEN}{Fore.BLACK}🚨 MOON DEV ALERT: {symbol} price (${current_price:.2f}) is below stop loss price (${stop_loss_price:.2f}). Initiating kill switch!{Style.RESET_ALL}")
-        n.kill_switch(symbol, account)
+        print(f"\n{Back.RED}{Fore.WHITE}{'='*100}{Style.RESET_ALL}")
+        print(f"{Back.RED}{Fore.WHITE}⏰ {time_str}{Style.RESET_ALL}")
+        print(f"{Back.RED}{Fore.WHITE}🚨 MOON DEV KILL SWITCH - PRICE TOO LOW 🚨{Style.RESET_ALL}")
+        print(f"{Back.RED}{Fore.WHITE}💥 {symbol} Price (${current_price:,.2f}) < Kill Under Price (${stop_loss_price:,.2f}){Style.RESET_ALL}")
+        print(f"{Back.RED}{Fore.WHITE}🔄 CLOSING ALL POSITIONS NOW!{Style.RESET_ALL}")
+        print(f"{Back.RED}{Fore.WHITE}{'='*100}{Style.RESET_ALL}\n")
+        n.kill_switch_mkt(symbol, account)
+    elif KILL_OVER_CONSTANT and current_price > KILL_OVER_PRICE:
+        print(f"\n{Back.RED}{Fore.WHITE}{'='*100}{Style.RESET_ALL}")
+        print(f"{Back.RED}{Fore.WHITE}⏰ {time_str}{Style.RESET_ALL}")
+        print(f"{Back.RED}{Fore.WHITE}🚨 MOON DEV KILL SWITCH - PRICE TOO HIGH 🚨{Style.RESET_ALL}")
+        print(f"{Back.RED}{Fore.WHITE}💥 {symbol} Price (${current_price:,.2f}) > Kill Over Price (${KILL_OVER_PRICE:,.2f}){Style.RESET_ALL}")
+        print(f"{Back.RED}{Fore.WHITE}🔄 CLOSING ALL POSITIONS NOW!{Style.RESET_ALL}")
+        print(f"{Back.RED}{Fore.WHITE}{'='*100}{Style.RESET_ALL}\n")
+        n.kill_switch_mkt(symbol, account)
+    else:
+        print(f"{Back.GREEN}{Fore.BLACK}✅ MOON DEV SAYS: Price is within safe trading range! 🚀{Style.RESET_ALL}\n")
 
 def risk_check(account, lookback_hours=DEFAULT_LOOKBACK_HOURS, max_drawdown_percent=DEFAULT_MAX_DRAWDOWN_PERCENT):
     """
@@ -273,7 +301,7 @@ def risk_check(account, lookback_hours=DEFAULT_LOOKBACK_HOURS, max_drawdown_perc
 
         # Check if the kill under constant is enabled and perform the check
         if KILL_UNDER_CONSTANT:
-            check_and_kill_if_below_price('BTC', account, KILL_PRICE)  # Example symbol, adjust as needed
+            check_and_kill_if_below_price(SYMBOL, account, KILL_PRICE)  # Example symbol, adjust as needed
         
         return False
         
@@ -298,16 +326,16 @@ if __name__ == "__main__":
             try:
                 # Run price check
                 print("🌙 MOON DEV: Running price check... 🚀")
-                check_and_kill_if_below_price('BTC', account, KILL_PRICE)
+                check_and_kill_if_below_price(SYMBOL, account, KILL_PRICE)
                 print("🌙 MOON DEV: Price check completed! 🌟")
                 
                 # Wait for 15 seconds before the next check
-                time.sleep(15)
+                time.sleep(1)
             except Exception as e:
                 print(f"{Fore.RED}❌ Encountered an error: {e}")
                 print(f"{Fore.RED}📋 Stack trace:\n{traceback.format_exc()}")
                 # Wait before retrying to avoid rapid error logging
-                time.sleep(10)
+                time.sleep(1)
     else:
         print("🌙 MOON DEV: Starting full risk check loop... 🚀")
         while True:
@@ -318,9 +346,9 @@ if __name__ == "__main__":
                 print("🌙 MOON DEV: Risk check completed! 🌟")
                 
                 # Wait for 15 seconds before the next check
-                time.sleep(15)
+                time.sleep(1)
             except Exception as e:
                 print(f"{Fore.RED}❌ Encountered an error: {e}")
                 print(f"{Fore.RED}📋 Stack trace:\n{traceback.format_exc()}")
                 # Wait before retrying to avoid rapid error logging
-                time.sleep(10)
+                time.sleep(1)

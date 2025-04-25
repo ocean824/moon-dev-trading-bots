@@ -6005,3 +6005,62 @@
 2025-02-22 08:00:49,335 ERROR:
 1 Failed download:
 2025-02-22 08:00:49,335 ERROR:['NQ=F']: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')
+2025-04-16 09:27:56,164 INFO:Starting download for NQ=F
+2025-04-16 09:27:59,213 ERROR:
+1 Failed download:
+2025-04-16 09:27:59,213 ERROR:['NQ=F']: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')
+2025-04-16 09:28:01,058 ERROR:
+1 Failed download:
+2025-04-16 09:28:01,058 ERROR:['NQ=F']: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')
+2025-04-16 09:28:03,015 ERROR:
+1 Failed download:
+2025-04-16 09:28:03,015 ERROR:['NQ=F']: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')
+2025-04-16 09:28:04,922 ERROR:
+1 Failed download:
+2025-04-16 09:28:04,922 ERROR:['NQ=F']: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')
+2025-04-16 09:28:06,872 ERROR:
+1 Failed download:
+2025-04-16 09:28:06,872 ERROR:['NQ=F']: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')
+2025-04-16 09:28:08,779 ERROR:
+1 Failed download:
+2025-04-16 09:28:08,779 ERROR:['NQ=F']: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')
+2025-04-16 09:28:10,731 ERROR:
+1 Failed download:
+2025-04-16 09:28:10,731 ERROR:['NQ=F']: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')
+2025-04-16 09:28:12,591 ERROR:
+1 Failed download:
+2025-04-16 09:28:12,592 ERROR:['NQ=F']: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')
+2025-04-16 09:28:14,543 ERROR:
+1 Failed download:
+2025-04-16 09:28:14,543 ERROR:['NQ=F']: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')
+2025-04-16 09:28:16,492 ERROR:
+1 Failed download:
+2025-04-16 09:28:16,492 ERROR:['NQ=F']: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')
+2025-04-16 09:28:25,595 INFO:Starting download for AAPL
+2025-04-16 09:28:25,602 INFO:Loaded existing data for AAPL. Last date: 2025-02-14 00:00:00
+2025-04-16 09:28:27,000 ERROR:
+1 Failed download:
+2025-04-16 09:28:27,001 ERROR:['AAPL']: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')
+2025-04-16 09:28:28,891 ERROR:
+1 Failed download:
+2025-04-16 09:28:28,891 ERROR:['AAPL']: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')
+2025-04-16 09:28:30,792 ERROR:
+1 Failed download:
+2025-04-16 09:28:30,793 ERROR:['AAPL']: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')
+2025-04-16 09:28:32,754 ERROR:
+1 Failed download:
+2025-04-16 09:28:32,755 ERROR:['AAPL']: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')
+2025-04-16 09:28:33,756 INFO:Total rows for AAPL daily data: 6320
+2025-04-16 09:28:33,757 INFO:Starting download for NQ=F
+2025-04-16 09:28:34,661 ERROR:
+1 Failed download:
+2025-04-16 09:28:34,662 ERROR:['NQ=F']: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')
+2025-04-16 09:28:36,569 ERROR:
+1 Failed download:
+2025-04-16 09:28:36,569 ERROR:['NQ=F']: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')
+2025-04-16 09:28:38,525 ERROR:
+1 Failed download:
+2025-04-16 09:28:38,526 ERROR:['NQ=F']: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')
+2025-04-16 09:28:40,383 ERROR:
+1 Failed download:
+2025-04-16 09:28:40,384 ERROR:['NQ=F']: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')

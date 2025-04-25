@@ -816,11 +816,11 @@ def kill_switch_mkt(symbol, account):
         if long == True:
             limit_order(pos_sym, False, pos_size, fifth_bid, True, account)
             print('🌙 Kill switch MKT - SELL TO CLOSE SUBMITTED at 5th bid')
-            time.sleep(5)
+            time.sleep(.1)
         elif long == False:
             limit_order(pos_sym, True, pos_size, fifth_ask, True, account)
             print('🌙 Kill switch MKT - BUY TO CLOSE SUBMITTED at 5th ask')
-            time.sleep(5)
+            time.sleep(.1)
         
         positions, im_in_pos, pos_size, pos_sym, entry_px, pnl_perc, long = get_position(symbol, account)
 

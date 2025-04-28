@@ -285,16 +285,16 @@ from backtesting.lib import crossover
 import matplotlib.pyplot as plt
 
 # Load the data
-# data_path = '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/BTCUSD-1d-1000wks-data.csv' # OG **
-#data_path = '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/IS_BTCUSD-1d-1000wks-data.csv' # IS
-data_path ='/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/OS_BTCUSD-1d-1000wks-data.csv' # OOS
-data_path = '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/IS_BTCUSD-6h-1000wks-data.csv' # 6hr IS
-#data_path = '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/OS_BTCUSD-6h-1000wks-data.csv' # 6hr OOS
-# data_path = '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/ETHUSD-1d-1000wks-data.csv'
-# data_path = '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/IS_ETHUSD-1d-1000wks-data.csv' # ETH **
-# data_path = '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/OS_ETHUSD-1d-1000wks-data.csv'
-# data_path = '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/IS_SOLUSD-1d-1000wks-data.csv'
-# data_path = '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/OS_SOLUSD-1d-1000wks-data.csv'
+data_path = '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/BTCUSD-1d-1000wks-data.csv' # OG **
+# #data_path = '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/IS_BTCUSD-1d-1000wks-data.csv' # IS
+# data_path ='/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/OS_BTCUSD-1d-1000wks-data.csv' # OOS
+# data_path = '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/IS_BTCUSD-6h-1000wks-data.csv' # 6hr IS
+# #data_path = '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/OS_BTCUSD-6h-1000wks-data.csv' # 6hr OOS
+# # data_path = '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/ETHUSD-1d-1000wks-data.csv'
+# # data_path = '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/IS_ETHUSD-1d-1000wks-data.csv' # ETH **
+# # data_path = '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/OS_ETHUSD-1d-1000wks-data.csv'
+# # data_path = '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/IS_SOLUSD-1d-1000wks-data.csv'
+# # data_path = '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/OS_SOLUSD-1d-1000wks-data.csv'
 data = pd.read_csv(data_path, parse_dates=['datetime'], index_col='datetime')
 
 class MAReversalStrategy(Strategy):

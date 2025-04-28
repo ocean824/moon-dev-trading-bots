@@ -1058,18 +1058,35 @@ def get_data(address, days_back_4_data, timeframe):
     time_from, time_to = get_time_range(days_back_4_data)
 
     url = f"https://public-api.birdeye.so/defi/ohlcv?address={address}&type={timeframe}&time_from={time_from}&time_to={time_to}"
-    #url = f"https://public-api.birdeye.so/defi/ohlcv?address={address}&type={timeframe}&time_from=1706826067&time_to=1706827067"
-    # 1706827429 1707691429
     headers = {"X-API-KEY": API_KEY}
-    response = requests.get(url, headers=headers)
-    if response.status_code == 200:
-        json_response = response.json()  # Get the JSON response
-        items = json_response.get('data', {}).get('items', [])  # Safely access the 'items' list
+    
+    try:
+        cprint(f'🔍 MoonDev fetching data for {address[:4]}...', 'cyan')
+        cprint(f'⏰ Timeframe: {timeframe}', 'cyan')
+        cprint(f'📅 From: {datetime.fromtimestamp(time_from).strftime("%Y-%m-%d %H:%M:%S")}', 'cyan')
+        cprint(f'📅 To: {datetime.fromtimestamp(time_to).strftime("%Y-%m-%d %H:%M:%S")}', 'cyan')
+        
+        response = requests.get(url, headers=headers)
+        
+        if response.status_code != 200:
+            cprint(f'❌ API Error: Status {response.status_code}', 'red')
+            cprint(f'❌ Response: {response.text}', 'red')
+            cprint(f'❌ URL: {url}', 'red')
+            return pd.DataFrame()
+            
+        json_response = response.json()
+        
+        if 'success' in json_response and not json_response['success']:
+            cprint(f'❌ API Error: {json_response.get("message", "Unknown error")}', 'red')
+            return pd.DataFrame()
+            
+        items = json_response.get('data', {}).get('items', [])
+        
+        if not items:
+            cprint(f'⚠️ No data returned for {address[:4]}', 'yellow')
+            return pd.DataFrame()
 
-        # Debug print to check the response
-        #print(f"Data fetched for address {address}: {json_response}")
-
-        # Create a list of dictionaries with only the relevant data and the new human-readable time column
+        # Create DataFrame with OHLCV data
         processed_data = [{
             'Datetime (UTC)': datetime.utcfromtimestamp(item['unixTime']).strftime('%Y-%m-%d %H:%M:%S'),
             'Open': item['o'],
@@ -1079,69 +1096,100 @@ def get_data(address, days_back_4_data, timeframe):
             'Volume': item['v']
         } for item in items]
 
-        # Assuming 'processed_data' is already defined and available
         df = pd.DataFrame(processed_data)
+        
+        cprint(f'✅ Successfully fetched {len(df)} bars of data', 'green')
+        # print(df.head())
 
-        # Check if the DataFrame has fewer than 20 rows
-        if len(df) < 40:
-            # Calculate the number of rows to replicate
-            rows_to_add = 40 - len(df)
-            
-            # Replicate the first row
-            first_row_replicated = pd.concat([df.iloc[0:1]] * rows_to_add, ignore_index=True)
-            
-            # Append the replicated rows to the start of the DataFrame
-            df = pd.concat([first_row_replicated, df], ignore_index=True)
-
-        print(df)
-
-        # Now that the DataFrame has been padded, you can calculate SMA20 without issues
+        # Calculate technical indicators
         df['MA20'] = ta.sma(df['Close'], length=20)
-
-        # Continue with the rest of your calculations
         df['RSI'] = ta.rsi(df['Close'], length=14)
         df['MA40'] = ta.sma(df['Close'], length=40)
-
-        df['Price_above_MA20'] = df['Close'] > df['MA20']
-        df['Price_above_MA40'] = df['Close'] > df['MA40']
-        df['MA20_above_MA40'] = df['MA20'] > df['MA40']
-        # Debug print to check the final dataframe
-        #print(df.head())
+        
+        # Handle NaN values in comparisons
+        df['Price_above_MA20'] = df.apply(lambda x: False if pd.isna(x['MA20']) else x['Close'] > x['MA20'], axis=1)
+        df['Price_above_MA40'] = df.apply(lambda x: False if pd.isna(x['MA40']) else x['Close'] > x['MA40'], axis=1)
+        df['MA20_above_MA40'] = df.apply(lambda x: False if pd.isna(x['MA20']) or pd.isna(x['MA40']) else x['MA20'] > x['MA40'], axis=1)
 
         return df
-    else:
-        print(f"Failed to fetch data for address {address}. Status code: {response.status_code}")
+        
+    except requests.exceptions.RequestException as e:
+        cprint(f'❌ Network error fetching data for {address[:4]}: {str(e)}', 'red')
         return pd.DataFrame()
-    
+    except Exception as e:
+        cprint(f'❌ Unexpected error fetching data for {address[:4]}: {str(e)}', 'red')
+        return pd.DataFrame()
+
+def check_trend(symbol):
+    """
+    Check if price is above/below SMA for trend determination
+    Returns: 
+        - 'up' if price > SMA
+        - 'down' if price < SMA
+    """
+    try:
+        # Get current price
+        price = token_price(symbol)
+        if price is None:
+            cprint(f'❌ Could not get price for {symbol[:4]}', 'red')
+            return 'down'
+        
+        cprint(f'🏷️ Current price for {symbol[:4]}: ${price:.8f}', 'cyan')
+        
+        # Get data
+        cprint(f'📊 Fetching data for trend analysis...', 'cyan')
+        df = get_data(symbol, SMA_DAYS_BACK, SMA_TIMEFRAME)
+        
+        if df.empty:
+            cprint(f'❌ No data available for trend analysis of {symbol[:4]}', 'red')
+            return 'down'
+        
+        # Use MA for trend determination
+        sma = df['MA20'].iloc[-1]
+        trend = 'up' if price > sma else 'down'
+        cprint(f'🎯 Trend determined: {trend.upper()}', 'green' if trend == 'up' else 'red')
+        
+        return trend
+        
+    except Exception as e:
+        cprint(f'❌ Error in trend analysis for {symbol[:4]}: {str(e)}', 'red')
+        return 'down'  # Default to down trend on error
+
 def supply_demand_zones(CONTRACT_ADDRESS, days_back_4_data, timeframe):
-    print('starting moon devs supply and demand zones... ')
+    cprint('🌙 MoonDev starting supply and demand zones calculation...', 'cyan')
 
     sd_df = pd.DataFrame()
 
     df = get_data(CONTRACT_ADDRESS, days_back_4_data, timeframe)
+    
+    if df.empty:
+        cprint('❌ No data returned from get_data', 'red')
+        return None
+        
+    cprint(f'📊 Got {len(df)} bars of data', 'cyan')
 
     if len(df) > 2: 
-        df['support'] = df[:-2]['Close'].min()
-        df['resistance'] = df[:-2]['Close'].max()
+        try:
+            support = df[:-2]['Close'].min()
+            resistance = df[:-2]['Close'].max()
+            support_low = df[:-2]['Low'].min()
+            resistance_high = df[:-2]['High'].max()
+
+            sd_df['dz'] = [support_low, support]
+            sd_df['sz'] = [resistance_high, resistance]
+
+            cprint('\n🎯 Supply & Demand Zones:', 'green')
+            cprint(f'Demand Zone: {support_low:.8f} - {support:.8f}', 'blue')
+            cprint(f'Supply Zone: {resistance:.8f} - {resistance_high:.8f}', 'red')
+
+            return sd_df
+            
+        except Exception as e:
+            cprint(f'❌ Error calculating zones: {str(e)}', 'red')
+            return None
     else:
-        print('not enough data...')
-        return
-    
-    support = df.iloc[-1]['support']
-    resistance = df.iloc[-1]['resistance']
-
-    df['support_low'] = df[:-2]['Low'].min()
-    df['resistance_high'] = df[:-2]['High'].max()
-
-    support_low = df.iloc[-1]['support_low']
-    resistance_high = df.iloc[-1]['resistance_high']
-
-    sd_df['dz'] = [support_low, support]
-    sd_df['sz'] = [resistance_high, resistance]
-
-    print(sd_df)
-
-    return sd_df
+        cprint(f'❌ Not enough data - only {len(df)} bars available', 'red')
+        return None
 
 # supply_demand_zones('7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr', .5, '15m')
 # time.sleep(8987879)

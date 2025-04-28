@@ -24,11 +24,11 @@ DEFAULT_MAX_DRAWDOWN_PERCENT = 20
 BALANCE_HISTORY_FILE = "balance_history.csv"
 
 # Constants for kill switch
-SYMBOL = 'ETH'
+SYMBOL = 'BTC'
 KILL_UNDER_CONSTANT = True  # Toggle this to enable/disable the kill under price check
-KILL_PRICE = 1500 # Example kill price, adjust as needed
+KILL_PRICE = 93900 # Example kill price, adjust as needed
 KILL_OVER_CONSTANT = True  # Toggle this to enable/disable the kill over price check
-KILL_OVER_PRICE = 1841 # Example kill over price, adjust as needed
+KILL_OVER_PRICE = 100000 # Example kill over price, adjust as needed
 
 def get_balance_history_path():
     """Get the path to the balance history CSV file"""

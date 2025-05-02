@@ -14,9 +14,22 @@ from datetime import datetime
 
 # motion - FFVcrc7wxCQ2HsxY6jhKNPwWUeKJsL472K28Vw16pump
 # housecoin - DitHyRMQiSDhn5cnKMJV2CDDt6sVct96YrECiM49pump
-symbols = ['FFVcrc7wxCQ2HsxY6jhKNPwWUeKJsL472K28Vw16pump', 'DitHyRMQiSDhn5cnKMJV2CDDt6sVct96YrECiM49pump']
-timeframe = '5m'
-days_back_4_data = .25
+
+# Moon Dev's public address
+MY_ADDRESS = "G1vNV2SkzGPTBTDd7c3iypL4TPNGbe37rEbJb7cxVTQS"
+
+symbols = [
+    'DitHyRMQiSDhn5cnKMJV2CDDt6sVct96YrECiM49pump',  # housecoin
+#     '8BtoThi2ZoXnF7QQK1Wjmh2JuBw9FjVvhnGMVZ2vpump',
+#     'Df6yfrKC8kZE3KNkrHERKzAetSxbrWeniQfyJY4Jpump',
+#     'Hax9LTgsQkze1YFychnBLtFH8gYbQKtKfWKKg2SP6gdD',
+#     'C3DwDjT17gDvvCYC2nsdGHxDHVmQRdhKfpAdqQ29pump',
+#     'FtUEW73K6vEYHfbkfpdBZfWpxgQar2HipGdbutEhpump',
+#     'A8C3xuqscfmyLrte3VmTqrAq8kgMASius9AFNANwpump',
+#     'HeLp6NuQkmYB4pYWo2zYs22mESHXPQYzXbB8n4V98jwC',
+]
+timeframe = '1m'
+days_back_4_data = .2
 SLIPPAGE = 99 # .99%
 
 # Trend-based sell percentages
@@ -24,7 +37,7 @@ SELL_PERCENTAGE_TRENDING_UP = 0.50   # 50% sell in uptrend
 SELL_PERCENTAGE_TRENDING_DOWN = 0.95  # 95% sell in downtrend
 
 # Position thresholds
-POSITION_SIZE_USD = 100  # Target position size in USD
+POSITION_SIZE_USD = 50  # Target position size in USD
 MINIMUM_POSITION_PCT = 0.05  # 5% of target position size as minimum to consider trading
 BUFFER_PCT = 0.05  # 5% buffer to account for price fluctuations
 
@@ -303,16 +316,12 @@ if __name__ == "__main__":
     # Schedule to run every 30 seconds
     schedule.every(30).seconds.do(run_bot)
     
-    cprint('🤖 MoonDev Bot scheduled to run every once and a while', 'cyan', attrs=['bold'])
-    cprint('💫 Press Ctrl+C to stop', 'yellow')
-    
     # Keep running forever
     while True:
         try:
             schedule.run_pending()
             time.sleep(3)
         except KeyboardInterrupt:
-            cprint('\n👋 MoonDev Bot shutting down gracefully...', 'yellow')
             break
         except Exception as e:
             cprint(f'❌ Error in main loop: {str(e)}', 'red')

@@ -687,8 +687,8 @@ def fetch_wallet_holdings_og(address):
         #print(df2.tail(20))
         print(df2.head(50))
         # Assuming cprint is a function you have for printing in color
-        print('moondev.sol wallet')
-        cprint(f'** Current: ${round(df2["USD Value"].sum(),2)}', 'white', 'on_green')
+        #print('moondev.sol wallet')
+        #cprint(f'** Current: ${round(df2["USD Value"].sum(),2)}', 'white', 'on_green')
         print(' ')
         time.sleep(7)
     else:

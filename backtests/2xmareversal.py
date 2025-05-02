@@ -295,6 +295,7 @@ data_path = '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/BT
 # # data_path = '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/OS_ETHUSD-1d-1000wks-data.csv'
 # # data_path = '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/IS_SOLUSD-1d-1000wks-data.csv'
 # # data_path = '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/OS_SOLUSD-1d-1000wks-data.csv'
+data_path = '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/birdeye/DitHyRMQiSDhn5cnKMJV2CDDt6sVct96YrECiM49pump-4H-30days-data.csv'
 data = pd.read_csv(data_path, parse_dates=['datetime'], index_col='datetime')
 
 class MAReversalStrategy(Strategy):

@@ -27,7 +27,7 @@ flake8>=4.0.0  # For code linting
 
 # Utility Tools
 tqdm>=4.60.0  # For progress bars
-colorama>=0.4.4  # For colored terminal output
+colorama>=0.4.6  # For colored terminal output
 selenium>=4.1.0
 beautifulsoup4>=4.10.0
 webdriver-manager>=3.5.2
@@ -37,4 +37,7 @@ fastapi==0.109.2
 uvicorn==0.27.1
 openai==1.12.0
 pydantic==2.6.1
-python-multipart==0.0.9 
+python-multipart==0.0.9
+
+# Added from the code block
+watchdog==3.0.0 

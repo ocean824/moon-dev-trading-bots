@@ -22,6 +22,9 @@ USDC_TOKEN = "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
 # Balance update frequency in minutes
 BALANCE_UPDATE_MINUTES = 5
 
+
+IGNORE_LIST = ['59Nv97TEcKjcz2oZvZnsSCXK6kESvCigyZUHpxnDpump']
+
 # Get API key from environment
 BIRDEYE_KEY = os.getenv('BIRDEYE_KEY')
 if not BIRDEYE_KEY:
@@ -39,8 +42,10 @@ BOLD = "\033[1m"
 HIDE_CURSOR = "\033[?25l"
 SHOW_CURSOR = "\033[?25h"
 
+
+
 def fetch_wallet_balance():
-    """Simplified version of fetch_wallet_holdings_og that only gets USDC balance"""
+    """Gets total USD value of all tokens in wallet"""
     try:
         url = f"https://public-api.birdeye.so/v1/wallet/token_list?wallet={MY_ADDRESS}"
         headers = {"x-chain": "solana", "X-API-KEY": BIRDEYE_KEY}
@@ -51,13 +56,22 @@ def fetch_wallet_balance():
             if 'data' in json_response and 'items' in json_response['data']:
                 df = pd.DataFrame(json_response['data']['items'])
                 if not df.empty:
-                    df = df[['address', 'uiAmount', 'valueUsd']]
-                    df = df.rename(columns={'address': 'Mint Address', 'uiAmount': 'Amount', 'valueUsd': 'USD Value'})
-                    df = df[df['Mint Address'] == USDC_TOKEN]
-                    if not df.empty:
-                        return float(df['USD Value'].iloc[0])
+                    print(f"\n🌙 $1M Challenge:")
+                    # Create a summary of holdings, excluding ignored tokens
+                    summary = df[['symbol', 'uiAmount', 'valueUsd', 'address']].copy()
+                    summary = summary[summary['valueUsd'] > 0]  # Only show tokens with value
+                    # Filter out ignored tokens
+                    summary = summary[~summary['address'].isin(IGNORE_LIST)]
+                    for _, row in summary.iterrows():
+                        print(f"🪙 {row['symbol']}: ${float(row['valueUsd']):,.2f}")
+                    print()  # Add a blank line for better readability
+                    
+                    # Calculate total value including ALL tokens (even ignored ones)
+                    total_value = df['valueUsd'].astype(float).sum()
+                    return total_value
         return 0
-    except Exception:
+    except Exception as e:
+        print(f"❌ Error fetching wallet balance: {e}")
         return 0
 
 def get_usdc_balance():

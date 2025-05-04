@@ -4,9 +4,13 @@ Building out a supply and demand zone for the hand-picked winners out of my copy
 the idea is that some 'winners' will float to the top of my copy bot, sniper and trending solana bots
 and those can be placed into this bot to trade a Supply and Demand Zone strategy 
 this will allow for better entries and accumulation of free tokens 
+
+
+
+
 '''
 
-import nice_funcs as n
+import nice_funcs2 as n
 from termcolor import colored, cprint
 import time
 import schedule
@@ -28,7 +32,7 @@ symbols = [
 #     'A8C3xuqscfmyLrte3VmTqrAq8kgMASius9AFNANwpump',
 #     'HeLp6NuQkmYB4pYWo2zYs22mESHXPQYzXbB8n4V98jwC',
 ]
-timeframe = '1m'
+timeframe = '15m'
 days_back_4_data = .2
 SLIPPAGE = 99 # .99%
 
@@ -37,19 +41,19 @@ SELL_PERCENTAGE_TRENDING_UP = 0.50   # 50% sell in uptrend
 SELL_PERCENTAGE_TRENDING_DOWN = 0.95  # 95% sell in downtrend
 
 # Position thresholds
-POSITION_SIZE_USD = 50  # Target position size in USD
+POSITION_SIZE_USD = 150  # Target position size in USD
 MINIMUM_POSITION_PCT = 0.05  # 5% of target position size as minimum to consider trading
 BUFFER_PCT = 0.05  # 5% buffer to account for price fluctuations
 
 # Order execution settings
-ORDERS_PER_OPEN = 2  # Number of buy orders to place when opening position
+ORDERS_PER_OPEN = 1  # Number of buy orders to place when opening position
 ORDERS_PER_SELL = 3  # Number of sell orders to place in each sell attempt
 
 # SMA settings
 SMA_TIMEFRAME = '1H'  # Use 1H data directly from Birdeye
 SMA_DAYS_BACK = 2     # Get 2 days of data to ensure enough bars
 SMA_BARS = 10         # Use 10 bars for SMA
-SMA_BUFFER_PCT = 0.10  # 10% buffer zone around SMA for trend determination
+SMA_BUFFER_PCT = 0.15  # 10% buffer zone around SMA for trend determination
 
 def aggregate_to_2h(df):
     """
@@ -107,27 +111,42 @@ def check_trend(symbol):
         cprint(f'❌ Error in trend analysis for {symbol[:4]}: {str(e)}', 'red')
         return 'down'
 
-def verify_position_entry(symbol, expected_min_value):
+def try_position_entry(symbol, amount_to_buy_usdc):
     """
-    Verify position was entered and retry if needed
-    Returns True if position is established
+    Simple position entry that checks if we have a position after ordering
+    Returns True if we have any position
     """
-    max_attempts = 5
+    max_attempts = 3
     attempt = 0
     
     while attempt < max_attempts:
+        # Check if we already have a position
         position = n.get_position(symbol)
-        current_value = position * n.token_price(symbol)
         
-        if current_value >= expected_min_value:
-            cprint(f'✅ Position verified: ${current_value:.2f}', 'green')
+        if position > 0:
+            current_value = position * n.token_price(symbol)
+            cprint(f'✅ Have position: ${current_value:.2f}', 'green')
+            return True
+            
+        # No position, try to buy
+        cprint(f'🌙 MoonDev Order Attempt {attempt + 1}/{max_attempts}', 'yellow')
+        n.market_buy(symbol, amount_to_buy_usdc, SLIPPAGE)
+        cprint(f'✨ Buy order placed', 'yellow')
+        
+        # Quick check if we got the position
+        time.sleep(2)  # Brief pause to let order process
+        position = n.get_position(symbol)
+        if position > 0:
+            current_value = position * n.token_price(symbol)
+            cprint(f'✅ Got position: ${current_value:.2f}', 'green')
             return True
             
         attempt += 1
-        cprint(f'⏳ Waiting for position entry (attempt {attempt}/{max_attempts})...', 'yellow')
-        time.sleep(5)
+        if attempt < max_attempts:
+            cprint(f'🔄 No position detected, trying again...', 'yellow')
+            time.sleep(1)
     
-    cprint(f'❌ Failed to verify position entry after {max_attempts} attempts', 'red')
+    cprint(f'❌ Failed to get position after {max_attempts} attempts', 'red')
     return False
 
 def verify_position_exit(symbol, expected_max_value):
@@ -244,13 +263,7 @@ def check_zone_and_trade(symbol):
                 amount_to_buy_usdc = int(amount_to_buy_usd * 10**6)
                 
                 cprint(f'🛒 Need to buy ${amount_to_buy_usd:.2f} worth of tokens', 'green')
-                
-                for i in range(ORDERS_PER_OPEN):
-                    n.market_buy(symbol, amount_to_buy_usdc, SLIPPAGE)
-                    cprint(f'✨ Buy order {i+1}/{ORDERS_PER_OPEN} placed', 'yellow')
-                    time.sleep(1)
-                
-                verify_position_entry(symbol, expected_min_value=POSITION_SIZE_USD * 0.9)
+                try_position_entry(symbol, amount_to_buy_usdc)
             else:
                 cprint(f'✅ Already at or above target position size', 'green')
         else:

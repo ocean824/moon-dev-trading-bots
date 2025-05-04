@@ -53,6 +53,7 @@ ALL_TRENDING_EVER_CSV = 'csvs/all_trending_ever.csv'
 LEADERBOARD_CSV = 'csvs/leaderboard.csv'
 
 MY_ADDRESS = '4wgfCBf2WwLSRKLef9iW7JXZ2AfkxUxGM4XcKpHm3Sin'
+MY_ADDRESS2 = 'G1vNV2SkzGPTBTDd7c3iypL4TPNGbe37rEbJb7cxVTQS'
 USDC_CONTRACT_ADDRESS = 'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v'
 
 # Number of most recent token launches to process

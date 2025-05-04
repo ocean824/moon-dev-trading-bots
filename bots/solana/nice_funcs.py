@@ -221,13 +221,6 @@ def market_buy(token, amount, slippage=SLIPPAGE):
     # Use RPC endpoint
     http_client = Client(RPC_URL)
 
-    #print(f'SLIPPAGE is {SLIPPAGE}')
-
-    # Use Ankr's RPC endpoint
-    #http_client = Client(ANKR_KEY) # QUICKNODE
-    #http_client = Client("https://api.mainnet-beta.solana.com/")
-
-    #print(f'QUOTE_TOKEN is {QUOTE_TOKEN}')
 
     #quote_url = f'https://quote-api.jup.ag/v6/quote?inputMint={QUOTE_TOKEN}&outputMint={token}&amount={amount}&slippageBps={SLIPPAGE}'
     # testing &restrictIntermediateTokens=true which only allows routes that are with liquid tokens
@@ -723,11 +716,6 @@ def fetch_wallet_token_single(wallet_address, token_mint_address):
         if 'data' in data and 'items' in data['data']:
             df = pd.DataFrame(data['data']['items'])
             
-            # print("DataFrame columns:")
-            # print(df.columns)  # Imprime las columnas del DataFrame
-            
-            # print("DataFrame head:")
-            # print(df.head())  # Imprime las primeras filas del DataFrame
             
             # Filtra por el token_mint_address específico
             if 'address' in df.columns:

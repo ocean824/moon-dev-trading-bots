@@ -1,2 +1,1 @@
 # Add token addresses here (one per line) 
-4rofaXgSuYt4d2Zc81PKPwc3stYb7Uecq6Fug28Mpump x

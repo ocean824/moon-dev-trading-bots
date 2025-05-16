@@ -33,7 +33,7 @@ symbols = [
 #     'HeLp6NuQkmYB4pYWo2zYs22mESHXPQYzXbB8n4V98jwC',
 ]
 timeframe = '4H'
-days_back_4_data = 1# .2
+days_back_4_data = 19# .2
 SLIPPAGE = 99 # .99%
 
 # Trend-based sell percentages
@@ -41,7 +41,7 @@ SELL_PERCENTAGE_TRENDING_UP = 0.50   # 50% sell in uptrend
 SELL_PERCENTAGE_TRENDING_DOWN = 0.95  # 95% sell in downtrend
 
 # Position thresholds
-POSITION_SIZE_USD = 275  # Target position size in USD
+POSITION_SIZE_USD = 150  # Target position size in USD
 MINIMUM_POSITION_PCT = 0.05  # 5% of target position size as minimum to consider trading
 BUFFER_PCT = 0.05  # 5% buffer to account for price fluctuations
 
@@ -49,6 +49,7 @@ BUFFER_PCT = 0.05  # 5% buffer to account for price fluctuations
 ORDERS_PER_OPEN = 1  # Number of buy orders to place when opening position
 ORDERS_PER_SELL = 1  # Single sell order at a time
 SELL_LOOKBACK_HOURS = 12  # Hours to look back for previous sells
+DELAY_BETWEEN_ORDERS = 8  # Seconds to wait between order attempts
 
 # SMA settings for trading symbols (Birdeye 1H data)
 SMA_TIMEFRAME = '1H'  # Use 1H data directly from Birdeye
@@ -62,9 +63,10 @@ MARKET_SMA_LONG = 40   # 40-day SMA
 MARKET_DAYS_BACK = 60  # Get enough days for 40 SMA calculation
 
 # Add after other constants
-MINIMUM_TOTAL_BALANCE = 150  # Minimum total balance in USD before closing all positions
+MINIMUM_TOTAL_BALANCE = 100  # Minimum total balance in USD before closing all positions
 ZONE_MEMORY = {}  # To track last sell time in each zone
 POSITION_TARGET_THRESHOLD = 0.10  # Must be within 10% of target position size
+SCHEDULE_INTERVAL_MINUTES = 15 # How often the bot should run its main logic
 
 def aggregate_to_2h(df):
     """
@@ -124,7 +126,7 @@ def check_trend(symbol):
             price = get_hyperliquid_price(symbol)
         else:
             # For other tokens, use existing price function
-            price = n.token_price(symbol)
+            price = n.token_price_moralis(symbol)
             
         if price is None:
             cprint(f'❌ Could not get price for {symbol}', 'red')
@@ -164,8 +166,8 @@ def check_trend(symbol):
 
 def try_position_entry(symbol, amount_to_buy_usdc):
     """
-    Simple position entry that checks if we have a position after ordering
-    Returns True if we have any position
+    Position entry that checks if we have a position close to target size
+    Returns True only if we have a position within 10% of target
     """
     max_attempts = 3
     attempt = 0
@@ -175,29 +177,41 @@ def try_position_entry(symbol, amount_to_buy_usdc):
         position = n.get_position(symbol)
         
         if position > 0:
-            current_value = position * n.token_price(symbol)
-            cprint(f'✅ Have position: ${current_value:.2f}', 'green')
-            return True
+            current_value = position * n.token_price_moralis(symbol)
+            position_pct = current_value / POSITION_SIZE_USD
             
-        # No position, try to buy
+            # Only consider it a success if within 10% of target
+            if abs(1 - position_pct) <= 0.10:  # Within 10% of target
+                cprint(f'✅ Have full position: ${current_value:.2f} ({position_pct*100:.1f}% of target)', 'green')
+                return True
+            else:
+                cprint(f'⚠️ Position only at ${current_value:.2f} ({position_pct*100:.1f}% of target) - need more', 'yellow')
+        
+        # No position or not enough, try to buy
         cprint(f'🌙 MoonDev Order Attempt {attempt + 1}/{max_attempts}', 'yellow')
         n.market_buy(symbol, amount_to_buy_usdc, SLIPPAGE)
         cprint(f'✨ Buy order placed', 'yellow')
         
         # Quick check if we got the position
-        time.sleep(2)  # Brief pause to let order process
+        cprint(f'⏳ Waiting {DELAY_BETWEEN_ORDERS}s for order to process...', 'yellow')
+        time.sleep(DELAY_BETWEEN_ORDERS)  # Wait for order to process
         position = n.get_position(symbol)
         if position > 0:
-            current_value = position * n.token_price(symbol)
-            cprint(f'✅ Got position: ${current_value:.2f}', 'green')
-            return True
+            current_value = position * n.token_price_moralis(symbol)
+            position_pct = current_value / POSITION_SIZE_USD
             
+            if abs(1 - position_pct) <= 0.10:  # Within 10% of target
+                cprint(f'✅ Got full position: ${current_value:.2f} ({position_pct*100:.1f}% of target)', 'green')
+                return True
+            else:
+                cprint(f'⚠️ Position at ${current_value:.2f} ({position_pct*100:.1f}% of target) - continuing attempts', 'yellow')
+        
         attempt += 1
         if attempt < max_attempts:
-            cprint(f'🔄 No position detected, trying again...', 'yellow')
+            cprint(f'🔄 Position not at target size, trying again...', 'yellow')
             time.sleep(1)
     
-    cprint(f'❌ Failed to get position after {max_attempts} attempts', 'red')
+    cprint(f'❌ Failed to get full position after {max_attempts} attempts', 'red')
     return False
 
 def load_sell_history():
@@ -299,7 +313,7 @@ def verify_position_exit(symbol, expected_max_value):
             symbol_position = positions_df[positions_df['Mint Address'] == symbol]
             position = float(symbol_position['Amount'].iloc[0]) if not symbol_position.empty else 0
             
-        current_value = position * n.token_price(symbol)
+        current_value = position * n.token_price_moralis(symbol)
         
         if current_value <= expected_max_value:
             cprint(f'✅ Position reduction verified: ${current_value:.2f}', 'green')
@@ -439,13 +453,21 @@ def get_usdc_balance():
     while retry_count < max_retries:
         try:
             positions_df = n.fetch_wallet_holdings_og(MY_ADDRESS)
+            cprint(f'🔍 MoonDev Debug - Full Positions DataFrame:', 'cyan')
+            cprint(positions_df, 'cyan')
+            
             if not positions_df.empty:
-                # Find USDC in the positions
-                usdc_position = positions_df[positions_df['Symbol'] == 'USDC']
+                # Look for USDC using its contract address in Mint Address column
+                usdc_position = positions_df[positions_df['Mint Address'] == 'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v']
+                cprint(f'\n💫 MoonDev Debug - USDC Position Filter Result:', 'yellow')
+                cprint(usdc_position, 'yellow')
+                
                 if not usdc_position.empty:
                     usdc_balance = float(usdc_position['USD Value'].iloc[0])
-                    cprint(f'💰 Available USDC: ${usdc_balance:.2f}', 'cyan')
+                    cprint(f'🌙 MoonDev USDC Balance: ${usdc_balance:.2f} 💰', 'cyan')
                     return usdc_balance
+                else:
+                    cprint('⚠️ No USDC position found using contract address', 'yellow')
             
             retry_count += 1
             if retry_count < max_retries:
@@ -453,6 +475,9 @@ def get_usdc_balance():
                 time.sleep(5)
         except Exception as e:
             cprint(f'❌ Error getting USDC balance: {str(e)}', 'red')
+            cprint(f'🔍 MoonDev Debug - Exception info:', 'red')
+            import traceback
+            cprint(traceback.format_exc(), 'red')
             retry_count += 1
             if retry_count < max_retries:
                 time.sleep(5)
@@ -503,7 +528,9 @@ def check_zone_and_trade(symbol):
     # Get position for this specific symbol
     symbol_position = positions_df[positions_df['Mint Address'] == symbol] if not positions_df.empty else pd.DataFrame()
     position = float(symbol_position['Amount'].iloc[0]) if not symbol_position.empty else 0
-    price = n.token_price(symbol)
+    price = n.token_price_moralis(symbol)
+    print(f'🌙 ******MoonDev price for {symbol[:4]}: ${price}')
+
     current_value = position * price
     
     zones = n.supply_demand_zones(symbol, days_back_4_data, timeframe)
@@ -658,7 +685,7 @@ if __name__ == "__main__":
     run_bot()
     
     # Schedule to run every 30 seconds
-    schedule.every(45).seconds.do(run_bot)
+    schedule.every(SCHEDULE_INTERVAL_MINUTES).minutes.do(run_bot)
     
     # Keep running forever
     while True:

@@ -100,3 +100,8 @@ Only after successful research and backtesting should you move to implementation
 ---
 
 Created with 💖 by Moon Dev
+
+trading journal-
+
+5/6- early buys i got rekt on 5/6 - 25, 30, 30, 18 (a good reminder to use $1 size for testing new ideas. i was testing an idea of buying into bundled tokens and riding the wave til a small gain, opposed to holding for a long time. my mistake here was that i used more than $1 size for testing of a new idea)
+    == a $103 mistake. 

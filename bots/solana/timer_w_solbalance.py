@@ -19,11 +19,8 @@ MY_ADDRESS = "G1vNV2SkzGPTBTDd7c3iypL4TPNGbe37rEbJb7cxVTQS"
 # USDC token address on Solana
 USDC_TOKEN = "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
 
-# Balance update frequency in minutes
-BALANCE_UPDATE_MINUTES = 5
-
-
-IGNORE_LIST = ['59Nv97TEcKjcz2oZvZnsSCXK6kESvCigyZUHpxnDpump']
+# IGNORE_LIST was accidentally removed, adding it back
+IGNORE_LIST = ['59Nv97TEcKjcz2oZvZnsSCXK6kESvCigyZUHpxnDpump','5fBmCvqNp1H82SfHrzyMaRJoFg3aa6SAaYZQb1KBmoon', '7TUw3iAMM2c5H95BzfifgQCkdwGJyrPzuJ2u7nzhPUMP', 'WHfYPSqvUnhCoJfjQJrZJVhz2GzzH5Q2BTJoabnpump', 'WHfYPSqvUnhCoJfjQJrZJVhz2GzzH5Q2BTJoabnpump']
 
 # Get API key from environment
 BIRDEYE_KEY = os.getenv('BIRDEYE_KEY')
@@ -195,7 +192,6 @@ def main():
             end_time = datetime.now() + timedelta(minutes=timer_minutes)
             last_balance = None
             last_time_str = None
-            last_balance_update = datetime.now() - timedelta(minutes=BALANCE_UPDATE_MINUTES)  # Force first update
             
             while True:
                 remaining = (end_time - datetime.now()).total_seconds()
@@ -205,12 +201,10 @@ def main():
                 # Get current terminal size
                 term_width, term_height = get_terminal_size()
                 
-                # Update balance every BALANCE_UPDATE_MINUTES minutes
-                time_since_update = (datetime.now() - last_balance_update).total_seconds() / 60
-                if last_balance is None or time_since_update >= BALANCE_UPDATE_MINUTES:
+                # Update balance only at the start of a new timer cycle
+                if last_balance is None:
                     balance = get_usdc_balance()
                     last_balance = balance
-                    last_balance_update = datetime.now()
                 else:
                     balance = last_balance
                 

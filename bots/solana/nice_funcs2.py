@@ -13,6 +13,7 @@ import time
 import pandas_ta as ta
 import os
 from dotenv import load_dotenv
+from moralis import sol_api
 
 # Load environment variables
 load_dotenv()
@@ -21,6 +22,10 @@ load_dotenv()
 API_KEY = os.getenv('BIRDEYE_KEY')
 SOL_KEY = os.getenv('SOL_KEY2')
 RPC_URL = os.getenv('RPC_URL')
+MORALIS_KEY = os.getenv('MORALIS_KEY')
+
+if not MORALIS_KEY:
+    raise ValueError("MORALIS_KEY environment variable not set! Please set it in your .env file.")
 
 sample_address = "2yXTyarttn2pTZ6cwt4DqmrRuBw1G7pmFv9oT6MStdKP"
 
@@ -780,6 +785,45 @@ def token_price(address):
         return price_data['data']['value']
     else:
         return None
+    
+
+def token_price_moralis(token_mint_address):
+    """
+    Get token price using Moralis API. Returns the USD price of the token.
+    Similar to token_price() but uses Moralis instead of BirdEye.
+    """
+    try:
+        # Moralis API endpoint for token price
+        url = f"https://solana-gateway.moralis.io/token/mainnet/{token_mint_address}/price"
+        
+        headers = {
+            "accept": "application/json",
+            "X-API-Key": os.getenv('MORALIS_KEY')
+        }
+        
+        response = requests.get(url, headers=headers)
+        
+        if response.status_code == 200:
+            price_data = response.json()
+            if "usdPrice" in price_data:
+                usd_price = price_data.get("usdPrice", 0.0)
+                if usd_price is not None:
+                    cprint(f"🌙 Moon Dev got price for {token_mint_address[:4]}: ${usd_price} 💰", 'white', 'on_blue')
+                    return float(usd_price)
+                else:
+                    cprint(f"❌ Moon Dev couldn't get price for {token_mint_address[:4]} - No price data! 🌑", 'white', 'on_red')
+                    return None
+            else:
+                cprint(f"❌ Moon Dev couldn't get price for {token_mint_address[:4]} - Invalid response! 🌑", 'white', 'on_red')
+                return None
+        else:
+            cprint(f"❌ Moon Dev API error {response.status_code} for {token_mint_address[:4]} 🌑", 'white', 'on_red')
+            return None
+            
+    except Exception as e:
+        cprint(f"❌ Moon Dev Error in token_price_moralis for {token_mint_address[:4]}: {str(e)} 🌑", 'white', 'on_red')
+        return None
+
 
 
 def ask_bid(token_mint_address):

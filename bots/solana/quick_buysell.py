@@ -1,3 +1,4 @@
+
 '''
 This bot is a quick buy and sell. The objective is to be able to buy a token as quickly as possible or sell a token as quickly as possible. 
 The way this is done is by token_addresses.txt file. 
@@ -8,6 +9,10 @@ I personally will be using this a lot as it is very close to hand trading, but I
 
 Now to buy, you simply just put the Contract Address in the txt file
 to sell - you put the contract address and then a space and then a c or x
+
+
+buying launches is a very hard game to play, if you use this tool i would suggest on bigger tokens. nfa tho. 
+
 '''
 
 
@@ -35,7 +40,7 @@ from solders.pubkey import Pubkey
 load_dotenv()
 
 # Constants
-USDC_SIZE = 1  # $1 USDC for testing
+USDC_SIZE = 1  # $1 USDC for testing  
 SLIPPAGE = 49  # 0.49% slippage (49 bps)
 PRIORITY_FEE = 20000  # Priority fee for faster execution
 CHECK_DELAY = 7  # Seconds to wait before checking position after orders

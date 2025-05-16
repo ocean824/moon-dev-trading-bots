@@ -370,22 +370,22 @@ if __name__ == "__main__":
     #     print(f"✨ Recent Transactions Preview:\n{recent_txs.head()}")
     
     # Test Aggregated Positions on HLP
-    print("\n📊 Testing Aggregated HLP Positions...")
-    agg_positions = api.get_agg_positions_hlp()
-    if agg_positions is not None:
-        print(f"✨ Aggregated HLP Positions Preview:\n{agg_positions.head()}")
+    # print("\n📊 Testing Aggregated HLP Positions...")
+    # agg_positions = api.get_agg_positions_hlp()
+    # if agg_positions is not None:
+    #     print(f"✨ Aggregated HLP Positions Preview:\n{agg_positions.head()}")
 
     # Test Detailed Positions on HLP
-    print("\n📊 Testing Detailed HLP Positions...")
-    positions = api.get_positions_hlp()
-    if positions is not None:
-        print(f"✨ Detailed HLP Positions Preview:\n{positions.head()}")
+    # print("\n📊 Testing Detailed HLP Positions...")
+    # positions = api.get_positions_hlp()
+    # if positions is not None:
+    #     print(f"✨ Detailed HLP Positions Preview:\n{positions.head()}")
 
-    # Test Whale Addresses
-    print("\n🐋 Testing Whale Addresses...")
-    whale_addresses = api.get_whale_addresses()
-    if whale_addresses is not None:
-        print(f"✨ First few whale addresses:\n{whale_addresses[:5]}")
+    # # Test Whale Addresses
+    # print("\n🐋 Testing Whale Addresses...")
+    # whale_addresses = api.get_whale_addresses()
+    # if whale_addresses is not None:
+    #     print(f"✨ First few whale addresses:\n{whale_addresses[:5]}")
     
-    print("\n✨ Moon Dev API Test Complete! ✨")
-    print("\n💡 Note: Make sure to set MOONDEV_API_KEY in your .env file")
+    # print("\n✨ Moon Dev API Test Complete! ✨")
+    # print("\n💡 Note: Make sure to set MOONDEV_API_KEY in your .env file")

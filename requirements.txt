@@ -5,6 +5,12 @@ numpy>=1.20.0
 # Technical Analysis
 ta-lib>=0.4.24
 backtesting>=0.3.3
+pandas-ta>=0.3.14b0  # For Moon Dev's technical indicators
+
+# Machine Learning
+tensorflow>=2.13.0  # For Moon Dev's LSTM models
+scikit-learn>=1.3.0  # For ML preprocessing and metrics
+seaborn>=0.12.0  # For enhanced ML visualizations
 
 # Data Collection
 yfinance>=0.2.18

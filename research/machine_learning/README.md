@@ -117,3 +117,41 @@ Todo to improve models
 - liquidations happen in Miliseconds and we are sampling into 1-minute... we may be missing some things. 
 - i made a results page, and working from there... 
 - test cleaning up features to not have so many, just a couple, see how it changes things. 
+- build a hybrid
+- random forest trees do not need to be more than 300, max 500 but most research indicates that 300 is fine
+- same features from RF usuuauly work well in LSTM, so i can test there faster
+- AOC > 0.6 has some edge
+- AUC is good for filtering trash (like eliminating anything < 0.55), but accuracy is king for actual trading
+
+
+
+
+6/13-
+-Your original 1-hour LSTM with 40+ features is STILL your best model! 0.6243 AUC
+- it looks like our RF, random forest models are solid, but the lstm above is still sickest. i like testing the RF cause its way faster and supposedly, the features will carry over
+- RF 3min is the best one so far
+- 6 featuresworked best for me, 14, no go, but keep testing bro brooo
+
+
+6/12-
+- lets test the 1 hour and 4 hour
+
+
+6/11 - got some poor results so testing things like btc only data, looking into hyper parameter optimization for time series 
+    - our parmaeters were not optimized for time series.
+    - once i optimized them for the RF, it became real good. i run this file to optimize params /Users/md/Dropbox/dev/github/moon-dev-trading-bots/research/machine_learning/rf_param_optimizer.py
+    then i put them in the main file and run with those: rf_liquidations
+- models AUC was only .56 or something which is bad. 
+here are ideas to improve
+    - need a 0.65 minumyum AUC to trade, but 0.7 is better
+Data Quality: Liquidation data might be too noisy for 5-minute predictions
+Feature Engineering: Need more sophisticated features (ratios, momentum, market microstructure)
+Time Horizon: 5-minute predictions might be too short - try 15min, 30min, 1hr
+- do a data check to make sure all data is gucci
+- intraday is just hard, try longer patterns
+- added AUC to my lstm_liquidations too
+- do a full code review in order to ensure quality steps, ask ai about every step
+
+6/10- started predicting the direction in the next x minutes instead of price exactly
+    - implementing into RF and LSTM
+    * fire - changing to direction got the RF to a 75% prediction rate. 

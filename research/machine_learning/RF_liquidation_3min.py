@@ -38,7 +38,7 @@ CORE_FEATURES = [
     'total_liq_events', 'hour', 'minute', 'day_of_week'
 ] if LOCAL_MODE else None  # None means use all features
 
-# 🎯 MOON DEV'S FOCUSED LIQUIDATION FEATURES (Optimized for 3-min!)
+# 🎯 MOON DEV'S FOCUSED LIQUIDATION FEATURES (Optimized 6 Features for 3-min!)
 LIQUIDATION_FOCUSED_FEATURES = [
     'usd_long_liq',      # Long liquidation volume (when to go long)
     'usd_short_liq',     # Short liquidation volume (when to go short)  

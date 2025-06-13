@@ -11,6 +11,7 @@ pandas-ta>=0.3.14b0  # For Moon Dev's technical indicators
 tensorflow>=2.13.0  # For Moon Dev's LSTM models
 scikit-learn>=1.3.0  # For ML preprocessing and metrics
 seaborn>=0.12.0  # For enhanced ML visualizations
+imbalanced-learn>=0.11.0  # For Moon Dev's advanced class balancing (SMOTE, ADASYN)
 
 # Data Collection
 yfinance>=0.2.18

@@ -1,0 +1,19 @@
+🌙 MOON DEV'S OPTIMIZED RF PARAMETERS (Thanks Demijan!) 🌙
+============================================================
+
+Best F1-Macro Score: 0.4574
+
+OPTIMIZED PARAMETERS:
+n_estimators = 500
+min_samples_split = 20
+min_samples_leaf = 10
+max_samples = 0.9
+max_features = sqrt
+max_depth = 10
+class_weight = balanced_subsample
+bootstrap = True
+
+RANDOM_STATE = 42
+N_JOBS = -1
+
+UPDATE YOUR RF_liquidation.py WITH THESE VALUES! 🚀

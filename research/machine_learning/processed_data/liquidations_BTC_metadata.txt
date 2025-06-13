@@ -1,0 +1,11 @@
+🌙 MOON DEV'S LIQUIDATION DATA METADATA 🌙
+==================================================
+
+processing_timestamp: 20250611_105354
+symbols_filtered: ['BTC']
+total_rows: 508763
+date_range_start: 2024-06-04 12:51:28.327000
+date_range_end: 2025-06-07 16:35:04.492000
+total_usd_volume: 5790650845.116719
+avg_liquidation_size: 11381.823845516908
+columns: ['symbol', 'side', 'order_type', 'time_in_force', 'original_quantity', 'price', 'average_price', 'order_status', 'order_last_filled_quantity', 'order_filled_accumulated_quantity', 'order_trade_time', 'usd_size', 'datetime', 'is_btc']

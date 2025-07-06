@@ -37,6 +37,9 @@ flake8>=4.0.0  # For code linting
 # Utility Tools
 tqdm>=4.60.0  # For progress bars
 colorama>=0.4.6  # For colored terminal output
+termcolor>=2.3.0  # For colored terminal output
+schedule>=1.2.0  # For bot scheduling
+eth-account==0.8.0  # For Ethereum account management (compatible with hyperliquid)
 selenium>=4.1.0
 beautifulsoup4>=4.10.0
 webdriver-manager>=3.5.2

@@ -14,7 +14,7 @@ import time
 
 # Define symbol and timeframe
 symbol = 'TRUMP'
-timeframe = '1h'
+timeframe = '5m'
 
 
 # Constants

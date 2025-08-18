@@ -103,9 +103,9 @@ from backtesting.lib import crossover
 
 # Load the TRUMP data
 #data_path = '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/BTCUSD-1m-5wks-data.csv'
-#data_path = '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/BTCUSD-5m-70wks-data.csv'
+data_path = '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/BTCUSD-5m-70wks-data.csv'
 #data_path = '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/BTCUSD-1m-10wks-data.csv'
-data_path = '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/TRUMP_5m_20250604_130211_historical.csv'
+#data_path = '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/TRUMP_5m_20250604_130211_historical.csv'
 
 # 🌙 MOON DEV Adaptive header detection for different data sources
 # First, peek at the headers to determine format

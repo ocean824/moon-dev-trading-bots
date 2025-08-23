@@ -1,0 +1,7 @@
+,Return_%,Return_%,Return_%,Return_%,Sharpe,Max_DD_%,Win_Rate_%,Trades
+,mean,std,min,max,mean,mean,mean,sum
+Category,,,,,,,,
+Fast w/ Strength,-3.03,74.86,-97.72,245.25,0.1,-47.15,35.04,42035
+Slow Long-Only,259.48,593.39,-91.67,2887.5,0.38,-37.22,34.44,35686
+Slow Long/Short,115.31,468.96,-98.47,2882.38,0.14,-49.68,31.87,80226
+Slow w/ Strength,-5.55,69.09,-96.54,344.4,0.13,-39.43,37.07,23366

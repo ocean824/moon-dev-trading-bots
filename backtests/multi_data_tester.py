@@ -1,41 +1,50 @@
 """
-Multi-Data Backtest Tester
-Simple, single-file solution for testing strategies on multiple data sources
-Just import and use test_on_all_data() from any strategy file
+Multi-Data Testing Framework for Backtesting.py Strategies
+===========================================================
+
+This module provides a unified testing framework for running backtesting strategies
+on multiple data sources with different formats (Coinbase, Interactive Brokers, Yahoo).
+
+Usage:
+    from multi_data_tester import test_on_all_data
+    results = test_on_all_data(MyStrategy, 'MyStrategyName')
 """
 
 import pandas as pd
 import numpy as np
+from backtesting import Backtest
 import os
-from datetime import datetime
-from backtesting import Backtest, Strategy
+import warnings
+warnings.filterwarnings('ignore')
 
 # ============================================================================
-# DATA SOURCES - Add or remove data sources as needed
+# DATA SOURCE CONFIGURATION
 # ============================================================================
+# Format: (name, path, data_type)
+# data_type can be: 'coinbase', 'ib', or 'yahoo'
 
 DATA_SOURCES = [
-    # BITCOIN - Various timeframes
+    # BITCOIN DATA - Multiple timeframes
     ('BTC-15m-150wks', '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/BTCUSD-15m-150wks-data.csv', 'coinbase'),
     ('BTC-1h-500wks', '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/BTCUSD-1h-500wks-data.csv', 'coinbase'),
-    ('BTC-1h-gapped', '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/BTCUSD-1h-500wks-data_gapped.csv', 'coinbase'),
-    ('BTC-1h-inverse', '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/BTCUSD-1h-500wks-data_inverse_gapped.csv', 'coinbase'),
+    # ('BTC-1h-gapped', '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/BTCUSD-1h-500wks-gapped-data.csv', 'coinbase'),
+    # ('BTC-1h-inverse', '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/BTCUSD-1h-500wks-inverse-data.csv', 'coinbase'),
     ('BTC-5m-70wks', '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/BTCUSD-5m-70wks-data.csv', 'coinbase'),
-    ('BTC-5m-gapped', '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/BTCUSD-5m-70wks-data_gapped.csv', 'coinbase'),
-    ('BTC-5m-inverse', '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/BTCUSD-5m-70wks-data_inverse_gapped.csv', 'coinbase'),
+    # ('BTC-5m-gapped', '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/BTCUSD-5m-70wks-gapped-data.csv', 'coinbase'),
+    # ('BTC-5m-inverse', '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/BTCUSD-5m-70wks-inverse-data.csv', 'coinbase'),
     ('BTC-6h-500wks', '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/BTCUSD-6h-500wks-data.csv', 'coinbase'),
     ('BTC-6h-1000wks', '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/BTCUSD-6h-1000wks-data.csv', 'coinbase'),
     ('BTC-1d-1000wks', '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/BTCUSD-1d-1000wks-data.csv', 'coinbase'),
     ('BTC-1d-100wks', '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/BTCUSD-1d-100wks-data.csv', 'coinbase'),
     ('BTC-1m-10wks', '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/BTCUSD-1m-10wks-data.csv', 'coinbase'),
     
-    # ETHEREUM
+    # ETHEREUM DATA
     ('ETH-15m-150wks', '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/ETHUSD-15m-150wks-data.csv', 'coinbase'),
     ('ETH-1h-250wks', '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/ETHUSD-1h-250wks-data.csv', 'coinbase'),
     ('ETH-6h-400wks', '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/ETHUSD-6h-400wks-data.csv', 'coinbase'),
     ('ETH-1d-1000wks', '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/ETHUSD-1d-1000wks-data.csv', 'coinbase'),
     
-    # SOLANA
+    # SOLANA DATA
     ('SOL-1m-8wks', '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/SOLUSD-1m-8wks-data.csv', 'coinbase'),
     ('SOL-15m-100wks', '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/SOLUSD-15m-100wks-data.csv', 'coinbase'),
     ('SOL-1h-250wks', '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/SOLUSD-1h-250wks-data.csv', 'coinbase'),
@@ -115,6 +124,15 @@ def load_data_universal(path, data_type):
         data = data.sort_index()
         data = data.dropna()
         
+        # Ensure Volume is float type for talib compatibility
+        if 'Volume' in data.columns:
+            data['Volume'] = data['Volume'].astype(float)
+        
+        # Ensure all price columns are float
+        for col in ['Open', 'High', 'Low', 'Close']:
+            if col in data.columns:
+                data[col] = data[col].astype(float)
+        
         return data
         
     except Exception as e:
@@ -125,7 +143,7 @@ def load_data_universal(path, data_type):
 # MAIN TESTING FUNCTION
 # ============================================================================
 
-def test_on_all_data(strategy_class, strategy_name=None, optimize=False, cash=10000000, commission=0.00045):
+def test_on_all_data(strategy_class, strategy_name=None, optimize=False, cash=10000000, commission=0.00045, verbose=True):
     """
     Test a strategy on all configured data sources and save results to CSV
     
@@ -135,6 +153,7 @@ def test_on_all_data(strategy_class, strategy_name=None, optimize=False, cash=10
         optimize: Whether to run optimization (default False for speed)
         cash: Starting cash (default 10000000 for Bitcoin compatibility)
         commission: Commission rate (default 0.00045)
+        verbose: Whether to print detailed output (default True)
     
     Returns:
         DataFrame with all results
@@ -160,9 +179,10 @@ def test_on_all_data(strategy_class, strategy_name=None, optimize=False, cash=10
     
     all_results = []
     
-    print(f"\n{'='*80}")
-    print(f"🚀 Testing {strategy_name} on {len(DATA_SOURCES)} data sources")
-    print(f"{'='*80}\n")
+    if verbose:
+        print(f"\n{'='*80}")
+        print(f"🚀 Testing {strategy_name} on {len(DATA_SOURCES)} data sources")
+        print(f"{'='*80}\n")
     
     for i, source in enumerate(DATA_SOURCES, 1):
         # Handle both old format (name, path) and new format (name, path, type)
@@ -172,12 +192,14 @@ def test_on_all_data(strategy_class, strategy_name=None, optimize=False, cash=10
             name, path = source
             data_type = 'coinbase'  # Default for backward compatibility
             
-        print(f"[{i}/{len(DATA_SOURCES)}] {name}...", end=' ')
+        if verbose:
+            print(f"[{i}/{len(DATA_SOURCES)}] {name}...", end=' ')
         
         # Load data with appropriate format handler
         data = load_data_universal(path, data_type)
         if data is None:
-            print(f"❌ Failed to load")
+            if verbose:
+                print(f"❌ Failed to load")
             continue
         
         # Run backtest
@@ -186,11 +208,12 @@ def test_on_all_data(strategy_class, strategy_name=None, optimize=False, cash=10
             stats = bt.run()
             
             # Print full stats grid like backtesting.py does
-            print("\n" + "="*60)
-            print(f"Full Stats for {name}:")
-            print("="*60)
-            print(stats)
-            print("="*60)
+            if verbose:
+                print("\n" + "="*60)
+                print(f"Full Stats for {name}:")
+                print("="*60)
+                print(stats)
+                print("="*60)
             
             # Extract ALL stats for CSV (comprehensive list)
             result = {
@@ -204,7 +227,7 @@ def test_on_all_data(strategy_class, strategy_name=None, optimize=False, cash=10
                 'Equity_Peak': round(stats['Equity Peak [$]'], 2) if 'Equity Peak [$]' in stats else 0,
                 'Return_%': round(stats['Return [%]'], 2) if 'Return [%]' in stats else 0,
                 'Buy_Hold_%': round(stats['Buy & Hold Return [%]'], 2) if 'Buy & Hold Return [%]' in stats else 0,
-                'Annual_Return_%': round(stats['Return (Ann.) [%]'], 2) if 'Return (Ann.) [%]' in stats else 0,
+                'Return_Ann_%': round(stats['Return (Ann.) [%]'], 2) if 'Return (Ann.) [%]' in stats else 0,
                 'Volatility_Ann_%': round(stats['Volatility (Ann.) [%]'], 2) if 'Volatility (Ann.) [%]' in stats else 0,
                 'Sharpe': round(stats['Sharpe Ratio'], 3) if 'Sharpe Ratio' in stats else 0,
                 'Sortino': round(stats['Sortino Ratio'], 3) if 'Sortino Ratio' in stats else 0,
@@ -217,7 +240,7 @@ def test_on_all_data(strategy_class, strategy_name=None, optimize=False, cash=10
                 'Win_Rate_%': round(stats['Win Rate [%]'], 2) if 'Win Rate [%]' in stats else 0,
                 'Best_Trade_%': round(stats['Best Trade [%]'], 2) if 'Best Trade [%]' in stats else 0,
                 'Worst_Trade_%': round(stats['Worst Trade [%]'], 2) if 'Worst Trade [%]' in stats else 0,
-                'Avg_Trade_%': round(stats['Avg. Trade [%]'], 2) if 'Avg. Trade [%]' in stats else 0,
+                'Avg_Trade_%': round(stats['Avg. Trade [%]'], 3) if 'Avg. Trade [%]' in stats else 0,
                 'Max_Trade_Duration': str(stats['Max. Trade Duration']) if 'Max. Trade Duration' in stats else '',
                 'Avg_Trade_Duration': str(stats['Avg. Trade Duration']) if 'Avg. Trade Duration' in stats else '',
                 'Profit_Factor': round(stats['Profit Factor'], 3) if 'Profit Factor' in stats else 0,
@@ -225,17 +248,17 @@ def test_on_all_data(strategy_class, strategy_name=None, optimize=False, cash=10
                 'SQN': round(stats['SQN'], 3) if 'SQN' in stats else 0,
             }
             
-            # Run optimization if requested
-            if optimize and hasattr(strategy_class, 'get_optimization_params'):
+            # Add optimization results if requested
+            if optimize:
                 try:
-                    opt_params = strategy_class.get_optimization_params()
-                    opt_stats = bt.optimize(**opt_params)
-                    
-                    # Add optimized stats
+                    opt_stats = bt.optimize(
+                        maximize='Return [%]',
+                        max_tries=100,
+                        random_state=42
+                    )
                     result.update({
                         'Opt_Return_%': round(opt_stats['Return [%]'], 2) if 'Return [%]' in opt_stats else 0,
                         'Opt_Sharpe': round(opt_stats['Sharpe Ratio'], 3) if 'Sharpe Ratio' in opt_stats else 0,
-                        'Opt_Sortino': round(opt_stats['Sortino Ratio'], 3) if 'Sortino Ratio' in opt_stats else 0,
                         'Opt_Trades': opt_stats['# Trades'] if '# Trades' in opt_stats else 0,
                         'Opt_Win_Rate_%': round(opt_stats['Win Rate [%]'], 2) if 'Win Rate [%]' in opt_stats else 0,
                     })
@@ -245,7 +268,8 @@ def test_on_all_data(strategy_class, strategy_name=None, optimize=False, cash=10
             all_results.append(result)
             
         except Exception as e:
-            print(f"❌ Error: {e}")
+            if verbose:
+                print(f"❌ Error: {e}")
             continue
     
     # Save results to CSV (one CSV per strategy, replaces on each run)
@@ -255,92 +279,17 @@ def test_on_all_data(strategy_class, strategy_name=None, optimize=False, cash=10
         csv_path = os.path.join(results_dir, f"{strategy_name}.csv")
         df.to_csv(csv_path, index=False)
         
-        print(f"\n{'='*80}")
-        print(f"✅ Results saved to: {csv_path}")
-        print(f"{'='*80}\n")
-        
-        # Print summary with key metrics
-        print("SUMMARY:")
-        print(df[['Data_Source', 'Return_%', 'Buy_Hold_%', 'Sharpe', 'Sortino', 'Max_DD_%', 'Profit_Factor', 'Expectancy_%', 'Trades', 'Win_Rate_%']].to_string())
+        if verbose:
+            print(f"\n{'='*80}")
+            print(f"✅ Results saved to: {csv_path}")
+            print(f"{'='*80}\n")
+            
+            # Print summary with key metrics
+            print("SUMMARY:")
+            print(df[['Data_Source', 'Return_%', 'Buy_Hold_%', 'Sharpe', 'Sortino', 'Max_DD_%', 'Profit_Factor', 'Expectancy_%', 'Trades', 'Win_Rate_%']].to_string())
         
         return df
     else:
-        print("\n❌ No results generated")
+        if verbose:
+            print("\n❌ No results generated")
         return None
-
-# ============================================================================
-# HELPER FUNCTION FOR BATCH TESTING
-# ============================================================================
-
-def test_multiple_strategies(strategy_dict, optimize=False):
-    """
-    Test multiple strategies and save all results
-    
-    Args:
-        strategy_dict: Dictionary of {name: strategy_class}
-        optimize: Whether to run optimization
-    
-    Returns:
-        Dictionary of {name: DataFrame}
-    
-    Example:
-        strategies = {
-            'Strategy1': Strategy1Class,
-            'Strategy2': Strategy2Class
-        }
-        all_results = test_multiple_strategies(strategies)
-    """
-    
-    all_results = {}
-    
-    for name, strategy_class in strategy_dict.items():
-        print(f"\n{'#'*80}")
-        print(f"# Testing: {name}")
-        print(f"{'#'*80}")
-        
-        df = test_on_all_data(strategy_class, name, optimize)
-        if df is not None:
-            all_results[name] = df
-    
-    # Create comparison CSV
-    if all_results:
-        comparison = []
-        for strategy_name, df in all_results.items():
-            for _, row in df.iterrows():
-                row_dict = row.to_dict()
-                row_dict['Strategy'] = strategy_name
-                comparison.append(row_dict)
-        
-        comparison_df = pd.DataFrame(comparison)
-        # Get the directory of the calling script
-        import inspect
-        caller_frame = inspect.stack()[1]
-        caller_file = caller_frame.filename
-        caller_dir = os.path.dirname(os.path.abspath(caller_file))
-        results_dir = os.path.join(caller_dir, 'results')
-        comparison_path = os.path.join(results_dir, f"comparison_all_strategies.csv")
-        comparison_df.to_csv(comparison_path, index=False)
-        
-        print(f"\n✅ Comparison saved to: {comparison_path}")
-    
-    return all_results
-
-# ============================================================================
-# QUICK TEST
-# ============================================================================
-
-if __name__ == "__main__":
-    print("Multi-Data Tester Ready!")
-    print(f"\nConfigured with {len(DATA_SOURCES)} data sources:")
-    print("- Bitcoin: 12 timeframes")
-    print("- Ethereum: 4 timeframes")
-    print("- Solana: 5 timeframes")
-    print("- Stocks (IB): 5 symbols")
-    print("- Stocks (Yahoo): 3 symbols")
-    print("\nUsage:")
-    print("  from multi_data_tester import test_on_all_data")
-    print("  results = test_on_all_data(YourStrategy, 'StrategyName')")
-    print("\nOr for multiple strategies:")
-    print("  from multi_data_tester import test_multiple_strategies")
-    print("  strategies = {'Name1': Strategy1, 'Name2': Strategy2}")
-    print("  results = test_multiple_strategies(strategies)")

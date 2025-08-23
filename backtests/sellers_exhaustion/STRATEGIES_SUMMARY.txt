@@ -1,0 +1,76 @@
+SELLER EXHAUSTION STRATEGIES COLLECTION
+========================================
+Created: 2025-08-23
+Location: /Users/md/Dropbox/dev/github/moon-dev-trading-bots/backtests/sellers_exhaustion/
+
+All strategies are long-only, looking for exhaustion bottoms with:
+- 3% take profit target
+- 2% stop loss
+- Multi-data testing capability across 29+ data sources
+
+STRATEGIES IMPLEMENTED:
+-----------------------
+
+1. sellers_exhaustion_volume_wick.py
+   - Detects exhaustion when sellers dump large volume but price fails to make new lows
+   - Looks for volume spikes (2x average) with long lower wicks (>50% of candle range)
+   - Confirms with price near recent lows
+
+2. sellers_exhaustion_climax.py
+   - Identifies volume climax bars with 2.5x average volume on new lows that quickly rebound
+   - Detects when price rebounds from the low (closes in upper 70% of range)
+   - Additional confirmation from being at new lows
+
+3. sellers_exhaustion_declining_volume.py
+   - Detects when price makes lower lows but on decreasing volume (sellers tiring)
+   - Volume must be <70% of previous low's volume
+   - Uses RSI <35 for additional oversold confirmation
+
+4. sellers_exhaustion_volatility.py
+   - ATR spikes (1.5x average) on big red candles then contracts while price tries to push lower
+   - Detects failed breakdown attempts with declining volume
+   - Volatility expansion followed by contraction pattern
+
+5. sellers_exhaustion_obv.py
+   - OBV or A/D line diverging upward while price trends down
+   - Uses normalized indicators to detect bullish divergence
+   - Requires 2% price decline with positive indicator slope
+   - RSI <40 for confirmation
+
+6. sellers_exhaustion_sequential.py
+   - Counts consecutive down closes (4-9 range) before volume spike and reversal
+   - Looks for volume spike (2x average) after sequential declines
+   - Detects reversal candle patterns (hammer, doji, bullish engulfing)
+   - RSI <35 for oversold confirmation
+
+7. sellers_exhaustion_mfi_bb.py
+   - Uses Money Flow Index (MFI) <25 for oversold conditions
+   - Price at or below lower Bollinger Band
+   - ADX <25 indicates weak trend (exhaustion more likely)
+   - Volume confirmation for reversal
+
+RUNNING THE STRATEGIES:
+-----------------------
+Each strategy can be run individually:
+    python sellers_exhaustion_volume_wick.py
+    python sellers_exhaustion_climax.py
+    (etc.)
+
+Or test all strategies:
+    python test_all_strategies.py
+
+Results are saved to ./results/ directory as CSV files.
+
+TECHNICAL INDICATORS USED:
+--------------------------
+- Volume Moving Average (SMA)
+- RSI (Relative Strength Index)
+- OBV (On-Balance Volume)
+- A/D (Accumulation/Distribution)
+- ATR (Average True Range)
+- MFI (Money Flow Index)
+- Bollinger Bands
+- ADX (Average Directional Index)
+- ROC (Rate of Change)
+
+All strategies use talib for indicator calculations and follow the backtesting.py framework.

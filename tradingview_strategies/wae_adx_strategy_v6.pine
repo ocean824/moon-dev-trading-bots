@@ -1,0 +1,175 @@
+//@version=6
+// Waddah Attar Explosion + ADX Strategy
+// Combines WAE momentum explosion signals with ADX trend strength filtering  
+// Author: Moon Dev Trading Strategy
+
+strategy("WAE + ADX Strategy [MD]", 
+         shorttitle="WAE+ADX [MD]",
+         overlay=true,
+         initial_capital=10000,
+         default_qty_type=strategy.percent_of_equity,
+         default_qty_value=10,
+         commission_type=strategy.commission.percent,
+         commission_value=0.1,
+         pyramiding=0)
+
+// ====== WAE INDICATOR INPUTS ======
+sensitivity = input.int(150, title="WAE Sensitivity", group="Waddah Attar Explosion")
+fastLength = input.int(20, title="WAE FastEMA Length", group="Waddah Attar Explosion")
+slowLength = input.int(40, title="WAE SlowEMA Length", group="Waddah Attar Explosion")
+channelLength = input.int(20, title="WAE BB Channel Length", group="Waddah Attar Explosion")
+mult = input.float(2.0, title="WAE BB Stdev Multiplier", group="Waddah Attar Explosion")
+deadZoneMult = input.float(3.7, title="Dead Zone Multiplier", group="Waddah Attar Explosion")
+
+// ====== ADX INPUTS ======
+adxLength = input.int(14, title="ADX Length", group="ADX Settings")
+adxThreshold = input.int(25, title="ADX Threshold (Trend Strength)", group="ADX Settings", minval=15, maxval=50)
+diThreshold = input.int(20, title="DI Threshold (Direction Strength)", group="ADX Settings", minval=10, maxval=40)
+
+// ====== STRATEGY INPUTS ======
+useADXFilter = input.bool(true, title="Use ADX Filter", group="Strategy Settings")
+useDeadZoneFilter = input.bool(true, title="Use Dead Zone Filter", group="Strategy Settings")
+explosionMultiplier = input.float(1.5, title="Explosion Line Multiplier for Entry", group="Strategy Settings", minval=1.0, maxval=3.0)
+exitOnColorChange = input.bool(true, title="Exit on WAE Color Change", group="Strategy Settings")
+useTimeFilter = input.bool(false, title="Use Time Filter", group="Strategy Settings")
+startHour = input.int(9, title="Start Hour (24h)", group="Strategy Settings", minval=0, maxval=23)
+endHour = input.int(16, title="End Hour (24h)", group="Strategy Settings", minval=0, maxval=23)
+
+// ====== RISK MANAGEMENT ======
+useSL = input.bool(true, title="Use Stop Loss", group="Risk Management")
+useTP = input.bool(true, title="Use Take Profit", group="Risk Management")
+slPercent = input.float(2.0, title="Stop Loss %", group="Risk Management", minval=0.5, maxval=10.0)
+tpPercent = input.float(4.0, title="Take Profit %", group="Risk Management", minval=1.0, maxval=20.0)
+useTrailing = input.bool(false, title="Use Trailing Stop", group="Risk Management")
+trailPercent = input.float(1.5, title="Trailing Stop %", group="Risk Management", minval=0.5, maxval=5.0)
+
+// ====== WAE CALCULATIONS ======
+DEAD_ZONE = nz(ta.rma(ta.tr(true), 100)) * deadZoneMult
+
+calc_macd(source, fastLen, slowLen) =>
+    fastMA = ta.ema(source, fastLen)
+    slowMA = ta.ema(source, slowLen)
+    fastMA - slowMA
+
+calc_BBUpper(source, length, multBB) => 
+    basis = ta.sma(source, length)
+    dev = multBB * ta.stdev(source, length)
+    basis + dev
+
+calc_BBLower(source, length, multBB) => 
+    basis = ta.sma(source, length)
+    dev = multBB * ta.stdev(source, length)
+    basis - dev
+
+t1 = (calc_macd(close, fastLength, slowLength) - calc_macd(close[1], fastLength, slowLength)) * sensitivity
+e1 = calc_BBUpper(close, channelLength, mult) - calc_BBLower(close, channelLength, mult)
+
+trendUp = t1 >= 0 ? t1 : 0
+trendDown = t1 < 0 ? -1 * t1 : 0
+
+// Detect color changes (momentum weakening)
+upTrendWeakening = trendUp < trendUp[1]
+downTrendWeakening = trendDown < trendDown[1]
+
+// ====== ADX CALCULATIONS ======
+dirmov(len) =>
+    up = ta.change(high)
+    down = -ta.change(low)
+    plusDM = na(up) ? na : (up > down and up > 0 ? up : 0)
+    minusDM = na(down) ? na : (down > up and down > 0 ? down : 0)
+    truerange = ta.rma(ta.tr, len)
+    plus = fixnan(100 * ta.rma(plusDM, len) / truerange)
+    minus = fixnan(100 * ta.rma(minusDM, len) / truerange)
+    [plus, minus]
+
+adx(dilen, adxlen) =>
+    [plus, minus] = dirmov(dilen)
+    sum = plus + minus
+    adx_val = 100 * ta.rma(math.abs(plus - minus) / (sum == 0 ? 1 : sum), adxlen)
+    [adx_val, plus, minus]
+
+[adxValue, diPlus, diMinus] = adx(adxLength, adxLength)
+
+// ====== ENTRY CONDITIONS ======
+// WAE Conditions
+waeUpSignal = trendUp > 0 and trendUp > DEAD_ZONE and trendUp > (e1 * explosionMultiplier)
+waeDownSignal = trendDown > 0 and trendDown > DEAD_ZONE and trendDown > (e1 * explosionMultiplier)
+
+// ADX Conditions
+adxStrong = adxValue > adxThreshold
+upTrend = diPlus > diMinus and diPlus > diThreshold
+downTrend = diMinus > diPlus and diMinus > diThreshold
+
+// Time Filter
+timeFilter = not useTimeFilter or (hour >= startHour and hour <= endHour)
+
+// Combined Entry Conditions
+longCondition = waeUpSignal and timeFilter and (not useADXFilter or (adxStrong and upTrend)) and (not useDeadZoneFilter or trendUp > DEAD_ZONE)
+                
+shortCondition = waeDownSignal and timeFilter and (not useADXFilter or (adxStrong and downTrend)) and (not useDeadZoneFilter or trendDown > DEAD_ZONE)
+
+// ====== EXIT CONDITIONS ======
+// Exit on color change (momentum weakening)
+longExitSignal = exitOnColorChange and upTrendWeakening and strategy.position_size > 0
+shortExitSignal = exitOnColorChange and downTrendWeakening and strategy.position_size < 0
+
+// Exit on opposite signal
+longExitOpposite = shortCondition and strategy.position_size > 0
+shortExitOpposite = longCondition and strategy.position_size < 0
+
+// ====== STRATEGY EXECUTION ======
+// Entry Orders
+if longCondition and strategy.position_size == 0
+    strategy.entry("Long", strategy.long)
+    
+if shortCondition and strategy.position_size == 0
+    strategy.entry("Short", strategy.short)
+
+// Exit Orders - Color Change or Opposite Signal
+if longExitSignal or longExitOpposite
+    strategy.close("Long", comment=longExitSignal ? "Color Change" : "Opposite Signal")
+    
+if shortExitSignal or shortExitOpposite
+    strategy.close("Short", comment=shortExitSignal ? "Color Change" : "Opposite Signal")
+
+// Stop Loss and Take Profit
+if strategy.position_size > 0  // Long position
+    stopLoss = strategy.position_avg_price * (1 - slPercent / 100)
+    takeProfit = strategy.position_avg_price * (1 + tpPercent / 100)
+    
+    if useSL
+        strategy.exit("Long SL/TP", "Long", stop=stopLoss, limit=useTP ? takeProfit : na, trail_offset=useTrailing ? trailPercent * 100 : na)
+                      
+if strategy.position_size < 0  // Short position
+    stopLoss = strategy.position_avg_price * (1 + slPercent / 100)
+    takeProfit = strategy.position_avg_price * (1 - tpPercent / 100)
+    
+    if useSL
+        strategy.exit("Short SL/TP", "Short", stop=stopLoss, limit=useTP ? takeProfit : na, trail_offset=useTrailing ? trailPercent * 100 : na)
+
+// ====== PLOTTING ======
+// Plot buy/sell signals
+plotshape(longCondition and strategy.position_size[1] == 0, title="Long Entry", location=location.belowbar, color=color.green, style=shape.triangleup, size=size.small)
+plotshape(shortCondition and strategy.position_size[1] == 0, title="Short Entry", location=location.abovebar, color=color.red, style=shape.triangledown, size=size.small)
+
+// Plot exit signals
+plotshape(longExitSignal, title="Long Exit (Color)", location=location.abovebar, color=color.orange, style=shape.xcross, size=size.tiny)
+plotshape(shortExitSignal, title="Short Exit (Color)", location=location.belowbar, color=color.orange, style=shape.xcross, size=size.tiny)
+
+// Background color for ADX strength
+bgcolor(adxStrong ? color.new(color.blue, 95) : na, title="Strong Trend Background")
+
+// ====== INFO PANEL ======
+// Create info labels
+var label infoLabel = na
+label.delete(infoLabel)
+
+if barstate.islast
+    labelText = "WAE+ADX Strategy\n" + "ADX: " + str.tostring(adxValue, "#.#") + "\n" + "DI+: " + str.tostring(diPlus, "#.#") + "\n" + "DI-: " + str.tostring(diMinus, "#.#") + "\n" + "Trend: " + (upTrend ? "↑" : downTrend ? "↓" : "→")
+    
+    infoLabel := label.new(bar_index + 5, high, labelText, color=color.new(color.gray, 80), textcolor=color.white, style=label.style_label_left, size=size.small)
+
+// ====== ALERTS ======
+alertcondition(longCondition, title="Long Entry Alert", message="WAE+ADX Long Signal")
+alertcondition(shortCondition, title="Short Entry Alert", message="WAE+ADX Short Signal")
+alertcondition(longExitSignal or shortExitSignal, title="Exit Alert", message="WAE+ADX Exit Signal")

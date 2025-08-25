@@ -1,0 +1,157 @@
+//@version=6
+strategy("Mutanabby Ultimate Strategy", 
+         overlay=true, 
+         initial_capital=100000,
+         default_qty_type=strategy.percent_of_equity,
+         default_qty_value=100,
+         commission_type=strategy.commission.percent,
+         commission_value=0.1,
+         pyramiding=0)
+
+// ==================================================================================
+// 📌 MUTANABBY ULTIMATE ALGO - STRATEGY VERSION
+// Based on SuperTrend + SMA confirmation signals
+// ==================================================================================
+
+// === INPUT PARAMETERS ===
+sensitivity = input.int(defval=4, title="SuperTrend Sensitivity", minval=1, maxval=20, tooltip="Controls SuperTrend sensitivity. Lower = more sensitive")
+atr_length = input.int(defval=11, title="ATR Length", minval=5, maxval=50)
+
+// Moving Average Parameters
+fast_ma = input.int(defval=8, title="Fast MA Period", minval=3, maxval=20)
+medium_ma = input.int(defval=9, title="Medium MA Period", minval=3, maxval=25)
+slow_ma = input.int(defval=13, title="Slow MA Period", minval=5, maxval=50)
+
+// Risk Management
+use_sl = input.bool(true, "Use Stop Loss", group="Risk Management")
+use_tp = input.bool(true, "Use Take Profit", group="Risk Management")
+atr_risk = input.float(1.5, "ATR Multiplier for SL", minval=0.5, maxval=5, step=0.1, group="Risk Management")
+risk_reward = input.float(2.0, "Risk:Reward Ratio", minval=1, maxval=5, step=0.5, group="Risk Management")
+atr_sl_length = input.int(14, "ATR Length for SL/TP", minval=5, maxval=50, group="Risk Management")
+
+// Trade Direction
+trade_direction = input.string("Both", "Trade Direction", options=["Long Only", "Short Only", "Both"])
+
+// === SUPERTREND CALCULATION ===
+supertrend(_src, factor, atrLen) =>
+    atr = ta.atr(atrLen)
+    upperBand = _src + factor * atr
+    lowerBand = _src - factor * atr
+    prevLowerBand = nz(lowerBand[1])
+    prevUpperBand = nz(upperBand[1])
+    lowerBand := lowerBand > prevLowerBand or close[1] < prevLowerBand ? lowerBand : prevLowerBand
+    upperBand := upperBand < prevUpperBand or close[1] > prevUpperBand ? upperBand : prevUpperBand
+    int direction = na
+    float superTrend = na
+    prevSuperTrend = superTrend[1]
+    if na(atr[1])
+        direction := 1
+    else if prevSuperTrend == prevUpperBand
+        direction := close > upperBand ? -1 : 1
+    else
+        direction := close < lowerBand ? 1 : -1
+    superTrend := direction == -1 ? lowerBand : upperBand
+    [superTrend, direction]
+
+// === CALCULATE INDICATORS ===
+[supert, direction] = supertrend(close, sensitivity, atr_length)
+
+// Moving Averages
+sma_fast = ta.sma(close, fast_ma)
+sma_medium = ta.sma(close, medium_ma)
+sma_slow = ta.sma(close, slow_ma)
+
+// ATR for stop loss/take profit
+atr_value = ta.atr(atr_sl_length)
+// ATR for label positioning
+atr_label = ta.atr(30)
+
+// === SIGNAL GENERATION ===
+// Bull signal: SuperTrend turns bullish (crosses above) AND price above slow MA
+bull_signal = ta.crossover(close, supert) and close >= sma_slow
+
+// Bear signal: SuperTrend turns bearish (crosses below) AND price below slow MA  
+bear_signal = ta.crossunder(close, supert) and close <= sma_slow
+
+// Signal strength (for potential position sizing or filtering)
+strong_signal = sma_fast < sma_medium  // Momentum confirmation
+
+// === PLOT INDICATORS ===
+// Plot SuperTrend
+plot(supert, title="SuperTrend", color=direction == -1 ? color.green : color.red, linewidth=2)
+
+// Plot Moving Averages
+plot(sma_fast, title="Fast MA", color=color.yellow, linewidth=1)
+plot(sma_medium, title="Medium MA", color=color.orange, linewidth=1)
+plot(sma_slow, title="Slow MA", color=color.blue, linewidth=2)
+
+// === STRATEGY ENTRY CONDITIONS ===
+can_long = trade_direction == "Both" or trade_direction == "Long Only"
+can_short = trade_direction == "Both" or trade_direction == "Short Only"
+
+// Long Entry
+if bull_signal and can_long and strategy.position_size == 0
+    stop_loss = use_sl ? close - (atr_value * atr_risk) : na
+    take_profit = use_tp ? close + (atr_value * atr_risk * risk_reward) : na
+    
+    strategy.entry("Long", strategy.long)
+    
+    if use_sl
+        strategy.exit("Long Exit", "Long", stop=stop_loss, limit=take_profit)
+    
+    // Visual signal
+    label.new(bar_index, low - atr_label, 
+              strong_signal ? "Strong Buy" : "Buy", 
+              xloc.bar_index, yloc.price, 
+              color.green, label.style_label_up, 
+              color.white, size.small)
+
+// Short Entry
+if bear_signal and can_short and strategy.position_size == 0
+    stop_loss = use_sl ? close + (atr_value * atr_risk) : na
+    take_profit = use_tp ? close - (atr_value * atr_risk * risk_reward) : na
+    
+    strategy.entry("Short", strategy.short)
+    
+    if use_sl
+        strategy.exit("Short Exit", "Short", stop=stop_loss, limit=take_profit)
+    
+    // Visual signal
+    label.new(bar_index, high + atr_label, 
+              strong_signal ? "Strong Sell" : "Sell", 
+              xloc.bar_index, yloc.price, 
+              color.red, label.style_label_down, 
+              color.white, size.small)
+
+// === ALTERNATIVE EXIT CONDITIONS ===
+// Exit long if SuperTrend turns bearish
+if strategy.position_size > 0 and direction == 1
+    strategy.close("Long", comment="SuperTrend Exit")
+
+// Exit short if SuperTrend turns bullish
+if strategy.position_size < 0 and direction == -1
+    strategy.close("Short", comment="SuperTrend Exit")
+
+// === BACKGROUND COLORS ===
+bgcolor(direction == -1 ? color.new(color.green, 95) : color.new(color.red, 95))
+
+// === INFORMATION PANEL ===
+var table infoTable = table.new(position.top_right, 2, 5)
+if barstate.islast
+    table.cell(infoTable, 0, 0, "Status", bgcolor=color.gray, text_color=color.white)
+    table.cell(infoTable, 1, 0, direction == -1 ? "BULLISH" : "BEARISH", 
+               bgcolor=direction == -1 ? color.green : color.red, text_color=color.white)
+    
+    table.cell(infoTable, 0, 1, "SuperTrend", bgcolor=color.gray, text_color=color.white)
+    table.cell(infoTable, 1, 1, str.tostring(supert, "#.##"), bgcolor=color.white)
+    
+    table.cell(infoTable, 0, 2, "Position", bgcolor=color.gray, text_color=color.white)
+    table.cell(infoTable, 1, 2, strategy.position_size > 0 ? "LONG" : strategy.position_size < 0 ? "SHORT" : "NONE", bgcolor=strategy.position_size != 0 ? color.blue : color.gray, text_color=color.white)
+    
+    table.cell(infoTable, 0, 3, "Signal Strength", bgcolor=color.gray, text_color=color.white)
+    table.cell(infoTable, 1, 3, strong_signal ? "STRONG" : "NORMAL", 
+               bgcolor=strong_signal ? color.orange : color.white)
+
+// === ALERTS ===
+alertcondition(bull_signal, title='Buy Signal', message='Mutanabby Ultimate: BUY Signal')
+alertcondition(bear_signal, title='Sell Signal', message='Mutanabby Ultimate: SELL Signal')

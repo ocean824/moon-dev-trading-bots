@@ -1,0 +1,223 @@
+//@version=6
+// Swing Anchored VWAP + ADX Strategy
+// Combines Swing Anchored VWAP levels with ADX trend strength filtering
+// Author: Moon Dev Trading Strategy
+
+strategy("Swing VWAP + ADX Strategy [MD]", shorttitle="SwingVWAP+ADX [MD]", overlay=true, initial_capital=10000, default_qty_type=strategy.percent_of_equity, default_qty_value=10, commission_type=strategy.commission.percent, commission_value=0.1, pyramiding=0, max_bars_back=5000)
+
+// ====== SWING VWAP INPUTS ======
+swing_length = input.int(50, title="Swing Detection Length", group="Swing VWAP Settings")
+vwap_offset = input.float(0.002, title="VWAP Entry Offset %", group="Swing VWAP Settings", minval=0.0, maxval=0.05, step=0.001)
+use_vwap_bands = input.bool(true, title="Use VWAP Bands", group="Swing VWAP Settings")
+band_mult = input.float(1.5, title="Band Multiplier", group="Swing VWAP Settings", minval=0.5, maxval=3.0)
+l_vwap_col = input.color(color.lime, title="Low VWAP Color", group="Swing VWAP Settings")
+h_vwap_col = input.color(color.blue, title="High VWAP Color", group="Swing VWAP Settings")
+
+// ====== ADX INPUTS ======
+adxLength = input.int(14, title="ADX Length", group="ADX Settings")
+adxThreshold = input.int(25, title="ADX Threshold (Trend Strength)", group="ADX Settings", minval=15, maxval=50)
+diThreshold = input.int(20, title="DI Threshold (Direction Strength)", group="ADX Settings", minval=10, maxval=40)
+useADXFilter = input.bool(true, title="Use ADX Filter", group="ADX Settings")
+
+// ====== STRATEGY INPUTS ======
+tradeDirection = input.string("Both", title="Trade Direction", options=["Long", "Short", "Both"], group="Strategy Settings")
+useSwingConfirmation = input.bool(true, title="Wait for Swing Confirmation", group="Strategy Settings")
+minBarsFromSwing = input.int(5, title="Min Bars from Swing Point", group="Strategy Settings", minval=1, maxval=20)
+useTimeFilter = input.bool(false, title="Use Time Filter", group="Strategy Settings")
+startHour = input.int(9, title="Start Hour (24h)", group="Strategy Settings", minval=0, maxval=23)
+endHour = input.int(16, title="End Hour (24h)", group="Strategy Settings", minval=0, maxval=23)
+
+// ====== RISK MANAGEMENT ======
+useSL = input.bool(true, title="Use Stop Loss", group="Risk Management")
+useTP = input.bool(true, title="Use Take Profit", group="Risk Management")
+slPercent = input.float(2.0, title="Stop Loss %", group="Risk Management", minval=0.5, maxval=10.0)
+tpPercent = input.float(4.0, title="Take Profit %", group="Risk Management", minval=1.0, maxval=20.0)
+useTrailing = input.bool(false, title="Use Trailing Stop", group="Risk Management")
+trailPercent = input.float(1.5, title="Trailing Stop %", group="Risk Management", minval=0.5, maxval=5.0)
+
+// ====== SWING VWAP CALCULATIONS ======
+var trend = bool(na)
+var high_index = int(na)
+var high_val = float(na)
+var low_index = int(na)
+var low_val = float(na)
+var float current_h_vwap = na
+var float current_l_vwap = na
+
+h = ta.highest(swing_length)
+l = ta.lowest(swing_length)
+
+// Detect swing highs
+if high[1] == h[1] and high < h 
+    high_index := bar_index - 1
+    high_val := high[1]
+
+// Calculate VWAP from swing high
+h_vwap = ta.vwap(high, high[1] == h[1] and high < h)
+
+// Detect swing lows
+if low[1] == l[1] and low > l 
+    low_index := bar_index - 1
+    low_val := low[1]
+
+// Calculate VWAP from swing low
+l_vwap = ta.vwap(low, low[1] == l[1] and low > l)
+
+// Update trend based on most recent swing
+if high == h
+    trend := true
+    current_h_vwap := h_vwap
+
+if low == l
+    trend := false
+    current_l_vwap := l_vwap
+
+// Store current VWAP values
+if not na(h_vwap)
+    current_h_vwap := h_vwap
+    
+if not na(l_vwap)
+    current_l_vwap := l_vwap
+
+// Calculate VWAP bands if enabled
+h_vwap_upper = use_vwap_bands and not na(current_h_vwap) ? current_h_vwap * (1 + band_mult / 100) : na
+h_vwap_lower = use_vwap_bands and not na(current_h_vwap) ? current_h_vwap * (1 - band_mult / 100) : na
+l_vwap_upper = use_vwap_bands and not na(current_l_vwap) ? current_l_vwap * (1 + band_mult / 100) : na
+l_vwap_lower = use_vwap_bands and not na(current_l_vwap) ? current_l_vwap * (1 - band_mult / 100) : na
+
+// ====== ADX CALCULATIONS ======
+dirmov(len) =>
+    up = ta.change(high)
+    down = -ta.change(low)
+    plusDM = na(up) ? na : (up > down and up > 0 ? up : 0)
+    minusDM = na(down) ? na : (down > up and down > 0 ? down : 0)
+    truerange = ta.rma(ta.tr, len)
+    plus = fixnan(100 * ta.rma(plusDM, len) / truerange)
+    minus = fixnan(100 * ta.rma(minusDM, len) / truerange)
+    [plus, minus]
+
+adx(dilen, adxlen) =>
+    [plus, minus] = dirmov(dilen)
+    sum = plus + minus
+    adx_val = 100 * ta.rma(math.abs(plus - minus) / (sum == 0 ? 1 : sum), adxlen)
+    [adx_val, plus, minus]
+
+[adxValue, diPlus, diMinus] = adx(adxLength, adxLength)
+
+// ADX Conditions
+adxStrong = adxValue > adxThreshold
+upTrend = diPlus > diMinus and diPlus > diThreshold
+downTrend = diMinus > diPlus and diMinus > diThreshold
+
+// ====== ENTRY CONDITIONS ======
+// Check minimum bars from swing point
+barsFromHighSwing = not na(high_index) ? bar_index - high_index : 999
+barsFromLowSwing = not na(low_index) ? bar_index - low_index : 999
+
+// VWAP touch/cross conditions with offset
+longVwapTouch = not na(current_l_vwap) and low <= current_l_vwap * (1 + vwap_offset) and close > current_l_vwap
+shortVwapTouch = not na(current_h_vwap) and high >= current_h_vwap * (1 - vwap_offset) and close < current_h_vwap
+
+// Band conditions if enabled
+longBandCondition = not use_vwap_bands or (not na(l_vwap_lower) and low <= l_vwap_lower and close > l_vwap_lower)
+shortBandCondition = not use_vwap_bands or (not na(h_vwap_upper) and high >= h_vwap_upper and close < h_vwap_upper)
+
+// Swing confirmation
+swingConfirmed = not useSwingConfirmation or (trend == false and barsFromLowSwing >= minBarsFromSwing) or (trend == true and barsFromHighSwing >= minBarsFromSwing)
+
+// Time Filter
+timeFilter = not useTimeFilter or (hour >= startHour and hour <= endHour)
+
+// Combined Entry Conditions
+longCondition = longVwapTouch and 
+                (not useADXFilter or (adxStrong and upTrend)) and 
+                swingConfirmed and 
+                timeFilter and 
+                (tradeDirection == "Long" or tradeDirection == "Both") and
+                longBandCondition
+
+shortCondition = shortVwapTouch and 
+                 (not useADXFilter or (adxStrong and downTrend)) and 
+                 swingConfirmed and 
+                 timeFilter and 
+                 (tradeDirection == "Short" or tradeDirection == "Both") and
+                 shortBandCondition
+
+// ====== EXIT CONDITIONS ======
+// Exit on opposite VWAP touch
+longExitVwap = not na(current_h_vwap) and high >= current_h_vwap and strategy.position_size > 0
+shortExitVwap = not na(current_l_vwap) and low <= current_l_vwap and strategy.position_size < 0
+
+// Exit on ADX weakness
+adxWeakExit = useADXFilter and adxValue < adxThreshold * 0.8
+
+// Exit on opposite signal
+longExitOpposite = shortCondition and strategy.position_size > 0
+shortExitOpposite = longCondition and strategy.position_size < 0
+
+// ====== STRATEGY EXECUTION ======
+// Entry Orders
+if longCondition and strategy.position_size == 0
+    strategy.entry("Long", strategy.long)
+    
+if shortCondition and strategy.position_size == 0
+    strategy.entry("Short", strategy.short)
+
+// Exit Orders
+if longExitVwap or longExitOpposite or (adxWeakExit and strategy.position_size > 0)
+    strategy.close("Long", comment=longExitVwap ? "VWAP Exit" : longExitOpposite ? "Opposite Signal" : "ADX Weak")
+    
+if shortExitVwap or shortExitOpposite or (adxWeakExit and strategy.position_size < 0)
+    strategy.close("Short", comment=shortExitVwap ? "VWAP Exit" : shortExitOpposite ? "Opposite Signal" : "ADX Weak")
+
+// Stop Loss and Take Profit
+if strategy.position_size > 0  // Long position
+    stopLoss = strategy.position_avg_price * (1 - slPercent / 100)
+    takeProfit = strategy.position_avg_price * (1 + tpPercent / 100)
+    
+    if useSL
+        strategy.exit("Long SL/TP", "Long", stop=stopLoss, limit=useTP ? takeProfit : na, trail_offset=useTrailing ? trailPercent * 100 : na)
+                      
+if strategy.position_size < 0  // Short position
+    stopLoss = strategy.position_avg_price * (1 + slPercent / 100)
+    takeProfit = strategy.position_avg_price * (1 - tpPercent / 100)
+    
+    if useSL
+        strategy.exit("Short SL/TP", "Short", stop=stopLoss, limit=useTP ? takeProfit : na, trail_offset=useTrailing ? trailPercent * 100 : na)
+
+// ====== PLOTTING ======
+// Plot VWAP lines
+plot(current_h_vwap, title="High VWAP", color=h_vwap_col, linewidth=2, style=plot.style_line)
+plot(current_l_vwap, title="Low VWAP", color=l_vwap_col, linewidth=2, style=plot.style_line)
+
+// Plot VWAP bands if enabled
+plot(h_vwap_upper, title="High VWAP Upper", color=color.new(h_vwap_col, 70), linewidth=1, style=plot.style_linebr)
+plot(h_vwap_lower, title="High VWAP Lower", color=color.new(h_vwap_col, 70), linewidth=1, style=plot.style_linebr)
+plot(l_vwap_upper, title="Low VWAP Upper", color=color.new(l_vwap_col, 70), linewidth=1, style=plot.style_linebr)
+plot(l_vwap_lower, title="Low VWAP Lower", color=color.new(l_vwap_col, 70), linewidth=1, style=plot.style_linebr)
+
+// Plot swing points
+plotshape(high[1] == h[1] and high < h, title="Swing High", location=location.abovebar, color=h_vwap_col, style=shape.triangledown, size=size.small, offset=-1)
+plotshape(low[1] == l[1] and low > l, title="Swing Low", location=location.belowbar, color=l_vwap_col, style=shape.triangleup, size=size.small, offset=-1)
+
+// Plot entry signals
+plotshape(longCondition and strategy.position_size[1] == 0, title="Long Entry", location=location.belowbar, color=color.green, style=shape.labelup, text="L", size=size.small)
+plotshape(shortCondition and strategy.position_size[1] == 0, title="Short Entry", location=location.abovebar, color=color.red, style=shape.labeldown, text="S", size=size.small)
+
+// Background color for ADX strength
+bgcolor(adxStrong ? color.new(color.blue, 95) : na, title="Strong Trend Background")
+
+// ====== INFO PANEL ======
+var label infoLabel = na
+label.delete(infoLabel)
+
+if barstate.islast
+    labelText = "Swing VWAP+ADX\n" + "ADX: " + str.tostring(adxValue, "#.#") + "\n" + "DI+: " + str.tostring(diPlus, "#.#") + "\n" + "DI-: " + str.tostring(diMinus, "#.#") + "\n" + "Trend: " + (trend ? "High Swing" : "Low Swing")
+    
+    infoLabel := label.new(bar_index + 5, high, labelText, color=color.new(color.gray, 80), textcolor=color.white, style=label.style_label_left, size=size.small)
+
+// ====== ALERTS ======
+alertcondition(longCondition, title="Long Entry Alert", message="Swing VWAP+ADX Long Signal")
+alertcondition(shortCondition, title="Short Entry Alert", message="Swing VWAP+ADX Short Signal")
+alertcondition(longExitVwap or shortExitVwap, title="VWAP Exit Alert", message="Swing VWAP Exit Signal")
+alertcondition(adxWeakExit, title="ADX Weak Alert", message="ADX Trend Weakening")

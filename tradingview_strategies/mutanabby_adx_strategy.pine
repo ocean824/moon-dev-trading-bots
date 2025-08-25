@@ -1,0 +1,224 @@
+//@version=6
+strategy("Mutanabby + ADX Combined Strategy", 
+         overlay=true, 
+         initial_capital=100000,
+         default_qty_type=strategy.percent_of_equity,
+         default_qty_value=100,
+         commission_type=strategy.commission.percent,
+         commission_value=0.1,
+         pyramiding=0)
+
+// ==================================================================================
+// 📌 MUTANABBY ULTIMATE + ADX FILTER - ADVANCED STRATEGY
+// Combines SuperTrend signals with ADX trend strength filtering
+// Only trades during strong trending markets for higher win rate
+// ==================================================================================
+
+// === INPUT PARAMETERS ===
+// SuperTrend Settings
+sensitivity = input.int(defval=4, title="SuperTrend Sensitivity", minval=1, maxval=20, group="SuperTrend", tooltip="Lower = more sensitive")
+atr_length = input.int(defval=11, title="ATR Length", minval=5, maxval=50, group="SuperTrend")
+
+// Moving Average Parameters
+fast_ma = input.int(defval=8, title="Fast MA Period", minval=3, maxval=20, group="Moving Averages")
+medium_ma = input.int(defval=9, title="Medium MA Period", minval=3, maxval=25, group="Moving Averages")
+slow_ma = input.int(defval=13, title="Slow MA Period", minval=5, maxval=50, group="Moving Averages")
+
+// ADX Filter Settings
+adx_length = input.int(defval=14, title="ADX Period", minval=7, maxval=30, group="ADX Filter")
+adx_threshold = input.int(defval=25, title="ADX Minimum Threshold", minval=15, maxval=40, group="ADX Filter", tooltip="Minimum ADX value to consider trend strong enough")
+adx_strong = input.int(defval=40, title="ADX Strong Trend", minval=35, maxval=60, group="ADX Filter", tooltip="ADX above this = very strong trend")
+adx_exit = input.int(defval=20, title="ADX Exit Threshold", minval=10, maxval=25, group="ADX Filter", tooltip="Close position if ADX drops below")
+use_di_filter = input.bool(true, "Use +DI/-DI Confirmation", group="ADX Filter")
+
+// Risk Management
+use_sl = input.bool(true, "Use Stop Loss", group="Risk Management")
+use_tp = input.bool(true, "Use Take Profit", group="Risk Management")
+atr_risk = input.float(1.5, "ATR Multiplier for SL", minval=0.5, maxval=5, step=0.1, group="Risk Management")
+risk_reward = input.float(2.0, "Risk:Reward Ratio", minval=1, maxval=5, step=0.5, group="Risk Management")
+atr_sl_length = input.int(14, "ATR Length for SL/TP", minval=5, maxval=50, group="Risk Management")
+
+// Position Sizing based on ADX
+use_dynamic_sizing = input.bool(true, "Dynamic Position Sizing", group="Position Management", tooltip="Adjust position size based on trend strength")
+size_normal = input.float(75, "Normal Position %", minval=10, maxval=100, step=5, group="Position Management")
+size_strong = input.float(100, "Strong Trend Position %", minval=10, maxval=100, step=5, group="Position Management")
+
+// Trade Direction
+trade_direction = input.string("Both", "Trade Direction", options=["Long Only", "Short Only", "Both"], group="Trade Settings")
+
+// === SUPERTREND CALCULATION ===
+supertrend(_src, factor, atrLen) =>
+    atr = ta.atr(atrLen)
+    upperBand = _src + factor * atr
+    lowerBand = _src - factor * atr
+    prevLowerBand = nz(lowerBand[1])
+    prevUpperBand = nz(upperBand[1])
+    lowerBand := lowerBand > prevLowerBand or close[1] < prevLowerBand ? lowerBand : prevLowerBand
+    upperBand := upperBand < prevUpperBand or close[1] > prevUpperBand ? upperBand : prevUpperBand
+    int direction = na
+    float superTrend = na
+    prevSuperTrend = superTrend[1]
+    if na(atr[1])
+        direction := 1
+    else if prevSuperTrend == prevUpperBand
+        direction := close > upperBand ? -1 : 1
+    else
+        direction := close < lowerBand ? 1 : -1
+    superTrend := direction == -1 ? lowerBand : upperBand
+    [superTrend, direction]
+
+// === CALCULATE INDICATORS ===
+[supert, st_direction] = supertrend(close, sensitivity, atr_length)
+
+// Moving Averages
+sma_fast = ta.sma(close, fast_ma)
+sma_medium = ta.sma(close, medium_ma)
+sma_slow = ta.sma(close, slow_ma)
+
+// ADX Calculation
+[diplus, diminus, adx] = ta.dmi(adx_length, adx_length)
+
+// ATR for stop loss/take profit
+atr_value = ta.atr(atr_sl_length)
+// ATR for label positioning
+atr_label = ta.atr(30)
+
+// === SIGNAL CONDITIONS ===
+// Basic SuperTrend signals
+st_bull_cross = ta.crossover(close, supert)
+st_bear_cross = ta.crossunder(close, supert)
+
+// MA confirmation
+ma_bullish = close >= sma_slow
+ma_bearish = close <= sma_slow
+
+// ADX Filter conditions
+trend_strong = adx > adx_threshold
+trend_very_strong = adx > adx_strong
+trend_weak = adx < adx_exit
+
+// Directional confirmation
+di_bullish = not use_di_filter or diplus > diminus
+di_bearish = not use_di_filter or diminus > diplus
+
+// === COMBINED ENTRY SIGNALS ===
+// Long: SuperTrend bull + MA bullish + ADX strong + DI bullish
+bull_signal = st_bull_cross and ma_bullish and trend_strong and di_bullish
+
+// Short: SuperTrend bear + MA bearish + ADX strong + DI bearish
+bear_signal = st_bear_cross and ma_bearish and trend_strong and di_bearish
+
+// Signal strength
+strong_signal = trend_very_strong
+
+// === POSITION SIZE CALCULATION ===
+position_size = use_dynamic_sizing ? (trend_very_strong ? size_strong : size_normal) : 100
+
+// === PLOT INDICATORS ===
+// Plot SuperTrend
+plot(supert, title="SuperTrend", color=st_direction == -1 ? color.green : color.red, linewidth=2)
+
+// Plot Moving Averages
+plot(sma_fast, title="Fast MA", color=color.yellow, linewidth=1)
+plot(sma_medium, title="Medium MA", color=color.orange, linewidth=1)
+plot(sma_slow, title="Slow MA", color=color.blue, linewidth=2)
+
+// Plot ADX (on separate scale)
+plot(adx, title="ADX", color=color.purple, display=display.none)
+plot(adx_threshold, title="ADX Threshold", color=color.gray, display=display.none)
+
+// === STRATEGY ENTRY CONDITIONS ===
+can_long = trade_direction == "Both" or trade_direction == "Long Only"
+can_short = trade_direction == "Both" or trade_direction == "Short Only"
+
+// Long Entry
+if bull_signal and can_long and strategy.position_size == 0
+    stop_loss = use_sl ? close - (atr_value * atr_risk) : na
+    take_profit = use_tp ? close + (atr_value * atr_risk * risk_reward) : na
+    
+    strategy.entry("Long", strategy.long, qty=position_size/100)
+    
+    if use_sl
+        strategy.exit("Long Exit", "Long", stop=stop_loss, limit=take_profit)
+    
+    // Visual signal with ADX info
+    label_text = strong_signal ? "Strong Buy\nADX: " + str.tostring(adx, "#.#") : "Buy\nADX: " + str.tostring(adx, "#.#")
+    label.new(bar_index, low - atr_label, 
+              label_text, 
+              xloc.bar_index, yloc.price, 
+              color.green, label.style_label_up, 
+              color.white, size.small)
+
+// Short Entry
+if bear_signal and can_short and strategy.position_size == 0
+    stop_loss = use_sl ? close + (atr_value * atr_risk) : na
+    take_profit = use_tp ? close - (atr_value * atr_risk * risk_reward) : na
+    
+    strategy.entry("Short", strategy.short, qty=position_size/100)
+    
+    if use_sl
+        strategy.exit("Short Exit", "Short", stop=stop_loss, limit=take_profit)
+    
+    // Visual signal with ADX info
+    label_text = strong_signal ? "Strong Sell\nADX: " + str.tostring(adx, "#.#") : "Sell\nADX: " + str.tostring(adx, "#.#")
+    label.new(bar_index, high + atr_label, 
+              label_text, 
+              xloc.bar_index, yloc.price, 
+              color.red, label.style_label_down, 
+              color.white, size.small)
+
+// === EXIT CONDITIONS ===
+// Exit long if SuperTrend turns bearish OR ADX becomes too weak
+if strategy.position_size > 0 and (st_direction == 1 or trend_weak)
+    strategy.close("Long", comment=trend_weak ? "ADX Exit" : "SuperTrend Exit")
+
+// Exit short if SuperTrend turns bullish OR ADX becomes too weak
+if strategy.position_size < 0 and (st_direction == -1 or trend_weak)
+    strategy.close("Short", comment=trend_weak ? "ADX Exit" : "SuperTrend Exit")
+
+// === BACKGROUND COLORS ===
+// Color based on combined conditions
+bg_color = trend_strong ? (st_direction == -1 ? color.new(color.green, 90) : color.new(color.red, 90)) : color.new(color.gray, 95)
+bgcolor(bg_color)
+
+// === INFORMATION PANEL ===
+var table infoTable = table.new(position.top_right, 2, 7)
+if barstate.islast
+    table.cell(infoTable, 0, 0, "Market State", bgcolor=color.gray, text_color=color.white)
+    table.cell(infoTable, 1, 0, st_direction == -1 ? "BULLISH" : "BEARISH", 
+               bgcolor=st_direction == -1 ? color.green : color.red, text_color=color.white)
+    
+    table.cell(infoTable, 0, 1, "ADX", bgcolor=color.gray, text_color=color.white)
+    table.cell(infoTable, 1, 1, str.tostring(adx, "#.#"), 
+               bgcolor=trend_very_strong ? color.purple : trend_strong ? color.blue : color.gray, 
+               text_color=color.white)
+    
+    table.cell(infoTable, 0, 2, "Trend Strength", bgcolor=color.gray, text_color=color.white)
+    table.cell(infoTable, 1, 2, trend_very_strong ? "VERY STRONG" : trend_strong ? "STRONG" : "WEAK",
+               bgcolor=trend_very_strong ? color.purple : trend_strong ? color.blue : color.gray,
+               text_color=color.white)
+    
+    table.cell(infoTable, 0, 3, "+DI/-DI", bgcolor=color.gray, text_color=color.white)
+    table.cell(infoTable, 1, 3, str.tostring(diplus, "#.#") + "/" + str.tostring(diminus, "#.#"),
+               bgcolor=diplus > diminus ? color.green : color.red, text_color=color.white)
+    
+    table.cell(infoTable, 0, 4, "Position", bgcolor=color.gray, text_color=color.white)
+    table.cell(infoTable, 1, 4, strategy.position_size > 0 ? "LONG" : strategy.position_size < 0 ? "SHORT" : "NONE", bgcolor=strategy.position_size != 0 ? color.blue : color.gray, text_color=color.white)
+    
+    table.cell(infoTable, 0, 5, "Can Trade", bgcolor=color.gray, text_color=color.white)
+    table.cell(infoTable, 1, 5, trend_strong ? "YES" : "NO (ADX < " + str.tostring(adx_threshold) + ")",
+               bgcolor=trend_strong ? color.green : color.red, text_color=color.white)
+    
+    table.cell(infoTable, 0, 6, "Position Size", bgcolor=color.gray, text_color=color.white)
+    table.cell(infoTable, 1, 6, str.tostring(position_size, "#") + "%",
+               bgcolor=color.white)
+
+// === PLOT ADX LEVELS AS HORIZONTAL LINES (optional) ===
+hline(adx_threshold, "ADX Threshold", color=color.gray, linestyle=hline.style_dashed, display=display.none)
+hline(adx_strong, "ADX Strong", color=color.purple, linestyle=hline.style_dashed, display=display.none)
+hline(adx_exit, "ADX Exit", color=color.red, linestyle=hline.style_dashed, display=display.none)
+
+// === ALERTS ===
+alertcondition(bull_signal, title='Buy Signal (ADX Filtered)', message='Mutanabby + ADX: Strong BUY Signal')
+alertcondition(bear_signal, title='Sell Signal (ADX Filtered)', message='Mutanabby + ADX: Strong SELL Signal')
+alertcondition(trend_weak and strategy.position_size != 0, title='Weak Trend Exit', message='ADX Exit Signal - Trend Weakening')

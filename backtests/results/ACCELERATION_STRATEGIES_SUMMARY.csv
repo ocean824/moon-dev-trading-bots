@@ -1,0 +1,6 @@
+Strategy,Avg_Return_%,Median_Return_%,Best_Return_%,Worst_Return_%,Profitable_Count,Total_Datasets,Win_Rate_%,Avg_Sharpe,Avg_Max_DD_%,Avg_Trades
+AccelerationBands,21015.2,-2.75,404185.15,-99.44,10,22,45.5,0.243,-56.36,1833.0
+AccelerationBandsKalman,7006.53,-1.26,118645.03,-45.63,8,17,47.1,0.205,-27.05,224.0
+AccelerationAOKalman,5.37,-17.08,280.69,-99.78,9,25,36.0,0.076,-64.39,1350.0
+AccelerationAO,-0.79,-16.8,435.69,-99.99,9,25,36.0,0.099,-60.1,1235.0
+AccelerationRSI,-64.54,-85.68,1.88,-99.83,1,23,4.3,0.002,-71.43,1691.0

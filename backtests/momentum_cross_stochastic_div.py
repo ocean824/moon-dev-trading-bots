@@ -75,20 +75,28 @@ class MomentumCrossStochasticDivStrategy(Strategy):
         stoch_k = stoch[f'STOCHk_{self.stoch_k_period}_{self.stoch_d_period}_{self.stoch_smooth}']
         stoch_d = stoch[f'STOCHd_{self.stoch_k_period}_{self.stoch_d_period}_{self.stoch_smooth}']
         
-        self.stoch_k = self.I(lambda: stoch_k.values, name='Stoch_K')
-        self.stoch_d = self.I(lambda: stoch_d.values, name='Stoch_D')
+        # Ensure arrays are same length as data
+        stoch_k_full = np.full(len(close), np.nan)
+        stoch_d_full = np.full(len(close), np.nan)
+        stoch_k_full[-len(stoch_k):] = stoch_k.values
+        stoch_d_full[-len(stoch_d):] = stoch_d.values
+        
+        self.stoch_k = self.I(lambda: stoch_k_full, name='Stoch_K')
+        self.stoch_d = self.I(lambda: stoch_d_full, name='Stoch_D')
         
         # Previous values for crossover detection
-        stoch_k_prev = stoch_k.shift(1)
-        stoch_d_prev = stoch_d.shift(1)
+        stoch_k_prev = np.roll(stoch_k_full, 1)
+        stoch_d_prev = np.roll(stoch_d_full, 1)
+        stoch_k_prev[0] = np.nan
+        stoch_d_prev[0] = np.nan
         
-        self.stoch_k_prev = self.I(lambda: stoch_k_prev.values, name='Stoch_K_Prev')
-        self.stoch_d_prev = self.I(lambda: stoch_d_prev.values, name='Stoch_D_Prev')
+        self.stoch_k_prev = self.I(lambda: stoch_k_prev, name='Stoch_K_Prev')
+        self.stoch_d_prev = self.I(lambda: stoch_d_prev, name='Stoch_D_Prev')
         
         # Find pivot points in price and stochastic
         pivot_lookback = 5
         price_highs, price_lows = self.find_pivot_highs_lows(close.values, pivot_lookback)
-        stoch_highs, stoch_lows = self.find_pivot_highs_lows(stoch_k.values, pivot_lookback)
+        stoch_highs, stoch_lows = self.find_pivot_highs_lows(stoch_k_full, pivot_lookback)
         
         # Store pivot points
         self.price_pivot_highs = price_highs

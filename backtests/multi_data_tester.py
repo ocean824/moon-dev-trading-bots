@@ -229,23 +229,23 @@ def test_on_all_data(strategy_class, strategy_name=None, optimize=False, cash=10
                 'Buy_Hold_%': round(stats['Buy & Hold Return [%]'], 2) if 'Buy & Hold Return [%]' in stats else 0,
                 'Return_Ann_%': round(stats['Return (Ann.) [%]'], 2) if 'Return (Ann.) [%]' in stats else 0,
                 'Volatility_Ann_%': round(stats['Volatility (Ann.) [%]'], 2) if 'Volatility (Ann.) [%]' in stats else 0,
-                'Sharpe': round(stats['Sharpe Ratio'], 3) if 'Sharpe Ratio' in stats else 0,
-                'Sortino': round(stats['Sortino Ratio'], 3) if 'Sortino Ratio' in stats else 0,
-                'Calmar': round(stats['Calmar Ratio'], 3) if 'Calmar Ratio' in stats else 0,
+                'Sharpe': round(stats['Sharpe Ratio'], 3) if 'Sharpe Ratio' in stats and not pd.isna(stats['Sharpe Ratio']) else 0,
+                'Sortino': round(stats['Sortino Ratio'], 3) if 'Sortino Ratio' in stats and not pd.isna(stats['Sortino Ratio']) else 0,
+                'Calmar': round(stats['Calmar Ratio'], 3) if 'Calmar Ratio' in stats and not pd.isna(stats['Calmar Ratio']) else 0,
                 'Max_DD_%': round(stats['Max. Drawdown [%]'], 2) if 'Max. Drawdown [%]' in stats else 0,
                 'Avg_DD_%': round(stats['Avg. Drawdown [%]'], 2) if 'Avg. Drawdown [%]' in stats else 0,
                 'Max_DD_Duration': str(stats['Max. Drawdown Duration']) if 'Max. Drawdown Duration' in stats else '',
                 'Avg_DD_Duration': str(stats['Avg. Drawdown Duration']) if 'Avg. Drawdown Duration' in stats else '',
                 'Trades': stats['# Trades'] if '# Trades' in stats else 0,
-                'Win_Rate_%': round(stats['Win Rate [%]'], 2) if 'Win Rate [%]' in stats else 0,
-                'Best_Trade_%': round(stats['Best Trade [%]'], 2) if 'Best Trade [%]' in stats else 0,
-                'Worst_Trade_%': round(stats['Worst Trade [%]'], 2) if 'Worst Trade [%]' in stats else 0,
-                'Avg_Trade_%': round(stats['Avg. Trade [%]'], 3) if 'Avg. Trade [%]' in stats else 0,
+                'Win_Rate_%': round(stats['Win Rate [%]'], 2) if 'Win Rate [%]' in stats and not pd.isna(stats['Win Rate [%]']) else 0,
+                'Best_Trade_%': round(stats['Best Trade [%]'], 2) if 'Best Trade [%]' in stats and not pd.isna(stats['Best Trade [%]']) else 0,
+                'Worst_Trade_%': round(stats['Worst Trade [%]'], 2) if 'Worst Trade [%]' in stats and not pd.isna(stats['Worst Trade [%]']) else 0,
+                'Avg_Trade_%': round(stats['Avg. Trade [%]'], 3) if 'Avg. Trade [%]' in stats and not pd.isna(stats['Avg. Trade [%]']) else 0,
                 'Max_Trade_Duration': str(stats['Max. Trade Duration']) if 'Max. Trade Duration' in stats else '',
                 'Avg_Trade_Duration': str(stats['Avg. Trade Duration']) if 'Avg. Trade Duration' in stats else '',
-                'Profit_Factor': round(stats['Profit Factor'], 3) if 'Profit Factor' in stats else 0,
-                'Expectancy_%': round(stats['Expectancy [%]'], 3) if 'Expectancy [%]' in stats else 0,
-                'SQN': round(stats['SQN'], 3) if 'SQN' in stats else 0,
+                'Profit_Factor': round(stats['Profit Factor'], 3) if 'Profit Factor' in stats and not pd.isna(stats['Profit Factor']) else 0,
+                'Expectancy_%': round(stats['Expectancy [%]'], 3) if 'Expectancy [%]' in stats and not pd.isna(stats['Expectancy [%]']) else 0,
+                'SQN': round(stats['SQN'], 3) if 'SQN' in stats and not pd.isna(stats['SQN']) else 0,
             }
             
             # Add optimization results if requested
@@ -266,7 +266,15 @@ def test_on_all_data(strategy_class, strategy_name=None, optimize=False, cash=10
                     pass
             
             all_results.append(result)
-            
+
+            # Show plot for the first dataset if verbose
+            if verbose and len(all_results) == 1:
+                try:
+                    bt.plot()
+                except Exception as plot_error:
+                    if verbose:
+                        print(f"Note: Could not display plot: {plot_error}")
+
         except Exception as e:
             if verbose:
                 print(f"❌ Error: {e}")

@@ -103,17 +103,23 @@ class MomentumCrossStochasticDivKalmanStrategy(Strategy):
         stoch_k_smoothed = self.kalman_filter(stoch_k.values, gain=0.15)
         stoch_d_smoothed = self.kalman_filter(stoch_d.values, gain=0.15)
         
-        self.stoch_k = self.I(lambda: stoch_k_smoothed, name='Stoch_K_Kalman')
-        self.stoch_d = self.I(lambda: stoch_d_smoothed, name='Stoch_D_Kalman')
+        # Ensure arrays are same length as data
+        stoch_k_full = np.full(len(close), np.nan)
+        stoch_d_full = np.full(len(close), np.nan)
+        stoch_k_full[-len(stoch_k_smoothed):] = stoch_k_smoothed
+        stoch_d_full[-len(stoch_d_smoothed):] = stoch_d_smoothed
+        
+        self.stoch_k = self.I(lambda: stoch_k_full, name='Stoch_K_Kalman')
+        self.stoch_d = self.I(lambda: stoch_d_full, name='Stoch_D_Kalman')
         
         # Store Kalman filtered close for divergence detection
         self.close_kalman = close_kalman.values
         
         # Previous values for crossover detection
-        stoch_k_prev = np.roll(stoch_k_smoothed, 1)
-        stoch_d_prev = np.roll(stoch_d_smoothed, 1)
-        stoch_k_prev[0] = stoch_k_smoothed[0]
-        stoch_d_prev[0] = stoch_d_smoothed[0]
+        stoch_k_prev = np.roll(stoch_k_full, 1)
+        stoch_d_prev = np.roll(stoch_d_full, 1)
+        stoch_k_prev[0] = np.nan
+        stoch_d_prev[0] = np.nan
         
         self.stoch_k_prev = self.I(lambda: stoch_k_prev, name='Stoch_K_Prev')
         self.stoch_d_prev = self.I(lambda: stoch_d_prev, name='Stoch_D_Prev')
@@ -121,7 +127,7 @@ class MomentumCrossStochasticDivKalmanStrategy(Strategy):
         # Find pivot points in filtered price and stochastic
         pivot_lookback = 5
         price_highs, price_lows = self.find_pivot_highs_lows(close_kalman.values, pivot_lookback)
-        stoch_highs, stoch_lows = self.find_pivot_highs_lows(stoch_k_smoothed, pivot_lookback)
+        stoch_highs, stoch_lows = self.find_pivot_highs_lows(stoch_k_full, pivot_lookback)
         
         # Store pivot points
         self.price_pivot_highs = price_highs

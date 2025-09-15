@@ -1,7 +1,7 @@
 # Multi-Data Testing Guide
 
 ## Overview
-The `multi_data_tester.py` file allows any strategy to be tested on 10+ different data sources automatically. Results are saved as CSV files in a `results/` folder created wherever you run the strategy from.
+The `multi_data_tester.py` file allows any strategy to be tested on 20+ different data sources automatically. Results are saved as CSV files in a `results/` folder created wherever you run the strategy from.
 
 ## How to Add Multi-Data Testing to ANY New Strategy
 

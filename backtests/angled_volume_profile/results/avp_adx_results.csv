@@ -1,0 +1,29 @@
+Metric,Value
+Strategy,AVPADXStrategy
+Start,2022-10-08 14:15:00
+End,2025-08-23 14:00:00
+Duration,1049 days 23:45:00
+Exposure Time [%],15.506445
+Equity Final [$],53705.95812
+Equity Peak [$],102076.70726
+Return [%],-46.294042
+Buy & Hold Return [%],490.651939
+Return (Ann.) [%],-19.417644
+Volatility (Ann.) [%],12.810403
+Sharpe Ratio,0.0
+Sortino Ratio,0.0
+Calmar Ratio,0.0
+Max. Drawdown [%],-47.387588
+Avg. Drawdown [%],-14.545013
+Max. Drawdown Duration,1017 days 14:45:00
+Avg. Drawdown Duration,262 days 07:34:00
+# Trades,1016
+Win Rate [%],17.519685
+Best Trade [%],9.385041
+Worst Trade [%],-3.348431
+Avg. Trade [%],-0.163007
+Max. Trade Duration,1 days 01:00:00
+Avg. Trade Duration,0 days 03:36:00
+Profit Factor,0.609003
+Expectancy [%],-0.157242
+SQN,-2.478981

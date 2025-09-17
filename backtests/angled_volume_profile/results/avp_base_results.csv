@@ -1,0 +1,29 @@
+Metric,Value
+Strategy,AVPBaseStrategy
+Start,2022-10-08 14:15:00
+End,2025-08-23 14:00:00
+Duration,1049 days 23:45:00
+Exposure Time [%],33.596967
+Equity Final [$],44436.993
+Equity Peak [$],106118.9729
+Return [%],-55.563007
+Buy & Hold Return [%],490.651939
+Return (Ann.) [%],-24.548853
+Volatility (Ann.) [%],15.178479
+Sharpe Ratio,0.0
+Sortino Ratio,0.0
+Calmar Ratio,0.0
+Max. Drawdown [%],-58.128465
+Avg. Drawdown [%],-6.294246
+Max. Drawdown Duration,1018 days 03:45:00
+Avg. Drawdown Duration,87 days 07:42:00
+# Trades,405
+Win Rate [%],33.333333
+Best Trade [%],9.104539
+Worst Trade [%],-5.554752
+Avg. Trade [%],-0.25681
+Max. Trade Duration,9 days 20:30:00
+Avg. Trade Duration,0 days 20:39:00
+Profit Factor,0.774596
+Expectancy [%],-0.234887
+SQN,-2.231867

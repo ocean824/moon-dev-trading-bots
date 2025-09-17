@@ -1,0 +1,29 @@
+Metric,Value
+Strategy,AVPMFIStrategy
+Start,2022-10-08 14:15:00
+End,2025-08-23 14:00:00
+Duration,1049 days 23:45:00
+Exposure Time [%],15.032102
+Equity Final [$],48845.77034
+Equity Peak [$],100002.94232
+Return [%],-51.15423
+Buy & Hold Return [%],490.651939
+Return (Ann.) [%],-22.028975
+Volatility (Ann.) [%],7.396819
+Sharpe Ratio,0.0
+Sortino Ratio,0.0
+Calmar Ratio,0.0
+Max. Drawdown [%],-52.901838
+Avg. Drawdown [%],-26.498978
+Max. Drawdown Duration,1048 days 17:15:00
+Avg. Drawdown Duration,524 days 09:23:00
+# Trades,495
+Win Rate [%],40.606061
+Best Trade [%],4.964508
+Worst Trade [%],-3.946217
+Avg. Trade [%],-0.299739
+Max. Trade Duration,2 days 22:15:00
+Avg. Trade Duration,0 days 07:25:00
+Profit Factor,0.497573
+Expectancy [%],-0.292397
+SQN,-4.827587

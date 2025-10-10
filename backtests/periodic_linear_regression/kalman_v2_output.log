@@ -1,0 +1,19 @@
+🚀 Moon Dev's Periodic Linear Regression + Kalman Filter V2 Strategy Loading... 🌙
+📊 Loading data from: /Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/BTCUSD-1h-500wks-data.csv
+✅ Data loaded! 83954 rows 🌙
+
+🌙 ===== PERIODIC LINEAR REGRESSION + KALMAN FILTER V2 STRATEGY ===== 🌙
+Lookback Period: 20
+Kalman Q/R: 0.005/0.05
+Take Profit: 3.5%
+Stop Loss: 1.5%
+Traceback (most recent call last):
+  File "/Users/md/Dropbox/dev/github/moon-dev-trading-bots/backtests/periodic_linear_regression/plr_kalman_v2.py", line 202, in <module>
+    stats = bt.run()
+            ^^^^^^^^
+  File "/opt/anaconda3/lib/python3.11/site-packages/backtesting/backtesting.py", line 1297, in run
+    strategy.init()
+  File "/Users/md/Dropbox/dev/github/moon-dev-trading-bots/backtests/periodic_linear_regression/plr_kalman_v2.py", line 70, in init
+    macd, signal, hist = talib.MACD(self.data.Close.values)
+                                    ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: '_Array' object has no attribute 'values'

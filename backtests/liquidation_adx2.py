@@ -57,7 +57,7 @@ print("🌙 Moon Dev Liquidation Strategy Backtest 🚀")
 print("=" * 60)
 
 # Load the data
-data_path = '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/bots/hyperliquid/data/liqs/BTC_liquidations_20250515_101946.csv'
+data_path = '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/moondev_api/liq_data_full.csv'
 data = pd.read_csv(data_path)
 
 # Convert 'datetime' column to datetime format and set as index

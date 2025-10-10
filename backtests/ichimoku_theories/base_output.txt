@@ -1,0 +1,1002 @@
+🚀 Moon Dev's Ichimoku Theories Strategy - Base Loading... 🌙
+📊 Loading data from: /Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/BTCUSD-1h-500wks-data.csv
+✅ Data loaded! 83954 rows 🌙
+
+🌙 ===== ICHIMOKU BASE STRATEGY - DEFAULT PARAMETERS ===== 🌙
+Tenkan Period: 9
+Kijun Period: 26
+Senkou Span B Period: 52
+Take Profit: 6.0%
+Stop Loss: 3.0%
+Start                     2015-09-20 14:00:00
+End                       2025-04-20 13:00:00
+Duration                   3499 days 23:00:00
+Exposure Time [%]                    0.001191
+Equity Final [$]                     999973.0
+Equity Peak [$]                     1000000.0
+Return [%]                            -0.0027
+Buy & Hold Return [%]            36114.781899
+Return (Ann.) [%]                   -0.000281
+Volatility (Ann.) [%]                0.000872
+Sharpe Ratio                              0.0
+Sortino Ratio                             0.0
+Calmar Ratio                              0.0
+Max. Drawdown [%]                     -0.0027
+Avg. Drawdown [%]                     -0.0027
+Max. Drawdown Duration     2926 days 18:00:00
+Avg. Drawdown Duration     2926 days 18:00:00
+# Trades                                    1
+Win Rate [%]                              0.0
+Best Trade [%]                       -0.04498
+Worst Trade [%]                      -0.04498
+Avg. Trade [%]                       -0.04498
+Max. Trade Duration           0 days 00:00:00
+Avg. Trade Duration           0 days 00:00:00
+Profit Factor                             0.0
+Expectancy [%]                       -0.04498
+SQN                                       NaN
+_strategy                        IchimokuBase
+_equity_curve                             ...
+_trades                         Size  Entr...
+dtype: object
+
+================================================================================
+TESTING ICHIMOKU BASE STRATEGY ON ALL DATA SOURCES
+================================================================================
+
+================================================================================
+🚀 Testing IchimokuBase on 25 data sources
+================================================================================
+
+[1/25] BTC-15m-150wks... 
+============================================================
+Full Stats for BTC-15m-150wks:
+============================================================
+Start                     2022-10-08 14:15:00
+End                       2025-08-23 14:00:00
+Duration                   1049 days 23:45:00
+Exposure Time [%]                         0.0
+Equity Final [$]                   10000000.0
+Equity Peak [$]                    10000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]              490.651939
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+_strategy                        IchimokuBase
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+============================================================
+[2/25] BTC-1h-500wks... 
+============================================================
+Full Stats for BTC-1h-500wks:
+============================================================
+Start                     2015-09-20 14:00:00
+End                       2025-04-20 13:00:00
+Duration                   3499 days 23:00:00
+Exposure Time [%]                    0.001191
+Equity Final [$]                    9999973.0
+Equity Peak [$]                    10000000.0
+Return [%]                           -0.00027
+Buy & Hold Return [%]            36114.781899
+Return (Ann.) [%]                   -0.000028
+Volatility (Ann.) [%]                0.000088
+Sharpe Ratio                              0.0
+Sortino Ratio                             0.0
+Calmar Ratio                              0.0
+Max. Drawdown [%]                    -0.00027
+Avg. Drawdown [%]                    -0.00027
+Max. Drawdown Duration     2926 days 18:00:00
+Avg. Drawdown Duration     2926 days 18:00:00
+# Trades                                    1
+Win Rate [%]                              0.0
+Best Trade [%]                       -0.04498
+Worst Trade [%]                      -0.04498
+Avg. Trade [%]                       -0.04498
+Max. Trade Duration           0 days 00:00:00
+Avg. Trade Duration           0 days 00:00:00
+Profit Factor                             0.0
+Expectancy [%]                       -0.04498
+SQN                                       NaN
+_strategy                        IchimokuBase
+_equity_curve                             ...
+_trades                         Size  Entr...
+dtype: object
+============================================================
+[3/25] BTC-5m-70wks... 
+============================================================
+Full Stats for BTC-5m-70wks:
+============================================================
+Start                     2024-01-31 14:20:00
+End                       2025-06-04 14:15:00
+Duration                    489 days 23:55:00
+Exposure Time [%]                         0.0
+Equity Final [$]                   10000000.0
+Equity Peak [$]                    10000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]               145.35522
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+_strategy                        IchimokuBase
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+============================================================
+[4/25] BTC-6h-500wks... 
+============================================================
+Full Stats for BTC-6h-500wks:
+============================================================
+Start                     2015-09-20 18:00:00
+End                       2025-04-20 12:00:00
+Duration                   3499 days 18:00:00
+Exposure Time [%]                    0.600043
+Equity Final [$]                 1564578512.0
+Equity Peak [$]                  1616130512.0
+Return [%]                        15545.78512
+Buy & Hold Return [%]            36241.715467
+Return (Ann.) [%]                   69.347555
+Volatility (Ann.) [%]     1358853457756467...
+Sharpe Ratio                              0.0
+Sortino Ratio                       67.500912
+Calmar Ratio                        20.481488
+Max. Drawdown [%]                   -3.385865
+Avg. Drawdown [%]                   -1.473706
+Max. Drawdown Duration     2907 days 06:00:00
+Avg. Drawdown Duration      243 days 07:00:00
+# Trades                                   11
+Win Rate [%]                        72.727273
+Best Trade [%]                 1951854.953604
+Worst Trade [%]                     -2.170206
+Avg. Trade [%]                     151.902609
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           1 days 16:00:00
+Profit Factor                   416184.243099
+Expectancy [%]                  177444.028873
+SQN                                  1.358418
+_strategy                        IchimokuBase
+_equity_curve                             ...
+_trades                          Size  Ent...
+dtype: object
+============================================================
+[5/25] BTC-6h-1000wks... 
+============================================================
+Full Stats for BTC-6h-1000wks:
+============================================================
+Start                     2015-07-20 18:00:00
+End                       2025-04-25 12:00:00
+Duration                   3566 days 18:00:00
+Exposure Time [%]                    0.588771
+Equity Final [$]                 1564578512.0
+Equity Peak [$]                  1616130512.0
+Return [%]                        15545.78512
+Buy & Hold Return [%]            33600.035714
+Return (Ann.) [%]                   67.680637
+Volatility (Ann.) [%]     8605622155358120...
+Sharpe Ratio                              0.0
+Sortino Ratio                       66.505942
+Calmar Ratio                        19.989171
+Max. Drawdown [%]                   -3.385865
+Avg. Drawdown [%]                   -1.473706
+Max. Drawdown Duration     2912 days 06:00:00
+Avg. Drawdown Duration      243 days 17:00:00
+# Trades                                   11
+Win Rate [%]                        72.727273
+Best Trade [%]                 1951854.953604
+Worst Trade [%]                     -2.170206
+Avg. Trade [%]                     151.902609
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           1 days 16:00:00
+Profit Factor                   416184.243099
+Expectancy [%]                  177444.028873
+SQN                                  1.358418
+_strategy                        IchimokuBase
+_equity_curve                             ...
+_trades                          Size  Ent...
+dtype: object
+============================================================
+[6/25] BTC-1d-1000wks... 
+============================================================
+Full Stats for BTC-1d-1000wks:
+============================================================
+Start                     2015-07-20 00:00:00
+End                       2025-04-06 00:00:00
+Duration                   3548 days 00:00:00
+Exposure Time [%]                   66.413074
+Equity Final [$]          170034156695.499756
+Equity Peak [$]           190745916409.499786
+Return [%]                     1700241.566955
+Buy & Hold Return [%]            29372.871429
+Return (Ann.) [%]                  172.328555
+Volatility (Ann.) [%]     2069308566836380...
+Sharpe Ratio                              0.0
+Sortino Ratio                       11.612551
+Calmar Ratio                         5.668803
+Max. Drawdown [%]                  -30.399459
+Avg. Drawdown [%]                   -4.243364
+Max. Drawdown Duration      838 days 00:00:00
+Avg. Drawdown Duration       33 days 00:00:00
+# Trades                                  626
+Win Rate [%]                        59.105431
+Best Trade [%]                  2072574.62975
+Worst Trade [%]                    -25.411672
+Avg. Trade [%]                       3.188902
+Max. Trade Duration          21 days 00:00:00
+Avg. Trade Duration           3 days 00:00:00
+Profit Factor                     1585.985411
+Expectancy [%]                    3312.630687
+SQN                                  2.917059
+_strategy                        IchimokuBase
+_equity_curve                             ...
+_trades                           Size  En...
+dtype: object
+============================================================
+[7/25] BTC-1d-100wks... 
+============================================================
+Full Stats for BTC-1d-100wks:
+============================================================
+Start                     2023-07-22 00:00:00
+End                       2025-06-20 00:00:00
+Duration                    699 days 00:00:00
+Exposure Time [%]                         0.0
+Equity Final [$]                   10000000.0
+Equity Peak [$]                    10000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]               249.59599
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+_strategy                        IchimokuBase
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+============================================================
+[8/25] BTC-1m-10wks... 
+============================================================
+Full Stats for BTC-1m-10wks:
+============================================================
+Start                     2025-04-27 12:33:00
+End                       2025-07-06 12:32:00
+Duration                     69 days 23:59:00
+Exposure Time [%]                         0.0
+Equity Final [$]                   10000000.0
+Equity Peak [$]                    10000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]               15.332098
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+_strategy                        IchimokuBase
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+============================================================
+[9/25] ETH-15m-150wks... 
+============================================================
+Full Stats for ETH-15m-150wks:
+============================================================
+Start                     2022-10-08 14:15:00
+End                       2025-08-23 14:00:00
+Duration                   1049 days 23:45:00
+Exposure Time [%]                         0.0
+Equity Final [$]                   10000000.0
+Equity Peak [$]                    10000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]              257.477194
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+_strategy                        IchimokuBase
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+============================================================
+[10/25] ETH-1h-250wks... 
+============================================================
+Full Stats for ETH-1h-250wks:
+============================================================
+Start                     2020-11-07 15:00:00
+End                       2025-08-23 14:00:00
+Duration                   1749 days 23:00:00
+Exposure Time [%]                         0.0
+Equity Final [$]                   10000000.0
+Equity Peak [$]                    10000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]               957.60091
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+_strategy                        IchimokuBase
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+============================================================
+[11/25] ETH-6h-400wks... 
+============================================================
+Full Stats for ETH-6h-400wks:
+============================================================
+Start                     2017-12-23 18:00:00
+End                       2025-08-23 12:00:00
+Duration                   2799 days 18:00:00
+Exposure Time [%]                         0.0
+Equity Final [$]                   10000000.0
+Equity Peak [$]                    10000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]              547.146561
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+_strategy                        IchimokuBase
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+============================================================
+[12/25] ETH-1d-1000wks... 
+============================================================
+Full Stats for ETH-1d-1000wks:
+============================================================
+Start                     2016-05-18 00:00:00
+End                       2025-04-25 00:00:00
+Duration                   3264 days 00:00:00
+Exposure Time [%]                   70.088875
+Equity Final [$]           15479053492.499998
+Equity Peak [$]            16438543401.999998
+Return [%]                      154690.534925
+Buy & Hold Return [%]            13578.907436
+Return (Ann.) [%]                  127.407933
+Volatility (Ann.) [%]          1556644.823572
+Sharpe Ratio                         0.000082
+Sortino Ratio                        7.030526
+Calmar Ratio                         5.203726
+Max. Drawdown [%]                  -24.483982
+Avg. Drawdown [%]                   -3.103171
+Max. Drawdown Duration      521 days 00:00:00
+Avg. Drawdown Duration       25 days 00:00:00
+# Trades                                  717
+Win Rate [%]                        62.761506
+Best Trade [%]                  304762.811735
+Worst Trade [%]                    -34.408974
+Avg. Trade [%]                       3.099917
+Max. Trade Duration          22 days 00:00:00
+Avg. Trade Duration           3 days 00:00:00
+Profit Factor                      187.511222
+Expectancy [%]                     427.346503
+SQN                                  4.134481
+_strategy                        IchimokuBase
+_equity_curve                             ...
+_trades                           Size  En...
+dtype: object
+============================================================
+[13/25] SOL-1m-8wks... 
+============================================================
+Full Stats for SOL-1m-8wks:
+============================================================
+Start                     2025-06-28 14:30:00
+End                       2025-08-23 14:29:00
+Duration                     55 days 23:59:00
+Exposure Time [%]                         0.0
+Equity Final [$]                   10000000.0
+Equity Peak [$]                    10000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]               37.979592
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+_strategy                        IchimokuBase
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+============================================================
+[14/25] SOL-15m-100wks... 
+============================================================
+Full Stats for SOL-15m-100wks:
+============================================================
+Start                     2023-07-05 13:45:00
+End                       2025-06-04 13:30:00
+Duration                    699 days 23:45:00
+Exposure Time [%]                         0.0
+Equity Final [$]                   10000000.0
+Equity Peak [$]                    10000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]              730.515683
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+_strategy                        IchimokuBase
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+============================================================
+[15/25] SOL-1h-250wks... 
+============================================================
+Full Stats for SOL-1h-250wks:
+============================================================
+Start                     2021-06-17 16:00:00
+End                       2025-08-23 14:00:00
+Duration                   1527 days 22:00:00
+Exposure Time [%]                    0.043637
+Equity Final [$]                    9126548.5
+Equity Peak [$]                    10000000.0
+Return [%]                          -8.734515
+Buy & Hold Return [%]              410.613089
+Return (Ann.) [%]                   -2.158195
+Volatility (Ann.) [%]                4.112044
+Sharpe Ratio                              0.0
+Sortino Ratio                             0.0
+Calmar Ratio                              0.0
+Max. Drawdown [%]                   -8.934515
+Avg. Drawdown [%]                   -8.934515
+Max. Drawdown Duration      968 days 14:00:00
+Avg. Drawdown Duration      968 days 14:00:00
+# Trades                                    4
+Win Rate [%]                              0.0
+Best Trade [%]                       -0.15446
+Worst Trade [%]                      -3.04363
+Avg. Trade [%]                      -2.304416
+Max. Trade Duration           0 days 07:00:00
+Avg. Trade Duration           0 days 03:00:00
+Profit Factor                             0.0
+Expectancy [%]                      -2.296654
+SQN                                 -3.204936
+_strategy                        IchimokuBase
+_equity_curve                             ...
+_trades                         Size  Entr...
+dtype: object
+============================================================
+[16/25] SOL-6h-400wks... 
+============================================================
+Full Stats for SOL-6h-400wks:
+============================================================
+Start                     2021-06-17 12:00:00
+End                       2025-08-23 12:00:00
+Duration                   1528 days 00:00:00
+Exposure Time [%]                    0.016359
+Equity Final [$]                    9706462.0
+Equity Peak [$]                    10000000.0
+Return [%]                           -2.93538
+Buy & Hold Return [%]              426.017423
+Return (Ann.) [%]                   -0.708696
+Volatility (Ann.) [%]                1.424594
+Sharpe Ratio                              0.0
+Sortino Ratio                             0.0
+Calmar Ratio                              0.0
+Max. Drawdown [%]                    -2.93538
+Avg. Drawdown [%]                    -2.93538
+Max. Drawdown Duration      967 days 18:00:00
+Avg. Drawdown Duration      967 days 18:00:00
+# Trades                                    1
+Win Rate [%]                              0.0
+Best Trade [%]                       -3.04363
+Worst Trade [%]                      -3.04363
+Avg. Trade [%]                       -3.04363
+Max. Trade Duration           0 days 00:00:00
+Avg. Trade Duration           0 days 00:00:00
+Profit Factor                             0.0
+Expectancy [%]                       -3.04363
+SQN                                       NaN
+_strategy                        IchimokuBase
+_equity_curve                             ...
+_trades                         Size  Entr...
+dtype: object
+============================================================
+[17/25] SOL-1d-1000wks... 
+============================================================
+Full Stats for SOL-1d-1000wks:
+============================================================
+Start                     2021-06-17 00:00:00
+End                       2025-04-25 00:00:00
+Duration                   1408 days 00:00:00
+Exposure Time [%]                         0.0
+Equity Final [$]                   10000000.0
+Equity Peak [$]                    10000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]              292.687898
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+_strategy                        IchimokuBase
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+============================================================
+[18/25] AAPL-15m-12Y... 
+============================================================
+Full Stats for AAPL-15m-12Y:
+============================================================
+Start                     2013-02-22 10:30:00
+End                       2025-02-18 16:45:00
+Duration                   4379 days 06:15:00
+Exposure Time [%]                         0.0
+Equity Final [$]                   10000000.0
+Equity Peak [$]                    10000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]             1421.219664
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+_strategy                        IchimokuBase
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+============================================================
+[19/25] AAPL-15m-3Y... 
+============================================================
+Full Stats for AAPL-15m-3Y:
+============================================================
+Start                     2022-02-22 10:30:00
+End                       2025-02-18 16:45:00
+Duration                   1092 days 06:15:00
+Exposure Time [%]                         0.0
+Equity Final [$]                   10000000.0
+Equity Peak [$]                    10000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]               48.211471
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+_strategy                        IchimokuBase
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+============================================================
+[20/25] TSLA-5m-30D... 
+============================================================
+Full Stats for TSLA-5m-30D:
+============================================================
+Start                     2025-01-03 10:30:00
+End                       2025-02-18 16:55:00
+Duration                     46 days 06:25:00
+Exposure Time [%]                         0.0
+Equity Final [$]                   10000000.0
+Equity Peak [$]                    10000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]                -7.66964
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+_strategy                        IchimokuBase
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+============================================================
+[21/25] ES-4h-10Y... 
+============================================================
+Full Stats for ES-4h-10Y:
+============================================================
+Start                     2023-12-13 16:00:00
+End                       2025-02-21 16:00:00
+Duration                    436 days 00:00:00
+Exposure Time [%]                         0.0
+Equity Final [$]                   10000000.0
+Equity Peak [$]                    10000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]               22.987099
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+_strategy                        IchimokuBase
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+============================================================
+[22/25] NQ-4h-10Y... 
+============================================================
+Full Stats for NQ-4h-10Y:
+============================================================
+Start                     2023-12-13 16:00:00
+End                       2025-02-21 16:00:00
+Duration                    436 days 00:00:00
+Exposure Time [%]                         0.0
+Equity Final [$]                   10000000.0
+Equity Peak [$]                    10000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]               22.987099
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+_strategy                        IchimokuBase
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+============================================================
+[23/25] GOOG-hourly... 
+============================================================
+Full Stats for GOOG-hourly:
+============================================================
+Start                     2023-02-28 10:30:00
+End                       2025-02-14 15:30:00
+Duration                    717 days 05:00:00
+Exposure Time [%]                         0.0
+Equity Final [$]                   10000000.0
+Equity Peak [$]                    10000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]              106.064616
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+_strategy                        IchimokuBase
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+============================================================
+[24/25] NVDA-hourly... 
+============================================================
+Full Stats for NVDA-hourly:
+============================================================
+Start                     2023-02-28 10:30:00
+End                       2025-02-14 15:30:00
+Duration                    717 days 05:00:00
+Exposure Time [%]                         0.0
+Equity Final [$]                   10000000.0
+Equity Peak [$]                    10000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]              -40.875415
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+_strategy                        IchimokuBase
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+============================================================
+[25/25] TSLA-hourly... 
+============================================================
+Full Stats for TSLA-hourly:
+============================================================
+Start                     2023-02-28 10:30:00
+End                       2025-02-14 15:30:00
+Duration                    717 days 05:00:00
+Exposure Time [%]                         0.0
+Equity Final [$]                   10000000.0
+Equity Peak [$]                    10000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]               73.376586
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+_strategy                        IchimokuBase
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+============================================================
+
+================================================================================
+✅ Results saved to: /Users/md/Dropbox/dev/github/moon-dev-trading-bots/backtests/ichimoku_theories/results/IchimokuBase.csv
+================================================================================
+
+SUMMARY:
+       Data_Source    Return_%  Buy_Hold_%  Sharpe  Sortino  Max_DD_%  Profit_Factor  Expectancy_%  Trades  Win_Rate_%
+0   BTC-15m-150wks        0.00      490.65     0.0    0.000     -0.00          0.000         0.000       0        0.00
+1    BTC-1h-500wks       -0.00    36114.78     0.0    0.000     -0.00          0.000        -0.045       1        0.00
+2     BTC-5m-70wks        0.00      145.36     0.0    0.000     -0.00          0.000         0.000       0        0.00
+3    BTC-6h-500wks    15545.79    36241.72     0.0   67.501     -3.39     416184.243    177444.029      11       72.73
+4   BTC-6h-1000wks    15545.79    33600.04     0.0   66.506     -3.39     416184.243    177444.029      11       72.73
+5   BTC-1d-1000wks  1700241.57    29372.87     0.0   11.613    -30.40       1585.985      3312.631     626       59.11
+6    BTC-1d-100wks        0.00      249.60     0.0    0.000     -0.00          0.000         0.000       0        0.00
+7     BTC-1m-10wks        0.00       15.33     0.0    0.000     -0.00          0.000         0.000       0        0.00
+8   ETH-15m-150wks        0.00      257.48     0.0    0.000     -0.00          0.000         0.000       0        0.00
+9    ETH-1h-250wks        0.00      957.60     0.0    0.000     -0.00          0.000         0.000       0        0.00
+10   ETH-6h-400wks        0.00      547.15     0.0    0.000     -0.00          0.000         0.000       0        0.00
+11  ETH-1d-1000wks   154690.53    13578.91     0.0    7.031    -24.48        187.511       427.347     717       62.76
+12     SOL-1m-8wks        0.00       37.98     0.0    0.000     -0.00          0.000         0.000       0        0.00
+13  SOL-15m-100wks        0.00      730.52     0.0    0.000     -0.00          0.000         0.000       0        0.00
+14   SOL-1h-250wks       -8.73      410.61     0.0    0.000     -8.93          0.000        -2.297       4        0.00
+15   SOL-6h-400wks       -2.94      426.02     0.0    0.000     -2.94          0.000        -3.044       1        0.00
+16  SOL-1d-1000wks        0.00      292.69     0.0    0.000     -0.00          0.000         0.000       0        0.00
+17    AAPL-15m-12Y        0.00     1421.22     0.0    0.000     -0.00          0.000         0.000       0        0.00
+18     AAPL-15m-3Y        0.00       48.21     0.0    0.000     -0.00          0.000         0.000       0        0.00
+19     TSLA-5m-30D        0.00       -7.67     0.0    0.000     -0.00          0.000         0.000       0        0.00
+20       ES-4h-10Y        0.00       22.99     0.0    0.000     -0.00          0.000         0.000       0        0.00
+21       NQ-4h-10Y        0.00       22.99     0.0    0.000     -0.00          0.000         0.000       0        0.00
+22     GOOG-hourly        0.00      106.06     0.0    0.000     -0.00          0.000         0.000       0        0.00
+23     NVDA-hourly        0.00      -40.88     0.0    0.000     -0.00          0.000         0.000       0        0.00
+24     TSLA-hourly        0.00       73.38     0.0    0.000     -0.00          0.000         0.000       0        0.00
+
+✅ Testing complete! Results saved in: ./results/IchimokuBase.csv

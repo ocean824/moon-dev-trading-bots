@@ -1,0 +1,3 @@
+Strategy,Avg_Return_%,Median_Return_%,Best_Return_%,Worst_Return_%,Avg_Sharpe,Avg_Win_Rate_%,Total_Trades,Avg_Trades_Per_Dataset,Datasets_Tested,Profitable_Datasets,Win_Rate_by_Dataset_%
+BollingerRSIBase,-66.81599999999999,-98.45,177.37,-100.0,-16471396179.406578,60.11000000000001,28552,1142.08,25,3,12.0
+BollingerRSIMFI,-64.16,-97.19,180.77,-100.0,-32447624.826684207,59.94869565217392,21602,864.08,25,4,16.0

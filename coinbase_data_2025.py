@@ -12,8 +12,8 @@ STEPS TO USE
 
 # ====== Moon Dev's Configuration 🌙 ======
 SYMBOL = 'BTC-USD'        # Trading pair (e.g., 'BTC-USD', 'ETH-USD', 'SOL-USD')
-TIMEFRAME = '1d'          # Timeframe (e.g., '1m', '5m', '1h', '6h', '1d')
-WEEKS = 100           # How many weeks of data to fetch
+TIMEFRAME = '1m'          # Timeframe (e.g., '1m', '5m', '1h', '6h', '1d')
+WEEKS = 4           # How many weeks of data to fetch
 SAVE_DIR = 'data/coinbase'  # Directory to save the data files
 
 # ====== Imports ======

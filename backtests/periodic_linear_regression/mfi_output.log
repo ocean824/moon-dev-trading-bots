@@ -1,0 +1,1116 @@
+🚀 Moon Dev's Periodic Linear Regression + MFI Strategy Loading... 🌙
+📊 Loading data from: /Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/coinbase/BTCUSD-1h-500wks-data.csv
+✅ Data loaded! 83954 rows 🌙
+
+🌙 ===== PERIODIC LINEAR REGRESSION + MFI STRATEGY ===== 🌙
+Period Type: weekly
+Lookback Period: 50
+Band Multiplier: 1.5
+MFI Period: 14
+MFI Overbought/Oversold: 80/20
+Take Profit: 3.5%
+Stop Loss: 2.0%
+Backtest.run:   0%|          | 0/83902 [00:00<?, ?bar/s]                                                        Start                     2015-09-20 14:00:00
+End                       2025-04-20 13:00:00
+Duration                   3499 days 23:00:00
+Exposure Time [%]                         0.0
+Equity Final [$]                    1000000.0
+Equity Peak [$]                     1000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]             36376.31135
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+CAGR [%]                                  0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Alpha [%]                                 0.0
+Beta                                      0.0
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+Kelly Criterion                           NaN
+_strategy                 PeriodicLinearRe...
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+
+================================================================================
+TESTING PERIODIC LINEAR REGRESSION + MFI ON ALL DATA SOURCES
+================================================================================
+
+================================================================================
+🚀 Testing PeriodicLinearRegressionMFI on 25 data sources
+================================================================================
+
+[1/25] BTC-15m-150wks... Backtest.run:   0%|          | 0/100719 [00:00<?, ?bar/s]                                                         
+============================================================
+Full Stats for BTC-15m-150wks:
+============================================================
+Start                     2022-10-08 14:15:00
+End                       2025-08-23 14:00:00
+Duration                   1049 days 23:45:00
+Exposure Time [%]                         0.0
+Equity Final [$]                   10000000.0
+Equity Peak [$]                    10000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]               492.82742
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+CAGR [%]                                  0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Alpha [%]                                 0.0
+Beta                                      0.0
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+Kelly Criterion                           NaN
+_strategy                 PeriodicLinearRe...
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+============================================================
+[2/25] BTC-1h-500wks... Backtest.run:   0%|          | 0/83902 [00:00<?, ?bar/s]                                                        
+============================================================
+Full Stats for BTC-1h-500wks:
+============================================================
+Start                     2015-09-20 14:00:00
+End                       2025-04-20 13:00:00
+Duration                   3499 days 23:00:00
+Exposure Time [%]                         0.0
+Equity Final [$]                   10000000.0
+Equity Peak [$]                    10000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]             36376.31135
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+CAGR [%]                                  0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Alpha [%]                                 0.0
+Beta                                      0.0
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+Kelly Criterion                           NaN
+_strategy                 PeriodicLinearRe...
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+============================================================
+[3/25] BTC-5m-70wks... Backtest.run:   0%|          | 0/141044 [00:00<?, ?bar/s]                                                         
+============================================================
+Full Stats for BTC-5m-70wks:
+============================================================
+Start                     2024-01-31 14:20:00
+End                       2025-06-04 14:15:00
+Duration                    489 days 23:55:00
+Exposure Time [%]                         0.0
+Equity Final [$]                   10000000.0
+Equity Peak [$]                    10000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]               140.47194
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+CAGR [%]                                  0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Alpha [%]                                 0.0
+Beta                                      0.0
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+Kelly Criterion                           NaN
+_strategy                 PeriodicLinearRe...
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+============================================================
+[4/25] BTC-6h-500wks... Backtest.run:   0%|          | 0/13947 [00:00<?, ?bar/s]                                                        
+============================================================
+Full Stats for BTC-6h-500wks:
+============================================================
+Start                     2015-09-20 18:00:00
+End                       2025-04-20 12:00:00
+Duration                   3499 days 18:00:00
+Exposure Time [%]                         0.0
+Equity Final [$]                   10000000.0
+Equity Peak [$]                    10000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]             35063.73636
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+CAGR [%]                                  0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Alpha [%]                                 0.0
+Beta                                      0.0
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+Kelly Criterion                           NaN
+_strategy                 PeriodicLinearRe...
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+============================================================
+[5/25] BTC-6h-1000wks... Backtest.run:   0%|          | 0/14215 [00:00<?, ?bar/s]                                                        
+============================================================
+Full Stats for BTC-6h-1000wks:
+============================================================
+Start                     2015-07-20 18:00:00
+End                       2025-04-25 12:00:00
+Duration                   3566 days 18:00:00
+Exposure Time [%]                         0.0
+Equity Final [$]                   10000000.0
+Equity Peak [$]                    10000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]             33465.77262
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+CAGR [%]                                  0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Alpha [%]                                 0.0
+Beta                                      0.0
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+Kelly Criterion                           NaN
+_strategy                 PeriodicLinearRe...
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+============================================================
+[6/25] BTC-1d-1000wks... Backtest.run:   0%|          | 0/3497 [00:00<?, ?bar/s]                                                       
+============================================================
+Full Stats for BTC-1d-1000wks:
+============================================================
+Start                     2015-07-20 00:00:00
+End                       2025-04-06 00:00:00
+Duration                   3548 days 00:00:00
+Exposure Time [%]                         0.0
+Equity Final [$]                   10000000.0
+Equity Peak [$]                    10000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]             34465.04293
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+CAGR [%]                                  0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Alpha [%]                                 0.0
+Beta                                      0.0
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+Kelly Criterion                           NaN
+_strategy                 PeriodicLinearRe...
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+============================================================
+[7/25] BTC-1d-100wks... Backtest.run:   0%|          | 0/648 [00:00<?, ?bar/s]                                                      
+============================================================
+Full Stats for BTC-1d-100wks:
+============================================================
+Start                     2023-07-22 00:00:00
+End                       2025-06-20 00:00:00
+Duration                    699 days 00:00:00
+Exposure Time [%]                         0.0
+Equity Final [$]                   10000000.0
+Equity Peak [$]                    10000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]                314.1287
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+CAGR [%]                                  0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Alpha [%]                                 0.0
+Beta                                      0.0
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+Kelly Criterion                           NaN
+_strategy                 PeriodicLinearRe...
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+============================================================
+[8/25] BTC-1m-10wks... Backtest.run:   0%|          | 0/100748 [00:00<?, ?bar/s]                                                         
+============================================================
+Full Stats for BTC-1m-10wks:
+============================================================
+Start                     2025-04-27 12:33:00
+End                       2025-07-06 12:32:00
+Duration                     69 days 23:59:00
+Exposure Time [%]                         0.0
+Equity Final [$]                   10000000.0
+Equity Peak [$]                    10000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]                15.29321
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+CAGR [%]                                  0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Alpha [%]                                 0.0
+Beta                                      0.0
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+Kelly Criterion                           NaN
+_strategy                 PeriodicLinearRe...
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+============================================================
+[9/25] ETH-15m-150wks... Backtest.run:   0%|          | 0/100718 [00:00<?, ?bar/s]                                                         
+============================================================
+Full Stats for ETH-15m-150wks:
+============================================================
+Start                     2022-10-08 14:15:00
+End                       2025-08-23 14:00:00
+Duration                   1049 days 23:45:00
+Exposure Time [%]                         0.0
+Equity Final [$]                   10000000.0
+Equity Peak [$]                    10000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]               260.77928
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+CAGR [%]                                  0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Alpha [%]                                 0.0
+Beta                                      0.0
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+Kelly Criterion                           NaN
+_strategy                 PeriodicLinearRe...
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+============================================================
+[10/25] ETH-1h-250wks... Backtest.run:   0%|          | 0/41945 [00:00<?, ?bar/s]                                                        
+============================================================
+Full Stats for ETH-1h-250wks:
+============================================================
+Start                     2020-11-07 15:00:00
+End                       2025-08-23 14:00:00
+Duration                   1749 days 23:00:00
+Exposure Time [%]                         0.0
+Equity Final [$]                   10000000.0
+Equity Peak [$]                    10000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]               961.98467
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+CAGR [%]                                  0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Alpha [%]                                 0.0
+Beta                                      0.0
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+Kelly Criterion                           NaN
+_strategy                 PeriodicLinearRe...
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+============================================================
+[11/25] ETH-6h-400wks... Backtest.run:   0%|          | 0/11148 [00:00<?, ?bar/s]                                                        
+============================================================
+Full Stats for ETH-6h-400wks:
+============================================================
+Start                     2017-12-23 18:00:00
+End                       2025-08-23 12:00:00
+Duration                   2799 days 18:00:00
+Exposure Time [%]                         0.0
+Equity Final [$]                   10000000.0
+Equity Peak [$]                    10000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]               402.82997
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+CAGR [%]                                  0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Alpha [%]                                 0.0
+Beta                                      0.0
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+Kelly Criterion                           NaN
+_strategy                 PeriodicLinearRe...
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+============================================================
+[12/25] ETH-1d-1000wks... Backtest.run:   0%|          | 0/3211 [00:00<?, ?bar/s]                                                       
+============================================================
+Full Stats for ETH-1d-1000wks:
+============================================================
+Start                     2016-05-18 00:00:00
+End                       2025-04-25 00:00:00
+Duration                   3264 days 00:00:00
+Exposure Time [%]                         0.0
+Equity Final [$]                   10000000.0
+Equity Peak [$]                    10000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]              16260.0726
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+CAGR [%]                                  0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Alpha [%]                                 0.0
+Beta                                      0.0
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+Kelly Criterion                           NaN
+_strategy                 PeriodicLinearRe...
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+============================================================
+[13/25] SOL-1m-8wks... Backtest.run:   0%|          | 0/80586 [00:00<?, ?bar/s]                                                        
+============================================================
+Full Stats for SOL-1m-8wks:
+============================================================
+Start                     2025-06-28 14:30:00
+End                       2025-08-23 14:29:00
+Duration                     55 days 23:59:00
+Exposure Time [%]                         0.0
+Equity Final [$]                   10000000.0
+Equity Peak [$]                    10000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]                38.04533
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+CAGR [%]                                  0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Alpha [%]                                 0.0
+Beta                                      0.0
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+Kelly Criterion                           NaN
+_strategy                 PeriodicLinearRe...
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+============================================================
+[14/25] SOL-15m-100wks... Backtest.run:   0%|          | 0/67138 [00:00<?, ?bar/s]                                                        
+============================================================
+Full Stats for SOL-15m-100wks:
+============================================================
+Start                     2023-07-05 13:45:00
+End                       2025-06-04 13:30:00
+Duration                    699 days 23:45:00
+Exposure Time [%]                         0.0
+Equity Final [$]                   10000000.0
+Equity Peak [$]                    10000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]               702.36261
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+CAGR [%]                                  0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Alpha [%]                                 0.0
+Beta                                      0.0
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+Kelly Criterion                           NaN
+_strategy                 PeriodicLinearRe...
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+============================================================
+[15/25] SOL-1h-250wks... Backtest.run:   0%|          | 0/36614 [00:00<?, ?bar/s]                                                        
+============================================================
+Full Stats for SOL-1h-250wks:
+============================================================
+Start                     2021-06-17 16:00:00
+End                       2025-08-23 14:00:00
+Duration                   1527 days 22:00:00
+Exposure Time [%]                         0.0
+Equity Final [$]                   10000000.0
+Equity Peak [$]                    10000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]               468.81687
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+CAGR [%]                                  0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Alpha [%]                                 0.0
+Beta                                      0.0
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+Kelly Criterion                           NaN
+_strategy                 PeriodicLinearRe...
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+============================================================
+[16/25] SOL-6h-400wks... Backtest.run:   0%|          | 0/6061 [00:00<?, ?bar/s]                                                       
+============================================================
+Full Stats for SOL-6h-400wks:
+============================================================
+Start                     2021-06-17 12:00:00
+End                       2025-08-23 12:00:00
+Duration                   1528 days 00:00:00
+Exposure Time [%]                         0.0
+Equity Final [$]                   10000000.0
+Equity Peak [$]                    10000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]               512.19055
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+CAGR [%]                                  0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Alpha [%]                                 0.0
+Beta                                      0.0
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+Kelly Criterion                           NaN
+_strategy                 PeriodicLinearRe...
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+============================================================
+[17/25] SOL-1d-1000wks... Backtest.run:   0%|          | 0/1357 [00:00<?, ?bar/s]                                                       
+============================================================
+Full Stats for SOL-1d-1000wks:
+============================================================
+Start                     2021-06-17 00:00:00
+End                       2025-04-25 00:00:00
+Duration                   1408 days 00:00:00
+Exposure Time [%]                         0.0
+Equity Final [$]                   10000000.0
+Equity Peak [$]                    10000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]               290.04454
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+CAGR [%]                                  0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Alpha [%]                                 0.0
+Beta                                      0.0
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+Kelly Criterion                           NaN
+_strategy                 PeriodicLinearRe...
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+============================================================
+[18/25] AAPL-15m-12Y... Backtest.run:   0%|          | 0/78052 [00:00<?, ?bar/s]                                                        
+============================================================
+Full Stats for AAPL-15m-12Y:
+============================================================
+Start                     2013-02-22 10:30:00
+End                       2025-02-18 16:45:00
+Duration                   4379 days 06:15:00
+Exposure Time [%]                         0.0
+Equity Final [$]                   10000000.0
+Equity Peak [$]                    10000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]              1445.25917
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+CAGR [%]                                  0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Alpha [%]                                 0.0
+Beta                                      0.0
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+Kelly Criterion                           NaN
+_strategy                 PeriodicLinearRe...
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+============================================================
+[19/25] AAPL-15m-3Y... Backtest.run:   0%|          | 0/19376 [00:00<?, ?bar/s]                                                        
+============================================================
+Full Stats for AAPL-15m-3Y:
+============================================================
+Start                     2022-02-22 10:30:00
+End                       2025-02-18 16:45:00
+Duration                   1092 days 06:15:00
+Exposure Time [%]                         0.0
+Equity Final [$]                   10000000.0
+Equity Peak [$]                    10000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]                52.62534
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+CAGR [%]                                  0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Alpha [%]                                 0.0
+Beta                                      0.0
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+Kelly Criterion                           NaN
+_strategy                 PeriodicLinearRe...
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+============================================================
+[20/25] TSLA-5m-30D... Backtest.run:   0%|          | 0/2288 [00:00<?, ?bar/s]                                                       
+============================================================
+Full Stats for TSLA-5m-30D:
+============================================================
+Start                     2025-01-03 10:30:00
+End                       2025-02-18 16:55:00
+Duration                     46 days 06:25:00
+Exposure Time [%]                         0.0
+Equity Final [$]                   10000000.0
+Equity Peak [$]                    10000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]                -11.9191
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+CAGR [%]                                  0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Alpha [%]                                 0.0
+Beta                                      0.0
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+Kelly Criterion                           NaN
+_strategy                 PeriodicLinearRe...
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+============================================================
+[21/25] ES-4h-10Y... Backtest.run:   0%|          | 0/523 [00:00<?, ?bar/s]                                                      
+============================================================
+Full Stats for ES-4h-10Y:
+============================================================
+Start                     2023-12-13 16:00:00
+End                       2025-02-21 16:00:00
+Duration                    436 days 00:00:00
+Exposure Time [%]                         0.0
+Equity Final [$]                   10000000.0
+Equity Peak [$]                    10000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]                 9.32372
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+CAGR [%]                                  0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Alpha [%]                                 0.0
+Beta                                      0.0
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+Kelly Criterion                           NaN
+_strategy                 PeriodicLinearRe...
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+============================================================
+[22/25] NQ-4h-10Y... Backtest.run:   0%|          | 0/523 [00:00<?, ?bar/s]                                                      
+============================================================
+Full Stats for NQ-4h-10Y:
+============================================================
+Start                     2023-12-13 16:00:00
+End                       2025-02-21 16:00:00
+Duration                    436 days 00:00:00
+Exposure Time [%]                         0.0
+Equity Final [$]                   10000000.0
+Equity Peak [$]                    10000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]                 9.32372
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+CAGR [%]                                  0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Alpha [%]                                 0.0
+Beta                                      0.0
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+Kelly Criterion                           NaN
+_strategy                 PeriodicLinearRe...
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+============================================================
+[23/25] GOOG-hourly... Backtest.run:   0%|          | 0/3382 [00:00<?, ?bar/s]                                                       
+============================================================
+Full Stats for GOOG-hourly:
+============================================================
+Start                     2023-02-28 10:30:00
+End                       2025-02-14 15:30:00
+Duration                    717 days 05:00:00
+Exposure Time [%]                         0.0
+Equity Final [$]                   10000000.0
+Equity Peak [$]                    10000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]                98.57614
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+CAGR [%]                                  0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Alpha [%]                                 0.0
+Beta                                      0.0
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+Kelly Criterion                           NaN
+_strategy                 PeriodicLinearRe...
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+============================================================
+[24/25] NVDA-hourly... Backtest.run:   0%|          | 0/3382 [00:00<?, ?bar/s]                                                       
+============================================================
+Full Stats for NVDA-hourly:
+============================================================
+Start                     2023-02-28 10:30:00
+End                       2025-02-14 15:30:00
+Duration                    717 days 05:00:00
+Exposure Time [%]                         0.0
+Equity Final [$]                   10000000.0
+Equity Peak [$]                    10000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]               -41.89958
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+CAGR [%]                                  0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Alpha [%]                                 0.0
+Beta                                      0.0
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+Kelly Criterion                           NaN
+_strategy                 PeriodicLinearRe...
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+============================================================
+[25/25] TSLA-hourly... Backtest.run:   0%|          | 0/3382 [00:00<?, ?bar/s]                                                       
+============================================================
+Full Stats for TSLA-hourly:
+============================================================
+Start                     2023-02-28 10:30:00
+End                       2025-02-14 15:30:00
+Duration                    717 days 05:00:00
+Exposure Time [%]                         0.0
+Equity Final [$]                   10000000.0
+Equity Peak [$]                    10000000.0
+Return [%]                                0.0
+Buy & Hold Return [%]                99.92125
+Return (Ann.) [%]                         0.0
+Volatility (Ann.) [%]                     0.0
+CAGR [%]                                  0.0
+Sharpe Ratio                              NaN
+Sortino Ratio                             NaN
+Calmar Ratio                              NaN
+Alpha [%]                                 0.0
+Beta                                      0.0
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    0
+Win Rate [%]                              NaN
+Best Trade [%]                            NaN
+Worst Trade [%]                           NaN
+Avg. Trade [%]                            NaN
+Max. Trade Duration                       NaN
+Avg. Trade Duration                       NaN
+Profit Factor                             NaN
+Expectancy [%]                            NaN
+SQN                                       NaN
+Kelly Criterion                           NaN
+_strategy                 PeriodicLinearRe...
+_equity_curve                             ...
+_trades                   Empty DataFrame
+...
+dtype: object
+============================================================
+
+================================================================================
+✅ Results saved to: /Users/md/Dropbox/dev/github/moon-dev-trading-bots/backtests/periodic_linear_regression/results/PeriodicLinearRegressionMFI.csv
+================================================================================
+
+SUMMARY:
+       Data_Source  Return_%  Buy_Hold_%  Sharpe  Sortino  Max_DD_%  Profit_Factor  Expectancy_%  Trades  Win_Rate_%
+0   BTC-15m-150wks       0.0      492.83       0        0      -0.0              0             0       0           0
+1    BTC-1h-500wks       0.0    36376.31       0        0      -0.0              0             0       0           0
+2     BTC-5m-70wks       0.0      140.47       0        0      -0.0              0             0       0           0
+3    BTC-6h-500wks       0.0    35063.74       0        0      -0.0              0             0       0           0
+4   BTC-6h-1000wks       0.0    33465.77       0        0      -0.0              0             0       0           0
+5   BTC-1d-1000wks       0.0    34465.04       0        0      -0.0              0             0       0           0
+6    BTC-1d-100wks       0.0      314.13       0        0      -0.0              0             0       0           0
+7     BTC-1m-10wks       0.0       15.29       0        0      -0.0              0             0       0           0
+8   ETH-15m-150wks       0.0      260.78       0        0      -0.0              0             0       0           0
+9    ETH-1h-250wks       0.0      961.98       0        0      -0.0              0             0       0           0
+10   ETH-6h-400wks       0.0      402.83       0        0      -0.0              0             0       0           0
+11  ETH-1d-1000wks       0.0    16260.07       0        0      -0.0              0             0       0           0
+12     SOL-1m-8wks       0.0       38.05       0        0      -0.0              0             0       0           0
+13  SOL-15m-100wks       0.0      702.36       0        0      -0.0              0             0       0           0
+14   SOL-1h-250wks       0.0      468.82       0        0      -0.0              0             0       0           0
+15   SOL-6h-400wks       0.0      512.19       0        0      -0.0              0             0       0           0
+16  SOL-1d-1000wks       0.0      290.04       0        0      -0.0              0             0       0           0
+17    AAPL-15m-12Y       0.0     1445.26       0        0      -0.0              0             0       0           0
+18     AAPL-15m-3Y       0.0       52.63       0        0      -0.0              0             0       0           0
+19     TSLA-5m-30D       0.0      -11.92       0        0      -0.0              0             0       0           0
+20       ES-4h-10Y       0.0        9.32       0        0      -0.0              0             0       0           0
+21       NQ-4h-10Y       0.0        9.32       0        0      -0.0              0             0       0           0
+22     GOOG-hourly       0.0       98.58       0        0      -0.0              0             0       0           0
+23     NVDA-hourly       0.0      -41.90       0        0      -0.0              0             0       0           0
+24     TSLA-hourly       0.0       99.92       0        0      -0.0              0             0       0           0
+
+✅ Testing complete! Results saved in: ./results/PeriodicLinearRegressionMFI.csv

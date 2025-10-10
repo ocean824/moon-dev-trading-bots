@@ -189,74 +189,59 @@ class BEIndicatorMeanReversion(Strategy):
         self.divergence = self.I(lambda: self.divergence_signal.values)
 
     def _calculate_reversal_probability(self):
-        """Calculate probability of reversal based on extreme readings"""
+        """Calculate probability of reversal based on extreme readings - OPTIMIZED"""
+        # Vectorized calculation of oversold/overbought conditions
+        oversold_count = (
+            (self.es1_rsi_extreme < 25).astype(int).fillna(0) +
+            (self.es2_bb_position < 10).astype(int).fillna(0) +
+            (self.es3_zscore < 20).astype(int).fillna(0) +
+            (self.es5_stoch_k < 20).astype(int).fillna(0) +
+            (self.es6_williams < 20).astype(int).fillna(0)
+        )
+
+        overbought_count = (
+            (self.es1_rsi_extreme > 75).astype(int).fillna(0) +
+            (self.es2_bb_position > 90).astype(int).fillna(0) +
+            (self.es3_zscore > 80).astype(int).fillna(0) +
+            (self.es5_stoch_k > 80).astype(int).fillna(0) +
+            (self.es6_williams > 80).astype(int).fillna(0)
+        )
+
+        # Initialize probability series
         prob = pd.Series(50, index=self.es1_rsi_extreme.index)
 
-        for i in range(20, len(prob)):
-            oversold_count = 0
-            overbought_count = 0
+        # Apply oversold conditions (bullish reversal)
+        oversold_mask = oversold_count >= 2
+        prob[oversold_mask] = np.minimum(90, 50 + oversold_count[oversold_mask] * 15)
 
-            # Count oversold conditions
-            if not pd.isna(self.es1_rsi_extreme.iloc[i]) and self.es1_rsi_extreme.iloc[i] < 25:
-                oversold_count += 1
-            if not pd.isna(self.es2_bb_position.iloc[i]) and self.es2_bb_position.iloc[i] < 10:
-                oversold_count += 1
-            if not pd.isna(self.es3_zscore.iloc[i]) and self.es3_zscore.iloc[i] < 20:
-                oversold_count += 1
-            if not pd.isna(self.es5_stoch_k.iloc[i]) and self.es5_stoch_k.iloc[i] < 20:
-                oversold_count += 1
-            if not pd.isna(self.es6_williams.iloc[i]) and self.es6_williams.iloc[i] < 20:
-                oversold_count += 1
-
-            # Count overbought conditions
-            if not pd.isna(self.es1_rsi_extreme.iloc[i]) and self.es1_rsi_extreme.iloc[i] > 75:
-                overbought_count += 1
-            if not pd.isna(self.es2_bb_position.iloc[i]) and self.es2_bb_position.iloc[i] > 90:
-                overbought_count += 1
-            if not pd.isna(self.es3_zscore.iloc[i]) and self.es3_zscore.iloc[i] > 80:
-                overbought_count += 1
-            if not pd.isna(self.es5_stoch_k.iloc[i]) and self.es5_stoch_k.iloc[i] > 80:
-                overbought_count += 1
-            if not pd.isna(self.es6_williams.iloc[i]) and self.es6_williams.iloc[i] > 80:
-                overbought_count += 1
-
-            # Calculate probability
-            if oversold_count >= 2:
-                prob.iloc[i] = min(90, 50 + oversold_count * 15)  # Bullish reversal probability
-            elif overbought_count >= 2:
-                prob.iloc[i] = max(10, 50 - overbought_count * 15)  # Bearish reversal probability
+        # Apply overbought conditions (bearish reversal)
+        overbought_mask = overbought_count >= 2
+        prob[overbought_mask] = np.maximum(10, 50 - overbought_count[overbought_mask] * 15)
 
         return prob
 
     def _detect_oscillator_divergence(self, price, oscillator):
-        """Detect divergences between price and oscillator"""
-        divergence = pd.Series(0, index=price.index)
+        """Detect divergences between price and oscillator - SIMPLIFIED"""
+        # Simplified divergence detection using rolling comparisons
         lookback = 14
 
-        for i in range(lookback * 2, len(price)):
-            price_window = price.iloc[i-lookback:i]
-            osc_window = oscillator.iloc[i-lookback:i]
+        # Calculate price and oscillator changes
+        price_change = price.diff(lookback)
+        osc_change = oscillator.diff(lookback)
 
-            if osc_window.isna().any():
-                continue
+        # Initialize divergence series
+        divergence = pd.Series(0, index=price.index)
 
-            # Find recent lows
-            price_lows = price_window[price_window == price_window.rolling(5, center=True).min()]
-            osc_lows = osc_window[osc_window == osc_window.rolling(5, center=True).min()]
+        # Bullish divergence: price down, oscillator up
+        bullish_div = (price_change < -price.rolling(lookback).std() * 0.5) & (osc_change > 0)
+        divergence[bullish_div] = 1
 
-            # Bullish divergence: price lower low, oscillator higher low
-            if len(price_lows) >= 2 and len(osc_lows) >= 2:
-                if price_lows.iloc[-1] < price_lows.iloc[-2] and osc_lows.iloc[-1] > osc_lows.iloc[-2]:
-                    divergence.iloc[i] = 1
+        # Bearish divergence: price up, oscillator down
+        bearish_div = (price_change > price.rolling(lookback).std() * 0.5) & (osc_change < 0)
+        divergence[bearish_div] = -1
 
-            # Find recent highs
-            price_highs = price_window[price_window == price_window.rolling(5, center=True).max()]
-            osc_highs = osc_window[osc_window == osc_window.rolling(5, center=True).max()]
-
-            # Bearish divergence: price higher high, oscillator lower high
-            if len(price_highs) >= 2 and len(osc_highs) >= 2:
-                if price_highs.iloc[-1] > price_highs.iloc[-2] and osc_highs.iloc[-1] < osc_highs.iloc[-2]:
-                    divergence.iloc[i] = -1
+        # Smooth the signal to reduce noise
+        divergence = divergence.rolling(3).max().fillna(0)
 
         return divergence
 

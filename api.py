@@ -298,88 +298,88 @@ class MoonDevAPI:
 
     def _download_complete_chunked_dataset(self):
         """
-        🌙 Moon Dev's proven chunked download for complete 1.5GB dataset
-        Downloads from END of file backwards to get recent data first
+        🌙 Moon Dev's NEW streaming download for complete 1.5GB dataset
+        Uses chunked transfer encoding - no Content-Length header required!
         """
         url = f'{self.base_url}/files/liq_data.csv'
-        
-        print(f"🚀 Moon Dev: Starting chunked download from file END...")
-        
-        # Get file size
-        total_size = self._get_file_size(url)
-        if not total_size:
-            print("💥 Moon Dev could not get file size!")
+
+        print(f"🚀 Moon Dev: Starting NEW chunked streaming download...")
+        print(f"✨ Using server's chunked transfer encoding - no file size needed!")
+
+        try:
+            # Use streaming request with iter_content - this is the KEY change!
+            response = self.session.get(url, headers=self.headers, stream=True, timeout=(30, None))
+            response.raise_for_status()
+
+            print(f"📡 Moon Dev: Connected! Status: {response.status_code}")
+            print(f"📋 Transfer-Encoding: {response.headers.get('Transfer-Encoding', 'not chunked')}")
+
+            # Save to file using streaming
+            full_data_path = self.base_dir / "liq_data_full.csv"
+            print(f"💾 Moon Dev: Saving to {full_data_path}")
+
+            chunk_size = 65536  # 64KB chunks as recommended by server team
+            chunk_count = 0
+            total_bytes = 0
+
+            with open(full_data_path, 'wb') as f:
+                print("🚀 Moon Dev: Starting chunked download...")
+                for chunk in response.iter_content(chunk_size=chunk_size):
+                    if chunk:
+                        f.write(chunk)
+                        chunk_count += 1
+                        total_bytes += len(chunk)
+
+                        # Progress update every 1000 chunks (~64MB)
+                        if chunk_count % 1000 == 0:
+                            mb_downloaded = total_bytes / (1024**2)
+                            print(f"📡 Moon Dev: Downloaded {chunk_count} chunks ({mb_downloaded:.1f} MB so far)... 🌙")
+
+            print(f"✅ Moon Dev: Download complete! {chunk_count} chunks, {total_bytes:,} total bytes")
+
+            # Verify file was saved and load as DataFrame
+            if full_data_path.exists():
+                file_size_mb = full_data_path.stat().st_size / (1024**2)
+                print(f"📊 Moon Dev: File saved successfully! Size: {file_size_mb:.1f} MB")
+
+                # Load into DataFrame
+                print("📈 Moon Dev: Loading data into DataFrame...")
+                df = pd.read_csv(full_data_path)
+
+                # Check for datetime column and sort
+                if 'datetime' in df.columns:
+                    df['datetime'] = pd.to_datetime(df['datetime'])
+                    df = df.sort_values('datetime', ascending=True)
+                    print(f"📅 Date range: {df['datetime'].min()} → {df['datetime'].max()}")
+                elif 'order_trade_time' in df.columns:
+                    df['datetime'] = pd.to_datetime(df['order_trade_time'], unit='ms')
+                    df = df.sort_values('datetime', ascending=True)
+                    print(f"📅 Date range: {df['datetime'].min()} → {df['datetime'].max()}")
+
+                print(f"✅ Moon Dev COMPLETE DATASET SUCCESS!")
+                print(f"   📊 Total records: {len(df):,}")
+                print(f"   💾 File size: {file_size_mb:.1f} MB")
+                print(f"   🎯 Data sorted chronologically (oldest→newest like OHLCV)")
+
+                return df
+            else:
+                print("💥 Moon Dev: File was not saved properly!")
+                return None
+
+        except requests.exceptions.Timeout:
+            print("⏰ Moon Dev: Request timed out - server may be processing large file")
+            print("💡 Try again or contact server admin to increase timeout")
             return None
-        
-        print(f"📊 Total file size: {total_size:,} bytes ({total_size/1e9:.2f} GB)")
-        
-        chunk_size = 2 * 1024 * 1024  # 2MB chunks (proven size)
-        all_records = []
-        chunks_downloaded = 0
-        
-        # Calculate expected chunks (for info only, no limit)
-        expected_chunks = (total_size + chunk_size - 1) // chunk_size  # Round up
-        print(f"📦 Will download in {chunk_size//1024//1024}MB chunks")
-        print(f"📊 Expected chunks: ~{expected_chunks} (will download ALL until file start)")
-        
-        # Download chunks from END backwards - NO ARTIFICIAL LIMIT!
-        current_pos = total_size
-        
-        while current_pos > 0:
-            # Calculate chunk boundaries
-            start_pos = max(0, current_pos - chunk_size)
-            end_pos = current_pos - 1
-            
-            chunk_number = chunks_downloaded + 1
-            
-            # Download chunk
-            chunk_bytes = self._download_chunk_range(url, start_pos, end_pos, chunk_number)
-            if not chunk_bytes:
-                print(f"💥 Moon Dev failed to download chunk {chunk_number}")
-                break
-            
-            # Parse chunk data
-            records = self._parse_liquidation_chunk(chunk_bytes)
-            
-            if records:
-                all_records.extend(records)
-                chunks_downloaded += 1
-                
-                # Progress update every 50 chunks
-                if chunks_downloaded % 50 == 0:
-                    progress_pct = (total_size - current_pos) / total_size * 100
-                    print(f"📊 Moon Dev: Downloaded {chunks_downloaded} chunks, {len(all_records):,} records ({progress_pct:.1f}% complete)...")
-            
-            current_pos = start_pos
-        
-        if not all_records:
-            print("💥 Moon Dev: No liquidation records downloaded!")
+
+        except requests.exceptions.ChunkedEncodingError as e:
+            print(f"📦 Moon Dev: Chunk encoding error - partial download may have occurred")
+            print(f"Error: {str(e)[:200]}")
             return None
-        
-        print(f"🎉 Download complete! {chunks_downloaded} chunks, {len(all_records):,} total records")
-        
-        # Convert to DataFrame and sort chronologically (oldest first) - PROVEN METHOD
-        print(f"🔄 Moon Dev: Sorting {len(all_records):,} records chronologically...")
-        df = pd.DataFrame(all_records)
-        
-        # Convert timestamp and sort (PROVEN WORKING VERSION)
-        df['datetime'] = pd.to_datetime(df['order_trade_time'], unit='ms')
-        df = df.sort_values('datetime', ascending=True)  # OLDEST FIRST like OHLCV
-        
-        # Save to specified path
-        full_data_path = self.base_dir / "liq_data.csv"
-        print(f"💾 Saving complete dataset to: {full_data_path}")
-        df.to_csv(full_data_path, index=False)
-        
-        file_size_mb = full_data_path.stat().st_size / (1024**2)
-        print(f"✅ Moon Dev COMPLETE DATASET SUCCESS!")
-        print(f"   📊 Total records: {len(df):,}")
-        print(f"   📊 Chunks downloaded: {chunks_downloaded}")
-        print(f"   📅 Date range: {df['datetime'].min()} → {df['datetime'].max()}")
-        print(f"   💾 File size: {file_size_mb:.1f} MB")
-        print(f"   🎯 Data sorted chronologically (oldest→newest like OHLCV)")
-        
-        return df
+
+        except Exception as e:
+            print(f"💥 Moon Dev error downloading full dataset: {str(e)}")
+            print(f"📋 Stack trace:\n{traceback.format_exc()}")
+            return None
 
     def get_liquidation_data(self, limit=None):
         """

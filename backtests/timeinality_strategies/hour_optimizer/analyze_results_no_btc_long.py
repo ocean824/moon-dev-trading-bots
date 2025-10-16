@@ -55,32 +55,42 @@ print(f"   Short Combined: {os.path.basename(short_comb_csv) if short_comb_csv e
 print(f"   Long Optimizer: {os.path.basename(long_opt_csv) if long_opt_csv else 'None'}")
 print(f"   Long Combined: {os.path.basename(long_comb_csv) if long_comb_csv else 'None'}")
 
-# Load data and filter out ALL Bitcoin data from ALL strategies
+# Load data and filter out ALL Bitcoin data from ALL strategies, AND filter for minimum trades
 datasets = {}
+MIN_TRADES = 5
+
 if short_opt_csv:
     df_short_opt = pd.read_csv(short_opt_csv)
     # Filter out Bitcoin data
     df_short_opt = df_short_opt[~df_short_opt['Data_Source'].str.contains('BTC', case=False, na=False)]
+    # Filter for minimum trades
+    df_short_opt = df_short_opt[df_short_opt['Total_Trades'] >= MIN_TRADES]
     datasets['Short_Optimizer'] = df_short_opt
-    print(f"✅ Loaded Short Optimizer: {len(datasets['Short_Optimizer'])} rows (NO BTC)")
+    print(f"✅ Loaded Short Optimizer: {len(datasets['Short_Optimizer'])} rows (NO BTC, min {MIN_TRADES} trades)")
 if short_comb_csv:
     df_short_comb = pd.read_csv(short_comb_csv)
     # Filter out Bitcoin data
     df_short_comb = df_short_comb[~df_short_comb['Data_Source'].str.contains('BTC', case=False, na=False)]
+    # Filter for minimum trades
+    df_short_comb = df_short_comb[df_short_comb['Total_Trades'] >= MIN_TRADES]
     datasets['Short_Combined'] = df_short_comb
-    print(f"✅ Loaded Short Combined: {len(datasets['Short_Combined'])} rows (NO BTC)")
+    print(f"✅ Loaded Short Combined: {len(datasets['Short_Combined'])} rows (NO BTC, min {MIN_TRADES} trades)")
 if long_opt_csv:
     df_long_opt = pd.read_csv(long_opt_csv)
     # Filter out Bitcoin data
     df_long_opt = df_long_opt[~df_long_opt['Data_Source'].str.contains('BTC', case=False, na=False)]
+    # Filter for minimum trades
+    df_long_opt = df_long_opt[df_long_opt['Total_Trades'] >= MIN_TRADES]
     datasets['Long_Optimizer'] = df_long_opt
-    print(f"✅ Loaded Long Optimizer: {len(datasets['Long_Optimizer'])} rows (NO BTC)")
+    print(f"✅ Loaded Long Optimizer: {len(datasets['Long_Optimizer'])} rows (NO BTC, min {MIN_TRADES} trades)")
 if long_comb_csv:
     df_long_comb = pd.read_csv(long_comb_csv)
     # Filter out Bitcoin data
     df_long_comb = df_long_comb[~df_long_comb['Data_Source'].str.contains('BTC', case=False, na=False)]
+    # Filter for minimum trades
+    df_long_comb = df_long_comb[df_long_comb['Total_Trades'] >= MIN_TRADES]
     datasets['Long_Combined'] = df_long_comb
-    print(f"✅ Loaded Long Combined: {len(datasets['Long_Combined'])} rows (NO BTC)")
+    print(f"✅ Loaded Long Combined: {len(datasets['Long_Combined'])} rows (NO BTC, min {MIN_TRADES} trades)")
 
 # Generate markdown report
 print("\n📝 Generating markdown report (NO BTC)...")
@@ -88,6 +98,8 @@ print("\n📝 Generating markdown report (NO BTC)...")
 markdown_content = f"""# Hour Optimizer Results Analysis (NO BTC)
 
 **Generated:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+
+**Filter:** Minimum {MIN_TRADES} trades required
 
 **Important:** This analysis EXCLUDES all Bitcoin (BTC) data from ALL strategies (both LONG and SHORT).
 - All BTCUSD files filtered out to see performance on altcoins, stocks, forex, and other assets
@@ -155,9 +167,9 @@ for dataset_name, df in datasets.items():
 
     markdown_content += "\n"
 
-    # Top 10 Best Max Drawdown (smallest/shallowest - best risk management)
-    markdown_content += f"## 🛡️ Top 10 Best Max Drawdown % (Smallest Loss)\n\n"
-    top_drawdown = df.nlargest(10, 'Max_Drawdown_%')  # Largest = closest to 0 = smallest loss
+    # Top 10 Best Max Drawdown (shallowest - best risk management)
+    markdown_content += f"## 🛡️ Top 10 Shallowest Max Drawdown % (Best Risk Management)\n\n"
+    top_drawdown = df.nlargest(10, 'Max_Drawdown_%')  # Largest (closest to 0) = shallowest drawdown
 
     if 'Day' in df.columns:
         markdown_content += "| Rank | Data Source | Day | Hour UTC | Max DD % | Return % | Sharpe | Trades | Win Rate % | Profit Factor |\n"

@@ -55,20 +55,30 @@ print(f"   Short Combined: {os.path.basename(short_comb_csv) if short_comb_csv e
 print(f"   Long Optimizer: {os.path.basename(long_opt_csv) if long_opt_csv else 'None'}")
 print(f"   Long Combined: {os.path.basename(long_comb_csv) if long_comb_csv else 'None'}")
 
-# Load data
+# Load data and filter for minimum 5 trades
 datasets = {}
+MIN_TRADES = 5
+
 if short_opt_csv:
-    datasets['Short_Optimizer'] = pd.read_csv(short_opt_csv)
-    print(f"✅ Loaded Short Optimizer: {len(datasets['Short_Optimizer'])} rows")
+    df = pd.read_csv(short_opt_csv)
+    df = df[df['Total_Trades'] >= MIN_TRADES]
+    datasets['Short_Optimizer'] = df
+    print(f"✅ Loaded Short Optimizer: {len(datasets['Short_Optimizer'])} rows (min {MIN_TRADES} trades)")
 if short_comb_csv:
-    datasets['Short_Combined'] = pd.read_csv(short_comb_csv)
-    print(f"✅ Loaded Short Combined: {len(datasets['Short_Combined'])} rows")
+    df = pd.read_csv(short_comb_csv)
+    df = df[df['Total_Trades'] >= MIN_TRADES]
+    datasets['Short_Combined'] = df
+    print(f"✅ Loaded Short Combined: {len(datasets['Short_Combined'])} rows (min {MIN_TRADES} trades)")
 if long_opt_csv:
-    datasets['Long_Optimizer'] = pd.read_csv(long_opt_csv)
-    print(f"✅ Loaded Long Optimizer: {len(datasets['Long_Optimizer'])} rows")
+    df = pd.read_csv(long_opt_csv)
+    df = df[df['Total_Trades'] >= MIN_TRADES]
+    datasets['Long_Optimizer'] = df
+    print(f"✅ Loaded Long Optimizer: {len(datasets['Long_Optimizer'])} rows (min {MIN_TRADES} trades)")
 if long_comb_csv:
-    datasets['Long_Combined'] = pd.read_csv(long_comb_csv)
-    print(f"✅ Loaded Long Combined: {len(datasets['Long_Combined'])} rows")
+    df = pd.read_csv(long_comb_csv)
+    df = df[df['Total_Trades'] >= MIN_TRADES]
+    datasets['Long_Combined'] = df
+    print(f"✅ Loaded Long Combined: {len(datasets['Long_Combined'])} rows (min {MIN_TRADES} trades)")
 
 # Generate markdown report
 print("\n📝 Generating markdown report...")
@@ -76,6 +86,8 @@ print("\n📝 Generating markdown report...")
 markdown_content = f"""# Hour Optimizer Results Analysis
 
 **Generated:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+
+**Filter:** Minimum {MIN_TRADES} trades required
 
 This report analyzes the performance of hourly trading strategies across different timeframes and data sources.
 
@@ -137,9 +149,9 @@ for dataset_name, df in datasets.items():
 
     markdown_content += "\n"
 
-    # Top 10 Best Max Drawdown (smallest/shallowest - best risk management)
-    markdown_content += f"## 🛡️ Top 10 Best Max Drawdown % (Smallest Loss)\n\n"
-    top_drawdown = df.nlargest(10, 'Max_Drawdown_%')  # Largest = closest to 0 = smallest loss
+    # Top 10 Best Max Drawdown (shallowest - best risk management)
+    markdown_content += f"## 🛡️ Top 10 Shallowest Max Drawdown % (Best Risk Management)\n\n"
+    top_drawdown = df.nlargest(10, 'Max_Drawdown_%')  # Largest (closest to 0) = shallowest drawdown
 
     if 'Day' in df.columns:
         markdown_content += "| Rank | Data Source | Day | Hour UTC | Max DD % | Return % | Sharpe | Trades | Win Rate % | Profit Factor |\n"

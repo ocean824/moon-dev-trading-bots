@@ -1,6 +1,8 @@
 # Hour Optimizer Results Analysis (NO BTC)
 
-**Generated:** 2025-10-16 10:28:44
+**Generated:** 2025-10-16 10:38:36
+
+**Filter:** Minimum 5 trades required
 
 **Important:** This analysis EXCLUDES all Bitcoin (BTC) data from ALL strategies (both LONG and SHORT).
 - All BTCUSD files filtered out to see performance on altcoins, stocks, forex, and other assets
@@ -52,7 +54,7 @@ This report analyzes the performance of hourly trading strategies across differe
 | 9 | 2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv-1H-300days-data.csv | Sunday | 18:00 | 4.103 | 18.08 | -0.92 | 6 | 100.0 | nan |
 | 10 | 2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv-1H-300days-data copy.csv | Sunday | 18:00 | 4.103 | 18.08 | -0.92 | 6 | 100.0 | nan |
 
-## 🛡️ Top 10 Best Max Drawdown % (Smallest Loss)
+## 🛡️ Top 10 Shallowest Max Drawdown % (Best Risk Management)
 
 | Rank | Data Source | Day | Hour UTC | Max DD % | Return % | Sharpe | Trades | Win Rate % | Profit Factor |
 |------|-------------|-----|----------|----------|----------|--------|--------|------------|---------------|
@@ -103,7 +105,7 @@ This report analyzes the performance of hourly trading strategies across differe
 | 9 | 2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv-1H-300days-data.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 05:00 | 1.405 | 45.64 | -11.47 | 41 | 75.6 | 1.816 |
 | 10 | 2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv-1H-300days-data copy.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 03:00 | 1.405 | 45.49 | -15.08 | 42 | 76.2 | 1.832 |
 
-## 🛡️ Top 10 Best Max Drawdown % (Smallest Loss)
+## 🛡️ Top 10 Shallowest Max Drawdown % (Best Risk Management)
 
 | Rank | Data Source | Days Tested | Hour UTC | Max DD % | Return % | Sharpe | Trades | Win Rate % | Profit Factor |
 |------|-------------|-------------|----------|----------|----------|--------|--------|------------|---------------|
@@ -154,7 +156,7 @@ This report analyzes the performance of hourly trading strategies across differe
 | 9 | J3NKxxXZcnNiMjKw9hYb2K4LUxgwB6t1FtPtQVsv3KFr-1H-300days-data.csv | Wednesday | 03:00 | 3.960 | 18.06 | -3.29 | 6 | 100.0 | nan |
 | 10 | J3NKxxXZcnNiMjKw9hYb2K4LUxgwB6t1FtPtQVsv3KFr-1H-300days-data.csv | Saturday | 05:00 | 3.960 | 18.06 | -3.27 | 6 | 100.0 | nan |
 
-## 🛡️ Top 10 Best Max Drawdown % (Smallest Loss)
+## 🛡️ Top 10 Shallowest Max Drawdown % (Best Risk Management)
 
 | Rank | Data Source | Day | Hour UTC | Max DD % | Return % | Sharpe | Trades | Win Rate % | Profit Factor |
 |------|-------------|-----|----------|----------|----------|--------|--------|------------|---------------|
@@ -205,7 +207,7 @@ This report analyzes the performance of hourly trading strategies across differe
 | 9 | 2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv-1H-300days-data copy.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 14:00 | 1.127 | 23.79 | -17.83 | 41 | 70.7 | 1.416 |
 | 10 | ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY-1H-300days-data.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 01:00 | 1.122 | 21.00 | -21.97 | 42 | 66.7 | 1.377 |
 
-## 🛡️ Top 10 Best Max Drawdown % (Smallest Loss)
+## 🛡️ Top 10 Shallowest Max Drawdown % (Best Risk Management)
 
 | Rank | Data Source | Days Tested | Hour UTC | Max DD % | Return % | Sharpe | Trades | Win Rate % | Profit Factor |
 |------|-------------|-------------|----------|----------|----------|--------|--------|------------|---------------|

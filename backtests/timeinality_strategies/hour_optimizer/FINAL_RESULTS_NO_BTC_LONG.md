@@ -1,6 +1,6 @@
 # Hour Optimizer Results Analysis (NO BTC)
 
-**Generated:** 2025-10-16 10:24:03
+**Generated:** 2025-10-16 10:28:44
 
 **Important:** This analysis EXCLUDES all Bitcoin (BTC) data from ALL strategies (both LONG and SHORT).
 - All BTCUSD files filtered out to see performance on altcoins, stocks, forex, and other assets
@@ -52,20 +52,20 @@ This report analyzes the performance of hourly trading strategies across differe
 | 9 | 2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv-1H-300days-data.csv | Sunday | 18:00 | 4.103 | 18.08 | -0.92 | 6 | 100.0 | nan |
 | 10 | 2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv-1H-300days-data copy.csv | Sunday | 18:00 | 4.103 | 18.08 | -0.92 | 6 | 100.0 | nan |
 
-## 🛡️ Top 10 Lowest Max Drawdown %
+## 🛡️ Top 10 Best Max Drawdown % (Smallest Loss)
 
 | Rank | Data Source | Day | Hour UTC | Max DD % | Return % | Sharpe | Trades | Win Rate % | Profit Factor |
 |------|-------------|-----|----------|----------|----------|--------|--------|------------|---------------|
-| 1 | ETHUSD-1h-250wks-data.csv | Wednesday | 05:00 | -85.31 | -84.64 | 0.000 | 250 | 53.6 | 0.685 |
-| 2 | ETHUSD-1h-250wks-data.csv | Wednesday | 07:00 | -82.52 | -80.28 | 0.000 | 250 | 55.2 | 0.727 |
-| 3 | SOLUSD-1h-250wks-data.csv | Saturday | 01:00 | -80.71 | -78.72 | 0.000 | 219 | 54.8 | 0.709 |
-| 4 | ETHUSD-1h-250wks-data.csv | Monday | 02:00 | -80.31 | -77.93 | 0.000 | 250 | 56.0 | 0.744 |
-| 5 | SOLUSD-1h-250wks-data.csv | Friday | 23:00 | -77.66 | -73.98 | 0.000 | 219 | 55.7 | 0.743 |
-| 6 | ETHUSD-1h-250wks-data.csv | Wednesday | 03:00 | -77.47 | -75.21 | 0.000 | 250 | 56.8 | 0.760 |
-| 7 | ETHUSD-1h-250wks-data.csv | Wednesday | 01:00 | -77.15 | -74.24 | 0.000 | 250 | 56.8 | 0.768 |
-| 8 | ETHUSD-1h-250wks-data.csv | Wednesday | 06:00 | -76.61 | -74.26 | 0.000 | 250 | 56.4 | 0.767 |
-| 9 | ETHUSD-1h-250wks-data.csv | Friday | 11:00 | -76.61 | -72.86 | 0.000 | 250 | 56.4 | 0.776 |
-| 10 | SOLUSD-1h-250wks-data.csv | Friday | 16:00 | -75.65 | -71.13 | 0.000 | 219 | 56.6 | 0.763 |
+| 1 | DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263-1H-300days-data.csv | Thursday | 16:00 | -0.91 | 18.08 | 3.958 | 6 | 100.0 | nan |
+| 2 | 2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv-1H-300days-data.csv | Sunday | 18:00 | -0.92 | 18.08 | 4.103 | 6 | 100.0 | nan |
+| 3 | 2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv-1H-300days-data copy.csv | Sunday | 18:00 | -0.92 | 18.08 | 4.103 | 6 | 100.0 | nan |
+| 4 | ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY-1H-300days-data.csv | Thursday | 16:00 | -0.94 | 18.08 | 3.958 | 6 | 100.0 | nan |
+| 5 | 2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv-1H-300days-data copy.csv | Friday | 11:00 | -0.95 | 14.85 | 3.914 | 5 | 100.0 | nan |
+| 6 | 2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv-1H-300days-data.csv | Friday | 11:00 | -0.95 | 14.85 | 3.914 | 5 | 100.0 | nan |
+| 7 | J3NKxxXZcnNiMjKw9hYb2K4LUxgwB6t1FtPtQVsv3KFr-1H-300days-data.csv | Tuesday | 09:00 | -1.00 | 18.08 | 3.958 | 6 | 100.0 | nan |
+| 8 | 2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv-1H-300days-data copy.csv | Thursday | 07:00 | -1.26 | 18.08 | 3.958 | 6 | 100.0 | nan |
+| 9 | 2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv-1H-300days-data.csv | Thursday | 07:00 | -1.26 | 18.08 | 3.958 | 6 | 100.0 | nan |
+| 10 | 2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv-1H-300days-data.csv | Friday | 09:00 | -1.33 | 14.85 | 3.914 | 5 | 100.0 | nan |
 
 ---
 
@@ -103,20 +103,20 @@ This report analyzes the performance of hourly trading strategies across differe
 | 9 | 2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv-1H-300days-data.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 05:00 | 1.405 | 45.64 | -11.47 | 41 | 75.6 | 1.816 |
 | 10 | 2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv-1H-300days-data copy.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 03:00 | 1.405 | 45.49 | -15.08 | 42 | 76.2 | 1.832 |
 
-## 🛡️ Top 10 Lowest Max Drawdown %
+## 🛡️ Top 10 Best Max Drawdown % (Smallest Loss)
 
 | Rank | Data Source | Days Tested | Hour UTC | Max DD % | Return % | Sharpe | Trades | Win Rate % | Profit Factor |
 |------|-------------|-------------|----------|----------|----------|--------|--------|------------|---------------|
-| 1 | ETHUSD-1h-250wks-data.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 07:00 | -96.57 | -96.47 | 0.000 | 1750 | 51.7 | 0.877 |
-| 2 | ETHUSD-1h-250wks-data.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 03:00 | -96.57 | -96.46 | 0.000 | 1750 | 51.1 | 0.877 |
-| 3 | ETHUSD-1h-250wks-data.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 06:00 | -96.21 | -96.03 | 0.000 | 1750 | 51.9 | 0.882 |
-| 4 | ETHUSD-1h-250wks-data.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 17:00 | -96.12 | -95.66 | 0.000 | 1750 | 52.3 | 0.885 |
-| 5 | ETHUSD-1h-250wks-data.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 20:00 | -95.73 | -95.42 | 0.000 | 1749 | 51.9 | 0.888 |
-| 6 | SOLUSD-1h-250wks-data.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 15:00 | -95.59 | -92.52 | 0.000 | 1527 | 56.7 | 0.922 |
-| 7 | ETHUSD-1h-250wks-data.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 04:00 | -95.57 | -95.20 | 0.000 | 1750 | 51.8 | 0.889 |
-| 8 | ETHUSD-1h-250wks-data.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 02:00 | -95.48 | -95.32 | 0.000 | 1750 | 51.9 | 0.889 |
-| 9 | ETHUSD-1h-250wks-data.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 05:00 | -95.35 | -95.03 | 0.000 | 1750 | 51.4 | 0.890 |
-| 10 | ETHUSD-1h-250wks-data.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 16:00 | -95.22 | -94.68 | 0.000 | 1750 | 52.7 | 0.894 |
+| 1 | 2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv-1H-300days-data copy.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 06:00 | -9.36 | 68.36 | 1.595 | 41 | 80.5 | 2.416 |
+| 2 | 2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv-1H-300days-data.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 06:00 | -9.36 | 68.36 | 1.595 | 41 | 80.5 | 2.416 |
+| 3 | ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY-1H-300days-data.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 20:00 | -10.74 | 37.26 | 1.560 | 42 | 71.4 | 1.678 |
+| 4 | 2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv-1H-300days-data copy.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 05:00 | -11.47 | 45.64 | 1.405 | 41 | 75.6 | 1.816 |
+| 5 | 2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv-1H-300days-data.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 05:00 | -11.47 | 45.64 | 1.405 | 41 | 75.6 | 1.816 |
+| 6 | 2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv-1H-300days-data copy.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 23:00 | -11.59 | 27.29 | 1.178 | 42 | 71.4 | 1.464 |
+| 7 | 2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv-1H-300days-data.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 23:00 | -11.59 | 27.29 | 1.178 | 42 | 71.4 | 1.464 |
+| 8 | 2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv-1H-300days-data.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 11:00 | -11.65 | 44.38 | 1.438 | 41 | 75.6 | 1.816 |
+| 9 | 2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv-1H-300days-data copy.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 11:00 | -11.65 | 44.38 | 1.438 | 41 | 75.6 | 1.816 |
+| 10 | J3NKxxXZcnNiMjKw9hYb2K4LUxgwB6t1FtPtQVsv3KFr-1H-300days-data.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 06:00 | -12.92 | 23.81 | 1.138 | 41 | 70.7 | 1.416 |
 
 ---
 
@@ -154,20 +154,20 @@ This report analyzes the performance of hourly trading strategies across differe
 | 9 | J3NKxxXZcnNiMjKw9hYb2K4LUxgwB6t1FtPtQVsv3KFr-1H-300days-data.csv | Wednesday | 03:00 | 3.960 | 18.06 | -3.29 | 6 | 100.0 | nan |
 | 10 | J3NKxxXZcnNiMjKw9hYb2K4LUxgwB6t1FtPtQVsv3KFr-1H-300days-data.csv | Saturday | 05:00 | 3.960 | 18.06 | -3.27 | 6 | 100.0 | nan |
 
-## 🛡️ Top 10 Lowest Max Drawdown %
+## 🛡️ Top 10 Best Max Drawdown % (Smallest Loss)
 
 | Rank | Data Source | Day | Hour UTC | Max DD % | Return % | Sharpe | Trades | Win Rate % | Profit Factor |
 |------|-------------|-----|----------|----------|----------|--------|--------|------------|---------------|
-| 1 | SOLUSD-1h-250wks-data.csv | Wednesday | 10:00 | -80.06 | -69.45 | 0.000 | 218 | 56.9 | 0.772 |
-| 2 | SOLUSD-1h-250wks-data.csv | Tuesday | 08:00 | -78.87 | -69.34 | 0.000 | 218 | 56.9 | 0.773 |
-| 3 | SOLUSD-1h-250wks-data.csv | Tuesday | 16:00 | -78.25 | -73.52 | 0.000 | 218 | 56.0 | 0.746 |
-| 4 | SOLUSD-1h-250wks-data.csv | Saturday | 22:00 | -77.86 | -68.59 | 0.000 | 218 | 56.9 | 0.777 |
-| 5 | SOLUSD-1h-250wks-data.csv | Sunday | 20:00 | -76.86 | -63.95 | 0.000 | 218 | 57.8 | 0.804 |
-| 6 | SOLUSD-1h-250wks-data.csv | Thursday | 20:00 | -76.75 | -58.09 | 0.000 | 219 | 58.9 | 0.834 |
-| 7 | SOLUSD-1h-250wks-data.csv | Tuesday | 12:00 | -75.86 | -71.23 | 0.000 | 218 | 56.4 | 0.761 |
-| 8 | SOLUSD-1h-250wks-data.csv | Sunday | 12:00 | -75.74 | -63.84 | 0.000 | 218 | 57.8 | 0.805 |
-| 9 | SOLUSD-1h-250wks-data.csv | Thursday | 08:00 | -75.33 | -69.19 | 0.000 | 218 | 56.9 | 0.774 |
-| 10 | ETHUSD-1h-250wks-data.csv | Thursday | 00:00 | -74.67 | -58.38 | 0.000 | 250 | 58.4 | 0.850 |
+| 1 | J3NKxxXZcnNiMjKw9hYb2K4LUxgwB6t1FtPtQVsv3KFr-1H-300days-data.csv | Wednesday | 02:00 | -0.00 | 18.06 | 3.960 | 6 | 100.0 | nan |
+| 2 | J3NKxxXZcnNiMjKw9hYb2K4LUxgwB6t1FtPtQVsv3KFr-1H-300days-data.csv | Wednesday | 01:00 | -1.31 | 18.06 | 3.960 | 6 | 100.0 | nan |
+| 3 | 2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv-1H-300days-data copy.csv | Saturday | 16:00 | -1.62 | 18.06 | 3.960 | 6 | 100.0 | nan |
+| 4 | 2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv-1H-300days-data.csv | Saturday | 16:00 | -1.62 | 18.06 | 3.960 | 6 | 100.0 | nan |
+| 5 | DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263-1H-300days-data.csv | Friday | 04:00 | -1.89 | 14.79 | 3.907 | 6 | 83.3 | 328.333 |
+| 6 | J3NKxxXZcnNiMjKw9hYb2K4LUxgwB6t1FtPtQVsv3KFr-1H-300days-data.csv | Monday | 13:00 | -2.01 | 18.06 | 3.960 | 6 | 100.0 | nan |
+| 7 | J3NKxxXZcnNiMjKw9hYb2K4LUxgwB6t1FtPtQVsv3KFr-1H-300days-data.csv | Sunday | 14:00 | -2.03 | 18.06 | 3.960 | 6 | 100.0 | nan |
+| 8 | DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263-1H-300days-data.csv | Friday | 01:00 | -2.06 | 13.50 | 3.621 | 6 | 83.3 | 12.025 |
+| 9 | J3NKxxXZcnNiMjKw9hYb2K4LUxgwB6t1FtPtQVsv3KFr-1H-300days-data.csv | Wednesday | 16:00 | -2.12 | 18.06 | 3.960 | 6 | 100.0 | nan |
+| 10 | ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY-1H-300days-data.csv | Friday | 05:00 | -2.13 | 14.03 | 3.754 | 5 | 100.0 | nan |
 
 ---
 
@@ -205,20 +205,20 @@ This report analyzes the performance of hourly trading strategies across differe
 | 9 | 2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv-1H-300days-data copy.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 14:00 | 1.127 | 23.79 | -17.83 | 41 | 70.7 | 1.416 |
 | 10 | ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY-1H-300days-data.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 01:00 | 1.122 | 21.00 | -21.97 | 42 | 66.7 | 1.377 |
 
-## 🛡️ Top 10 Lowest Max Drawdown %
+## 🛡️ Top 10 Best Max Drawdown % (Smallest Loss)
 
 | Rank | Data Source | Days Tested | Hour UTC | Max DD % | Return % | Sharpe | Trades | Win Rate % | Profit Factor |
 |------|-------------|-------------|----------|----------|----------|--------|--------|------------|---------------|
-| 1 | SOLUSD-1h-250wks-data.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 10:00 | -98.32 | -97.93 | 0.000 | 1528 | 53.3 | 0.867 |
-| 2 | SOLUSD-1h-250wks-data.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 12:00 | -97.91 | -96.73 | 0.000 | 1528 | 54.6 | 0.885 |
-| 3 | SOLUSD-1h-250wks-data.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 15:00 | -96.36 | -93.10 | 0.000 | 1527 | 55.5 | 0.917 |
-| 4 | SOLUSD-1h-250wks-data.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 04:00 | -96.29 | -96.13 | 0.000 | 1528 | 54.2 | 0.893 |
-| 5 | SOLUSD-1h-250wks-data.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 16:00 | -96.22 | -92.62 | 0.000 | 1527 | 55.6 | 0.921 |
-| 6 | SOLUSD-1h-250wks-data.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 20:00 | -96.16 | -93.93 | 0.000 | 1527 | 54.7 | 0.913 |
-| 7 | SOLUSD-1h-250wks-data.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 09:00 | -95.99 | -95.03 | 0.000 | 1528 | 54.7 | 0.901 |
-| 8 | SOLUSD-1h-250wks-data.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 21:00 | -95.92 | -92.93 | 0.000 | 1527 | 55.0 | 0.919 |
-| 9 | SOLUSD-1h-250wks-data.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 11:00 | -95.90 | -94.08 | 0.000 | 1528 | 54.6 | 0.909 |
-| 10 | SOLUSD-1h-250wks-data.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 02:00 | -95.18 | -94.70 | 0.000 | 1528 | 54.9 | 0.906 |
+| 1 | J3NKxxXZcnNiMjKw9hYb2K4LUxgwB6t1FtPtQVsv3KFr-1H-300days-data.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 19:00 | -11.12 | 2.94 | 0.014 | 42 | 64.3 | 1.081 |
+| 2 | 2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv-1H-300days-data copy.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 13:00 | -12.38 | 10.46 | 0.796 | 41 | 65.9 | 1.198 |
+| 3 | 2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv-1H-300days-data.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 13:00 | -12.38 | 10.46 | 0.796 | 41 | 65.9 | 1.198 |
+| 4 | J3NKxxXZcnNiMjKw9hYb2K4LUxgwB6t1FtPtQVsv3KFr-1H-300days-data.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 15:00 | -12.61 | 33.47 | 1.301 | 42 | 71.4 | 1.593 |
+| 5 | J3NKxxXZcnNiMjKw9hYb2K4LUxgwB6t1FtPtQVsv3KFr-1H-300days-data.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 08:00 | -12.61 | 14.64 | 0.907 | 41 | 68.3 | 1.262 |
+| 6 | DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263-1H-300days-data.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 12:00 | -12.63 | 1.29 | 0.150 | 41 | 63.4 | 1.058 |
+| 7 | J3NKxxXZcnNiMjKw9hYb2K4LUxgwB6t1FtPtQVsv3KFr-1H-300days-data.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 16:00 | -13.05 | 37.42 | 1.249 | 42 | 73.8 | 1.651 |
+| 8 | JUPyiwrYJFskUPiHa7hkeR8VUtAeFoSYbKedZNsDvCN-1H-300days-data.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 17:00 | -13.15 | 15.54 | 0.851 | 42 | 66.7 | 1.293 |
+| 9 | DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263-1H-300days-data.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 13:00 | -13.30 | 11.89 | 0.740 | 41 | 65.9 | 1.223 |
+| 10 | JUPyiwrYJFskUPiHa7hkeR8VUtAeFoSYbKedZNsDvCN-1H-300days-data.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 21:00 | -13.64 | 31.74 | 1.206 | 42 | 71.4 | 1.584 |
 
 ---
 

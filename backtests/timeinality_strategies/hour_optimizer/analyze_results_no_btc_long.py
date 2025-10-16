@@ -155,9 +155,9 @@ for dataset_name, df in datasets.items():
 
     markdown_content += "\n"
 
-    # Top 10 Lowest Max Drawdown (best risk management)
-    markdown_content += f"## 🛡️ Top 10 Lowest Max Drawdown %\n\n"
-    top_drawdown = df.nsmallest(10, 'Max_Drawdown_%')
+    # Top 10 Best Max Drawdown (smallest/shallowest - best risk management)
+    markdown_content += f"## 🛡️ Top 10 Best Max Drawdown % (Smallest Loss)\n\n"
+    top_drawdown = df.nlargest(10, 'Max_Drawdown_%')  # Largest = closest to 0 = smallest loss
 
     if 'Day' in df.columns:
         markdown_content += "| Rank | Data Source | Day | Hour UTC | Max DD % | Return % | Sharpe | Trades | Win Rate % | Profit Factor |\n"

@@ -1,6 +1,6 @@
 # Hour Optimizer Results Analysis
 
-**Generated:** 2025-10-16 10:13:21
+**Generated:** 2025-10-16 10:28:44
 
 This report analyzes the performance of hourly trading strategies across different timeframes and data sources.
 
@@ -47,20 +47,20 @@ This report analyzes the performance of hourly trading strategies across differe
 | 9 | 2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv-1H-300days-data.csv | Sunday | 18:00 | 4.103 | 18.08 | -0.92 | 6 | 100.0 | nan |
 | 10 | 2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv-1H-300days-data copy.csv | Sunday | 18:00 | 4.103 | 18.08 | -0.92 | 6 | 100.0 | nan |
 
-## 🛡️ Top 10 Lowest Max Drawdown %
+## 🛡️ Top 10 Best Max Drawdown % (Smallest Loss)
 
 | Rank | Data Source | Day | Hour UTC | Max DD % | Return % | Sharpe | Trades | Win Rate % | Profit Factor |
 |------|-------------|-----|----------|----------|----------|--------|--------|------------|---------------|
-| 1 | BTCUSD-1h-500wks-data_gapped.csv | Thursday | 17:00 | -98.32 | -98.32 | 0.000 | 292 | 41.8 | 0.605 |
-| 2 | BTCUSD-1h-500wks-data_gapped.csv | Thursday | 18:00 | -98.15 | -98.15 | 0.000 | 283 | 43.8 | 0.602 |
-| 3 | BTCUSD-1h-500wks-data_gapped.csv | Friday | 15:00 | -98.09 | -98.09 | 0.000 | 305 | 42.6 | 0.619 |
-| 4 | BTCUSD-1h-500wks-data_gapped.csv | Friday | 18:00 | -98.04 | -98.04 | 0.000 | 302 | 43.7 | 0.626 |
-| 5 | BTCUSD-1h-500wks-data_gapped.csv | Friday | 17:00 | -97.94 | -97.94 | 0.000 | 310 | 44.5 | 0.642 |
-| 6 | BTCUSD-1h-500wks-data_gapped.csv | Thursday | 15:00 | -97.83 | -97.83 | 0.000 | 306 | 45.8 | 0.625 |
-| 7 | BTCUSD-1h-500wks-data_gapped.csv | Wednesday | 18:00 | -97.66 | -97.64 | 0.000 | 318 | 44.3 | 0.650 |
-| 8 | BTCUSD-1h-500wks-data_gapped.csv | Thursday | 16:00 | -97.57 | -97.44 | 0.000 | 314 | 45.9 | 0.652 |
-| 9 | BTCUSD-1h-500wks-data_gapped.csv | Wednesday | 15:00 | -97.49 | -97.42 | 0.000 | 316 | 43.4 | 0.636 |
-| 10 | BTCUSD-1h-500wks-data_gapped.csv | Friday | 16:00 | -97.48 | -97.37 | 0.000 | 320 | 45.3 | 0.657 |
+| 1 | BTCUSD-1h-500wks-data_gapped.csv | Tuesday | 09:00 | -0.00 | 0.00 | nan | 0 | nan | nan |
+| 2 | BTCUSD-1h-500wks-data_gapped.csv | Wednesday | 21:00 | -0.00 | 0.00 | nan | 0 | nan | nan |
+| 3 | BTCUSD-1h-500wks-data_gapped.csv | Monday | 09:00 | -0.00 | 0.00 | nan | 0 | nan | nan |
+| 4 | BTCUSD-1h-500wks-data_gapped.csv | Thursday | 21:00 | -0.00 | 0.00 | nan | 0 | nan | nan |
+| 5 | BTCUSD-1h-500wks-data_gapped.csv | Friday | 21:00 | -0.00 | 0.00 | nan | 0 | nan | nan |
+| 6 | BTCUSD-1h-500wks-data_gapped.csv | Saturday | 21:00 | -0.00 | 0.00 | nan | 0 | nan | nan |
+| 7 | BTCUSD-1h-500wks-data_gapped.csv | Sunday | 21:00 | -0.00 | 0.00 | nan | 0 | nan | nan |
+| 8 | BTCUSD-1h-500wks-data_gapped.csv | Wednesday | 09:00 | -0.00 | 0.00 | nan | 0 | nan | nan |
+| 9 | BTCUSD-1h-500wks-data_gapped.csv | Tuesday | 21:00 | -0.00 | 0.00 | nan | 0 | nan | nan |
+| 10 | BTCUSD-1h-500wks-data_gapped.csv | Tuesday | 01:00 | -0.00 | 0.00 | nan | 0 | nan | nan |
 
 ---
 
@@ -96,20 +96,20 @@ This report analyzes the performance of hourly trading strategies across differe
 | 9 | 2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv-1H-300days-data.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 05:00 | 1.405 | 45.64 | -11.47 | 41 | 75.6 | 1.816 |
 | 10 | 2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv-1H-300days-data copy.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 03:00 | 1.405 | 45.49 | -15.08 | 42 | 76.2 | 1.832 |
 
-## 🛡️ Top 10 Lowest Max Drawdown %
+## 🛡️ Top 10 Best Max Drawdown % (Smallest Loss)
 
 | Rank | Data Source | Days Tested | Hour UTC | Max DD % | Return % | Sharpe | Trades | Win Rate % | Profit Factor |
 |------|-------------|-------------|----------|----------|----------|--------|--------|------------|---------------|
-| 1 | BTCUSD-1h-500wks-data_gapped.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 17:00 | -99.51 | -99.51 | 0.000 | 768 | 37.9 | 0.601 |
-| 2 | BTCUSD-1h-500wks-data_gapped.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 15:00 | -99.50 | -99.49 | 0.000 | 860 | 39.7 | 0.624 |
-| 3 | BTCUSD-1h-500wks-data_gapped.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 18:00 | -99.49 | -99.49 | 0.000 | 791 | 38.4 | 0.614 |
-| 4 | BTCUSD-1h-500wks-data_gapped.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 16:00 | -99.48 | -99.48 | 0.000 | 745 | 38.4 | 0.583 |
-| 5 | BTCUSD-1h-500wks-data_inverse_gapped.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 06:00 | -99.47 | -99.46 | 0.000 | 1256 | 42.5 | 0.715 |
-| 6 | BTCUSD-1h-500wks-data_inverse_gapped.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 10:00 | -99.42 | -99.41 | 0.000 | 1402 | 42.5 | 0.782 |
-| 7 | BTCUSD-1h-500wks-data_inverse_gapped.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 05:00 | -99.41 | -99.41 | 0.000 | 1355 | 42.7 | 0.756 |
-| 8 | BTCUSD-1h-500wks-data_inverse_gapped.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 02:00 | -99.40 | -99.39 | 0.000 | 1331 | 42.2 | 0.756 |
-| 9 | BTCUSD-1h-500wks-data_inverse_gapped.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 00:00 | -99.36 | -99.33 | 0.000 | 1493 | 43.3 | 0.790 |
-| 10 | BTCUSD-1h-500wks-data_inverse_gapped.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 03:00 | -99.36 | -99.33 | 0.000 | 1349 | 42.6 | 0.766 |
+| 1 | BTCUSD-1h-500wks-data_gapped.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 23:00 | -0.00 | 0.00 | nan | 0 | nan | nan |
+| 2 | BTCUSD-1h-500wks-data_gapped.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 22:00 | -0.00 | 0.00 | nan | 0 | nan | nan |
+| 3 | BTCUSD-1h-500wks-data_gapped.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 21:00 | -0.00 | 0.00 | nan | 0 | nan | nan |
+| 4 | BTCUSD-1h-500wks-data_gapped.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 13:00 | -0.00 | 0.00 | nan | 0 | nan | nan |
+| 5 | BTCUSD-1h-500wks-data_gapped.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 04:00 | -0.00 | 0.00 | nan | 0 | nan | nan |
+| 6 | BTCUSD-1h-500wks-data_gapped.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 12:00 | -0.00 | 0.00 | nan | 0 | nan | nan |
+| 7 | BTCUSD-1h-500wks-data_gapped.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 11:00 | -0.00 | 0.00 | nan | 0 | nan | nan |
+| 8 | BTCUSD-1h-500wks-data_gapped.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 10:00 | -0.00 | 0.00 | nan | 0 | nan | nan |
+| 9 | BTCUSD-1h-500wks-data_gapped.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 09:00 | -0.00 | 0.00 | nan | 0 | nan | nan |
+| 10 | BTCUSD-1h-500wks-data_gapped.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 08:00 | -0.00 | 0.00 | nan | 0 | nan | nan |
 
 ---
 
@@ -145,20 +145,20 @@ This report analyzes the performance of hourly trading strategies across differe
 | 9 | J3NKxxXZcnNiMjKw9hYb2K4LUxgwB6t1FtPtQVsv3KFr-1H-300days-data.csv | Wednesday | 03:00 | 3.960 | 18.06 | -3.29 | 6 | 100.0 | nan |
 | 10 | J3NKxxXZcnNiMjKw9hYb2K4LUxgwB6t1FtPtQVsv3KFr-1H-300days-data.csv | Saturday | 05:00 | 3.960 | 18.06 | -3.27 | 6 | 100.0 | nan |
 
-## 🛡️ Top 10 Lowest Max Drawdown %
+## 🛡️ Top 10 Best Max Drawdown % (Smallest Loss)
 
 | Rank | Data Source | Day | Hour UTC | Max DD % | Return % | Sharpe | Trades | Win Rate % | Profit Factor |
 |------|-------------|-----|----------|----------|----------|--------|--------|------------|---------------|
-| 1 | BTCUSD-1h-500wks-data_inverse_gapped.csv | Monday | 06:00 | -98.17 | -93.02 | 0.000 | 420 | 64.0 | 0.974 |
-| 2 | BTCUSD-1h-500wks-data_inverse_gapped.csv | Tuesday | 06:00 | -98.17 | -95.27 | 0.000 | 381 | 63.0 | 0.914 |
-| 3 | BTCUSD-1h-500wks-data_inverse_gapped.csv | Monday | 00:00 | -98.08 | -94.24 | 0.000 | 422 | 63.0 | 0.932 |
-| 4 | BTCUSD-1h-500wks-data_inverse_gapped.csv | Monday | 05:00 | -98.06 | -93.49 | 0.000 | 438 | 63.9 | 0.963 |
-| 5 | BTCUSD-1h-500wks-data_inverse_gapped.csv | Monday | 01:00 | -98.05 | -93.10 | 0.000 | 441 | 63.9 | 0.970 |
-| 6 | BTCUSD-1h-500wks-data_inverse_gapped.csv | Monday | 12:00 | -97.98 | -85.74 | 0.000 | 500 | 64.2 | 1.062 |
-| 7 | BTCUSD-1h-500wks-data_inverse_gapped.csv | Monday | 02:00 | -97.98 | -93.61 | 0.000 | 426 | 64.1 | 0.968 |
-| 8 | BTCUSD-1h-500wks-data_inverse_gapped.csv | Monday | 09:00 | -97.92 | -90.62 | 0.000 | 483 | 63.1 | 1.003 |
-| 9 | BTCUSD-1h-500wks-data_inverse_gapped.csv | Sunday | 23:00 | -97.87 | -93.04 | 0.000 | 473 | 62.8 | 0.979 |
-| 10 | BTCUSD-1h-500wks-data_inverse_gapped.csv | Monday | 10:00 | -97.83 | -90.81 | 0.000 | 481 | 64.2 | 0.987 |
+| 1 | BTCUSD-1h-500wks-data_gapped.csv | Wednesday | 08:00 | -0.00 | 0.00 | nan | 0 | nan | nan |
+| 2 | BTCUSD-1h-500wks-data_gapped.csv | Saturday | 03:00 | -0.00 | 0.00 | nan | 0 | nan | nan |
+| 3 | BTCUSD-1h-500wks-data_gapped.csv | Tuesday | 08:00 | -0.00 | 0.00 | nan | 0 | nan | nan |
+| 4 | BTCUSD-1h-500wks-data_gapped.csv | Thursday | 06:00 | -0.00 | 0.00 | nan | 0 | nan | nan |
+| 5 | BTCUSD-1h-500wks-data_gapped.csv | Tuesday | 05:00 | -0.00 | 0.00 | nan | 0 | nan | nan |
+| 6 | BTCUSD-1h-500wks-data_gapped.csv | Wednesday | 05:00 | -0.00 | 0.00 | nan | 0 | nan | nan |
+| 7 | BTCUSD-1h-500wks-data_gapped.csv | Thursday | 05:00 | -0.00 | 0.00 | nan | 0 | nan | nan |
+| 8 | BTCUSD-1h-500wks-data_gapped.csv | Friday | 05:00 | -0.00 | 0.00 | nan | 0 | nan | nan |
+| 9 | BTCUSD-1h-500wks-data_gapped.csv | Saturday | 05:00 | -0.00 | 0.00 | nan | 0 | nan | nan |
+| 10 | BTCUSD-1h-500wks-data_gapped.csv | Sunday | 05:00 | -0.00 | 0.00 | nan | 0 | nan | nan |
 
 ---
 
@@ -194,20 +194,20 @@ This report analyzes the performance of hourly trading strategies across differe
 | 9 | 2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv-1H-300days-data.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 14:00 | 1.127 | 23.79 | -17.83 | 41 | 70.7 | 1.416 |
 | 10 | 2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv-1H-300days-data copy.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 14:00 | 1.127 | 23.79 | -17.83 | 41 | 70.7 | 1.416 |
 
-## 🛡️ Top 10 Lowest Max Drawdown %
+## 🛡️ Top 10 Best Max Drawdown % (Smallest Loss)
 
 | Rank | Data Source | Days Tested | Hour UTC | Max DD % | Return % | Sharpe | Trades | Win Rate % | Profit Factor |
 |------|-------------|-------------|----------|----------|----------|--------|--------|------------|---------------|
-| 1 | SOLUSD-1h-250wks-data.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 10:00 | -98.32 | -97.93 | 0.000 | 1528 | 53.3 | 0.867 |
-| 2 | BTCUSD-1h-500wks-data_inverse_gapped.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 17:00 | -97.98 | -88.59 | 0.000 | 999 | 59.1 | 1.017 |
-| 3 | BTCUSD-1h-500wks-data_inverse_gapped.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 19:00 | -97.95 | -91.74 | 0.000 | 960 | 58.0 | 1.017 |
-| 4 | SOLUSD-1h-250wks-data.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 12:00 | -97.91 | -96.73 | 0.000 | 1528 | 54.6 | 0.885 |
-| 5 | BTCUSD-1h-500wks-data_inverse_gapped.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 18:00 | -97.84 | -93.56 | 0.000 | 942 | 57.5 | 0.986 |
-| 6 | BTCUSD-1h-500wks-data_inverse_gapped.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 07:00 | -97.52 | -47.91 | 0.000 | 3497 | 55.0 | 1.080 |
-| 7 | BTCUSD-1h-500wks-data_inverse_gapped.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 16:00 | -97.38 | -81.32 | 0.000 | 1000 | 59.6 | 1.073 |
-| 8 | BTCUSD-1h-500wks-data_inverse_gapped.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 15:00 | -97.12 | -53.47 | 0.000 | 1000 | 61.2 | 1.142 |
-| 9 | BTCUSD-1h-500wks-data_inverse_gapped.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 11:00 | -96.98 | 465.21 | 0.234 | 3499 | 55.6 | 1.148 |
-| 10 | BTCUSD-1h-500wks-data_inverse_gapped.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 06:00 | -96.59 | -6.73 | 0.000 | 3497 | 55.4 | 1.097 |
+| 1 | BTCUSD-1h-500wks-data_gapped.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 10:00 | -0.00 | 0.00 | nan | 0 | nan | nan |
+| 2 | BTCUSD-1h-500wks-data_gapped.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 12:00 | -0.00 | 0.00 | nan | 0 | nan | nan |
+| 3 | BTCUSD-1h-500wks-data_gapped.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 00:00 | -0.00 | 0.00 | nan | 0 | nan | nan |
+| 4 | BTCUSD-1h-500wks-data_gapped.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 01:00 | -0.00 | 0.00 | nan | 0 | nan | nan |
+| 5 | BTCUSD-1h-500wks-data_gapped.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 02:00 | -0.00 | 0.00 | nan | 0 | nan | nan |
+| 6 | BTCUSD-1h-500wks-data_gapped.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 03:00 | -0.00 | 0.00 | nan | 0 | nan | nan |
+| 7 | BTCUSD-1h-500wks-data_gapped.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 04:00 | -0.00 | 0.00 | nan | 0 | nan | nan |
+| 8 | BTCUSD-1h-500wks-data_gapped.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 05:00 | -0.00 | 0.00 | nan | 0 | nan | nan |
+| 9 | BTCUSD-1h-500wks-data_gapped.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 06:00 | -0.00 | 0.00 | nan | 0 | nan | nan |
+| 10 | BTCUSD-1h-500wks-data_gapped.csv | Mon,Tue,Wed,Thu,Fri,Sat,Sun | 07:00 | -0.00 | 0.00 | nan | 0 | nan | nan |
 
 ---
 

@@ -148,8 +148,8 @@ def market_buy(token_address, amount):
         
         http_client = Client(RPC_URL)
         
-        quote_url = f'https://quote-api.jup.ag/v6/quote?inputMint={QUOTE_TOKEN}&outputMint={token_address}&amount={amount}&slippageBps={SLIPPAGE}&restrictIntermediateTokens=true'
-        swap_url = 'https://quote-api.jup.ag/v6/swap'
+        quote_url = f'https://lite-api.jup.ag/swap/v1/quote?inputMint={QUOTE_TOKEN}&outputMint={token_address}&amount={amount}&slippageBps={SLIPPAGE}&restrictIntermediateTokens=true'
+        swap_url = 'https://lite-api.jup.ag/swap/v1/swap'
         
         quote = requests.get(quote_url).json()
         
@@ -184,8 +184,8 @@ def market_sell(token_address, amount):
         
         http_client = Client(RPC_URL)
         
-        quote_url = f'https://quote-api.jup.ag/v6/quote?inputMint={token_address}&outputMint={QUOTE_TOKEN}&amount={amount}&slippageBps={SLIPPAGE}'
-        swap_url = 'https://quote-api.jup.ag/v6/swap'
+        quote_url = f'https://lite-api.jup.ag/swap/v1/quote?inputMint={token_address}&outputMint={QUOTE_TOKEN}&amount={amount}&slippageBps={SLIPPAGE}'
+        swap_url = 'https://lite-api.jup.ag/swap/v1/swap'
         
         quote = requests.get(quote_url).json()
         

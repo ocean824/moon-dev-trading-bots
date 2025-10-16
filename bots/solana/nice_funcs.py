@@ -222,10 +222,10 @@ def market_buy(token, amount, slippage=SLIPPAGE):
     http_client = Client(RPC_URL)
 
 
-    #quote_url = f'https://quote-api.jup.ag/v6/quote?inputMint={QUOTE_TOKEN}&outputMint={token}&amount={amount}&slippageBps={SLIPPAGE}'
+    #quote_url = f'https://lite-api.jup.ag/swap/v1/quote?inputMint={QUOTE_TOKEN}&outputMint={token}&amount={amount}&slippageBps={SLIPPAGE}'
     # testing &restrictIntermediateTokens=true which only allows routes that are with liquid tokens
-    quote_url = f'https://quote-api.jup.ag/v6/quote?inputMint={QUOTE_TOKEN}&outputMint={token}&amount={amount}&slippageBps={SLIPPAGE}&restrictIntermediateTokens=true'
-    swap_url = 'https://quote-api.jup.ag/v6/swap'
+    quote_url = f'https://lite-api.jup.ag/swap/v1/quote?inputMint={QUOTE_TOKEN}&outputMint={token}&amount={amount}&slippageBps={SLIPPAGE}&restrictIntermediateTokens=true'
+    swap_url = 'https://lite-api.jup.ag/swap/v1/swap'
     
     while True:
         try:
@@ -270,8 +270,8 @@ def market_sell(QUOTE_TOKEN, amount, slippage=SLIPPAGE):
     token = "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"  # usdc
 
     http_client = Client(RPC_URL)
-    #quote_url = f'https://quote-api.jup.ag/v6/quote?inputMint={QUOTE_TOKEN}&outputMint={token}&amount={amount}&restrictIntermediateTokens=true'
-    quote_url = f'https://quote-api.jup.ag/v6/quote?inputMint={QUOTE_TOKEN}&outputMint={token}&amount={amount}'
+    #quote_url = f'https://lite-api.jup.ag/swap/v1/quote?inputMint={QUOTE_TOKEN}&outputMint={token}&amount={amount}&restrictIntermediateTokens=true'
+    quote_url = f'https://lite-api.jup.ag/swap/v1/quote?inputMint={QUOTE_TOKEN}&outputMint={token}&amount={amount}'
     #print('we here.. quate don')
     #print(quote_url)
     # Fixed minimum slippage
@@ -281,7 +281,7 @@ def market_sell(QUOTE_TOKEN, amount, slippage=SLIPPAGE):
     #print(quote)
     
     # Post request to swap with dynamic slippage
-    txRes = requests.post('https://quote-api.jup.ag/v6/swap',
+    txRes = requests.post('https://lite-api.jup.ag/swap/v1/swap',
                           headers={"Content-Type": "application/json"},
                           data=json.dumps({
                               "quoteResponse": quote,

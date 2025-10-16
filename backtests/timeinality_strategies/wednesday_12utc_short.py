@@ -1,0 +1,201 @@
+"""
+Wednesday 12 UTC Short Strategy
+================================
+Timeinality Strategy: Time-based trading strategy that opens SHORT positions
+at 12:00 UTC on Wednesdays.
+
+Trading Logic:
+- Entry: SHORT at 12:00 UTC on Wednesdays
+- Exit: Take profit at 3% or stop loss at 5%
+- Position management: Close on next signal if still open
+"""
+
+import pandas as pd
+import numpy as np
+from backtesting import Backtest, Strategy
+import sys
+import os
+import glob
+
+# Disable scientific notation for better readability
+pd.set_option('display.float_format', lambda x: '%.6f' % x)
+pd.options.display.float_format = '{:.6f}'.format
+
+print("🕐 Moon Dev's Wednesday 12 UTC Short Strategy Loading... 🌙")
+
+# Strategy parameters
+TAKE_PROFIT_PERCENT = 3.0  # 3% take profit
+STOP_LOSS_PERCENT = 5.0    # 5% stop loss
+
+# Get all CSV files from 1_hr_data folder
+data_files = glob.glob('/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/1_hr_data/*.csv')
+data_files.sort()
+
+print(f"📊 Found {len(data_files)} 1-hour data files to test")
+
+# Use first file for quick example run
+DATA_PATH = data_files[0] if data_files else None
+
+if DATA_PATH is None:
+    print("❌ No 1h data files found!")
+    sys.exit(1)
+
+def load_and_prepare_data(filepath):
+    """Load CSV and prepare data for backtesting"""
+    df = pd.read_csv(filepath)
+    # Ensure datetime column exists and convert to datetime
+    if 'datetime' in df.columns:
+        df['datetime'] = pd.to_datetime(df['datetime'])
+        df.set_index('datetime', inplace=True)
+    # Capitalize column names for backtesting.py
+    df.columns = [col.capitalize() for col in df.columns]
+    df = df.sort_index()
+    df = df.dropna()
+    return df
+
+print(f"📊 Loading example data from: {os.path.basename(DATA_PATH)}")
+data = load_and_prepare_data(DATA_PATH)
+print(f"✅ Data loaded! {len(data)} rows | Columns: {list(data.columns)} 🌙")
+
+class Wednesday12UTCShort(Strategy):
+    # Strategy parameters
+    take_profit = TAKE_PROFIT_PERCENT / 100
+    stop_loss = STOP_LOSS_PERCENT / 100
+
+    def init(self):
+        # Pre-calculate which bars are Wednesday at 12 UTC
+        self.is_wednesday_12utc = self.I(lambda: self.calculate_wednesday_12utc())
+
+        # Track entry prices for debugging
+        self.entry_prices = []
+        self.entry_times = []
+
+    def calculate_wednesday_12utc(self):
+        """Calculate which bars are Wednesday at 12:00 UTC"""
+        # Create a boolean array for Wednesday at 12 UTC
+        wednesday_12utc = np.zeros(len(self.data), dtype=bool)
+
+        for i in range(len(self.data)):
+            timestamp = self.data.index[i]
+            # Check if it's Wednesday (2) and hour is 12 UTC
+            if timestamp.dayofweek == 2 and timestamp.hour == 12:
+                wednesday_12utc[i] = True
+
+        return wednesday_12utc
+
+    def next(self):
+        # Check if current bar is Wednesday at 12 UTC
+        if self.is_wednesday_12utc[-1]:
+            # Close any existing position before opening new one
+            if self.position:
+                self.position.close()
+
+            # Open SHORT position with 95% of equity
+            current_price = self.data.Close[-1]
+
+            # Calculate stop loss and take profit for SHORT position
+            # For SHORT: stop loss is above entry, take profit is below entry
+            sl_price = current_price * (1 + self.stop_loss)  # Stop loss 5% above entry
+            tp_price = current_price * (1 - self.take_profit)  # Take profit 3% below entry
+
+            # Execute SHORT trade with 95% of equity
+            self.sell(sl=sl_price, tp=tp_price, size=0.95)
+
+            # Track entry for debugging
+            self.entry_prices.append(current_price)
+            self.entry_times.append(self.data.index[-1])
+
+# Run single backtest with proper position sizing
+bt = Backtest(
+    data,
+    Wednesday12UTCShort,
+    cash=1000000,  # Use 1M for proper position sizing
+    commission=0.00045,
+    trade_on_close=False,
+    exclusive_orders=True
+)
+
+print("\n🌙 ===== WEDNESDAY 12 UTC SHORT STRATEGY - DEFAULT PARAMETERS ===== 🌙")
+print(f"Take Profit: {TAKE_PROFIT_PERCENT}%")
+print(f"Stop Loss: {STOP_LOSS_PERCENT}%")
+print(f"Entry Time: Wednesdays at 12:00 UTC")
+print(f"Direction: SHORT only")
+
+stats_default = bt.run()
+print("\n" + "="*80)
+print("FULL BACKTEST STATISTICS:")
+print("="*80)
+print(stats_default)
+print("="*80)
+
+# Show plot without saving HTML
+try:
+    bt.plot(open_browser=False)
+except:
+    pass
+
+# TEST ON ALL 1H DATA SOURCES
+if __name__ == "__main__":
+    print("\n" + "="*80)
+    print("TESTING WEDNESDAY 12 UTC SHORT STRATEGY ON ALL 1H DATA SOURCES")
+    print("="*80)
+
+    all_results = []
+
+    for i, data_file in enumerate(data_files, 1):
+        filename = os.path.basename(data_file)
+        print(f"\n{'='*80}")
+        print(f"📊 [{i}/{len(data_files)}] Testing on: {filename}")
+        print(f"{'='*80}")
+
+        try:
+            # Load data
+            test_data = load_and_prepare_data(data_file)
+
+            # Run backtest
+            bt_test = Backtest(
+                test_data,
+                Wednesday12UTCShort,
+                cash=1000000,
+                commission=0.00045,
+                trade_on_close=False,
+                exclusive_orders=True
+            )
+
+            stats = bt_test.run()
+
+            # Print FULL stats for this data source
+            print("\n" + stats.to_string())
+            print("\n")
+
+            # Store key results for summary
+            result = {
+                'Data_Source': filename,
+                'Return_%': stats['Return [%]'],
+                'BuyHold_Return_%': stats['Buy & Hold Return [%]'],
+                'Sharpe_Ratio': stats.get('Sharpe Ratio', 0),
+                'Max_Drawdown_%': stats['Max. Drawdown [%]'],
+                'Total_Trades': stats['# Trades'],
+                'Win_Rate_%': stats['Win Rate [%]'],
+                'Profit_Factor': stats.get('Profit Factor', 0)
+            }
+            all_results.append(result)
+
+        except Exception as e:
+            print(f"❌ Error testing {filename}: {str(e)}")
+            continue
+
+    # Save results to CSV
+    if all_results:
+        results_df = pd.DataFrame(all_results)
+        results_df = results_df.sort_values('Return_%', ascending=False)
+
+        os.makedirs('./results', exist_ok=True)
+        results_df.to_csv('./results/wednesday_12utc_short_results.csv', index=False)
+
+        print("\n" + "="*80)
+        print("FINAL SUMMARY - ALL DATA SOURCES")
+        print("="*80)
+        print(results_df.to_string(index=False))
+        print(f"\n✅ Full results saved to: ./results/wednesday_12utc_short_results.csv")
+        print(f"📊 Tested {len(all_results)} data sources")

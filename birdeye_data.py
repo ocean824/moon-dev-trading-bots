@@ -56,9 +56,9 @@ def get_time_range(days_back):
     return time_from, time_to
 
 def get_birdeye_data(contract_address, timeframe, days_back):
-    """Fetch historical data from BirdEye API"""
+    """Fetch historical data from BirdEye API with pagination if needed"""
     print(f"🔍 Moon Dev is fetching {days_back} days of {timeframe} data for contract {contract_address}")
-    
+
     output_file = os.path.join(SAVE_DIR, f'{contract_address}-{timeframe}-{days_back}days-data.csv')
     if os.path.exists(output_file):
         print("📂 Found existing data file!")
@@ -66,34 +66,64 @@ def get_birdeye_data(contract_address, timeframe, days_back):
 
     try:
         time_from, time_to = get_time_range(days_back)
-        
+
         url = f"https://public-api.birdeye.so/defi/ohlcv"
-        params = {
-            "address": contract_address,
-            "type": timeframe,
-            "time_from": time_from,
-            "time_to": time_to
-        }
-        
         headers = {
             "X-API-KEY": birdeye_key
         }
-        
-        print(f"🚀 Moon Dev making API request for {timeframe} data...")
-        response = requests.get(url, headers=headers, params=params)
-        
-        if response.status_code != 200:
-            print(f"❌ Error: API returned status code {response.status_code}")
-            print(f"❌ Response: {response.text}")
-            return pd.DataFrame()
-            
-        json_response = response.json()
-        items = json_response.get('data', {}).get('items', [])
-        
-        if not items:
+
+        all_items = []
+        current_time_to = time_to
+        chunk_size = 50  # BirdEye seems to limit responses, fetch in chunks
+
+        print(f"🚀 Moon Dev fetching data in chunks...")
+
+        # Fetch data in chunks going backwards in time
+        while current_time_to > time_from:
+            params = {
+                "address": contract_address,
+                "type": timeframe,
+                "time_from": time_from,
+                "time_to": current_time_to
+            }
+
+            response = requests.get(url, headers=headers, params=params)
+
+            if response.status_code != 200:
+                print(f"❌ Error: API returned status code {response.status_code}")
+                print(f"❌ Response: {response.text}")
+                break
+
+            json_response = response.json()
+            items = json_response.get('data', {}).get('items', [])
+
+            if not items:
+                print(f"⚠️ No more data available")
+                break
+
+            print(f"📊 Fetched {len(items)} candles (total: {len(all_items) + len(items)})")
+            all_items.extend(items)
+
+            # Update time_to to the oldest timestamp from this batch
+            oldest_time = min(item['unixTime'] for item in items)
+
+            # If we got the same data, we've reached the limit
+            if current_time_to == oldest_time:
+                print("✅ Reached end of available data")
+                break
+
+            current_time_to = oldest_time - 1  # Move back 1 second to avoid duplicates
+
+            # Sleep to avoid rate limiting
+            time.sleep(0.5)
+
+        if not all_items:
             print("⚠️ No data returned from API")
             return pd.DataFrame()
-            
+
+        # Remove duplicates based on unixTime
+        unique_items = {item['unixTime']: item for item in all_items}.values()
+
         # Process the data - only OHLCV
         processed_data = [{
             'datetime': datetime.datetime.utcfromtimestamp(item['unixTime']).strftime('%Y-%m-%d %H:%M:%S'),
@@ -102,17 +132,19 @@ def get_birdeye_data(contract_address, timeframe, days_back):
             'low': item['l'],
             'close': item['c'],
             'volume': item['v']
-        } for item in items]
-        
-        # Create DataFrame
+        } for item in unique_items]
+
+        # Create DataFrame and sort by datetime
         df = pd.DataFrame(processed_data)
         df['datetime'] = pd.to_datetime(df['datetime'])
+        df = df.sort_values('datetime')
         df = df.set_index('datetime')
-        
+
         # Save to file
         df.to_csv(output_file)
         print(f"💾 Moon Dev saved {len(df)} candles to {output_file}")
-        
+        print(f"📅 Date range: {df.index[0]} to {df.index[-1]}")
+
         return df
         
     except Exception as e:

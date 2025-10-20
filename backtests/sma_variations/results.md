@@ -28,6 +28,13 @@
 - **Max Drawdown:** -87.83% | **Trades:** 62
 - Insane returns but very high risk/volatility
 
+### 🔥 Basic SMA - Housecoin Post-May 4H
+**File:** [1_sma_basic.py](./1_sma_basic.py)
+- **Return:** 78.46% | **Sharpe:** 1.51 | **Win Rate:** 70.3%
+- **Max Drawdown:** -17.35% | **Trades:** 37
+- **Params:** Fast SMA 20, Slow SMA 50, TP 5%, SL 6%
+- Great balance of high returns with manageable risk
+
 ### 💎 Kalman Filter - Housecoin Post-May 4H
 **File:** [3_sma_kalman_filter.py](./3_sma_kalman_filter.py)
 - **Return:** 40.69% | **Sharpe:** 2.10 | **Win Rate:** 81.5%
@@ -51,8 +58,9 @@
 - Use VWAP Filter on HYPE (Sharpe 4.62, only -1.36% max DD)
 
 **For Balanced Risk/Reward:**
+- **Basic SMA on Housecoin post-May** (78% return, -17% max DD, 70% win rate)
 - MFI Filter or Kalman Filter on Housecoin post-May
-- Good Sharpe ratios (2.10-2.37) with manageable drawdowns
+- Good Sharpe ratios with manageable drawdowns
 
 **For Aggressive Traders:**
 - Long-Only strategy on Housecoin (1431% returns!)

@@ -6,6 +6,81 @@ Concept: Trade RSI extremes with divergence confirmation.
 High win rate by only taking the best setups.
 
 Focus: Quality over quantity for profitability
+
+
+======================================================================
+RUNNING RSI EXTREMES BACKTEST
+======================================================================
+
+📊 RESULTS:
+Start                     2025-08-26 15:41:00
+End                       2025-09-23 15:40:00
+Duration                     27 days 23:59:00
+Exposure Time [%]                    16.56994
+Equity Final [$]                1918278.77135
+Equity Peak [$]                 1918278.77135
+Return [%]                          91.827877
+Buy & Hold Return [%]                2.958633
+Return (Ann.) [%]               267913.890322
+Volatility (Ann.) [%]            61016.509898
+Sharpe Ratio                         4.390843
+Sortino Ratio                             inf
+Calmar Ratio                    316101.068346
+Max. Drawdown [%]                   -0.847558
+Avg. Drawdown [%]                   -0.053552
+Max. Drawdown Duration        0 days 13:04:00
+Avg. Drawdown Duration        0 days 00:25:00
+# Trades                                  379
+Win Rate [%]                        84.432718
+Best Trade [%]                       0.624312
+Worst Trade [%]                     -0.410059
+Avg. Trade [%]                       0.178768
+Max. Trade Duration           0 days 01:00:00
+Avg. Trade Duration           0 days 00:17:00
+Profit Factor                       16.412048
+Expectancy [%]                       0.178972
+SQN                                  17.40523
+_strategy                 RSIExtremesStrategy
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+======================================================================
+OPTIMIZING FOR RETURN ON INVESTMENT
+======================================================================
+                                                                                                                                                                 
+✨ OPTIMIZED RESULTS:
+Start                     2025-08-26 15:41:00
+End                       2025-09-23 15:40:00
+Duration                     27 days 23:59:00
+Exposure Time [%]                   30.687004
+Equity Final [$]                2959239.19279
+Equity Peak [$]                 2962900.58689
+Return [%]                         195.923919
+Buy & Hold Return [%]                2.958633
+Return (Ann.) [%]             55958999.422938
+Volatility (Ann.) [%]         21306222.634198
+Sharpe Ratio                         2.626416
+Sortino Ratio                             inf
+Calmar Ratio                 109190592.689681
+Max. Drawdown [%]                   -0.512489
+Avg. Drawdown [%]                   -0.059401
+Max. Drawdown Duration        0 days 12:39:00
+Avg. Drawdown Duration        0 days 00:17:00
+# Trades                                  762
+Win Rate [%]                        82.283465
+Best Trade [%]                       0.716524
+Worst Trade [%]                     -0.496249
+Avg. Trade [%]                       0.147837
+Max. Trade Duration           0 days 01:01:00
+Avg. Trade Duration           0 days 00:16:00
+Profit Factor                       16.689837
+Expectancy [%]                       0.148008
+SQN                                 21.562725
+_strategy                 RSIExtremesStrat...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
 """
 
 import pandas as pd

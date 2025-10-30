@@ -143,3 +143,6 @@ After finding the best strategy/filter combination:
 **Indicators:** TA-Lib
 
 Dr. Data Dawg - let the filters guide you to better trades!
+
+
+

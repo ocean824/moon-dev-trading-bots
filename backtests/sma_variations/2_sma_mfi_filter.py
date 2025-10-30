@@ -56,6 +56,52 @@ MFI Oversold: 30
 MFI Overbought: 70
 Take Profit: 3.0%
 Stop Loss: 3.0%
+
+
+HOUSE NO PRE MAY
+✨ OPTIMIZED RESULTS ✨
+============================================================
+Start                     2025-05-01 00:00:00
+End                       2025-10-20 00:00:00
+Duration                    172 days 00:00:00
+Exposure Time [%]                    1.734104
+Equity Final [$]                 10549.406967
+Equity Peak [$]                  10549.406967
+Return [%]                            5.49407
+Buy & Hold Return [%]              -94.296794
+Return (Ann.) [%]                   11.945631
+Volatility (Ann.) [%]                5.052035
+Sharpe Ratio                         2.364519
+Sortino Ratio                             inf
+Calmar Ratio                              NaN
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    3
+Win Rate [%]                            100.0
+Best Trade [%]                       1.803607
+Worst Trade [%]                      1.796407
+Avg. Trade [%]                       1.798807
+Max. Trade Duration           0 days 00:00:00
+Avg. Trade Duration           0 days 00:00:00
+Profit Factor                             NaN
+Expectancy [%]                       1.798807
+SQN                                 87.223445
+_strategy                 SMAwithMFIStrate...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+🎯 BEST PARAMETERS FOUND:
+============================================================
+Fast SMA: 15
+Slow SMA: 25
+MFI Period: 14
+MFI Oversold: 40
+MFI Overbought: 80
+Take Profit: 2.0%
+Stop Loss: 3.0%
 """
 
 import pandas as pd

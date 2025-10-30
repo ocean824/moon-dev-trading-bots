@@ -103,6 +103,58 @@ Max Hold Hours: 6
 Baseline Return: 299.74%
 Optimized Return: 494.68%
 Improvement: 194.93%
+
+=======================================================
+RUNNING OPTIMIZATION
+======================================================================
+🔄 Optimizing parameters... This may take a few minutes...
+                                                                                
+✨ OPTIMIZED RESULTS:
+======================================================================
+Start                     2024-06-04 12:51:00
+End                       2025-09-22 14:29:00
+Duration                    475 days 01:38:00
+Exposure Time [%]                    2.627544
+Equity Final [$]                6975624.41629
+Equity Peak [$]                 7074383.72489
+Return [%]                         597.562442
+Buy & Hold Return [%]               65.820151
+Return (Ann.) [%]                  343.470958
+Volatility (Ann.) [%]              108.513458
+Sharpe Ratio                         3.165238
+Sortino Ratio                       19.819296
+Calmar Ratio                        17.557738
+Max. Drawdown [%]                  -19.562369
+Avg. Drawdown [%]                   -0.872776
+Max. Drawdown Duration       42 days 05:01:00
+Avg. Drawdown Duration        0 days 15:04:00
+# Trades                                  478
+Win Rate [%]                        77.405858
+Best Trade [%]                       3.170871
+Worst Trade [%]                    -20.234605
+Avg. Trade [%]                       0.437188
+Max. Trade Duration           0 days 03:00:00
+Avg. Trade Duration           0 days 00:37:00
+Profit Factor                        2.744819
+Expectancy [%]                       0.446761
+SQN                                  7.592419
+_strategy                 PureLiquidationM...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+🎯 OPTIMIZED PARAMETERS:
+--------------------------------------------------
+Liquidation Threshold: $975,000
+Take Profit: 1.0%
+Stop Loss: 2.0%
+Max Hold Hours: 2
+
+📊 IMPROVEMENT SUMMARY:
+--------------------------------------------------
+Baseline Return: -100.00%
+Optimized Return: 597.56%
+
 """
 
 import pandas as pd

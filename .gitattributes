@@ -1,2 +1,16 @@
-# Auto detect text files and perform LF normalization
+# Moon Dev's Git Attributes - Auto detect text files and perform LF normalization
 * text=auto
+
+# Explicitly declare text files you want to normalize to LF
+*.py text eol=lf
+*.md text eol=lf
+*.csv text eol=lf
+*.json text eol=lf
+*.txt text eol=lf
+*.sh text eol=lf
+
+# Binary files - don't normalize
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.pdf binary

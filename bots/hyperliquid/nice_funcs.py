@@ -1613,13 +1613,13 @@ def get_balance(account):
         float: Current account balance in USD
     """
     try:
-        # Connect to Hyperliquid API
-        info = Info(constants.MAINNET_API_URL)
-        exchange = Exchange(constants.MAINNET_API_URL)
+        # Connect to Hyperliquid API - Moon Dev fix
+        info = Info(constants.MAINNET_API_URL, skip_ws=True)
+        exchange = Exchange(account, constants.MAINNET_API_URL)
         
         # Get user state which includes balance info
         user_state = info.user_state(account.address)
-        
+
         # Check if we got proper data
         if user_state and 'marginSummary' in user_state and 'accountValue' in user_state['marginSummary']:
             # Get account value directly from marginSummary
@@ -1674,10 +1674,10 @@ def get_account_value(account):
         dict: Account information response
     """
     try:
-        # Connect to Hyperliquid using the existing pattern
-        info = Info(constants.MAINNET_API_URL)
-        exchange = Exchange(constants.MAINNET_API_URL)
-        
+        # Connect to Hyperliquid using the existing pattern - Moon Dev fix
+        info = Info(constants.MAINNET_API_URL, skip_ws=True)
+        exchange = Exchange(account, constants.MAINNET_API_URL)
+
         # Get account value using your existing patterns
         response = exchange.get_account_value(account.address, account)
         return response

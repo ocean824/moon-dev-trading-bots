@@ -373,7 +373,7 @@ class MultiTimeframeDemandZoneMFI(Strategy):
                                (mfi > 50 and mfi_bearish_div > 0) or
                                (mfi > 60 and self.mfi[-1] < self.mfi[-2]))  # Falling from overbought
 
-            elif (supply_zone_lower <= current_price <= supply_zone_upper and
+            if (supply_zone_lower <= current_price <= supply_zone_upper and
                   bearish_choch > 0 and
                   not np.isnan(swing_high_4h) and
                   swing_high_4h >= resistance * 0.98 and

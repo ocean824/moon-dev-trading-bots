@@ -26,9 +26,9 @@ BALANCE_HISTORY_FILE = "balance_history.csv"
 # Constants for kill switch
 SYMBOL = 'BTC'
 KILL_UNDER_CONSTANT = True  # Toggle this to enable/disable the kill under price check
-KILL_PRICE = 93900 # Example kill price, adjust as needed
+KILL_PRICE = 108300 # Example kill price, adjust as needed
 KILL_OVER_CONSTANT = True  # Toggle this to enable/disable the kill over price check
-KILL_OVER_PRICE = 100000 # Example kill over price, adjust as needed
+KILL_OVER_PRICE = 120000 # Example kill over price, adjust as needed
 
 def get_balance_history_path():
     """Get the path to the balance history CSV file"""
@@ -48,8 +48,8 @@ def initialize_balance_history(account):
         # If file doesn't exist, create it with current balance
         if not os.path.exists(history_path):
             try:
-                # First try direct API call for most accurate balance
-                exchange = Exchange(constants.MAINNET_API_URL)
+                # First try direct API call for most accurate balance - Moon Dev fix
+                exchange = Exchange(account, constants.MAINNET_API_URL)
                 account_value = exchange.get_account_value(account.address, account)
                 if 'data' in account_value and 'accountValue' in account_value['data']:
                     current_balance = float(account_value['data']['accountValue'])

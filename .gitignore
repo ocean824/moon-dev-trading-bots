@@ -8,3 +8,14 @@ data/yahoo_daily
 data
 /data
 bots/hyperliquid/mm_41.py
+
+# Moon Dev - Ignore all log files and directories
+**/logs/
+*.log
+bots/binance/logs/
+bots/hyperliquid/logs/
+bots/solana/logs/
+
+# Moon Dev - Ignore backtest HTML output files
+*.html
+backtests/**/*.html

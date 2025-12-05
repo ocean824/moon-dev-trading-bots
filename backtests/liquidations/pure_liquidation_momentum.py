@@ -16,6 +16,43 @@ Sharpe: 0.82
 Max Drawdown: -45.35%
 
 
+
+FULL BASELINE STATS:
+======================================================================
+Start                     2024-06-04 12:50:00
+End                       2025-12-05 12:45:00
+Duration                    548 days 23:55:00
+Exposure Time [%]                    4.143898
+Equity Final [$]                5224257.42533
+Equity Peak [$]                 5224257.42533
+Return [%]                         422.425743
+Buy & Hold Return [%]               33.251745
+Return (Ann.) [%]                  197.742658
+Volatility (Ann.) [%]               67.307083
+Sharpe Ratio                         2.937918
+Sortino Ratio                       12.290092
+Calmar Ratio                        11.273774
+Max. Drawdown [%]                  -17.540059
+Avg. Drawdown [%]                   -1.198854
+Max. Drawdown Duration       55 days 01:55:00
+Avg. Drawdown Duration        1 days 05:39:00
+# Trades                                  742
+Win Rate [%]                        64.690027
+Best Trade [%]                       2.278101
+Worst Trade [%]                    -11.112815
+Avg. Trade [%]                       0.239392
+Max. Trade Duration           0 days 02:50:00
+Avg. Trade Duration           0 days 00:40:00
+Profit Factor                        1.806689
+Expectancy [%]                       0.245032
+SQN                                  4.759383
+_strategy                 PureLiquidationM...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+
+
 --- 5 MIN TEST....WORKS WELL! 500 
 
 📈 FULL BASELINE STATS:
@@ -257,12 +294,12 @@ print("=" * 70)
 # Just comment/uncomment to switch between timeframes
 
 # Option 1: 1-minute data
-data_path = '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/moondev_api/liq_data_BTC_1m_ohlcv.csv'
-timeframe = '1-minute'
+# data_path = '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/moondev_api/liq_data_BTC_1m_ohlcv.csv'
+# timeframe = '1-minute'
 
 # # Option 2: 5-minute data (currently active)
-# data_path = '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/moondev_api/liq_data_BTC_5m_ohlcv.csv'
-# timeframe = '5-minute'
+data_path = '/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data/moondev_api/liq_data_BTC_5m_ohlcv.csv'
+timeframe = '5-minute'
 
 print(f"📊 Loading preprocessed {timeframe} BTC liquidation data...")
 data = pd.read_csv(data_path, index_col='datetime', parse_dates=True)
@@ -304,10 +341,10 @@ class PureLiquidationMomentumStrategy(Strategy):
     """
 
     # Optimizable parameters
-    liquidation_threshold = 200_000  # Minimum USD liquidation volume to trigger trade
-    take_profit = 0.015  # 1.5% take profit
-    stop_loss = 0.01     # 1% stop loss
-    max_hold_hours = 12  # Maximum holding period
+    liquidation_threshold = 975000  # Minimum USD liquidation volume to trigger trade
+    take_profit = 0.01  # 1.5% take profit
+    stop_loss = 0.02     # 1% stop loss
+    max_hold_hours = 2  # Maximum holding period
 
     # Position sizing
     position_size = 0.95  # Use 95% of available capital

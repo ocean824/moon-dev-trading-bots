@@ -20,15 +20,15 @@ init(autoreset=True)
 
 # Default constants
 DEFAULT_LOOKBACK_HOURS = 12
-DEFAULT_MAX_DRAWDOWN_PERCENT = 20
+DEFAULT_MAX_DRAWDOWN_PERCENT = 25
 BALANCE_HISTORY_FILE = "balance_history.csv"
 
 # Constants for kill switch
-SYMBOL = 'BTC'
+SYMBOL = 'ZEC'
 KILL_UNDER_CONSTANT = True  # Toggle this to enable/disable the kill under price check
-KILL_PRICE = 108300 # Example kill price, adjust as needed
+KILL_PRICE = 665 # Example kill price, adjust as needed
 KILL_OVER_CONSTANT = True  # Toggle this to enable/disable the kill over price check
-KILL_OVER_PRICE = 120000 # Example kill over price, adjust as needed
+KILL_OVER_PRICE = 790 # Example kill over price, adjust as needed
 
 def get_balance_history_path():
     """Get the path to the balance history CSV file"""
@@ -306,17 +306,17 @@ def risk_check(account, lookback_hours=DEFAULT_LOOKBACK_HOURS, max_drawdown_perc
         return False
         
     except Exception as e:
-        print(f"{Fore.RED}❌ Error in risk check: {str(e)}")
         print(f"{Fore.RED}📋 Stack trace:\n{traceback.format_exc()}")
+        print(f"{Fore.RED}❌ Error in risk check: {str(e)}")
         return False
 
 if __name__ == "__main__":
     import sys
     
     # Example usage of risk_check when running this file directly
-    # Initialize account using environment variable
+    # Initialize account using environment variable - Moon Dev
     load_dotenv()
-    HYPER_LIQUID_KEY = os.getenv('HYPER_LIQUID_KEY_COLLECTOR') # HYPER_LIQUID_KEY_COLLECTOR
+    HYPER_LIQUID_KEY = os.getenv('HYPER_LIQUID_KEY') # Switch between HYPER_LIQUID_KEY or HYPER_LIQUID_KEY_COLLECTOR
     account = LocalAccount = eth_account.Account.from_key(HYPER_LIQUID_KEY)
     
     # Check command-line arguments to determine which check to run

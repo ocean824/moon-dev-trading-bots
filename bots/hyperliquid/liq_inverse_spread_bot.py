@@ -24,6 +24,56 @@ Risk Controls:
 6. Spread-based entry for better prices
 
 Moon Dev 🌙
+
+
+mizing parameters... This may take a few minutes...
+                                                                    ✨ Moon Dev's OPTIMIZED RESULTS:
+======================================================================
+Start                     2024-06-04 12:50:00
+End                       2025-12-05 12:45:00
+Duration                    548 days 23:55:00
+Exposure Time [%]                   28.059224
+Equity Final [$]          2118266190432.15...
+Equity Peak [$]           2118266190432.15...
+Return [%]                   211826519.043216
+Buy & Hold Return [%]               33.251745
+Return (Ann.) [%]               1557080.49481
+Volatility (Ann.) [%]          1185945.429482
+Sharpe Ratio                         1.312944
+Sortino Ratio                     49166.18163
+Calmar Ratio                     40133.955567
+Max. Drawdown [%]                  -38.797085
+Avg. Drawdown [%]                   -0.842495
+Max. Drawdown Duration       19 days 16:05:00
+Avg. Drawdown Duration        0 days 03:32:00
+# Trades                                 4120
+Win Rate [%]                        68.131068
+Best Trade [%]                      29.155453
+Worst Trade [%]                    -25.684501
+Avg. Trade [%]                       0.373276
+Max. Trade Duration           0 days 02:05:00
+Avg. Trade Duration           0 days 00:49:00
+Profit Factor                        3.074488
+Expectancy [%]                       0.380339
+SQN                                 10.164182
+_strategy                 InverseLiquidati...
+_equity_curve                             ...
+_trades                             Size  ...
+dtype: object
+
+🎯 OPTIMIZED PARAMETERS:
+--------------------------------------------------
+Liquidation Threshold: $100,000
+Spread: 1.00%
+Take Profit: 1.0%
+Stop Loss: 3.0%
+Max Hold Hours: 2
+
+📊 IMPROVEMENT SUMMARY:
+--------------------------------------------------
+Baseline Return: 393.73%
+Optimized Return: 211826519.04%
+Improvement: 211826125.31%
 """
 
 import sys

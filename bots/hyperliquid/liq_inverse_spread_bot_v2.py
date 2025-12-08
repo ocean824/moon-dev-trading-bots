@@ -87,7 +87,7 @@ SYMBOL = 'BTC'
 LEVERAGE = 5
 
 # Position size - START SMALL!
-POSITION_SIZE_USD = 10  # Moon Dev says: Always start with $10!
+POSITION_SIZE_USD = 30  # Moon Dev says: Always start with $10!
 
 # Strategy Parameters (OPTIMIZED V2)
 LIQUIDATION_THRESHOLD = 300000  # $300k minimum liquidation volume to trigger (lower = more trades)

@@ -29,6 +29,88 @@ Variables to Optimize:
 - order_expiry_bars: How long the limit order stays valid
 
 Moon Dev 🌙
+
+📈 FULL BASELINE STATS:
+======================================================================
+Start                     2024-06-04 12:50:00
+End                       2025-12-05 12:45:00
+Duration                    548 days 23:55:00
+Exposure Time [%]                   26.397743
+Equity Final [$]                 964693.78198
+Equity Peak [$]                  1881227.0289
+Return [%]                          -3.530622
+Buy & Hold Return [%]               33.251745
+Return (Ann.) [%]                   -2.357185
+Volatility (Ann.) [%]               29.997087
+Sharpe Ratio                              0.0
+Sortino Ratio                             0.0
+Calmar Ratio                              0.0
+Max. Drawdown [%]                  -52.936739
+Avg. Drawdown [%]                   -2.919031
+Max. Drawdown Duration      255 days 03:35:00
+Avg. Drawdown Duration        4 days 16:54:00
+# Trades                                   19
+Win Rate [%]                        47.368421
+Best Trade [%]                      21.823902
+Worst Trade [%]                    -16.778479
+Avg. Trade [%]                      -0.190845
+Max. Trade Duration          24 days 02:20:00
+Avg. Trade Duration           7 days 14:59:00
+Profit Factor                        1.059079
+Expectancy [%]                       0.207179
+SQN                                 -0.078612
+_strategy                  RevisitLiqStrategy
+_equity_curve                             ...
+_trades                       Size  EntryB...
+dtype: object
+
+======================================================================
+RUNNING OPTIMIZATION - Moon Dev's Parameter Search
+======================================================================
+🔄 Optimizing parameters... This may take a few minutes...
+                                                                                       
+✨ Moon Dev's OPTIMIZED RESULTS:
+======================================================================
+Start                     2024-06-04 12:50:00
+End                       2025-12-05 12:45:00
+Duration                    548 days 23:55:00
+Exposure Time [%]                   33.414289
+Equity Final [$]                2927417.52171
+Equity Peak [$]                 3540638.22135
+Return [%]                         192.741752
+Buy & Hold Return [%]               33.251745
+Return (Ann.) [%]                  103.974646
+Volatility (Ann.) [%]               72.321681
+Sharpe Ratio                         1.437669
+Sortino Ratio                        6.468087
+Calmar Ratio                          2.83861
+Max. Drawdown [%]                  -36.628718
+Avg. Drawdown [%]                   -2.799523
+Max. Drawdown Duration      255 days 03:35:00
+Avg. Drawdown Duration        4 days 10:27:00
+# Trades                                   49
+Win Rate [%]                        69.387755
+Best Trade [%]                      21.078678
+Worst Trade [%]                     -9.530465
+Avg. Trade [%]                       2.405616
+Max. Trade Duration          13 days 08:00:00
+Avg. Trade Duration           3 days 17:47:00
+Profit Factor                        2.878758
+Expectancy [%]                       2.579034
+SQN                                  2.561741
+_strategy                 RevisitLiqStrate...
+_equity_curve                             ...
+_trades                       Size  EntryB...
+dtype: object
+
+🎯 OPTIMIZED PARAMETERS:
+--------------------------------------------------
+Liquidation Threshold: $2,000,000
+Lookback Bars: 1 (5 minutes)
+Entry Below Liq Low: 2.0%
+Take Profit: 6.0%
+Stop Loss: 6.0%
+
 """
 
 import pandas as pd

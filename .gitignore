@@ -18,4 +18,4 @@ bots/solana/logs/
 
 # Moon Dev - Ignore backtest HTML output files
 *.html
-backtests/**/*.html
+backtests/**/*.htmlbacktests/liquidations/liq_data_full.csv

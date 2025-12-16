@@ -1,3 +1,5 @@
+12/15- new liquidatn test based on winners below 
+
 
 
 
@@ -32,6 +34,8 @@ three bots ready to roll... need to test
 12/8- testing 3-5 new liquidation strategies
 
 - Flip flop is the best one so far with a return of 529% vs a buy and hold of 33%.
+
+- Revisit liq is my 2nd best one
 
 
 

@@ -88,6 +88,8 @@ import numpy as np
 import traceback
 import json
 import io
+import tempfile
+import shutil
 from dotenv import load_dotenv
 
 # Load environment variables
@@ -126,25 +128,42 @@ class MoonDevAPI:
                 url = f'{self.base_url}/files/{filename}'
                 if limit:
                     url += f'?limit={limit}'
-                
+
+                print(f"📡 Moon Dev: Fetching from {url}")
+
                 # Use stream=True for better handling of large files
-                response = self.session.get(url, headers=self.headers, stream=True)
+                response = self.session.get(url, headers=self.headers, stream=True, timeout=(30, 120))
+                print(f"📡 Moon Dev: Response status: {response.status_code}")
                 response.raise_for_status()
-                
-                # Save streamed content to a temporary file first
-                temp_file = self.base_dir / f"temp_{filename}"
-                with open(temp_file, 'wb') as f:
+
+                # Save streamed content to a system temp file first (avoids Dropbox sync issues)
+                # Then move to final location
+                self.base_dir.mkdir(parents=True, exist_ok=True)
+
+                bytes_written = 0
+                # Use system temp directory to avoid Dropbox interference
+                with tempfile.NamedTemporaryFile(mode='wb', suffix='.csv', delete=False) as f:
+                    temp_path = f.name
                     # Use a larger chunk size for better performance
                     for chunk in response.iter_content(chunk_size=8192*16):
                         if chunk:
                             f.write(chunk)
-                
-                # Once download is complete, read the file
-                df = pd.read_csv(temp_file)
-                
-                # Move temp file to final location
+                            bytes_written += len(chunk)
+
+                # Check if anything was actually downloaded
+                if bytes_written == 0:
+                    print(f"⚠️ Moon Dev: No data received from API for {filename}")
+                    os.unlink(temp_path)
+                    return None
+
+                print(f"✅ Moon Dev: Downloaded {bytes_written:,} bytes")
+
+                # Read from temp file
+                df = pd.read_csv(temp_path)
+
+                # Move temp file to final location in data directory
                 final_file = self.base_dir / filename
-                temp_file.rename(final_file)
+                shutil.move(temp_path, final_file)
                 
                 return df
                 
@@ -315,6 +334,8 @@ class MoonDevAPI:
             print(f"📋 Transfer-Encoding: {response.headers.get('Transfer-Encoding', 'not chunked')}")
 
             # Save to file using streaming
+            # Ensure directory exists before writing
+            self.base_dir.mkdir(parents=True, exist_ok=True)
             full_data_path = self.base_dir / "liq_data_full.csv"
             print(f"💾 Moon Dev: Saving to {full_data_path}")
 
@@ -434,6 +455,8 @@ class MoonDevAPI:
                 response.raise_for_status()
                 
                 # Save streamed content to a temporary file first
+                # Ensure directory exists before writing
+                self.base_dir.mkdir(parents=True, exist_ok=True)
                 temp_file = self.base_dir / "temp_oi.csv"
                 with open(temp_file, 'wb') as f:
                     # Use a larger chunk size for better performance
@@ -583,7 +606,7 @@ if __name__ == "__main__":
     
     # Test Historical Liquidation Data
     print("\n💥 Testing Liquidation Data...")
-    liq_data = api.get_liquidation_data(limit=None)
+    liq_data = api.get_liquidation_data(limit=100000)
     if liq_data is not None:
         print(f"✨ Latest Liquidation Data Preview:\n{liq_data.head()}")
     

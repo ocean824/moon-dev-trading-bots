@@ -1,9 +1,0 @@
-,Return_%,Return_%,Return_%,Sharpe,Sharpe,Sortino,Sortino,Max_DD_%,Max_DD_%,Win_Rate_%,Win_Rate_%,Trades,Trades,Profit_Factor,Profit_Factor
-,mean,median,std,mean,median,mean,median,mean,max,mean,median,sum,mean,mean,median
-Strategy,,,,,,,,,,,,,,,
-Supertrend_ADX,938.86,0.0,3224.82,0.06,0.0,14.0,0.0,-1.95,-0.0,14.03,0.0,140,5.6,174747.86,0.0
-Supertrend_Base,945.23,0.0,3223.12,0.08,0.0,14.01,0.0,-2.32,-0.0,13.66,0.0,249,9.96,174747.77,0.0
-Supertrend_MACD,0.67,0.0,4.34,0.01,0.0,0.02,0.0,-0.85,-0.0,4.61,0.0,39,1.56,0.1,0.0
-Supertrend_MTF,939.56,0.0,3224.7,0.05,0.0,13.98,0.0,-1.21,-0.0,11.4,0.0,201,8.04,174747.66,0.0
-Supertrend_RSI,943.13,0.0,3223.65,0.08,0.0,14.0,0.0,-2.43,-0.0,13.63,0.0,239,9.56,174747.76,0.0
-Supertrend_Volume,4.49,0.0,17.8,0.07,0.0,0.45,0.0,-0.95,-0.0,9.45,0.0,38,1.52,0.37,0.0

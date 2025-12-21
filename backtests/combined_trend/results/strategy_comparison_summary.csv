@@ -1,5 +1,0 @@
-Strategy,Datasets Tested,Profitable,Win Rate %,Avg Return %,Best Return %,Worst Return %,Avg Sharpe,Best Sharpe,Avg Max DD %,Best Max DD %,Avg Win Rate %,Avg Trades
-CombinedTrendBase,25,7,28.000000000000004,13.733600000000001,439.29,-73.08,0.14572,1.206,-28.0152,-74.36,33.2888,144.44
-CombinedTrendMFI,25,8,32.0,-2.694,28.39,-64.03,0.29756,3.441,-14.3384,-64.53,40.9796,62.36
-CombinedTrendADX,25,12,48.0,3.5968000000000004,41.02,-34.16,0.13404,0.838,-14.4964,-40.82,35.5636,35.88
-CombinedTrendKalman,25,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,-0.0,0.0,0.0

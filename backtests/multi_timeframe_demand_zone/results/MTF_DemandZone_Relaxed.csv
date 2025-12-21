@@ -1,4 +1,0 @@
-Data_Source,Rows,Start,End,Duration,Exposure_Time_%,Equity_Final,Equity_Peak,Return_%,Buy_Hold_%,Return_Ann_%,Volatility_Ann_%,Sharpe,Sortino,Calmar,Max_DD_%,Avg_DD_%,Max_DD_Duration,Avg_DD_Duration,Trades,Win_Rate_%,Best_Trade_%,Worst_Trade_%,Avg_Trade_%,Max_Trade_Duration,Avg_Trade_Duration,Profit_Factor,Expectancy_%,SQN
-BTC-15m-150wks,100771,2022-10-08 14:15:00,2025-08-23 14:00:00,1049 days 23:45:00,0.0,10000000.0,10000000.0,0.0,493.83,0.0,0.0,0,0,0,-0.0,,nan,nan,0,0,0,0,0,nan,nan,0,0,0
-BTC-1h-500wks,83954,2015-09-20 14:00:00,2025-04-20 13:00:00,3499 days 23:00:00,0.0,10000000.0,10000000.0,0.0,36828.23,0.0,0.0,0,0,0,-0.0,,nan,nan,0,0,0,0,0,nan,nan,0,0,0
-BTC-5m-70wks,141096,2024-01-31 14:20:00,2025-06-04 14:15:00,489 days 23:55:00,0.0,10000000.0,10000000.0,0.0,140.76,0.0,0.0,0,0,0,-0.0,,nan,nan,0,0,0,0,0,nan,nan,0,0,0

@@ -1,6 +1,0 @@
-Strategy,Avg_Return_%,Avg_Sharpe,Avg_Win_Rate_%,Total_Trades,Profitable_Datasets,Total_Datasets,Success_Rate_%
-CamarillaPivotLongOnly,1425.19,0.228,46.38,49445,8,25,32.0
-CamarillaPivotLongShort,-18.92,0.033,45.86,72284,3,20,15.0
-CamarillaPivot80Percent,-30.25,0.15,39.07,21128,6,23,26.1
-CamarillaPivotKalman,-31.67,0.026,38.75,19449,3,22,13.6
-CamarillaPivotMFI,-39.26,0.059,48.86,14133,4,23,17.4

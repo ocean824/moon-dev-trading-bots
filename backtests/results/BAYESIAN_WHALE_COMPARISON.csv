@@ -1,4 +1,0 @@
-Strategy,Avg_Return_%,Median_Return_%,Best_Return_%,Worst_Return_%,Profitable,Win_Rate_%,Avg_Trades,Total_Trades,Avg_Sharpe,Best_Sharpe,Avg_DD_%,Avg_PF
-BWMulti,-53.26,-79.39,94.75,-99.85,5/25,39.6,306.0,7647,0.156,1.194,-66.86,0.95
-BWADXMulti,-16.72,-14.21,20.62,-66.86,3/25,37.7,106.0,2658,0.117,1.812,-23.65,1.26
-BWMFIMulti,-67.61,-88.96,-5.82,-99.95,0/25,36.6,934.0,23340,0.0,0.0,-72.06,0.6

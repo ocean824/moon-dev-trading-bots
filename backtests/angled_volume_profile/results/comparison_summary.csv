@@ -1,5 +1,0 @@
-Strategy,Return_%,Max_Drawdown_%,Win_Rate_%,Total_Trades,Sharpe_Ratio,Profit_Factor,Avg_Trade_%
-AVPBaseStrategy,-55.56,-58.13,33.33,405,0.0,0.775,-0.257
-AVPVWAPStrategy,-56.66,-57.97,30.42,937,0.0,0.501,-0.163
-AVPMFIStrategy,-51.15,-52.90,40.61,495,0.0,0.498,-0.300
-AVPADXStrategy,-46.29,-47.39,17.52,1016,0.0,0.609,-0.163

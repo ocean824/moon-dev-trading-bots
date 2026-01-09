@@ -19,3 +19,5 @@ bots/solana/logs/
 # Moon Dev - Ignore backtest HTML output files
 *.html
 backtests/**/*.htmlbacktests/liquidations/liq_data_full.csv
+/Users/md/Dropbox/dev/github/moon-dev-trading-bots/.env copy
+/.env copy
